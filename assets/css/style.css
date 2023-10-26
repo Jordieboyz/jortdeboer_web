@@ -3,15 +3,16 @@
 --------------------------------------------------------------*/
 :root{
   --color-scheme: rgb(2, 216, 233);
-  --gi-width: 1200px;
+  --gi-width: 1000px;
   --gi-height: 200px;
+  --gi-expanded-height: 700px;
+  --gi-expanded-width: 800px;
   --gi-padding: 30px;
   --gi-ncolumns: 4;
 }
 
 [type="checkbox"]:checked,
 [type="checkbox"]:not(:checked){
-  position: absolute;
   opacity: 0;
   z-index: -10;
 }
@@ -25,10 +26,11 @@ body {
 }
 
 .horizontal-container {
+  position: absolute;
+  top: 60px;
   width: 300vw;
-  height: calc(100vh - 60px); 
-  display: flex;
-  margin-top: 60px;        
+  height: 100vh;
+  display: flex;      
 }
 
 .container {
@@ -49,7 +51,7 @@ header {
   height: 60px;
   top: 0;
   z-index: 9999;
-
+  background-color: #062a3d;
 
   & nav {
     width: 1200px;

@@ -71,11 +71,9 @@
     }
   }, true)
   
-
   on('load', 'window', () => { 
-    const currhash = localStorage.getItem('curr_page_hash')
-    select('.scrollto', true).forEach(e => changeActive(e, currhash))
-    scrollto(currhash)
+    updatePlaceholder()
+    scrollto('#home')
   })
 
   on('resize', 'window', () =>{ scrollto(localStorage.getItem('curr_page_hash'))})
@@ -102,36 +100,92 @@
     })
   }
 
-
   /**
    * Home effects
    */
-  const typed_input = select('.style')
-  typed_input.onclick = function() {
+  on('click', '.style', function(e) {
+    
     var curr = document.getElementsByClassName('current')[0]
     var next = document.getElementsByClassName('next')[0]
+    let cbx_val = e.target.checked
 
-    // Enable animation
-    curr.style.animationName = (this.checked ? 'fade_in_out2' : 'fade_in_out1')
-    curr.style.animationDuration = '1s'
-
-    // set variable on inline style
-    document.querySelector(':root').style.setProperty("--color-scheme", (this.checked ? 'rgb(41, 233, 2)' : 'rgb(2, 216, 233)'));
-
-
-    // Change 'p' content around
-    var change = setInterval(function(){
-      if(window.getComputedStyle(curr).getPropertyValue('opacity') == 0){
-        var tmp = curr.innerHTML
-        curr.innerHTML = next.innerHTML
-        next.innerHTML = tmp
-        clearInterval(change)
-      }},100) 
+    changeOnOpacity(curr, ()=>{
+          var tmp = curr.innerHTML
+          curr.innerHTML = next.innerHTML
+          next.innerHTML = tmp
+        }, (cbx_val ? 'fade_in_out2' : 'fade_in_out1'), 1000)
     
-    typer.strings = [(this.checked ? typed_strings[1] : typed_strings[0])]
+      // set variable on inline style
+    document.querySelector(':root').style.setProperty("--color-scheme", (cbx_val ? 'rgb(41, 233, 2)' : 'rgb(2, 216, 233)'));
+
+    typer.strings = [(cbx_val ? typed_strings[1] : typed_strings[0])]
     typer.reset()  
+  })
+
+  
+  function changeOnOpacity(el, func_on_change,  animation_name, animation_duration=1000){
+
+    el.style.animationName = animation_name
+    el.style.animationDuration = animation_duration + 'ms'
+
+    var change = setInterval(function(){
+      if(window.getComputedStyle(el).getPropertyValue('opacity') == 0){
+        func_on_change()
+        
+        clearInterval(change)
+      }
+    },100) 
   }
 
+  function updatePlaceholder(){
+    const selected_project = document.getElementById(select('.selected').href.split('#')[1])
+    let placeholder = select('.placeholder')
 
+    const new_title = selected_project.getAttribute('title')
+    const new_content = selected_project.getElementsByTagName('div')[0].innerHTML
+    
+    placeholder.getElementsByClassName('title')[0].textContent = new_title
+    placeholder.getElementsByClassName('content')[0].innerHTML = new_content
+  }
+
+  
+  select('.names a', true).forEach((e) => {
+
+    e.addEventListener('mouseover', (e)=>{ 
+      var _this = e.target
+
+      if(_this != select('.selected')){
+        const title = document.getElementById(_this.hash.split('#')[1]).getAttribute('title')
+        select('.names').lastElementChild.textContent = title
+      }
+    })
+
+    e.addEventListener('mouseleave', function(e){
+      select('.names').lastElementChild.textContent = ''
+    })
+
+
+    e.addEventListener('click', function(e){
+      e.preventDefault()
+      var _this = e.target
+
+      let selected = select('.selected')
+
+      if(_this != selected ){
+        if(!locked_animation){
+          _this.classList.add('selected')
+          selected.classList.remove('selected')
+          changeOnOpacity(select('.placeholder'),()=>{updatePlaceholder()}, 'fade_in_out1', 1000)
+        }
+      } 
+    })
+
+   
+
+
+  })
+  var locked_animation = false
+  on("animationstart", '.placeholder', function() { locked_animation=true})
+  on("animationend", '.placeholder', function() { locked_animation=false; this.style.animationName = '' })
 
 })()

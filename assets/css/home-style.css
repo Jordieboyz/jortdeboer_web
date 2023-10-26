@@ -20,6 +20,9 @@
   margin: 0px;
 }
 
+.home-container h2 {
+  display: inline-block;
+}
 .next {
   position: absolute;
   pointer-events: none;
@@ -33,8 +36,11 @@
   height: 200px;
 }
 
-.neon {
+.neon, .neon_title {
   color: var(--color-scheme);
+}
+
+.neon {
   transition: color 2s;
   animation: glow 2s ease-in-out infinite alternate;
 }

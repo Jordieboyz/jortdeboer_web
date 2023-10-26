@@ -208,6 +208,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'typewrite',
 	    value: function typewrite(curString, curStrPos) {
+
 	      var _this2 = this;
 	
 	      if (this.fadeOut && this.el.classList.contains(this.fadeOutClass)) {
@@ -345,7 +346,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    key: 'backspace',
 	    value: function backspace(curString, curStrPos) {
 	      var _this4 = this;
-	
+
 	      if (this.pause.status === true) {
 	        this.setPauseStatus(curString, curStrPos, false);
 	        return;
