@@ -72,7 +72,8 @@
   }, true)
   
   on('load', 'window', () => { 
-    updatePlaceholder()
+    updatePlaceholderElement('title')
+    updatePlaceholderElement('content')
     scrollto('#home')
   })
 
@@ -124,28 +125,26 @@
 
   
   function changeOnOpacity(el, func_on_change,  animation_name, animation_duration=1000){
-
     el.style.animationName = animation_name
     el.style.animationDuration = animation_duration + 'ms'
 
     var change = setInterval(function(){
       if(window.getComputedStyle(el).getPropertyValue('opacity') == 0){
         func_on_change()
-        
         clearInterval(change)
       }
     },100) 
   }
 
-  function updatePlaceholder(){
+  function updatePlaceholderElement(elname){
     const selected_project = document.getElementById(select('.selected').href.split('#')[1])
-    let placeholder = select('.placeholder')
+    let ph = select('.placeholder')
 
-    const new_title = selected_project.getAttribute('title')
-    const new_content = selected_project.getElementsByTagName('div')[0].innerHTML
-    
-    placeholder.getElementsByClassName('title')[0].textContent = new_title
-    placeholder.getElementsByClassName('content')[0].innerHTML = new_content
+    if(elname=='title'){
+      ph.getElementsByClassName(elname)[0].textContent = selected_project.getAttribute(elname)
+    } else {
+      ph.getElementsByClassName(elname)[0].innerHTML = selected_project.getElementsByClassName(elname)[0].innerHTML
+    }
   }
 
   
@@ -160,7 +159,7 @@
       }
     })
 
-    e.addEventListener('mouseleave', function(e){
+    e.addEventListener('mouseleave', function(){
       select('.names').lastElementChild.textContent = ''
     })
 
@@ -175,17 +174,21 @@
         if(!locked_animation){
           _this.classList.add('selected')
           selected.classList.remove('selected')
-          changeOnOpacity(select('.placeholder'),()=>{updatePlaceholder()}, 'fade_in_out1', 1000)
+          changeOnOpacity(select('.title'),()=>{updatePlaceholderElement('title')}, 'fade_in_out1', 1000)
+          changeOnOpacity(select('.content'),()=>{updatePlaceholderElement('content')}, 'fade_in_out1', 1000)
         }
       } 
     })
 
-   
+
 
 
   })
   var locked_animation = false
-  on("animationstart", '.placeholder', function() { locked_animation=true})
-  on("animationend", '.placeholder', function() { locked_animation=false; this.style.animationName = '' })
+  on("animationstart", '.placeholder .title', function() { locked_animation=true})
+  on("animationstart", '.placeholder .content', function() { locked_animation=true})
+  on("animationend", '.placeholder .title', function() { locked_animation=false; this.style.animationName = '' })
+  on("animationend", '.placeholder .content', function() { locked_animation=false; this.style.animationName = '' })
+
 
 })()

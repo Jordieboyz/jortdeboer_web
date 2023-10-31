@@ -18,6 +18,10 @@
     <!-- Page Stylesheet -->
     <link href="assets/css/home-style.css" rel="stylesheet"> 
     <link href="assets/css/projects-style.css" rel="stylesheet"> 
+      <link href="assets/css/custom_rom_fp4.css" rel="stylesheet"> 
+      <link href="assets/css/Interpreter_compiler.css" rel="stylesheet"> 
+      
+
     <link href="assets/css/contact-style.css" rel="stylesheet">
 
     <!-- Generic Stylesheet -->
@@ -86,8 +90,8 @@
             <div class="projects-container">
               <div class="projects-grid">
                 <ul class="names">
-                  <li><a href='#01' class="selected">01</a></li>
-                  <li><a href='#02' class="">02</a></li>
+                  <li><a href='#01' class="">01</a></li>
+                  <li><a href='#02' class="selected">02</a></li>
                   <li><a href='#03' class="">03</a></li>
                   <li><a href='#04' class="">04</a></li>
                   <li><span></span></li>
@@ -95,14 +99,24 @@
                 <div class="placeholder">
                   <h1 class="title"></h1>
                   <div class="content"></div> 
+                  <div class="footer">
+                    <div class="local-icons">
+                    </div>
+                    <div class="extern-icons">
+                      <i class='bx bx-md bxl-github'></i>
+                      <i class='bx bx-md bxl-github'></i>
+                      <i class='bx bx-md bxl-github'></i>
+                    </div>
+                  </div>
                 </div>
 
 
                 <ul class="projects">
-                  <li id="01" title="Custom ROM for the Fairphone 4" addition="Team,Personal">
-                    <div>
+
+                  <!-- 01 Custom ROM for the Fairphone 4 -->
+                  <li id="01" title="Custom ROM for the Fairphone 4">
+                    <div class="content">
                       <div class="top">
-                        
                         <p>
                           <strong class="neon_title">Project Description</strong><br>
                           Develop a Sailfish OS port for the Fairphone 4, a task that has not been undertaken previously. Our project group, 
@@ -113,14 +127,12 @@
                         
                         <div class='img_wrapper'>
                           <div class="img1">
-                            <p>
-                              <b class="neon_title">The Fairphone 4</b><br> 
+                            <p><strong class="neon_title">The Fairphone 4</strong><br> 
                               A modular smartphone, made with responsibly sourced materials and is designed for sustainability and reducign electronic waste.</p>
                             <img src="assets/img/FP4.png">
                           </div>
                           <div class="img2">
-                            <p> 
-                              <b class="neon_title">Sailfish OS</b><br> 
+                            <p><strong class="neon_title">Sailfish OS</strong><br> 
                               A mobile operating system, based on Linux, known for its privacy features, gesture-based navigation, and Android app compatibility.
                             </p> 
                             <img src="assets/img/sfos.png" >
@@ -130,9 +142,9 @@
 
                       </div>
                       <div class="bottom">
-                        <img src="assets/img/sfos_.png" >
+                        <img class="sfos-img" src="assets/img/sfos_.png" >
                         <p>
-                          <strong class="neon_title">Results & Accomplishments</strong><br>
+                          <strong class="neon_title">Results</strong><br>
                           After an intensive five-month development phase, we successfully implemented all essential smartphone 
                           functionalities in our custom ROM. We packaged the solution into an accessible image and created a 
                           comprehensive installation guide, which was shared on GitHub.
@@ -143,29 +155,59 @@
                       </div>
                     </div>  
                   </li>
+
+                  <!-- 02 Interpreter & Compiler -->
                   <li id='02' title="Interpreter & Compiler">
-                    <div></div>
+                    <div class="content">
+                      <div class="top">
+                        <p>
+                          <strong class="neon_title">Project Description</strong><br>
+                          Developed an interpreter and compiler for a self-designed Turing Complete programming language, 
+                          utilizing functional programming in Python, with the objective of conducting unit tests on an Embedded System, 
+                          specifically the Arduino Due, to validate the language's functionality.
+                        </p>
+                        <div class='img_wrapper'>
+                          <div class="img1">
+                            <p><strong class="neon_title">Python</strong><br> 
+                              Python is a high-level programming language known for its simplicity and readability, widely used for various applications in software development.  
+                            </p>
+                            <img src="assets/img/Python.png">
+                          </div>
+                          <div class="img2">
+                            <p><strong class="neon_title">Arduino</strong><br> 
+                              Arduino is an open-source electronics platform based on easy-to-use hardware and software.
+                            </p> 
+                            <img src="assets/img/arduino.png" >
+                          </div>  
+                          <div class="divider"></div> 
+                        </div>
+                      </div>
+                      <div class="bottom">
+                        <img class="sfos-img" src="assets/img/symbolic.png" >
+                        <p>
+                          <strong class="neon_title">Results</strong><br>
+                          The final product exists of 4 components: <br>
+                          <b>"Symbolic"</b> the self-designed Turing Complete programming language. <br>
+                          <b>The Interpreter</b> emulates "Symbolic" with integrated lexer and parser.<br>
+                          <b>The Compiler</b> Utilizes the lexer and parser to translate "Symbolic" code into Assembly.<br>
+                          <b>The Arduino Due Setup</b> consisting of makefiles, the UART driver, timers and essential tools for program flashing and execution. <br><br>
+                          All components are openly accessible on GitHub.
+                        </p>
+                      </div>
+
+                    </div>
                   </li>
                   <li id='03' title="Go(moku) AI">
-                    <div></div>
+                    <div class="content"></div>
                   </li>
                   <li id='04' title="Wireless Communication Module Drivers">
-                    <div></div>
+                    <div class="content"></div>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
         </section>
-
-      <!-- Contacts Page -->
-      <section id="contact" >
-        <div class="container">
-          <div class="contact-container">
-          </div>
-        </div>
-      </section>
-
       </div>
   </body>
 </html>
