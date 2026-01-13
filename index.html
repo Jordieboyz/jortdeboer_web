@@ -1,213 +1,110 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Jort de Boer | Portfolio Website</title>
+	
+	<!-- Load General External Modules/API's-->
+	<script src="https://unpkg.com/lucide@latest"></script>
+	
+	<!-- Load main Stylesheet/Javascript -->
+	<link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="pages/home/home-style.css">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <!-- Javascripts -->
+  <script defer src="bin/typed.js"></script>
+	<script defer src="index.js"></script>
+  <script defer src="pages/home/home.js"></script>
 
-    <!-- JavaScripts -->
-    <script defer src="assets/js/typed.js"></script>
-    <script defer src="assets/js/main.js"></script>
+  <script defer src="data/projectsData.js"></script>
+  <script defer src="data/createProjectCards.js"></script>
+</head>
+<body data-page="index">
+  <header>
+    <div class="container nav-content">
+      <a href="#home" class="nav-logo">
+          <span class="nav-logo-primary">Jort</span> de Boer
+      </a>
+      <div class="nav-link-group">
+        <a href="#home" class="active">Home</a>
+        <a href="about-me.html">About me</a>
+        <a href="projects.html">Projects</a>
+      </div>
+    </div>
+  </header>
+    
+  <div id="main-content-wrapper" class="container">
+    <section id="home" class="home-section">
+      <div class="home-inner">
+        <div class="home-layout">
+          
+          <!-- Home Content -->
+          <div class="home-text-content">
 
-    <!-- Vendor Stylesheet -->
-    <link href="assets/boxicons/css/boxicons.min.css" rel="stylesheet">
-
-    <!-- Page Stylesheet -->
-    <link href="assets/css/home-style.css" rel="stylesheet"> 
-    <link href="assets/css/projects-style.css" rel="stylesheet"> 
-      <link href="assets/css/custom_rom_fp4.css" rel="stylesheet"> 
-      <link href="assets/css/Interpreter_compiler.css" rel="stylesheet"> 
-      
-
-    <link href="assets/css/contact-style.css" rel="stylesheet">
-
-    <!-- Generic Stylesheet -->
-    <link href="assets/css/style.css" rel="stylesheet">  
-
-    <!-- https://codepen.io/shawnlooi/pen/eeXmrQ -->
-  </head>
-
-  <body>
-    <header>
-      <nav>
-        <ul>
-          <li><a href="#home" class="scrollto active"><span class="neon">01.  </span><span>Home</span></a></li>
-          <li><a href="#projects" class="scrollto idle"><span class="neon">02.  </span><span> Projects</span></a></li>
-          <li><a href="#contact" class="scrollto idle"><span class="neon">03.  </span><span> Contact</span></a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <div class="horizontal-container">
-        <!-- Home Page -->
-        <section id="home" >
-          <div class="container">
-            
-            <div class="home-container">
-
-              <span class="neon"> Hi, my name is</span>              
-              <h1>Jort de Boer.</h1>
-              <h2><span class="typed" data-typed-items="Computer Science Student,Team Manager"></span></h2>
-
-              <p class="current">
-                In college, I began my journey by delving into <span class="neon">C++</span> and 
-                <span class="neon">Assembly</span> language, which provided 
-                me with a deeper understanding of low-level programming. Over the years, I expanded 
-                my skill set to include <span class="neon">Python</span>, particularly after developing a 
-                'smart' Monte Carlo Tree Search (MCTS) implementation for the board game Go (Gomoku).
-                <br><br>
-                I'm currently sharpening my skills in <span class="neon">HTML/CSS</span> and 
-                <span class="neon">JavaScript</span> through a personal project.
-                The website you are looking at is the result of this passion.
+            <h1 class="home-title"><span class="nav-logo-primary">Jort</span> de Boer
+            <h2 class="home-subtitle"><span>I'm a</span> <span class="typed" data-typed-items="(Embedded) Software Engineer, A Game Developer"></span></h2>
+            <div class="home-bio-wrapper">
+              <p class="pre-home-bio">
+                I’m a computer engineer with a passion for embedded systems and the intersection between hardware and software. My background in computer science allows me to design and build systems that are both technically precise and creatively engineered.
+              <p id="home-bio" class="home-bio">
+                <br>I've built a diversified portfolio ranging from embedded automation and sensor-based projects to game development in Unity and computer vision with Python. I enjoy exploring how technology can be used in innovative, practical ways and I’m always looking for projects that challenge me to combine low-level engineering with high-level design thinking.
               </p>
-              <p class="next"> 
-                I currently hold the position of <span class="neon">Team Manager</span>, which entails 
-                a range of responsibilities including supervising staff performance, providing guidance 
-                to new colleagues, and meticulously monitoring pricing, product quality, and inventory levels. 
-                Moreover, I serve as one of the <span class="neon">keyholders</span>, assuming responsibility for the entire store 
-                should any incidents occur.
-                <br><br>
-                My dedication to personal growth transcends individual pursuits; I am fervently committed 
-                to acquiring new knowledge and disseminating it to others, thereby cultivating a culture of continuous learning.
-              </p>
+            </div>
+            <div class="home-buttons">
+              <a href="#home" id="about-me-toggle" class="btn">More About me<i data-lucide="chevron-down"></i></a>
+              <a href="pages/home/res/cv_jort_de_boer.pdf" target="_blank" class="btn">View CV (PDF)</a>
+            </div>
 
-              <input id="style" class="style" type="checkbox" name="cbx"/>
-              <label for="style">
-                <span class="block-diff">Programmer 
-                  <span class="float-right">Team Manager</span>
-                </span>
-              </label>
-          </div> 
-        </section>
-        <!-- End Home Page -->
-
-        <!-- Projects Page -->
-        <section id="projects" >
-          <div class="container">
-            <div class="projects-container">
-              <div class="projects-grid">
-                <ul class="names">
-                  <li><a href='#01' class="">01</a></li>
-                  <li><a href='#02' class="selected">02</a></li>
-                  <li><a href='#03' class="">03</a></li>
-                  <li><a href='#04' class="">04</a></li>
-                  <li><span></span></li>
-                </ul>
-                <div class="placeholder">
-                  <h1 class="title"></h1>
-                  <div class="content"></div> 
-                  <div class="footer">
-                    <div class="local-icons">
-                    </div>
-                    <div class="extern-icons">
-                      <i class='bx bx-md bxl-github'></i>
-                      <i class='bx bx-md bxl-github'></i>
-                      <i class='bx bx-md bxl-github'></i>
-                    </div>
-                  </div>
-                </div>
-
-
-                <ul class="projects">
-
-                  <!-- 01 Custom ROM for the Fairphone 4 -->
-                  <li id="01" title="Custom ROM for the Fairphone 4">
-                    <div class="content">
-                      <div class="top">
-                        <p>
-                          <strong class="neon_title">Project Description</strong><br>
-                          Develop a Sailfish OS port for the Fairphone 4, a task that has not been undertaken previously. Our project group, 
-                          consisting of four other members, was assigned the seamless integration of Sailfish OS on the Fairphone 4, encompassing all 
-                          essential functions. An added opportunity presented itself: the ability to contribute our progress to the dedicated open-source 
-                          communities supporting both Fairphone and Sailfish OS.                         
-                        </p>
-                        
-                        <div class='img_wrapper'>
-                          <div class="img1">
-                            <p><strong class="neon_title">The Fairphone 4</strong><br> 
-                              A modular smartphone, made with responsibly sourced materials and is designed for sustainability and reducign electronic waste.</p>
-                            <img src="assets/img/FP4.png">
-                          </div>
-                          <div class="img2">
-                            <p><strong class="neon_title">Sailfish OS</strong><br> 
-                              A mobile operating system, based on Linux, known for its privacy features, gesture-based navigation, and Android app compatibility.
-                            </p> 
-                            <img src="assets/img/sfos.png" >
-                          </div>  
-                          <div class="divider"></div> 
-                        </div>
-
-                      </div>
-                      <div class="bottom">
-                        <img class="sfos-img" src="assets/img/sfos_.png" >
-                        <p>
-                          <strong class="neon_title">Results</strong><br>
-                          After an intensive five-month development phase, we successfully implemented all essential smartphone 
-                          functionalities in our custom ROM. We packaged the solution into an accessible image and created a 
-                          comprehensive installation guide, which was shared on GitHub.
-                          <br><br>
-                          We concluded the project by sharing our progress through posts on forums like XDA and Faiphone in order to 
-                          fulfill our commitment to the open-source community; making a valuable contribution to collective knowledge and advancements.
-                        </p>
-                      </div>
-                    </div>  
-                  </li>
-
-                  <!-- 02 Interpreter & Compiler -->
-                  <li id='02' title="Interpreter & Compiler">
-                    <div class="content">
-                      <div class="top">
-                        <p>
-                          <strong class="neon_title">Project Description</strong><br>
-                          Developed an interpreter and compiler for a self-designed Turing Complete programming language, 
-                          utilizing functional programming in Python, with the objective of conducting unit tests on an Embedded System, 
-                          specifically the Arduino Due, to validate the language's functionality.
-                        </p>
-                        <div class='img_wrapper'>
-                          <div class="img1">
-                            <p><strong class="neon_title">Python</strong><br> 
-                              Python is a high-level programming language known for its simplicity and readability, widely used for various applications in software development.  
-                            </p>
-                            <img src="assets/img/Python.png">
-                          </div>
-                          <div class="img2">
-                            <p><strong class="neon_title">Arduino</strong><br> 
-                              Arduino is an open-source electronics platform based on easy-to-use hardware and software.
-                            </p> 
-                            <img src="assets/img/arduino.png" >
-                          </div>  
-                          <div class="divider"></div> 
-                        </div>
-                      </div>
-                      <div class="bottom">
-                        <img class="sfos-img" src="assets/img/symbolic.png" >
-                        <p>
-                          <strong class="neon_title">Results</strong><br>
-                          The final product exists of 4 components: <br>
-                          <b>"Symbolic"</b> the self-designed Turing Complete programming language. <br>
-                          <b>The Interpreter</b> emulates "Symbolic" with integrated lexer and parser.<br>
-                          <b>The Compiler</b> Utilizes the lexer and parser to translate "Symbolic" code into Assembly.<br>
-                          <b>The Arduino Due Setup</b> consisting of makefiles, the UART driver, timers and essential tools for program flashing and execution. <br><br>
-                          All components are openly accessible on GitHub.
-                        </p>
-                      </div>
-
-                    </div>
-                  </li>
-                  <li id='03' title="Go(moku) AI">
-                    <div class="content"></div>
-                  </li>
-                  <li id='04' title="Wireless Communication Module Drivers">
-                    <div class="content"></div>
-                  </li>
-                </ul>
-              </div>
+            <div class="social-links">
+              <a href="mailto:boer.jort.edu@email.com" target="_blank" class="social-icon" aria-label="Email"><i data-lucide="mail"></i></a>
+              <a href="https://www.linkedin.com/in/jort-de-boer-a84414198/" target="_blank" class="social-icon" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+              <a href="https://github.com/Jordieboyz" target="_blank" class="social-icon" aria-label="GitHub"><i data-lucide="github"></i></a>
+              <a href="https://www.instagram.com/jort__db/ "target="_blank" class="social-icon" aria-label="Instagram"><i data-lucide="instagram" ></i></a>
             </div>
           </div>
-        </section>
+          
+          <!-- Image Placeholder -->
+          <div class="home-image-container">
+              <img src="pages/home/res/cv_ai_img_jort.png" alt="Jort de Boer Professional Headshot" class="hero-headshot">
+          </div>
+        </div>
       </div>
-  </body>
+    </section>
+
+    <!-- Projects Content -->
+    <section id="projects" class="section-padding">
+      <div class="projects-header-wrapper">
+        <h3 class="section-header">Featured Projects</h3>
+      </div>
+
+      <div class="slider-content-wrapper">
+        <div class="projects-slider-container">
+          <div id="slider-track" class="slider-track"></div>
+          <div id="overlay-controls" class="overlay-controls">
+            <button id="prev-slide" class="slider-btn" aria-label="Previous Projects"><i data-lucide="chevron-left"></i></button>
+            <button id="next-slide" class="slider-btn" aria-label="Next Projects"><i data-lucide="chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer / Contact Section -->
+  <footer id="contact" class="footer">
+    <div class="container">
+      <h3 class="footer-header">Let's Connect</h3>
+      <p class="footer-text">
+        I'm always open to discussing embedded challenges, collaboration opportunities, or simply sharing insights on low-level development.
+      </p>
+      <div class="footer-links">
+        <a href="mailto:boer.jort.edu@gmail.com" target="_blank" class="footer-link"><i data-lucide="mail"></i><span>Email</span></a>
+        <a href="https://www.linkedin.com/in/jort-de-boer-a84414198/" target="_blank" class="footer-link"><i data-lucide="linkedin"></i><span>LinkedIn</span></a>  
+        <a href="https://github.com/Jordieboyz" target="_blank" class="footer-link"><i data-lucide="github"></i><span>GitHub</span></a>
+        <a href="https://www.instagram.com/jort__db/" target="_blank" class="footer-link"><i data-lucide="instagram"></i><span>Instagram</span></a>
+      </div>
+      <p class="copyright">Designed and Developed by Jort de Boer. <br> © 2025 www.jortdeboer.com - All Rights Reserved.</p> 
+    </div>
+  </footer>
+</body>
 </html>

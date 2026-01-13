@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Jort de Boer | Portfolio Website</title>
+	
+  <!-- Load GeneraL Modules-->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Load main Stylesheet/Javascript -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="pages/projects/projects-style.css">
+  <link rel="stylesheet" href="pages/home/home-style.css">
+
+  <!-- Javascripts -->
+  <script defer src="index.js"></script>
+  <script defer src="data/projectsData.js"></script>
+  <script defer src="data/createProjectCards.js"></script>
+  <script defer src="data/hobbyData.js"></script>
+  <script defer src="pages/projects/projects.js"></script>
+
+</head>
+<body>
+  <header>
+    <div class="container nav-content">
+      <a href="index.html" class="nav-logo active">
+          <span class="nav-logo-primary">Jort</span> de Boer
+      </a>
+      <div class="nav-link-group">
+        <a href="index.html" >Home</a>
+        <a href="about-me.html">About me</a>
+        <a href="#projects" class="active">Projects</a>
+      </div>
+    </div>
+  </header>
+    
+  <div id="main-content-wrapper" class="container">
+
+    <section id="projects" class="container">
+      <h2 class="projects-title">Project Portfolio</h2>
+      <p class="projects-sub-title">
+          A selection of projects categorized by technical stack complexity. Use the filters to focus your view.
+      </p>
+      <div class="category-tabs">
+        <!-- Content will be injected here by JavaScript -->
+      </div>
+      <div class="project-list">
+        <!-- Content will be injected here by JavaScript -->
+      </div>
+    </section>
+        
+    <div class="project-modal-overlay">
+        <div class="project-modal-content">
+            <button class="modal-close-btn" >
+                <i data-lucide="x"></i>
+            </button>
+            <div class="modal-project-details">
+                <!-- Content will be injected here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+  </div>
+
+
+  <!-- Footer / Contact Section -->
+  <footer id="contact" class="footer">
+    <div class="container">
+      <h3 class="footer-header">Let's Connect</h3>
+      <p class="footer-text">
+        I'm always open to discussing embedded challenges, collaboration opportunities, or simply sharing insights on low-level development.
+      </p>
+      <div class="footer-links">
+        <a href="mailto:boer.jort.edu@gmail.com" target="_blank" class="footer-link"><i data-lucide="mail"></i><span>Email</span></a>
+        <a href="https://www.linkedin.com/in/jort-de-boer-a84414198/" target="_blank" class="footer-link"><i data-lucide="linkedin"></i><span>LinkedIn</span></a>  
+        <a href="https://github.com/Jordieboyz" target="_blank" class="footer-link"><i data-lucide="github"></i><span>GitHub</span></a>
+        <a href="https://www.instagram.com/jort__db/" target="_blank" class="footer-link"><i data-lucide="instagram"></i><span>Instagram</span></a>
+      </div>
+      <p class="copyright">Designed and Developed by Jort de Boer. <br> © 2025 www.jortdeboer.com - All Rights Reserved.</p> 
+    </div>
+  </footer>
+</body>
+</html>
