@@ -11,7 +11,7 @@ const projectsData = [
         shortDescription: 'A low-level recreation of Space Invaders built entirely from scratch. No OS, no libraries. Features a custom bootloader, graphics driver, and input handling, all written in assembly and C to run directly on hardware.',
         longDescription: 'This was my deepest dive into hardware interaction. I wrote a **custom bootloader** to initialize the hardware (a modified ARM platform), then implemented a **VGA graphics driver** directly manipulating memory registers to render sprites. The input handling was based on direct polling of GPIO pins. The complexity lay in optimizing the C and Assembly routines to ensure a smooth 60 FPS frame rate without any OS-level scheduling or memory protection. This project solidified my understanding of the hardware-software boundary and tight optimization loops, making it the most technically rigorous project on my portfolio.',
         completed: false,
-        bannerImage: '/pages/projects/res/banner-space-invaders.jpg',
+        bannerImage: '/data/res/banner-space-invaders.jpg',
         category: ['Low-Level', 'In-Development'],
         links: [
             { web: 'https://github.com/Jordieboyz', icon: 'github' },
@@ -29,7 +29,7 @@ const projectsData = [
         shortDescription: 'Designed and developed a custom personal portfolio website using HTML, CSS, and JavaScript. Focused on clean design, responsive layout, and smooth user interaction to showcase projects an personal information',
         longDescription: 'The project involved creating a responsive and interactive portfolio website from scratch. Focused on clean design, performance optimization, and smooth user experience.',
         completed: false,
-        bannerImage: '/pages/projects/res/banner-portfolio-website.png',
+        bannerImage: '/data/res/banner-portfolio-website.png',
         category: ['High-Level','In-Development'],
         links: [
             { web: 'https://github.com/Jordieboyz', icon: 'github' },
@@ -48,7 +48,7 @@ const projectsData = [
         shortDescription: 'A fast-paced, real-time pixel game built in Unity with C#. Features custom sprites and a dynamic tile-based world where players battle and collect resources while trying to conquer enemy territories.',
         longDescription: 'Developed a Unity-based real-time strategy game with pixel art aesthetics. Implemented dynamic tile-based maps, AI opponents, and multiplayer interaction.',
         completed: true,
-        bannerImage: '/pages/projects/res/banner-pixel-conquest.png',
+        bannerImage: '/data/res/banner-pixel-conquest.png',
         category: ['High-Level'],
         links: [
             { web: 'https://github.com/Jordieboyz', icon: 'gitlab' },
@@ -66,7 +66,7 @@ const projectsData = [
         shortDescription: 'A local multiplayer Unity game where players compete in a series of quick minigames on a shared grid. Built with Unity’s multiplayer system for fast, chaotic, and fun local gameplay.',
         longDescription: 'Created multiple mini-games within a shared grid environment supporting local multiplayer. Focused on fast-paced interactions and smooth networked gameplay.',
         completed: true,
-        bannerImage: '/pages/projects/res/banner-grids.png',
+        bannerImage: '/data/res/banner-grids.png',
         category: ['High-Level'],
         links: [
             { web: 'https://github.com/Jordieboyz', icon: 'github' },
@@ -84,7 +84,7 @@ const projectsData = [
         shortDescription: 'Built a custom NAS from scratch using Samba shares, complete with automated periodic backups and essential utilities for managing a local file server. Designed for reliability, accessibility, and home network integration.',
         longDescription: 'Built a custom NAS from scratch using Raspberry Pi and **Samba shares**, complete with automated periodic backups (using rsync) and essential utilities for managing a local file server. The system was hardened for security and configured for reliability, accessibility, and seamless integration into a home network using shell scripting for system maintenance and monitoring. This was a foundational project for understanding secure data management and network protocols.',
         completed: false,
-        bannerImage: '/pages/projects/res/truenas.png',
+        bannerImage: '/data/res/truenas.png',
         category: ['Mid-Level', 'In-Development'],
         links: [
             { web: '#', icon: 'globe' },
@@ -102,7 +102,7 @@ const projectsData = [
         shortDescription: 'Developed a new SailfishOS port for the Fairphone 4, a device previously unsupported. Gained experience in Android development while contributing to the open-source community and expanding device compatibility.',
         longDescription: 'Developed a new **SailfishOS port** for the Fairphone 4, a device previously unsupported by the community. This required integrating custom **kernel patches** and adapting low-level hardware drivers (especially for audio and modem connectivity). The process involved reverse-engineering proprietary Android drivers and creating stable Linux equivalents. Gained significant experience in the entire mobile stack, from the boot process up to the user interface framework, and learned the nuances of contributing to a major open-source mobile platform.',
         completed: true,
-        bannerImage: '/pages/projects/res/banner-sfos-fp4.png',
+        bannerImage: '/data/res/banner-sfos-fp4.png',
         category: ['Low-Level'],
         links: [
             { web: 'https://github.com/Jordieboyz', icon: 'github' },
@@ -122,7 +122,7 @@ const projectsData = [
         shortDescription: 'Developed "Symbolic", a custom Turing-complete programming language built entirely in Python. Includes a compiler and interpreter supporting variables, loops, functions, conditional logic, and output operations.',
         longDescription: 'Developed "Symbolic", a custom Turing-complete programming language built entirely in Python. The project includes a full **compiler, interpreter, and lexical analyzer** supporting variables, loops, functions, and conditional logic. This deepened my fundamental understanding of **parsing, Abstract Syntax Trees (ASTs)**, and runtime execution environments. The goal was to understand every layer of program execution, from raw input strings to final computed results, which is invaluable for debugging and optimization.',
         completed: true,
-        bannerImage: '/pages/projects/res/banner-symbolic.png',
+        bannerImage: '/data/res/banner-symbolic.png',
         category: ['Mid-Level'],
         links: [
             { web: 'https://github.com/Jordieboyz', icon: 'github' },
@@ -140,7 +140,7 @@ const projectsData = [
         shortDescription: 'A fast-paced action game inspired by Superhot and Hotline Miami, built in C++ using SFML with minimal external dependencies. Features time-based combat mechanics and top-down movement.',
         longDescription: 'SuperHotline is a top-down action game blending the “time-moves-when-you-move” mechanic of Superhot with the fast, close-quarters combat of Hotline Miami. Built in C++ using SFML, the game was developed with minimal external libraries, focusing on low-level control and efficient real-time systems. Players navigate tight arenas, plan movement carefully, and execute precise attacks where every step affects the flow of time. The project emphasizes custom game logic, collision handling, and performance-focused architecture..',
         completed: true,
-        bannerImage: '/pages/projects/res/banner-hotline.png',
+        bannerImage: '/data/res/res/banner-hotline.png',
         category: ['High-Level'],
         links: [
             { web: 'https://github.com/Jordieboyz', icon: 'Github' },
@@ -158,7 +158,7 @@ const projectsData = [
         shortDescription: 'Developed an intelligent Go-Moku agent using the Monte Carlo Tree Search (MCTS) algorithm. The AI analyzes board sequences to make strategic moves, prioritizing defense and territory control.',
         longDescription: 'Developed an intelligent **Go-Moku agent** using the **Monte Carlo Tree Search (MCTS)** algorithm. The AI analyzes board sequences to make strategic moves, prioritizing defense and territory control. I focused heavily on optimizing the rollout phase using vectorized operations (NumPy) to maximize performance, allowing the agent to explore a deeper game tree under strict time constraints. This project showcased my ability to apply advanced search algorithms to classic problems and optimize code for maximum throughput.',
         completed: true,
-        bannerImage: '/pages/projects/res/banner-gomoku.png',
+        bannerImage: '/data/res/res/banner-gomoku.png',
         category: ['Mid-Level'],
         links: [
             { web: 'https://github.com/Jordieboyz', icon: 'github' },
@@ -176,7 +176,7 @@ const projectsData = [
         shortDescription: 'Wrote a custom C++ driver for the nRF24L01+ wireless chip and implemented a use case combining it with an HC-SR01 sensor to create a remote-controlled LEGO car.',
         longDescription: 'Implemented a custom driver for the nRF24L01+ wireless module. Combined with an HC-SR01 sensor to build a remote-controlled LEGO car, focusing on low-level hardware communication and embedded system design.',
         completed: true,
-        bannerImage: '/pages/projects/res/banner-nrf-arduino.png',
+        bannerImage: '/data/res/res/banner-nrf-arduino.png',
         category: ['Low-Level'],
         links: [
             { web: 'https://github.com/Jordieboyz', icon: 'Github' },
