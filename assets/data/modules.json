@@ -1,0 +1,659 @@
+{
+  "modulesData": [
+    {
+      "id": "identity",
+      "icon": "ph-user-circle",
+      "label": {
+        "nl": "Identiteit",
+        "en": "Identity"
+      },
+      "shortDesc": {
+        "nl": "Wie ik ben",
+        "en": "Who I am"
+      },
+      "content": {
+        "intro": {
+          "nl": "Mijn naam is <strong>Jort</strong>, een 24-jarige student Technische Informatica uit <strong>Nederland</strong>. Ik ben gepassioneerd door programmeren en automatisering. Ik ben altijd op zoek naar manieren om bezig te blijven, of het nu werk of persoonlijke projecten zijn. Ik gedij bij een goede <strong>uitdaging</strong>; daar ben ik op mijn best.",
+          "en": "My name is <strong>Jort</strong>, a 24-year-old CS student based in the <strong>Netherlands</strong>. I'm passionate about programming and automation. I'm always looking for ways to stay busy whether it's work or personal projects. I thrive on a solid <strong>challenge</strong>; that's where I'm at my best."
+        },
+        "specs": [
+          {
+            "icon": "ph ph-student",
+            "label": {
+              "nl": "Studierichting",
+              "en": "Degree Focus"
+            },
+            "value": {
+              "nl": "Technische Informatica / HBO-ICT",
+              "en": "Technical Informatics / HBO-ICT"
+            }
+          },
+          {
+            "icon": "ph ph-target",
+            "label": {
+              "nl": "Huidige Missie",
+              "en": "Current Mission"
+            },
+            "value": {
+              "nl": "Stageproject",
+              "en": "Internship Project"
+            }
+          }
+        ],
+        "cards": [
+          {
+            "icon": "ph ph-lightning",
+            "label": {
+              "nl": "Doorzettingsvermogen",
+              "en": "Persistence"
+            },
+            "text": {
+              "nl": "Ik word gedreven door <strong>nieuwsgierigheid en doorzettingsvermogen</strong>. Wanneer een uitdaging echt mijn interesse wekt, ben ik vastberaden om de juiste oplossing te vinden.",
+              "en": "I’m fueled by <strong>curiosity and persistence</strong>. When a challenge truly catches my interest, I’m determined to find the right solution for it."
+            }
+          },
+          {
+            "icon": "ph ph-shield-check",
+            "label": {
+              "nl": "Systeembetrouwbaarheid",
+              "en": "System Reliability"
+            },
+            "text": {
+              "nl": "Toegewijd aan een schone architectuur en voorspelbare uitvoering. Ik neem verantwoordelijkheid voor het volledige proces, van het initiële protocolontwerp tot de hardware-implementatie.",
+              "en": "Committed to clean architecture and predictable execution. I take end-to-end ownership from initial protocol design down to hardware implementation."
+            }
+          },
+          {
+            "icon": "ph ph-cpu",
+            "label": {
+              "nl": "Hardware-Software Synergie",
+              "en": "Hardware-Software Synergy"
+            },
+            "text": {
+              "nl": "Gefascineerd door wat er onder de abstractielaag gebeurt — van CAN-busprotocollen in voertuigen tot microcontrollerregisters en realtime sensorverwerking.",
+              "en": "Fascinated by what happens beneath the abstraction layer — from vehicle CAN bus protocols to micro-controller registers and real-time sensor processing."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "hobbies",
+      "icon": "ph-game-controller",
+      "label": {
+        "nl": "Buiten het Scherm",
+        "en": "Beyond the Screen"
+      },
+      "shortDesc": {
+        "nl": "Interesses & hobby's",
+        "en": "Interests & hobbies"
+      },
+      "content": {
+        "intro": {
+          "nl": "Hoe ik oplaad, nieuwe hardware ontdek en mijn probleemoplossend vermogen buiten het werk scherp houd.",
+          "en": "How I recharge, explore new hardware, and keep my problem-solving skills sharp outside work."
+        },
+        "tiles": [
+          {
+            "id": "pcbuilding",
+            "icon": "ph ph-desktop-tower",
+            "bg": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=600&q=80",
+            "label": {
+              "nl": "PC Bouwen",
+              "en": "PC Building"
+            },
+            "desc": {
+              "nl": "Het ontwerpen van custom PC-builds, waterkoelingssystemen en het benchmarken van hardware.",
+              "en": "Designing custom PC builds, liquid cooling loops, and hardware benchmarking."
+            },
+            "highlights": [
+              "<input highlight>",
+              "<input highlight>",
+              "<input highlight>"
+            ],
+            "images": [
+              "/assets/res/hobby/20220821_144041.jpg",
+              "/assets/res/hobby/20220821_144041.jpg",
+              "/assets/res/hobby/20220821_144041.jpg"
+            ]
+          },
+          {
+            "id": "gaming",
+            "icon": "ph ph-game-controller",
+            "bg": "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=600&q=80",
+            "label": {
+              "nl": "Gamen",
+              "en": "Gaming"
+            },
+            "desc": {
+              "nl": "Simulatiegames, strategische games en ontspannen met vrienden.",
+              "en": "Simulation games, strategy titles, and unwinding with friends."
+            },
+            "highlights": [
+              "<input highlight>",
+              "<input highlight>",
+              "<input highlight>"
+            ],
+            "images": [
+              "/assets/res/hobby/20220821_144041.jpg",
+              "/assets/res/hobby/20220821_144041.jpg",
+              "/assets/res/hobby/20220821_144041.jpg"
+            ]
+          },
+          {
+            "id": "traveling",
+            "icon": "ph ph-compass",
+            "bg": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=600&q=80",
+            "label": {
+              "nl": "Reizen",
+              "en": "Traveling"
+            },
+            "desc": {
+              "nl": "Verschillende landen ontdekken, wandelen en nieuwe culturen ervaren.",
+              "en": "Exploring different countries, hiking, and experiencing new cultures."
+            },
+            "highlights": [
+              "<input highlight>",
+              "<input highlight>",
+              "<input highlight>"
+            ],
+            "images": [
+              "/assets/res/hobby/20220821_144041.jpg",
+              "/assets/res/hobby/20220821_144041.jpg",
+              "/assets/res/hobby/20220821_144041.jpg"
+            ]
+          },
+          {
+            "id": "puzzles",
+            "icon": "ph ph-brain",
+            "bg": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80",
+            "label": {
+              "nl": "Puzzels",
+              "en": "Puzzles"
+            },
+            "desc": {
+              "nl": "Sudoku's, logische puzzels en ruimtelijke uitdagingen voor het probleemoplossend vermogen.",
+              "en": "Sudokus, logic grids, and spatial problem-solving challenges."
+            },
+            "highlights": [
+              "<input highlight>",
+              "<input highlight>",
+              "<input highlight>"
+            ],
+            "images": [
+              "/assets/res/hobby/20220821_144041.jpg",
+              "/assets/res/hobby/20220821_144041.jpg",
+              "/assets/res/hobby/20220821_144041.jpg"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "techstack",
+      "icon": "ph ph-cpu",
+      "label": {
+        "nl": "Technologische Stack",
+        "en": "Tech Stack"
+      },
+      "shortDesc": {
+        "nl": "Programmeertalen",
+        "en": "Programming Languages"
+      },
+      "content": {
+        "intro": {
+          "nl": "Belangrijkste <strong>programmeertalen</strong> en technische vaardigheden.",
+          "en": "Core <strong>programming languages</strong> and primary technical capabilities."
+        },
+        "layers": [
+          {
+            "id": "L3",
+            "icon": "ph ph-app-window",
+            "label": "USER-SPACE & APPLICATIONS",
+            "color": {
+              "bg": "rgba(56,189,248,0.07)",
+              "light": "#7dd3fc",
+              "dark": "#0c4a6e"
+            },
+            "techskill": [
+              {
+                "id": "javascript",
+                "title": "JavaScript",
+                "subtitle": {
+                  "nl": "Web & interactieve apps",
+                  "en": "Web & interactive apps"
+                },
+                "color": "#f7df1e",
+                "icon": "ph ph-file-js",
+                "glow": "rgba(247, 223, 30, 0.4)",
+                "svg": "/assets/res/logo/javascript.svg",
+                "meta": {
+                  "usage": {
+                    "nl": "Interactieve webapplicaties, frontendontwikkeling en browsergebaseerde tooling",
+                    "en": "Interactive web applications, frontend development and browser-based tooling"
+                  },
+                  "spec": {
+                    "proficiency": {
+                      "nl": "Gemiddeld",
+                      "en": "Intermediate"
+                    },
+                    "experience": "2+ Years"
+                  },
+                  "ecosystem": [
+                    "DOM API",
+                    "Web APIs",
+                    "ES6+",
+                    "Node.js",
+                    "JSON"
+                  ]
+                }
+              },
+              {
+                "id": "html-css",
+                "title": "HTML/CSS",
+                "subtitle": {
+                  "nl": "Webontwikkeling",
+                  "en": "Web development"
+                },
+                "color": "#f97316",
+                "icon": "ph ph-browser",
+                "glow": "rgba(249, 115, 22, 0.4)",
+                "svg": "/assets/res/logo/html.svg",
+                "meta": {
+                  "usage": {
+                    "nl": "Het bouwen van responsieve interfaces, layouts en interactieve webervaringen",
+                    "en": "Building responsive interfaces, layouts and interactive web experiences"
+                  },
+                  "spec": {
+                    "proficiency": {
+                      "nl": "Gevorderd",
+                      "en": "Advanced"
+                    },
+                    "experience": "3+ Years"
+                  },
+                  "ecosystem": [
+                    "HTML5",
+                    "CSS3",
+                    "Flexbox",
+                    "CSS Grid",
+                    "Responsive Design"
+                  ]
+                }
+              },
+              {
+                "id": "unity",
+                "title": "Unity",
+                "subtitle": {
+                  "nl": "Gameontwikkeling",
+                  "en": "Game development"
+                },
+                "color": "#e5e7eb",
+                "icon": "ph ph-game-controller",
+                "glow": "rgba(229, 231, 235, 0.4)",
+                "svg": "/assets/res/logo/unity.svg",
+                "meta": {
+                  "usage": {
+                    "nl": "Gameontwikkeling, simulaties, physics-systemen en interactieve applicaties",
+                    "en": "Game development, simulations, physics systems and interactive applications"
+                  },
+                  "spec": {
+                    "proficiency": {
+                      "nl": "Gevorderd",
+                      "en": "Advanced"
+                    },
+                    "experience": "3+ Years"
+                  },
+                  "ecosystem": [
+                    "C#",
+                    "Unity Engine",
+                    "2D / 3D Physics",
+                    "Netcode for GameObjects",
+                    "Tilemap"
+                  ]
+                }
+              },
+              {
+                "id": "excel-word",
+                "title": "Excel/Word",
+                "subtitle": {
+                  "nl": "Office-tooling",
+                  "en": "Office tooling"
+                },
+                "color": "#22c55e",
+                "icon": "ph ph-file-xls",
+                "glow": "rgba(34, 197, 94, 0.4)",
+                "svg": "/assets/res/logo/msoffice.svg",
+                "meta": {
+                  "usage": {
+                    "nl": "Dataverwerking, documentatie, automatisering en bedrijfsworkflows",
+                    "en": "Data processing, documentation, automation and business workflows"
+                  },
+                  "spec": {
+                    "proficiency": {
+                      "nl": "Gevorderd",
+                      "en": "Advanced"
+                    },
+                    "experience": "5+ Years"
+                  },
+                  "ecosystem": [
+                    "Excel Formulas",
+                    "Dynamic Tables",
+                    "Data Analysis",
+                    "Word Documents",
+                    "Office Automation"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "L2",
+            "icon": "ph ph-terminal-window",
+            "label": "SYSTEMS & AUTOMATION TOOLING",
+            "color": {
+              "bg": "rgba(34,197,94,0.07)",
+              "light": "#86efac",
+              "dark": "#14532d"
+            },
+            "techskill": [
+              {
+                "id": "python",
+                "title": "Python",
+                "subtitle": {
+                  "nl": "Automatisering",
+                  "en": "Automation"
+                },
+                "color": "#facc15",
+                "icon": "ph ph-file-py",
+                "glow": "rgba(250, 204, 21, 0.4)",
+                "svg": "/assets/res/logo/python.svg",
+                "meta": {
+                  "usage": {
+                    "nl": "Automatisering, scripting, dataverwerking en softwareontwikkeling",
+                    "en": "Automation, scripting, data processing and software development"
+                  },
+                  "spec": {
+                    "proficiency": {
+                      "nl": "Gevorderd",
+                      "en": "Advanced"
+                    },
+                    "experience": "4+ Years"
+                  },
+                  "ecosystem": [
+                    "Standard Library",
+                    "NumPy",
+                    "OpenCV",
+                    "Automation",
+                    "Scripting"
+                  ]
+                }
+              },
+              {
+                "id": "bash",
+                "title": "Bash",
+                "subtitle": {
+                  "nl": "Linux & command-line",
+                  "en": "Linux & command-line"
+                },
+                "color": "#a3e635",
+                "icon": "ph ph-terminal",
+                "glow": "rgba(163, 230, 53, 0.4)",
+                "svg": "/assets/res/logo/bash.svg",
+                "meta": {
+                  "usage": {
+                    "nl": "Linux-beheer, automatisering, buildsystemen en command-line-workflows",
+                    "en": "Linux administration, automation, build systems and command-line workflows"
+                  },
+                  "spec": {
+                    "proficiency": {
+                      "nl": "Gevorderd",
+                      "en": "Advanced"
+                    },
+                    "experience": "3+ Years"
+                  },
+                  "ecosystem": [
+                    "Linux",
+                    "GNU Coreutils",
+                    "Shell Scripting",
+                    "SSH",
+                    "Git"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "L1",
+            "icon": "ph ph-cpu",
+            "label": "BARE-METAL & EMBEDDED (HAL)",
+            "color": {
+              "bg": "rgba(244,63,94,0.07)",
+              "light": "#fca5a5",
+              "dark": "#7f1d1d"
+            },
+            "techskill": [
+              {
+                "id": "c-cpp",
+                "title": "C/C++",
+                "subtitle": {
+                  "nl": "Low-level programmeren",
+                  "en": "Low-level programming"
+                },
+                "color": "#7dd3fc",
+                "icon": "ph ph-cpu",
+                "glow": "rgba(56, 189, 248, 0.4)",
+                "svg": "/assets/res/logo/cpp.svg",
+                "meta": {
+                  "usage": {
+                    "nl": "Systeemprogrammering, embedded development en performancekritische applicaties",
+                    "en": "Systems programming, embedded development and performance-critical applications"
+                  },
+                  "spec": {
+                    "proficiency": {
+                      "nl": "Gevorderd",
+                      "en": "Advanced"
+                    },
+                    "experience": "4+ Years"
+                  },
+                  "ecosystem": [
+                    "GNU GCC",
+                    "CMake",
+                    "Arduino",
+                    "Embedded Systems",
+                    "Compiler / Linker"
+                  ]
+                }
+              },
+              {
+                "id": "assembly",
+                "title": "Assembly",
+                "subtitle": {
+                  "nl": "Programmeren op hardwareniveau",
+                  "en": "Hardware-level programming"
+                },
+                "color": "#fb7185",
+                "icon": "ph ph-cpu",
+                "glow": "rgba(251, 113, 133, 0.4)",
+                "svg": "/assets/res/logo/asm.svg",
+                "meta": {
+                  "usage": {
+                    "nl": "Low-level programmeren, hardware-interactie en het begrijpen van gecompileerde code",
+                    "en": "Low-level programming, hardware interaction and understanding compiled code"
+                  },
+                  "spec": {
+                    "proficiency": {
+                      "nl": "Gemiddeld",
+                      "en": "Intermediate"
+                    },
+                    "experience": "2+ Years"
+                  },
+                  "ecosystem": [
+                    "x86 / x86-64",
+                    "ARM",
+                    "Embedded Systems",
+                    "Registers & Memory",
+                    "Compiler Output"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "education",
+      "icon": "ph ph-graduation-cap",
+      "label": {
+        "nl": "Opleiding",
+        "en": "Education"
+      },
+      "shortDesc": {
+        "nl": "Academische achtergrond",
+        "en": "Academic background"
+      },
+      "content": {
+        "intro": {
+          "nl": "Een combinatie van een praktische opleiding in software engineering, technische projecten en professionele ontwikkeling.",
+          "en": "Combining practical software engineering studies with hands-on technical projects and professional growth."
+        },
+        "nodes": [
+          {
+            "date": "SEP 2013 - JUN 2019",
+            "role": {
+              "nl": "HAVO Natuur & Gezondheid",
+              "en": "HAVO Sciences and Health"
+            },
+            "company": {
+              "nl": "Niftarlake College",
+              "en": "Niftarlake College"
+            },
+            "desc": {
+              "nl": "Middelbare school en eerste kennismaking met programmeren",
+              "en": "Highschool and first introduction to programming"
+            },
+            "highlights": [
+              "<input highlight>",
+              "<input highlight>",
+              "<input highlight>"
+            ]
+          },
+          {
+            "date": "SEP 2019 - PRESENT",
+            "role": {
+              "nl": "HBO-ICT Technische Informatica",
+              "en": "HBO-ICT Computer Science Degree"
+            },
+            "company": {
+              "nl": "Technische Informatica Specialist",
+              "en": "Technical Informatics Specialist"
+            },
+            "desc": {
+              "nl": "Focus op systeemprogrammering, embedded hardware, softwarearchitectuur en algoritmeontwerp.",
+              "en": "Core focus on systems programming, embedded hardware, software architecture, and algorithm design."
+            },
+            "highlights": [
+              "<input highlight>",
+              "<input highlight>",
+              "<input highlight>"
+            ]
+          },
+          {
+            "date": "SEP 2024 - JAN 2025",
+            "role": {
+              "nl": "Internationale Minor Finland | Gameontwikkeling",
+              "en": "International Minor Finland | Game Development"
+            },
+            "company": {
+              "nl": "Turku University of Applied Sciences",
+              "en": "Turku University of Applied Sciences"
+            },
+            "desc": {
+              "nl": "Focus op graphics programming, interactieve systeemmechanica en gezamenlijk softwareontwerp in een interculturele omgeving.",
+              "en": "Focused on graphics programming, interactive system mechanics, and collaborative cross-cultural software design."
+            },
+            "highlights": [
+              "<input highlight>",
+              "<input highlight>",
+              "<input highlight>"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "github",
+      "icon": "ph ph-github-logo",
+      "label": {
+        "nl": "GitHub",
+        "en": "GitHub"
+      },
+      "shortDesc": {
+        "nl": "Telemetry & Repositories",
+        "en": "Telemetry & Repos"
+      },
+      "content": {
+        "intro": {
+          "nl": "Open-source code, repositoryactiviteit en snapshots van systeemontwikkeling van @Jordieboyz.",
+          "en": "Open source code, repository activity, and system development snapshots from @Jordieboyz."
+        },
+        "username": "Jordieboyz",
+        "bio": "Systems Architecture, Low-level C++",
+        "stats": [
+          {
+            "number": "4",
+            "label": {
+              "nl": "publieke repositories",
+              "en": "public repos"
+            }
+          },
+          {
+            "number": "5 setptember 2026",
+            "label": {
+              "nl": "laatste wijzigingen",
+              "en": "last changes"
+            }
+          }
+        ],
+        "repositories": [
+          {
+            "href": "https://github.com/Jordieboyz",
+            "name": "embedded-diagnostics-tool",
+            "langs": "C++",
+            "lastCommit": "22-08-2026"
+          },
+          {
+            "href": "https://github.com/Jordieboyz",
+            "name": "portfolio-website-v2",
+            "langs": "HTML/CSS/JS",
+            "lastCommit": "22-08-2026"
+          },
+          {
+            "href": "https://github.com/Jordieboyz",
+            "name": " vision-rover-control",
+            "langs": "Python",
+            "lastCommit": "22-08-2026"
+          }
+        ]
+      }
+    },
+    {
+      "id": "contact",
+      "icon": "ph ph-paper-plane-tilt",
+      "label": {
+        "nl": "Contact",
+        "en": "Contact"
+      },
+      "shortDesc": {
+        "nl": "Directe Communicatie",
+        "en": "Direct Communication"
+      },
+      "content": {
+        "intro": {
+          "nl": "Heb je een vraag of ben je geïnteresseerd in het aanbieden van een afstudeeropdracht? Stuur hieronder een bericht.",
+          "en": "Have a question or interested in offering a graduation assignment? Transmit a message below."
+        }
+      }
+    }
+  ]
+}

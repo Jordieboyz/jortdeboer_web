@@ -1,0 +1,32 @@
+{
+  "sociallinksData" : {
+    "mail" : {
+      "href" : "mailto:boer.jort.edu@email.com",
+      "target" : "_blank",
+      "icon" : "ph ph-envelope"
+    },
+    "linkedin" : {
+      "href" : {
+        "en": "https://www.linkedin.com/in/jort-de-boer-a84414198/",
+        "nl": "https://www.linkedin.com/in/jort-de-boer-a84414198/?locale=nl_NL"
+      },
+      "target" : "_blank",
+      "icon" : "ph ph-linkedin-logo"
+    },
+    "github" : {
+      "href" : "https://github.com/Jordieboyz",
+      "target" : "_blank",
+      "icon" : "ph ph-github-logo"
+    },
+    "instagram" : {
+      "href" : "https://www.instagram.com/jort__db/",
+      "target" : "_blank",
+      "icon" : "ph ph-instagram-logo"
+    },
+    "cv" : {
+      "href" : "/assets/res/cv/cv_jort_de_boer.pdf",
+      "target" : "_blank",
+      "icon" : "ph ph-read-cv-logo"
+    }
+  }
+}

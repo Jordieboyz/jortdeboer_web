@@ -1,0 +1,60 @@
+{
+  "telemetryData": [
+    {
+      "icon": "ph-user",
+      "name": {
+        "en": "Bio",
+        "nl": "Bio"
+      },
+      "value": {
+        "en": "Jort de Boer, 24",
+        "nl": "Jort de Boer, 24"
+      }
+    },
+    {
+      "icon": "ph-map-pin",
+      "name": {
+        "en": "Location",
+        "nl": "Locatie"
+      },
+      "value": {
+        "en": "Netherlands (NL)",
+        "nl": "Nederland (NL)"
+      }
+    },
+    {
+      "icon": "ph-code",
+      "name": {
+        "en": "Focus",
+        "nl": "Focus"
+      },
+      "value": {
+        "en": "Programming, Automation",
+        "nl": "Programmeren, Automatisering"
+      }
+    },
+    {
+      "icon": "ph-briefcase",
+      "name": {
+        "en": "Availability",
+        "nl": "Beschikbaarheid"
+      },
+      "value": {
+        "en": "Open for Recruitment",
+        "nl": "Beschikbaar"
+      },
+      "customColor": "rgb(33, 202, 11)"
+    },
+    {
+      "icon": "ph-kanban",
+      "name": {
+        "en": "Active Projects",
+        "nl": "Actieve Projecten"
+      },
+      "value": {
+        "en": "jortdeboerweb.com",
+        "nl": "jortdeboerweb.com"
+      }
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "global": 
+  {
+    "meta" : 
+    { 
+      "charset" : "UTF-8",
+      "name" : "viewport" ,
+      "content" : "width=device-width, initial-scale=1.0"
+    },
+    "title" :  "{{ meta.title }}",
+    "link" : 
+    {
+      "canonical" : 
+      { 
+        "href" :"{{ domain }}/{{ lang }}/{{ page_name }}.html"
+      },
+      "alternate" : [
+        { 
+          "hreflang" : "en",
+          "href" : "{{ domain }}/en/{{ page_name }}.html"
+        },
+        { 
+          "hreflang" : "nl",
+          "href" : "{{ domain }}/nl/{{ page_name }}.html"
+        }, 
+        { 
+          "hreflang" : "x-default",
+          "href" : "{{ domain }}/en/{{ page_name }}.html"
+        }
+      ],
+      "stylesheet": [
+        {
+          "href" : "https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css"
+        },
+        { 
+          "href" : "style.css" 
+        }
+      ]
+    },
+    "script" : 
+    {
+      "importmap" : 
+      {
+        "content-data" : "/{{ lang }}/data.js"
+      },
+      "js" : [
+        { 
+          "defer": true, 
+          "src" : "typed.js" 
+        },
+        { 
+          "src" : "index.js",
+          "type" : "module"
+        } 
+      ]
+    }
+  },
+  "home": 
+  {
+    "link" : 
+    {
+      "stylesheet": [
+        { 
+          "href" : "home.css"
+        }
+      ]
+    },
+    "script" : 
+    {
+      "js":  [
+        {
+          "src": "home.js",
+          "type" : "module"  
+        }
+      ]
+    }
+  },
+  "about": 
+  {
+    "link" : 
+    {
+      "stylesheet": [
+        { 
+          "href" : "about.css"
+        },
+        { 
+          "href" : "modules.css"
+        }
+      ]
+    },
+    "script" : 
+    {
+      "js":  [
+        {
+          "src": "about.js",
+          "type" : "module"  
+        },
+        {
+          "src": "about-modules.js",
+          "type" : "module"  
+        }
+      ]
+    }
+  },
+  "projects": 
+  {
+    "link" : 
+    {
+      "stylesheet": [
+        { 
+          "href" : "projects.css"
+        },
+        { 
+          "href" : "home.css"
+        }
+      ]
+    },
+    "script" : 
+    {
+      "js":  [
+        {
+          "src": "projects.js",
+          "type" : "module"  
+        }
+      ]
+    }
+  }
+} 

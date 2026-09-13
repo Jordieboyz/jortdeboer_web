@@ -1,0 +1,40 @@
+{
+  "competencies": [
+    {
+      "customColor": "#10b981",
+      "id": "swe",
+      "title": {
+        "nl": "Software Engineering",
+        "en": "Software Engineering"
+      },
+      "icon": "ph-code"
+    },
+    {
+      "customColor": "#06b6d4",
+      "id": "gd",
+      "title": {
+        "nl": "Gameontwikkeling",
+        "en": "Game Development"
+      },
+      "icon": "ph-game-controller"
+    },
+    {
+      "customColor": "#8b5cf6",
+      "id": "at",
+      "title": {
+        "nl": "Automatisering & Tooling",
+        "en": "Automation & Tooling"
+      },
+      "icon": "ph-gear"
+    },
+    {
+      "customColor": "#f6b35c",
+      "id": "ac",
+      "title": {
+        "nl": "Geavanceerde Computing",
+        "en": "Advanced Computing"
+      },
+      "icon": "ph-cpu"
+    }
+  ]
+}

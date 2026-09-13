@@ -1,0 +1,424 @@
+{
+  "projectsData": [
+    {
+      "id": "space-invaders",
+      "competences": ["ac"],
+      "date": "2025 Q3",
+      "title": {
+        "en": "Bare-Metal Space Invaders",
+        "nl": "Bare-Metal Space Invaders"
+      },
+      "icon": "game-controller",
+      "focus": {
+        "en": "System-Level Programming & Game Engine Fundamentals",
+        "nl": "Systeemniveauprogrammering & Fundamenten van Game Engines"
+      },
+      "tags": ["C/Assembly", "GameEngine", "OSDev"],
+      "stack": [
+        "ARM v8-M Architecture",
+        "Custom VGA Driver",
+        "Assembly for Interrupts",
+        "C Language (GCC)"
+      ],
+      "images": [],
+      "shortDescription": {
+        "en": "A low-level recreation of Space Invaders built entirely from scratch. No OS, no libraries. Features a custom bootloader, graphics driver, and input handling, all written in assembly and C to run directly on hardware.",
+        "nl": "Een low-level hercreatie van Space Invaders, volledig vanaf nul opgebouwd. Geen besturingssysteem, geen libraries. Bevat een custom bootloader, grafische driver en input-afhandeling, volledig geschreven in assembly en C om direct op de hardware te draaien."
+      },
+      "longDescription": {
+        "en": "This was my deepest dive into hardware interaction. I wrote a custom bootloader to initialize the hardware (a modified ARM platform), then implemented a VGA graphics driver directly manipulating memory registers to render sprites. The input handling was based on direct polling of GPIO pins. The complexity lay in optimizing the C and Assembly routines to ensure a smooth 60 FPS frame rate without any OS-level scheduling or memory protection.",
+        "nl": "Dit was mijn diepste verkenning van directe hardware-interactie. Ik schreef een custom bootloader om de hardware (een aangepast ARM-platform) te initialiseren en implementeerde vervolgens een VGA-grafische driver die geheugenregisters direct manipuleert om sprites te renderen. De input-afhandeling was gebaseerd op directe polling van GPIO-pinnen. De complexiteit lag in het optimaliseren van de C- en Assembly-routines om een soepele framerate van 60 FPS te behalen zonder scheduling of geheugenbescherming op OS-niveau."
+      },
+      "completed": false,
+      "bannerImage": "/assets/res/projects/banner-space-invaders.jpg",
+      "progLang": ["c-cpp", "assembly"],
+      "links": [
+        {
+          "web": "https://github.com/Jordieboyz",
+          "icon": "github-logo"
+        }
+      ]
+    },
+    {
+      "id": "portfolio-website",
+      "competences": ["swe"],
+      "date": "2025 Q2",
+      "title": {
+        "en": "Personal Portfolio Website",
+        "nl": "Persoonlijke Portfolio Website"
+      },
+      "icon": "globe",
+      "focus": {
+        "en": "Web Development & UX Design",
+        "nl": "Webontwikkeling & UX-design"
+      },
+      "tags": ["WebDev", "Portfolio"],
+      "stack": ["HTML", "CSS", "JavaScript"],
+      "images": [],
+      "shortDescription": {
+        "en": "Designed and developed a custom personal portfolio website using HTML, CSS, and JavaScript.",
+        "nl": "Een persoonlijke portfolio-website op maat ontworpen en ontwikkeld met HTML, CSS en JavaScript."
+      },
+      "longDescription": {
+        "en": "The project involved creating a responsive and interactive portfolio website from scratch.",
+        "nl": "Dit project bestond uit het volledig vanaf nul opzetten van een responsieve en interactieve portfolio-website."
+      },
+      "completed": false,
+      "bannerImage": "/assets/res/projects/banner-portfolio-website.png",
+      "progLang": ["html-css", "javascript"],
+      "links": [
+        {
+          "web": "https://github.com/Jordieboyz",
+          "icon": "github-logo"
+        },
+        {
+          "web": "#",
+          "icon": "globe"
+        }
+      ]
+    },
+    {
+      "id": "pixel-conquest",
+      "competences": ["gd"],
+      "date": "2024 Q4",
+      "title": {
+        "en": "Pixel Conquest",
+        "nl": "Pixel Conquest"
+      },
+      "icon": "castle-turret",
+      "focus": {
+        "en": "Game Development & Real-Time Strategy",
+        "nl": "Gameontwikkeling & Real-Time Strategie"
+      },
+      "tags": ["Unity", "Pixel Art", "Game Development"],
+      "stack": ["Unity", "C#", "Custom Tile Engine"],
+      "images": [],
+      "shortDescription": {
+        "en": "A fast-paced, real-time pixel game built in Unity with C#.",
+        "nl": "Een snel real-time pixelspel gebouwd in Unity met C#."
+      },
+      "longDescription": {
+        "en": "Developed a Unity-based real-time strategy game with pixel art aesthetics.",
+        "nl": "Ontwikkelde een real-time strategiespel in Unity met een pixelart-stijl."
+      },
+      "completed": true,
+      "bannerImage": "/assets/res/projects/banner-pixel-conquest.png",
+      "progLang": ["unity", "c-cpp"],
+      "links": [
+        {
+          "web": "https://github.com/Jordieboyz",
+          "icon": "gitlab-logo"
+        }
+      ]
+    },
+    {
+      "id": "grids",
+      "competences": ["gd"],
+      "date": "2024 Q4",
+      "title": {
+        "en": "Grids",
+        "nl": "Grids"
+      },
+      "icon": "grid-four",
+      "focus": {
+        "en": "Unity Multiplayer Game Development",
+        "nl": "Unity Multiplayer Gameontwikkeling"
+      },
+      "tags": ["Unity", "Multiplayer", "Game Development"],
+      "stack": ["Unity", "C#", "Networking"],
+      "images": [],
+      "shortDescription": {
+        "en": "A local multiplayer Unity game with quick minigames.",
+        "nl": "Een lokale multiplayergame in Unity met snelle minigames."
+      },
+      "longDescription": {
+        "en": "Created multiple mini-games within a shared grid environment.",
+        "nl": "Ontwikkelde meerdere minigames binnen een gedeelde grid-omgeving."
+      },
+      "completed": true,
+      "bannerImage": "/assets/res/projects/banner-grids.png",
+      "progLang": ["unity", "c-cpp"],
+      "links": [
+        {
+          "web": "https://github.com/Jordieboyz",
+          "icon": "github-logo"
+        }
+      ]
+    },
+    {
+      "id": "nas",
+      "competences": ["at"],
+      "date": "2023 Q4",
+      "title": {
+        "en": "DIY Network Attached Storage",
+        "nl": "DIY Network Attached Storage"
+      },
+      "icon": "download",
+      "focus": {
+        "en": "System Administration & Networking",
+        "nl": "Systeembeheer & Netwerken"
+      },
+      "tags": ["NAS", "Bash", "Linux"],
+      "stack": ["Raspberry Pi", "Samba", "Cron Jobs", "rsync"],
+      "images": [],
+      "shortDescription": {
+        "en": "Built a custom NAS with automated backups.",
+        "nl": "Een custom NAS gebouwd met geautomatiseerde back-ups."
+      },
+      "longDescription": {
+        "en": "Built a custom NAS using Raspberry Pi and Samba shares.",
+        "nl": "Een custom NAS gebouwd met een Raspberry Pi en Samba-shares."
+      },
+      "completed": false,
+      "bannerImage": "/assets/res/projects/truenas.png",
+      "progLang": ["bash", "python", "c-cpp"],
+      "links": [
+        {
+          "web": "#",
+          "icon": "globe"
+        }
+      ]
+    },
+    {
+      "id": "sailfishos",
+      "competences": ["swe"],
+      "date": "2024 Q2",
+      "title": {
+        "en": "SailfishOS on Fairphone 4",
+        "nl": "SailfishOS op Fairphone 4"
+      },
+      "icon": "device-mobile",
+      "focus": {
+        "en": "Mobile OS Porting & Open Source Contribution",
+        "nl": "Mobiele OS-porting & Open Source-bijdragen"
+      },
+      "tags": ["SailfishOS", "AndroidDev", "OpenSource"],
+      "stack": ["Linux Kernel", "Yocto Build System", "C++", "Qt/QML"],
+      "images": [],
+      "shortDescription": {
+        "en": "Developed a SailfishOS port for Fairphone 4.",
+        "nl": "Een SailfishOS-port voor de Fairphone 4 ontwikkeld."
+      },
+      "longDescription": {
+        "en": "Developed a SailfishOS port integrating kernel patches.",
+        "nl": "Een SailfishOS-port ontwikkeld waarin kernelpatches zijn geïntegreerd."
+      },
+      "completed": true,
+      "bannerImage": "/assets/res/projects/banner-sfos-fp4.png",
+      "progLang": ["bash", "python", "c-cpp"],
+      "links": [
+        {
+          "web": "https://github.com/Jordieboyz",
+          "icon": "github-logo"
+        }
+      ]
+    },
+    {
+      "id": "symbolic",
+      "competences": ["ac"],
+      "date": "2024 Q1",
+      "title": {
+        "en": "Symbolic: A Custom Turing-Complete Language",
+        "nl": "Symbolic: Een Custom Turing-Complete Programmeertaal"
+      },
+      "icon": "code",
+      "focus": {
+        "en": "Language Design & Compiler Construction",
+        "nl": "Taalontwerp & Compilerbouw"
+      },
+      "tags": ["Interpreter", "Python", "Arduino"],
+      "stack": ["Python", "AST", "Compiler", "Interpreter"],
+      "images": [],
+      "shortDescription": {
+        "en": "Built a custom Turing-complete language.",
+        "nl": "Een custom Turing-complete programmeertaal gebouwd."
+      },
+      "longDescription": {
+        "en": "Developed a compiler and interpreter in Python.",
+        "nl": "Een compiler en interpreter ontwikkeld in Python."
+      },
+      "completed": true,
+      "bannerImage": "/assets/res/projects/banner-symbolic.png",
+      "progLang": ["c-cpp", "assembly"],
+      "links": [
+        {
+          "web": "https://github.com/Jordieboyz",
+          "icon": "github-logo"
+        }
+      ]
+    },
+    {
+      "id": "super-hotline",
+      "competences": ["gd"],
+      "date": "2023 Q1",
+      "title": {
+        "en": "Super Hotline",
+        "nl": "Super Hotline"
+      },
+      "icon": "joystick",
+      "focus": {
+        "en": "Single Player Top-down Shooter Game",
+        "nl": "Singleplayer Top-down Shooter"
+      },
+      "tags": ["C++", "SFML", "GameDevelopment"],
+      "stack": ["Custom Sprites", "Dynamic Renderer", "SFML"],
+      "images": [],
+      "shortDescription": {
+        "en": "A fast-paced action game in C++.",
+        "nl": "Een snelle actiegame in C++."
+      },
+      "longDescription": {
+        "en": "Top-down shooter with time-based mechanics.",
+        "nl": "Top-down shooter met tijdsgebaseerde mechanieken."
+      },
+      "completed": true,
+      "bannerImage": "/assets/res/projects/banner-hotline.png",
+      "progLang": ["c-cpp"],
+      "links": [
+        {
+          "web": "https://github.com/Jordieboyz",
+          "icon": "github-logo"
+        }
+      ]
+    },
+    {
+      "id": "gomoku",
+      "competences": ["at"],
+      "date": "2023 Q3",
+      "title": {
+        "en": "Go-Moku MCTS Agent",
+        "nl": "Go-Moku MCTS-agent"
+      },
+      "icon": "dice-six",
+      "focus": {
+        "en": "Artificial Intelligence & Optimization",
+        "nl": "Kunstmatige Intelligentie & Optimalisatie"
+      },
+      "tags": ["MCTS", "Python", "Pseudocode"],
+      "stack": ["Python", "NumPy", "Monte Carlo Tree Search"],
+      "images": [],
+      "shortDescription": {
+        "en": "Built a Go-Moku AI using MCTS.",
+        "nl": "Een Go-Moku AI gebouwd met MCTS."
+      },
+      "longDescription": {
+        "en": "Implemented Monte Carlo Tree Search for decision making.",
+        "nl": "Monte Carlo Tree Search geïmplementeerd voor besluitvorming."
+      },
+      "completed": true,
+      "bannerImage": "/assets/res/projects/banner-gomoku.png",
+      "progLang": ["python"],
+      "links": [
+        {
+          "web": "https://github.com/Jordieboyz",
+          "icon": "github-logo"
+        }
+      ]
+    },
+    {
+      "id": "nrf24l01",
+      "competences": ["swe"],
+      "date": "2023 Q2",
+      "title": {
+        "en": "nRF24L01+ Wireless Module",
+        "nl": "nRF24L01+ Draadloze Module"
+      },
+      "icon": "code",
+      "focus": {
+        "en": "Embedded Systems & Hardware Communication",
+        "nl": "Embedded Systems & Hardwarecommunicatie"
+      },
+      "tags": ["Embedded", "C++", "Arduino"],
+      "stack": ["Arduino", "nRF24L01+", "HC-SR01 Sensor"],
+      "images": [],
+      "shortDescription": {
+        "en": "Custom driver for wireless module.",
+        "nl": "Custom driver voor draadloze module."
+      },
+      "longDescription": {
+        "en": "Built embedded communication system using Arduino.",
+        "nl": "Een embedded communicatiesysteem gebouwd met Arduino."
+      },
+      "completed": true,
+      "bannerImage": "/assets/res/projects/banner-nrf-arduino.png",
+      "progLang": ["c-cpp", "assembly"],
+      "links": [
+        {
+          "web": "https://github.com/Jordieboyz",
+          "icon": "github-logo"
+        }
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "key": "All",
+      "label": {
+        "en": "All Projects",
+        "nl": "Alle Projecten"
+      }
+    },
+    {
+      "key": "swe",
+      "label": {
+        "en": "Software Engineering",
+        "nl": "Software Engineering"
+      }
+    },
+    {
+      "key": "gd",
+      "label": {
+        "en": "Game Development",
+        "nl": "Gameontwikkeling"
+      }
+    },
+    {
+      "key": "ac",
+      "label": {
+        "en": "Advanced Computing",
+        "nl": "Geavanceerd Computergebruik"
+      }
+    },
+    {
+      "key": "at",
+      "label": {
+        "en": "Automation & Tooling",
+        "nl": "Automatisering & Tooling"
+      }
+    }
+  ],
+  "miscTranslations": {
+    "In-Development": {
+      "en": "In Development",
+      "nl": "In Ontwikkeling"
+    },
+    "empty": {
+      "en": "No projects found in this category.",
+      "nl": "Geen projecten gevonden in deze categorie."
+    },
+    "goal": {
+      "en": "Project Goal and Overview",
+      "nl": "Projectdoel en Overzicht"
+    },
+    "stack": {
+      "en": "Core Technology Stack",
+      "nl": "Belangrijkste Technologie Stack"
+    },
+    "contact": {
+      "en": "For code repositories and deeper implementation details, please contact me directly.",
+      "nl": "Neem rechtstreeks contact met mij op voor coderepositories en meer gedetailleerde informatie over de implementatie."
+    },
+    "inDev": {
+      "en": "In Development",
+      "nl": "In Ontwikkeling"
+    },
+    "seeMore": {
+      "en": "See More",
+      "nl": "Bekijk meer"
+    },
+    "viewProjects": {
+      "en": "More projects",
+      "nl": "Meer projecten"
+    }
+  }
+}
