@@ -41,7 +41,7 @@
     {
       "importmap" : 
       {
-        "content-data" : "/{{ lang }}/data.js"
+        "content-data" : "{{ domain }}/{{ lang }}/data.js"
       },
       "js" : [
         { 
