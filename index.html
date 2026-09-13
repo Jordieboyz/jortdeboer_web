@@ -3,22 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <title>Redirecting…</title>
-  <link rel="canonical" href="en/home.html">
+  <link rel="canonical" href="/jortdeboer_web/en/home.html">
   <script>
-    (function() {
-      const BASE_PATH = "/jortdeboer_web/";
+  (function() {
+    const lang = navigator.language || navigator.userLanguage;
+    const shortLang = lang.slice(0, 2).toLowerCase();
+    const supportedLangs = ['en', 'nl'];
+    const targetLang = supportedLangs.includes(shortLang) ? shortLang : 'en';
 
-      const lang = navigator.language || navigator.userLanguage;
-      const shortLang = lang.slice(0, 2).toLowerCase();
-      const supportedLangs = ['en', 'nl'];
-      const targetLang = supportedLangs.includes(shortLang) ? shortLang : 'en';
+    localStorage.setItem('prefLang', targetLang);
 
-      localStorage.setItem('prefLang', targetLang)
-      window.location.href = `${BASE_PATH}${targetLang}/home.html`;
-    })();
+    window.location.href = `/jortdeboer_web/${targetLang}/home.html`;
+  })();
   </script>
 </head>
 <body>
-  <p>If you are not redirected automatically, <a href="en/home.html">click here</a>.</p>
+  <p>If you are not redirected automatically, <a href="/jortdeboer_web/en/home.html">click here</a>.</p>
 </body>
 </html>
