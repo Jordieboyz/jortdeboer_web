@@ -87,9 +87,9 @@ export const DATA = Object.freeze(
               "<input highlight>"
             ],
             "images": [
-              "/assets/res/hobby/20220821_144041.jpg",
-              "/assets/res/hobby/20220821_144041.jpg",
-              "/assets/res/hobby/20220821_144041.jpg"
+              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
+              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
+              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg"
             ]
           },
           {
@@ -104,9 +104,9 @@ export const DATA = Object.freeze(
               "<input highlight>"
             ],
             "images": [
-              "/assets/res/hobby/20220821_144041.jpg",
-              "/assets/res/hobby/20220821_144041.jpg",
-              "/assets/res/hobby/20220821_144041.jpg"
+              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
+              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
+              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg"
             ]
           },
           {
@@ -121,9 +121,9 @@ export const DATA = Object.freeze(
               "<input highlight>"
             ],
             "images": [
-              "/assets/res/hobby/20220821_144041.jpg",
-              "/assets/res/hobby/20220821_144041.jpg",
-              "/assets/res/hobby/20220821_144041.jpg"
+              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
+              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
+              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg"
             ]
           },
           {
@@ -138,9 +138,9 @@ export const DATA = Object.freeze(
               "<input highlight>"
             ],
             "images": [
-              "/assets/res/hobby/20220821_144041.jpg",
-              "/assets/res/hobby/20220821_144041.jpg",
-              "/assets/res/hobby/20220821_144041.jpg"
+              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
+              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
+              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg"
             ]
           }
         ]
@@ -171,7 +171,7 @@ export const DATA = Object.freeze(
                 "color": "#f7df1e",
                 "icon": "ph ph-file-js",
                 "glow": "rgba(247, 223, 30, 0.4)",
-                "svg": "/assets/res/logo/javascript.svg",
+                "svg": "/jortdeboer_web/assets/res/logo/javascript.svg",
                 "meta": {
                   "usage": "Interactieve webapplicaties, frontendontwikkeling en browsergebaseerde tooling",
                   "spec": {
@@ -194,7 +194,7 @@ export const DATA = Object.freeze(
                 "color": "#f97316",
                 "icon": "ph ph-browser",
                 "glow": "rgba(249, 115, 22, 0.4)",
-                "svg": "/assets/res/logo/html.svg",
+                "svg": "/jortdeboer_web/assets/res/logo/html.svg",
                 "meta": {
                   "usage": "Het bouwen van responsieve interfaces, layouts en interactieve webervaringen",
                   "spec": {
@@ -217,7 +217,7 @@ export const DATA = Object.freeze(
                 "color": "#e5e7eb",
                 "icon": "ph ph-game-controller",
                 "glow": "rgba(229, 231, 235, 0.4)",
-                "svg": "/assets/res/logo/unity.svg",
+                "svg": "/jortdeboer_web/assets/res/logo/unity.svg",
                 "meta": {
                   "usage": "Gameontwikkeling, simulaties, physics-systemen en interactieve applicaties",
                   "spec": {
@@ -240,7 +240,7 @@ export const DATA = Object.freeze(
                 "color": "#22c55e",
                 "icon": "ph ph-file-xls",
                 "glow": "rgba(34, 197, 94, 0.4)",
-                "svg": "/assets/res/logo/msoffice.svg",
+                "svg": "/jortdeboer_web/assets/res/logo/msoffice.svg",
                 "meta": {
                   "usage": "Dataverwerking, documentatie, automatisering en bedrijfsworkflows",
                   "spec": {
@@ -275,7 +275,7 @@ export const DATA = Object.freeze(
                 "color": "#facc15",
                 "icon": "ph ph-file-py",
                 "glow": "rgba(250, 204, 21, 0.4)",
-                "svg": "/assets/res/logo/python.svg",
+                "svg": "/jortdeboer_web/assets/res/logo/python.svg",
                 "meta": {
                   "usage": "Automatisering, scripting, dataverwerking en softwareontwikkeling",
                   "spec": {
@@ -298,7 +298,7 @@ export const DATA = Object.freeze(
                 "color": "#a3e635",
                 "icon": "ph ph-terminal",
                 "glow": "rgba(163, 230, 53, 0.4)",
-                "svg": "/assets/res/logo/bash.svg",
+                "svg": "/jortdeboer_web/assets/res/logo/bash.svg",
                 "meta": {
                   "usage": "Linux-beheer, automatisering, buildsystemen en command-line-workflows",
                   "spec": {
@@ -333,7 +333,7 @@ export const DATA = Object.freeze(
                 "color": "#7dd3fc",
                 "icon": "ph ph-cpu",
                 "glow": "rgba(56, 189, 248, 0.4)",
-                "svg": "/assets/res/logo/cpp.svg",
+                "svg": "/jortdeboer_web/assets/res/logo/cpp.svg",
                 "meta": {
                   "usage": "Systeemprogrammering, embedded development en performancekritische applicaties",
                   "spec": {
@@ -356,7 +356,7 @@ export const DATA = Object.freeze(
                 "color": "#fb7185",
                 "icon": "ph ph-cpu",
                 "glow": "rgba(251, 113, 133, 0.4)",
-                "svg": "/assets/res/logo/asm.svg",
+                "svg": "/jortdeboer_web/assets/res/logo/asm.svg",
                 "meta": {
                   "usage": "Low-level programmeren, hardware-interactie en het begrijpen van gecompileerde code",
                   "spec": {
@@ -497,7 +497,7 @@ export const DATA = Object.freeze(
       "shortDescription": "Een low-level hercreatie van Space Invaders, volledig vanaf nul opgebouwd. Geen besturingssysteem, geen libraries. Bevat een custom bootloader, grafische driver en input-afhandeling, volledig geschreven in assembly en C om direct op de hardware te draaien.",
       "longDescription": "Dit was mijn diepste verkenning van directe hardware-interactie. Ik schreef een custom bootloader om de hardware (een aangepast ARM-platform) te initialiseren en implementeerde vervolgens een VGA-grafische driver die geheugenregisters direct manipuleert om sprites te renderen. De input-afhandeling was gebaseerd op directe polling van GPIO-pinnen. De complexiteit lag in het optimaliseren van de C- en Assembly-routines om een soepele framerate van 60 FPS te behalen zonder scheduling of geheugenbescherming op OS-niveau.",
       "completed": false,
-      "bannerImage": "/assets/res/projects/banner-space-invaders.jpg",
+      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-space-invaders.jpg",
       "progLang": [
         "c-cpp",
         "assembly"
@@ -531,7 +531,7 @@ export const DATA = Object.freeze(
       "shortDescription": "Een persoonlijke portfolio-website op maat ontworpen en ontwikkeld met HTML, CSS en JavaScript.",
       "longDescription": "Dit project bestond uit het volledig vanaf nul opzetten van een responsieve en interactieve portfolio-website.",
       "completed": false,
-      "bannerImage": "/assets/res/projects/banner-portfolio-website.png",
+      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-portfolio-website.png",
       "progLang": [
         "html-css",
         "javascript"
@@ -570,7 +570,7 @@ export const DATA = Object.freeze(
       "shortDescription": "Een snel real-time pixelspel gebouwd in Unity met C#.",
       "longDescription": "Ontwikkelde een real-time strategiespel in Unity met een pixelart-stijl.",
       "completed": true,
-      "bannerImage": "/assets/res/projects/banner-pixel-conquest.png",
+      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-pixel-conquest.png",
       "progLang": [
         "unity",
         "c-cpp"
@@ -605,7 +605,7 @@ export const DATA = Object.freeze(
       "shortDescription": "Een lokale multiplayergame in Unity met snelle minigames.",
       "longDescription": "Ontwikkelde meerdere minigames binnen een gedeelde grid-omgeving.",
       "completed": true,
-      "bannerImage": "/assets/res/projects/banner-grids.png",
+      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-grids.png",
       "progLang": [
         "unity",
         "c-cpp"
@@ -641,7 +641,7 @@ export const DATA = Object.freeze(
       "shortDescription": "Een custom NAS gebouwd met geautomatiseerde back-ups.",
       "longDescription": "Een custom NAS gebouwd met een Raspberry Pi en Samba-shares.",
       "completed": false,
-      "bannerImage": "/assets/res/projects/truenas.png",
+      "bannerImage": "/jortdeboer_web/assets/res/projects/truenas.png",
       "progLang": [
         "bash",
         "python",
@@ -678,7 +678,7 @@ export const DATA = Object.freeze(
       "shortDescription": "Een SailfishOS-port voor de Fairphone 4 ontwikkeld.",
       "longDescription": "Een SailfishOS-port ontwikkeld waarin kernelpatches zijn geïntegreerd.",
       "completed": true,
-      "bannerImage": "/assets/res/projects/banner-sfos-fp4.png",
+      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-sfos-fp4.png",
       "progLang": [
         "bash",
         "python",
@@ -715,7 +715,7 @@ export const DATA = Object.freeze(
       "shortDescription": "Een custom Turing-complete programmeertaal gebouwd.",
       "longDescription": "Een compiler en interpreter ontwikkeld in Python.",
       "completed": true,
-      "bannerImage": "/assets/res/projects/banner-symbolic.png",
+      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-symbolic.png",
       "progLang": [
         "c-cpp",
         "assembly"
@@ -750,7 +750,7 @@ export const DATA = Object.freeze(
       "shortDescription": "Een snelle actiegame in C++.",
       "longDescription": "Top-down shooter met tijdsgebaseerde mechanieken.",
       "completed": true,
-      "bannerImage": "/assets/res/projects/banner-hotline.png",
+      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-hotline.png",
       "progLang": [
         "c-cpp"
       ],
@@ -784,7 +784,7 @@ export const DATA = Object.freeze(
       "shortDescription": "Een Go-Moku AI gebouwd met MCTS.",
       "longDescription": "Monte Carlo Tree Search geïmplementeerd voor besluitvorming.",
       "completed": true,
-      "bannerImage": "/assets/res/projects/banner-gomoku.png",
+      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-gomoku.png",
       "progLang": [
         "python"
       ],
@@ -818,7 +818,7 @@ export const DATA = Object.freeze(
       "shortDescription": "Custom driver voor draadloze module.",
       "longDescription": "Een embedded communicatiesysteem gebouwd met Arduino.",
       "completed": true,
-      "bannerImage": "/assets/res/projects/banner-nrf-arduino.png",
+      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-nrf-arduino.png",
       "progLang": [
         "c-cpp",
         "assembly"
@@ -885,7 +885,7 @@ export const DATA = Object.freeze(
       "icon": "ph ph-instagram-logo"
     },
     "cv": {
-      "href": "/assets/res/cv/cv_jort_de_boer.pdf",
+      "href": "/jortdeboer_web/assets/res/cv/cv_jort_de_boer.pdf",
       "target": "_blank",
       "icon": "ph ph-read-cv-logo"
     }

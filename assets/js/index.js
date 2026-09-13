@@ -129,10 +129,19 @@ document.addEventListener("click", e => {
 
   ls.classList.remove("open");
 
-  // Build new URL
-  let newPath = window.location.pathname.match(/^\/(en|nl)/)
-    ? window.location.pathname.replace(/^\/(en|nl)/, `/${lang}`)
-    : `/${lang}${window.location.pathname}`;
+  // Build a language-aware URL that works for both
+  // /jortdeboer_web/en/... and /en/... page conventions.
+  const pathname = window.location.pathname;
+  const base = "/jortdeboer_web/";
+  let newPath;
+
+  if (pathname.startsWith(base)) {
+    newPath = pathname.replace(/^\/jortdeboer_web\/(en|nl)\//, `${base}${lang}/`);
+  } else if (/^\/(en|nl)\//.test(pathname)) {
+    newPath = pathname.replace(/^\/(en|nl)\//, `/${lang}/`);
+  } else {
+    newPath = `${base}${lang}${pathname}`;
+  }
 
   window.location.href = newPath + window.location.hash;
 });

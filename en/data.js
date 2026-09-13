@@ -87,9 +87,9 @@ export const DATA = Object.freeze(
               "<input highlight>"
             ],
             "images": [
-              "/assets/res/hobby/20220821_144041.jpg",
-              "/assets/res/hobby/20220821_144041.jpg",
-              "/assets/res/hobby/20220821_144041.jpg"
+              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
+              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
+              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg"
             ]
           },
           {
@@ -104,9 +104,9 @@ export const DATA = Object.freeze(
               "<input highlight>"
             ],
             "images": [
-              "/assets/res/hobby/20220821_144041.jpg",
-              "/assets/res/hobby/20220821_144041.jpg",
-              "/assets/res/hobby/20220821_144041.jpg"
+              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
+              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
+              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg"
             ]
           },
           {
@@ -121,9 +121,9 @@ export const DATA = Object.freeze(
               "<input highlight>"
             ],
             "images": [
-              "/assets/res/hobby/20220821_144041.jpg",
-              "/assets/res/hobby/20220821_144041.jpg",
-              "/assets/res/hobby/20220821_144041.jpg"
+              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
+              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
+              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg"
             ]
           },
           {
@@ -138,9 +138,9 @@ export const DATA = Object.freeze(
               "<input highlight>"
             ],
             "images": [
-              "/assets/res/hobby/20220821_144041.jpg",
-              "/assets/res/hobby/20220821_144041.jpg",
-              "/assets/res/hobby/20220821_144041.jpg"
+              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
+              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
+              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg"
             ]
           }
         ]
@@ -171,7 +171,7 @@ export const DATA = Object.freeze(
                 "color": "#f7df1e",
                 "icon": "ph ph-file-js",
                 "glow": "rgba(247, 223, 30, 0.4)",
-                "svg": "/assets/res/logo/javascript.svg",
+                "svg": "/jortdeboer_web/assets/res/logo/javascript.svg",
                 "meta": {
                   "usage": "Interactive web applications, frontend development and browser-based tooling",
                   "spec": {
@@ -194,7 +194,7 @@ export const DATA = Object.freeze(
                 "color": "#f97316",
                 "icon": "ph ph-browser",
                 "glow": "rgba(249, 115, 22, 0.4)",
-                "svg": "/assets/res/logo/html.svg",
+                "svg": "/jortdeboer_web/assets/res/logo/html.svg",
                 "meta": {
                   "usage": "Building responsive interfaces, layouts and interactive web experiences",
                   "spec": {
@@ -217,7 +217,7 @@ export const DATA = Object.freeze(
                 "color": "#e5e7eb",
                 "icon": "ph ph-game-controller",
                 "glow": "rgba(229, 231, 235, 0.4)",
-                "svg": "/assets/res/logo/unity.svg",
+                "svg": "/jortdeboer_web/assets/res/logo/unity.svg",
                 "meta": {
                   "usage": "Game development, simulations, physics systems and interactive applications",
                   "spec": {
@@ -240,7 +240,7 @@ export const DATA = Object.freeze(
                 "color": "#22c55e",
                 "icon": "ph ph-file-xls",
                 "glow": "rgba(34, 197, 94, 0.4)",
-                "svg": "/assets/res/logo/msoffice.svg",
+                "svg": "/jortdeboer_web/assets/res/logo/msoffice.svg",
                 "meta": {
                   "usage": "Data processing, documentation, automation and business workflows",
                   "spec": {
@@ -275,7 +275,7 @@ export const DATA = Object.freeze(
                 "color": "#facc15",
                 "icon": "ph ph-file-py",
                 "glow": "rgba(250, 204, 21, 0.4)",
-                "svg": "/assets/res/logo/python.svg",
+                "svg": "/jortdeboer_web/assets/res/logo/python.svg",
                 "meta": {
                   "usage": "Automation, scripting, data processing and software development",
                   "spec": {
@@ -298,7 +298,7 @@ export const DATA = Object.freeze(
                 "color": "#a3e635",
                 "icon": "ph ph-terminal",
                 "glow": "rgba(163, 230, 53, 0.4)",
-                "svg": "/assets/res/logo/bash.svg",
+                "svg": "/jortdeboer_web/assets/res/logo/bash.svg",
                 "meta": {
                   "usage": "Linux administration, automation, build systems and command-line workflows",
                   "spec": {
@@ -333,7 +333,7 @@ export const DATA = Object.freeze(
                 "color": "#7dd3fc",
                 "icon": "ph ph-cpu",
                 "glow": "rgba(56, 189, 248, 0.4)",
-                "svg": "/assets/res/logo/cpp.svg",
+                "svg": "/jortdeboer_web/assets/res/logo/cpp.svg",
                 "meta": {
                   "usage": "Systems programming, embedded development and performance-critical applications",
                   "spec": {
@@ -356,7 +356,7 @@ export const DATA = Object.freeze(
                 "color": "#fb7185",
                 "icon": "ph ph-cpu",
                 "glow": "rgba(251, 113, 133, 0.4)",
-                "svg": "/assets/res/logo/asm.svg",
+                "svg": "/jortdeboer_web/assets/res/logo/asm.svg",
                 "meta": {
                   "usage": "Low-level programming, hardware interaction and understanding compiled code",
                   "spec": {
@@ -497,7 +497,7 @@ export const DATA = Object.freeze(
       "shortDescription": "A low-level recreation of Space Invaders built entirely from scratch. No OS, no libraries. Features a custom bootloader, graphics driver, and input handling, all written in assembly and C to run directly on hardware.",
       "longDescription": "This was my deepest dive into hardware interaction. I wrote a custom bootloader to initialize the hardware (a modified ARM platform), then implemented a VGA graphics driver directly manipulating memory registers to render sprites. The input handling was based on direct polling of GPIO pins. The complexity lay in optimizing the C and Assembly routines to ensure a smooth 60 FPS frame rate without any OS-level scheduling or memory protection.",
       "completed": false,
-      "bannerImage": "/assets/res/projects/banner-space-invaders.jpg",
+      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-space-invaders.jpg",
       "progLang": [
         "c-cpp",
         "assembly"
@@ -531,7 +531,7 @@ export const DATA = Object.freeze(
       "shortDescription": "Designed and developed a custom personal portfolio website using HTML, CSS, and JavaScript.",
       "longDescription": "The project involved creating a responsive and interactive portfolio website from scratch.",
       "completed": false,
-      "bannerImage": "/assets/res/projects/banner-portfolio-website.png",
+      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-portfolio-website.png",
       "progLang": [
         "html-css",
         "javascript"
@@ -570,7 +570,7 @@ export const DATA = Object.freeze(
       "shortDescription": "A fast-paced, real-time pixel game built in Unity with C#.",
       "longDescription": "Developed a Unity-based real-time strategy game with pixel art aesthetics.",
       "completed": true,
-      "bannerImage": "/assets/res/projects/banner-pixel-conquest.png",
+      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-pixel-conquest.png",
       "progLang": [
         "unity",
         "c-cpp"
@@ -605,7 +605,7 @@ export const DATA = Object.freeze(
       "shortDescription": "A local multiplayer Unity game with quick minigames.",
       "longDescription": "Created multiple mini-games within a shared grid environment.",
       "completed": true,
-      "bannerImage": "/assets/res/projects/banner-grids.png",
+      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-grids.png",
       "progLang": [
         "unity",
         "c-cpp"
@@ -641,7 +641,7 @@ export const DATA = Object.freeze(
       "shortDescription": "Built a custom NAS with automated backups.",
       "longDescription": "Built a custom NAS using Raspberry Pi and Samba shares.",
       "completed": false,
-      "bannerImage": "/assets/res/projects/truenas.png",
+      "bannerImage": "/jortdeboer_web/assets/res/projects/truenas.png",
       "progLang": [
         "bash",
         "python",
@@ -678,7 +678,7 @@ export const DATA = Object.freeze(
       "shortDescription": "Developed a SailfishOS port for Fairphone 4.",
       "longDescription": "Developed a SailfishOS port integrating kernel patches.",
       "completed": true,
-      "bannerImage": "/assets/res/projects/banner-sfos-fp4.png",
+      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-sfos-fp4.png",
       "progLang": [
         "bash",
         "python",
@@ -715,7 +715,7 @@ export const DATA = Object.freeze(
       "shortDescription": "Built a custom Turing-complete language.",
       "longDescription": "Developed a compiler and interpreter in Python.",
       "completed": true,
-      "bannerImage": "/assets/res/projects/banner-symbolic.png",
+      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-symbolic.png",
       "progLang": [
         "c-cpp",
         "assembly"
@@ -750,7 +750,7 @@ export const DATA = Object.freeze(
       "shortDescription": "A fast-paced action game in C++.",
       "longDescription": "Top-down shooter with time-based mechanics.",
       "completed": true,
-      "bannerImage": "/assets/res/projects/banner-hotline.png",
+      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-hotline.png",
       "progLang": [
         "c-cpp"
       ],
@@ -784,7 +784,7 @@ export const DATA = Object.freeze(
       "shortDescription": "Built a Go-Moku AI using MCTS.",
       "longDescription": "Implemented Monte Carlo Tree Search for decision making.",
       "completed": true,
-      "bannerImage": "/assets/res/projects/banner-gomoku.png",
+      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-gomoku.png",
       "progLang": [
         "python"
       ],
@@ -818,7 +818,7 @@ export const DATA = Object.freeze(
       "shortDescription": "Custom driver for wireless module.",
       "longDescription": "Built embedded communication system using Arduino.",
       "completed": true,
-      "bannerImage": "/assets/res/projects/banner-nrf-arduino.png",
+      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-nrf-arduino.png",
       "progLang": [
         "c-cpp",
         "assembly"
@@ -885,7 +885,7 @@ export const DATA = Object.freeze(
       "icon": "ph ph-instagram-logo"
     },
     "cv": {
-      "href": "/assets/res/cv/cv_jort_de_boer.pdf",
+      "href": "/jortdeboer_web/assets/res/cv/cv_jort_de_boer.pdf",
       "target": "_blank",
       "icon": "ph ph-read-cv-logo"
     }
