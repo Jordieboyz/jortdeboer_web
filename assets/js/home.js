@@ -35,7 +35,20 @@ new Typed('.typed', {
   backDelay: 3000
 });
 
+function updateHomeImage(){
+  if (window.innerWidth < 767) {
+    const img = document.querySelector('.hero-headshot');
+    img.src = img.src.replace(img.src.split('/').pop(), 'hero_jort_de_boer_short.jpeg');
+  } else { 
+    const img = document.querySelector('.hero-headshot');
+    img.src = img.src.replace(img.src.split('/').pop(), 'hero_jort_de_boer.jpeg');
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  updateHomeImage()
+  window.addEventListener('resize', updateHomeImage)
+
   const route = parseRouteHash(window.location.hash);
 
   if (route.domainId) {
@@ -84,7 +97,7 @@ function parseRouteHash(hash = '') {
   return { domainId, projId };
 }
 
-function updatePath(domainId = '', projId = '') {
+function updatePath(domainId = '', projId = '', forceScroll = null) {
   if (!domainId) {
     if (window.location.hash) {
       history.replaceState(null, '', location.pathname + location.search);
@@ -97,6 +110,9 @@ function updatePath(domainId = '', projId = '') {
     window.location.hash = hashValue;
   }
 
+  // Skip scrolling on mobile
+  if (window.matchMedia('(max-width: 768px)').matches && !forceScroll) return;
+  
   const header = select('.section-header');
   if (header) {
     window.scrollTo({ top: header.offsetTop });
@@ -129,7 +145,7 @@ statPills.forEach(pill => {
     selectedProjectId = firstProject.id;
     activeDomainKey = domainId;
 
-    updatePath(domainId, firstProject.id);
+    updatePath(domainId, firstProject.id, true);
     updateTreeState(domainId, firstProject.id);
     swapDetailStage();
   });
@@ -152,10 +168,10 @@ function skinTabsState(activeTab) {
 }
 
 document.addEventListener(APP_EVENTS.DOMAIN_SELECT, ({ detail }) => {
-  activeDomainKey = detail.domKey;
+  activeDomainKey = detail.domKey === activeDomainKey ? null : detail.domKey;
   selectedProjectId = null;
   updatePath(detail.domKey);
-  updateTreeState(detail.domKey, null);
+  updateTreeState(activeDomainKey, null);
 });
 
 document.addEventListener(APP_EVENTS.PROJECT_SELECT, ({ detail }) => {

@@ -508,8 +508,11 @@ header {
   }
 
   .nav-content {
-    grid-template-columns: auto 1fr auto;
-    gap: 12px;
+    display: flex;
+    flex-direction: row;
+    padding: 3px;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .nav-logo {
@@ -557,9 +560,6 @@ header {
 }
 
 @media (max-width: 380px) {
-  .nav-content {
-    gap: 7px;
-  }
 
   .nav-logo {
     font-size: 1rem;

@@ -577,6 +577,7 @@ export const DATA = Object.freeze(
       ],
       "links": [
         {
+          "site": "github",
           "web": "https://github.com/Jordieboyz",
           "icon": "gitlab-logo"
         }
@@ -865,7 +866,7 @@ export const DATA = Object.freeze(
   },
   "sociallinksData": {
     "mail": {
-      "href": "mailto:boer.jort.edu@email.com",
+      "href": "mailto:boer.jort.edu@gmail.com",
       "target": "_blank",
       "icon": "ph ph-envelope"
     },

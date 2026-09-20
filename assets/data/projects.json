@@ -106,6 +106,7 @@
       "progLang": ["unity", "c-cpp"],
       "links": [
         {
+          "site" : "github",
           "web": "https://github.com/Jordieboyz",
           "icon": "gitlab-logo"
         }

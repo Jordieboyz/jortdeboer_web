@@ -711,7 +711,7 @@ export class domainSelectionRenderer extends BaseRenderer {
 export class DomainDetailsPanel extends BaseRenderer {
 
   // THis class always gets passed a single project object for display
-  render(){    
+  render(){   
     return this.options.placeholder ?  
       // placeholder
       div('placeholder-state', [
@@ -740,50 +740,57 @@ export class DomainDetailsPanel extends BaseRenderer {
       ]) 
     :  // project card 
     div('project-card', [
-      div('card-header',[
-        a('category-pill-badge',[
-          span('badge-text-primary',[
-            i(`ph ph-${this.data.icon}`),
-            span('badgeCategoryText', this.options.competences.find(c => c.id === this.data.competences[0]).title)
-          ])
-        ]),
-        div('card-top-actions',
+      div('card-header',
           button('close-icon-btn', i('ph ph-x'), 
-            {
-              onClick : (e) => {
-                e.stopPropagation();
-                emit(e.currentTarget, APP_EVENTS.PROJECT_CLOSE)
-              }
+          {
+            onClick : (e) => {
+              e.stopPropagation();
+              emit(e.currentTarget, APP_EVENTS.PROJECT_CLOSE)
             }
-          )
+          }
         )
-      ]),
-      div('project-image-container',[
-        img('banner-image', [], { src : this.data.bannerImage}),
-        div('overlay-card', [
-          span('created-meta', [
-            i('ph ph-clock') ,
-            this.data.date
+      ),
+      div('project-image-container', img('banner-image', [], { src : this.data.bannerImage})),
+      div('project-card-content',[
+        div('content-left',[
+          a('category-pill-badge',[
+            span('badge-text-primary',[
+              i(`ph ph-${this.data.icon}`),
+              span('badgeCategoryText', this.options.competences.find(c => c.id === this.data.competences[0]).title)
+            ])
           ]),
           h2('overlay-title', this.data.title),
-
-        ])
+          div('project-description', this.data.shortDescription),
+        ]),
+        div('content-right',[
+          div('meta',[
+            span('created-meta', [
+              span('title', 'completion'),
+              span('value', this.data.date)
+            ]),
+            span('created-meta', [
+              span('title', 'status'),
+              span('value', this.data.links.find(l => l.site === 'github')?.web ? 'Live':  'Offline', {
+                style : `color: ${this.data.links.find(l => l.site === 'github')?.web ? 'rgb(0, 247, 33)':  '#ef4444'}`
+              } ),
+            ])
+          ]),
+          div('card-bottom-bar' ,[
+            a('btn btn-view-project', span('', [
+              'View project', 
+            i('ph ph-arrow-up-right arrow-icon')]), {
+              href : `projects.html#${this.data.id}`
+            }),
+            a(`btn btn-github ${ this.data.links.find(l => l.site === 'github') ? '' : 'offline' }`, span('', [ 
+              i('ph ph-github-logo'), 
+              'Github'
+            ]), {
+              href : '',
+              target : '_blank'
+            })
+          ])
+        ]),
       ]),
-      div('project-description', this.data.shortDescription),
-      div('card-bottom-bar' ,[
-        a('btn btn-view-project', span('', [
-          'View project', 
-        i('ph ph-arrow-up-right arrow-icon')]), {
-          href : `projects.html#${this.data.id}`
-        }),
-        a('btn btn-github', span('', [ 
-          i('ph ph-github-logo'), 
-          'Github'
-        ]), {
-          href : `https://github.com/Jordieboyz`,
-          target : '_blank'
-        })
-      ])
     ], { style: `--accent : ${this.options.competences.find(c => c.id === this.data.competences[0]).customColor}`})
   }
 }
@@ -888,7 +895,7 @@ export class CompetenceLinksRenderer extends BaseRenderer {
 export class LanguageDropdownRenderer extends BaseRenderer {
   render(){
     return Object.entries(this.data).map(([lang, v]) =>
-       button('lang-option',[
+       button('btn lang-option',[
           span('flag', v.flag),
           span('', v.language),
           i('ph ph-check check')
