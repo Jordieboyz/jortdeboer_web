@@ -263,7 +263,7 @@ export class ModuleRenderer extends BaseRenderer {
   }
   
   hobbiesModule(){
-    return div('panel-content', [ 
+    return div('panel-content education-panel', [ 
       div('header-content', [
         // h2('intro-headline', html(this.data.content.intro))
       ]),
@@ -468,7 +468,7 @@ export class ModuleRenderer extends BaseRenderer {
       div('github-controls-bar',[
         div('github-section-title', [
           i('ph ph-git-branch'),
-          span('', 'Live Repositories')
+          span('', 'Repositories')
         ]),
         div('github-actions', [
           button('btn-refresh', [

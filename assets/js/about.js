@@ -9,6 +9,7 @@ const select = (selector, all = false) =>
 let currentIdx = 0;
 
 const pickerList = select('.available-mod-list');
+const pickerTrack = select('.available-mod-track');
 const activeModuleContainer = select('.active-module-container');
 const hintUp = selectID('hintUp');
 const hintDown = selectID('hintDown');
@@ -39,9 +40,12 @@ function update(idx, animate = true) {
     const isMobile = window.innerWidth <= 768;
         
     if (isMobile) {
-        const itemW = 160;
-        const targetX = (window.innerWidth / 2) - (currentIdx * itemW) - (itemW / 2);
-        pickerList.style.transform = `translateX(${targetX}px)`;
+        const itemW = pickerTrack.querySelector('.picker-item-wrapper')?.getBoundingClientRect().width || 160;
+        const edgeSpace = Math.max(0, (pickerTrack.clientWidth - itemW) / 2);
+        pickerList.style.paddingLeft = `${edgeSpace}px`;
+        pickerList.style.paddingRight = `${edgeSpace}px`;
+        pickerList.style.transform = 'none';
+        pickerTrack.scrollTo({ left: currentIdx * itemW, behavior: animate ? 'smooth' : 'auto' });
     } else {
         const itemH = 60;
         const targetY = ((425 - 72)/ 2) - (currentIdx * itemH) - (itemH / 2);
@@ -97,6 +101,22 @@ pickerList.addEventListener('click', e => {
     const wrapper = e.target.closest('.picker-item-wrapper');
     if (wrapper) update(parseInt(wrapper.dataset.idx));
 });
+
+let touchStartX = null;
+
+pickerTrack.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+}, { passive: true });
+
+pickerTrack.addEventListener('touchend', e => {
+    if (touchStartX === null) return;
+
+    const deltaX = e.changedTouches[0].clientX - touchStartX;
+    touchStartX = null;
+
+    if (Math.abs(deltaX) < 35) return;
+    update(currentIdx + (deltaX < 0 ? 1 : -1));
+}, { passive: true });
 
 
 

@@ -194,3 +194,63 @@
     color: var(--color-primary);
   }
 }
+
+@media (max-width: 767px) {
+  .projects-title {
+    font-size: clamp(1.8rem, 9vw, 2.5rem);
+    padding-top: 0;
+  }
+
+  .projects-sub-title {
+    font-size: 1rem;
+    margin-bottom: 24px;
+  }
+
+  .category-tabs {
+    gap: 8px;
+    margin-bottom: 28px;
+    padding: 0;
+  }
+
+  .filter-button {
+    flex: 1 1 calc(50% - 8px);
+    max-width: none;
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+
+  .project-list {
+    gap: 16px;
+    padding: 0;
+  }
+
+  .project-modal-overlay {
+    padding: 8px;
+  }
+
+  .project-modal-content {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 48px 18px 24px;
+  }
+
+  .modal-title {
+    font-size: 1.5rem;
+    padding-right: 28px;
+  }
+
+  .modal-focus {
+    font-size: 1rem;
+  }
+
+  .modal-body h4 {
+    font-size: 1.25rem;
+    margin-top: 24px;
+  }
+
+  .modal-body p,
+  .modal-body ul {
+    font-size: 1rem;
+    margin-bottom: 18px;
+  }
+}

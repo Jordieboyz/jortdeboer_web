@@ -1,7 +1,7 @@
 /* --- Hero Styles --- */
 .hero {
 	display: flex;
-	justify-content: space-between;
+  justify-content: center;
 	align-items: center;
 	gap: 2.5rem;
   flex-wrap: wrap;
@@ -16,11 +16,15 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+  align-items: center;
+  text-align: center;
 	gap: 30px;
 }
 
 .hero-links {
   display: flex;
+	justify-content: center;
+	align-items: center;
   gap: 30px;
 	transition: all 0.2s ease;
 
@@ -53,6 +57,7 @@
 	font-size: 1.5rem;
 	font-weight: 600; 
 	color: var(--color-gray-400); 
+  text-align: center;
 }
 
 /* --- telemetry Styles --- */
@@ -217,6 +222,43 @@
 	transition: text-shadow 0.3 ease;
 }
 
+.telemetry-header i {
+  animation: none;
+}
+
+.telemetry-item {
+  transition: none;
+}
+
+.telemetry-item:hover {
+  transform: none;
+  border-left-width: 0;
+  color: inherit;
+}
+
+.telemetry-item:hover::before {
+  transform: translateX(-100%);
+}
+
+.telemetry-item:hover::after {
+  animation: none;
+}
+
+.telemetry-item:hover .telemetry-label {
+  color: var(--color-gray-400);
+  opacity: 1;
+  text-shadow: none;
+  transform: none;
+}
+
+.telemetry-item:hover .telemetry-label i {
+  opacity: 0.6;
+}
+
+.telemetry-item:hover .telemetry-value {
+  text-shadow: none;
+}
+
 
 
 
@@ -317,6 +359,89 @@
 
 .surge-active.active-module-container::after { 
     animation: triangle-flash 0.4s ease-out forwards; 
+}
+
+@media (max-width: 767px) {
+  .hero {
+    align-items: stretch;
+    gap: 2rem;
+  }
+
+  .hero-header {
+    min-width: 0;
+  }
+
+  .hero-main {
+    gap: 20px;
+  }
+
+  .hero-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .home-title {
+    font-size: clamp(2.2rem, 10vw, 3.5rem);
+  }
+
+  .sub-home-title {
+    font-size: 1.1rem;
+  }
+
+  .telemetry-panel {
+    width: 100%;
+    padding: 0 14px;
+  }
+
+  .main-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .active-module-container {
+    height: min(70vh, 520px);
+    min-height: 360px;
+  }
+
+  .module-tab-header {
+    padding: 10px 12px;
+  }
+
+  .tab-text {
+    font-size: 0.7rem;
+  }
+
+  .available-mod-track {
+    height: 280px;
+  }
+
+  .picker-item-wrapper {
+    padding: 0 10px;
+  }
+
+  .panel-content {
+    overflow-wrap: anywhere;
+  }
+
+  .cards-container {
+    flex-direction: column;
+  }
+
+  .tiles-grid {
+    min-height: 320px;
+  }
+
+  .chip {
+    gap: 8px;
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .chip-title {
+    font-size: 0.72rem;
+  }
 }
 
 
@@ -759,6 +884,157 @@ aside {
 }
 .chip-subtitle {
 	font-size: 10px; color: #94a3b8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+@media (max-width: 767px) {
+  #about-me,
+  .hero,
+  .main-layout,
+  .active-module-container,
+  .module-content-wrapper,
+  aside {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .hero-main,
+  .module-content-wrapper,
+  .panel-content {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .module-tab-header {
+    min-width: 0;
+    padding: 10px 12px;
+  }
+
+  .tab-label {
+    min-width: 0;
+    gap: 7px;
+    overflow: hidden;
+  }
+
+  .tab-text,
+  .tab-text-module {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    letter-spacing: 0.12em;
+  }
+
+  .help-container {
+    flex-shrink: 0;
+  }
+
+  .nav-message {
+    display: none;
+  }
+
+  aside {
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .available-mod-track {
+    flex: 1;
+    width: auto;
+    height: 76px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    mask-image: none;
+    -webkit-mask-image: none;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    touch-action: pan-x;
+  }
+
+  .available-mod-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .available-mod-list {
+    width: max-content;
+    min-width: 100%;
+    height: 100%;
+    flex-direction: row;
+    transform: none !important;
+    box-sizing: content-box;
+  }
+
+  .picker-item-wrapper {
+    flex: 0 0 clamp(128px, 42vw, 160px);
+    width: clamp(128px, 42vw, 160px);
+    height: 60px;
+    padding: 0 5px;
+    scroll-snap-align: center;
+  }
+
+  .picker-item {
+    min-width: 0;
+    padding: 5px 10px;
+  }
+
+  .label-group,
+  .label-text,
+  .label-subtext {
+    min-width: 0;
+  }
+
+  .label-text,
+  .label-subtext {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .scroll-hint {
+    flex: 0 0 24px;
+    width: 24px;
+    height: 30px;
+    animation: none !important;
+  }
+
+  #hintUp {
+    transform: rotate(-90deg);
+  }
+
+  #hintDown {
+    transform: rotate(-90deg);
+  }
+
+  .active-module-container {
+    height: auto;
+    min-height: 420px;
+    order: 2;
+  }
+
+  aside {
+    order: 1;
+    margin-top: 20px;
+    margin-bottom: 4px;
+  }
+
+  .active-module-container::after {
+    right: auto;
+    left: 50%;
+    top: -15px;
+    transform: translateX(-50%) rotate(-90deg);
+  }
+
+  .module-content-wrapper {
+    width: calc(100% - 20px);
+    height: auto;
+    max-height: none;
+    flex: 0 1 auto;
+    overflow-y: visible;
+    overflow-x: hidden;
+    align-self: center;
+    margin: 10px;
+  }
 }
 
   /* Compact rack mode: only the active layer's siblings show, with arrows to slide to another layer */
@@ -1866,3 +2142,272 @@ aside {
       0%, 100% { opacity: 0.6; }
       50% { opacity: 0.2; }
     }
+
+@media (max-width: 767px) {
+  /* Identity: keep the two phases readable without horizontal card crowding. */
+  .identity-phase-1 .identity-spec-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .identity-phase-2 .cards-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .identity-phase-2 .vibe-card {
+    flex: none;
+    padding: 9px 11px;
+  }
+
+  .btn-next {
+    align-self: flex-end;
+    justify-content: flex-end;
+    margin-top: 14px;
+  }
+
+  .identity-phase-2 .btn-next {
+    align-self: flex-start;
+    justify-content: flex-start;
+  }
+
+  /* Hobbies: show the descriptive copy on touch devices and keep one modal image. */
+  .tiles-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    min-height: 300px;
+  }
+
+  .tile:hover {
+    transform: none;
+  }
+
+  .tile .shutter-content,
+  .tile:hover .shutter-content {
+    height: 100%;
+    background: linear-gradient(0deg, rgba(6, 17, 37, 0.95) 0%, rgba(6, 17, 37, 0.58) 70%, transparent 100%);
+  }
+
+  .tile .tile-desc,
+  .tile:hover .tile-desc {
+    opacity: 1;
+    max-height: 80px;
+    margin-top: 5px;
+  }
+
+  .tile::after {
+    content: 'Tap to explore';
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 3;
+    padding: 3px 6px;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 4px;
+    color: var(--color-gray-300);
+    background: rgba(6, 17, 37, 0.65);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .hobby-embedded-modal {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 18px;
+    overflow-y: auto;
+  }
+
+  .modal-left-stack {
+    height: 130px;
+  }
+
+  .modal-img-item {
+    display: none;
+  }
+
+  .modal-img-item:first-child {
+    display: block;
+  }
+
+  .modal-right-info {
+    padding: 0 4px 8px 0;
+    overflow: visible;
+  }
+
+  .modal-info-header {
+    font-size: 1.15rem;
+  }
+
+  .modal-info-text {
+    font-size: 0.9rem;
+  }
+
+  /* Tech stack: stack the inspector details and let chips shrink safely. */
+  .techstack-panel .stack-rack {
+    gap: 8px;
+  }
+
+  .techstack-panel .slab {
+    min-height: 54px;
+  }
+
+  .techstack-panel .slab-tab {
+    width: 44px;
+    padding-right: 5px;
+  }
+
+  .techstack-panel .slab-tab .label {
+    font-size: 8px;
+  }
+
+  .techstack-panel .slab-nodes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    padding: 3px 0;
+  }
+
+  .techstack-panel .chip {
+    justify-content: center;
+    min-height: 38px;
+    max-width: 100%;
+  }
+
+  .techstack-panel .chip-info {
+    display: none;
+  }
+
+  .techstack-panel .chip-icon,
+  .techstack-panel .chip-logo {
+    width: 26px;
+    height: 26px;
+  }
+
+  .education-panel {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+  }
+
+  .education-panel .timeline-track,
+  .education-panel .timeline-nodes,
+  .education-panel .milestone-card {
+    min-width: 430px;
+  }
+
+  .education-panel .milestone-card {
+    white-space: normal;
+  }
+
+  .detail-grid,
+  .drawer-grid {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .detail-drawer.is-open {
+    min-height: 300px;
+  }
+
+  /* Education: keep the timeline compact, then give the selected milestone room. */
+  .timeline-container {
+    margin-top: 12px;
+  }
+
+  .timeline-nodes {
+    padding: 0 4px;
+  }
+
+  .timeline-line-bg {
+    left: 20px;
+    right: 20px;
+  }
+
+  .timeline-title {
+    font-size: 9px;
+  }
+
+  .timeline-subtitle {
+    max-width: 90px;
+    font-size: 8px;
+  }
+
+  .milestone-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .milestone-badge {
+    align-self: flex-start;
+  }
+
+  .milestone-title {
+    font-size: 1.1rem;
+  }
+
+  .milestone-desc,
+  .milestone-list li {
+    font-size: 0.85rem;
+  }
+
+  /* GitHub: stack profile data and repositories instead of squeezing columns. */
+  .github-card {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .github-avatar {
+    width: 58px;
+    height: 58px;
+  }
+
+  .github-info {
+    min-width: 0;
+    flex: 1 1 calc(100% - 74px);
+  }
+
+  .github-username {
+    font-size: 0.95rem;
+  }
+
+  .github-bio {
+    font-size: 0.78rem;
+  }
+
+  .github-stats-container {
+    flex: 1 1 100%;
+    justify-content: space-around;
+    border-left: 0;
+    border-top: 1px solid #1e293b;
+    padding: 10px 0 0;
+  }
+
+  .github-projects-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .repo-card {
+    padding: 12px;
+  }
+
+  .github-controls-bar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .btn-refresh {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 340px) {
+  .hero-links {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .hero-links i {
+    font-size: 20px;
+  }
+}

@@ -885,7 +885,7 @@ export const DATA = Object.freeze(
       "icon": "ph ph-instagram-logo"
     },
     "cv": {
-      "href": "/jortdeboer_web/assets/res/cv/cv_jort_de_boer.pdf",
+      "href": "/jortdeboer_web/assets/res/cv/CV_jort_de_boer.pdf",
       "target": "_blank",
       "icon": "ph ph-read-cv-logo"
     }

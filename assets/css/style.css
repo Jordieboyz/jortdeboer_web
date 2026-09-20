@@ -478,3 +478,102 @@ header {
     transform: translateY(-2px);
   }
 }
+
+/*--------------------------------------------------------------
+  >>> Small-screen layout
+--------------------------------------------------------------*/
+@media (max-width: 767px) {
+  :root {
+    --header-height: 64px;
+    --main-content-wrapper-padding: 16px;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  header {
+    padding: 0 12px;
+  }
+
+  .container,
+  #main-content-wrapper {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  #main-content-wrapper {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .nav-content {
+    grid-template-columns: auto 1fr auto;
+    gap: 12px;
+  }
+
+  .nav-logo {
+    font-size: 1.15rem;
+    white-space: nowrap;
+  }
+
+  .nav-link-group {
+    gap: 12px;
+    justify-self: end;
+  }
+
+  .nav-link-group a {
+    font-size: 0.82rem;
+  }
+
+  .nav-actions {
+    gap: 8px;
+  }
+
+  .lang-trigger {
+    gap: 5px;
+    padding: 6px 7px;
+  }
+
+  .footer-content {
+    padding-left: 16px;
+    padding-right: 16px;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .footer-logo-wrapper {
+    justify-content: center;
+  }
+
+  .footer-links {
+    gap: 18px;
+  }
+
+  .btn {
+    justify-content: center;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 380px) {
+  .nav-content {
+    gap: 7px;
+  }
+
+  .nav-logo {
+    font-size: 1rem;
+  }
+
+  .nav-link-group {
+    gap: 8px;
+  }
+
+  .nav-link-group a {
+    font-size: 0.75rem;
+  }
+
+  .lang-code {
+    display: none;
+  }
+}
