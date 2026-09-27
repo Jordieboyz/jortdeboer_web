@@ -709,7 +709,7 @@ export class domainSelectionRenderer extends BaseRenderer {
 }
 
 export class DomainDetailsPanel extends BaseRenderer {
-
+  
   // THis class always gets passed a single project object for display
   render(){   
     return this.options.placeholder ?  
@@ -729,7 +729,6 @@ export class DomainDetailsPanel extends BaseRenderer {
             style: `--accent : ${this.options.competences.find(c => c.id === p.competences[0]).customColor}`,
             onClick : (e) => {
               e.stopPropagation();
-              console.log('ds', p)
               emit(e.currentTarget, APP_EVENTS.PROJECT_SELECT, {
                 domKey : p.competences[0],
                 projId : p.id,
@@ -739,7 +738,7 @@ export class DomainDetailsPanel extends BaseRenderer {
         ))
       ]) 
     :  // project card 
-    div('project-card', [
+    div('project-card',[
       div('card-header',
           button('close-icon-btn', i('ph ph-x'), 
           {
@@ -750,47 +749,70 @@ export class DomainDetailsPanel extends BaseRenderer {
           }
         )
       ),
-      div('project-image-container', img('banner-image', [], { src : this.data.bannerImage})),
-      div('project-card-content',[
-        div('content-left',[
-          a('category-pill-badge',[
-            span('badge-text-primary',[
+      div('banner-wrapper', 
+        img('project-image', [], { src : this.data.bannerImage})
+      ),
+      div('card-content',[
+        div('main-content',[
+          div('content-left', [
+            div('domain-badge', [
               i(`ph ph-${this.data.icon}`),
               span('badgeCategoryText', this.options.competences.find(c => c.id === this.data.competences[0]).title)
-            ])
-          ]),
-          h2('overlay-title', this.data.title),
-          div('project-description', this.data.shortDescription),
-        ]),
-        div('content-right',[
-          div('meta',[
-            span('created-meta', [
-              span('title', 'completion'),
-              span('value', this.data.date)
             ]),
-            span('created-meta', [
-              span('title', 'status'),
-              span('value', this.data.links.find(l => l.site === 'github')?.web ? 'Live':  'Offline', {
-                style : `color: ${this.data.links.find(l => l.site === 'github')?.web ? 'rgb(0, 247, 33)':  '#ef4444'}`
-              } ),
-            ])
+            h2('project-title', this.data.title),
+            p('project-description', this.data.shortDescription)
           ]),
-          div('card-bottom-bar' ,[
-            a('btn btn-view-project', span('', [
-              'View project', 
-            i('ph ph-arrow-up-right arrow-icon')]), {
+          div('content-right', [
+            div('info-box',[
+              div('info-item', [
+                i('ph ph-calendar'),
+                div('info-text',[
+                  span('info-label', 'Completed'),
+                  span('info-value', this.data.date)
+                ])
+              ]),
+              div('info-divider'),
+              div('info-item', [
+                i('ph ph-github-logo'),
+                div('info-text',[
+                  span('info-label', 'Repository'),
+                  span('info-value', [
+                    span('status-text', this.data.links.find(l => l.site === 'github')?.web ? 'Public':  'Private', {
+                      style : `color: ${this.data.links.find(l => l.site === 'github')?.web ? 'rgb(0, 247, 33)':  '#ef4444'}`
+                    }),
+                  ])
+                ])
+              ]),
+
+            ])
+          ])
+        ]),
+        div('content-divider'),
+        div('project-card-footer', [ 
+          div('tech-tags', [
+            this.data.tags.map(tag => 
+              div('tech-pill', [
+                span('tag-label', tag)]
+              )
+            )
+          ]),
+          div('action-buttons', [
+            a('btn btn-view-project', [
+              span('', 'View project'),
+              i('ph ph-arrow-up-right arrow-icon')
+            ], {
               href : `projects.html#${this.data.id}`
             }),
-            a(`btn btn-github ${ this.data.links.find(l => l.site === 'github') ? '' : 'offline' }`, span('', [ 
+            a(`btn btn-github ${ this.data.links.find(l => l.site === 'github') ? '' : 'offline' }`, [
               i('ph ph-github-logo'), 
-              'Github'
-            ]), {
-              href : '',
+              span('', 'Github')
+            ],{
+              href : this.data.links.find(l => l.site === 'github')?.web,
               target : '_blank'
             })
           ])
         ]),
-      ]),
+      ])
     ], { style: `--accent : ${this.options.competences.find(c => c.id === this.data.competences[0]).customColor}`})
   }
 }
