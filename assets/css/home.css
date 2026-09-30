@@ -960,8 +960,8 @@ i {
     .tech-pill {
       font-size: 0.74rem;
       font-family: var(--font-mono);
-      padding: 4px 10px;
-      border-radius: 6px;
+      padding: 7px 13px;
+      border-radius: 10px;
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--color-border);
       color: var(--color-text-base);
@@ -1151,9 +1151,34 @@ i {
   transform: rotate(90deg);
 }
 
-.offline {
+.private {
+  font-size: 25px;
   pointer-events: none;
-  border-color: var(--color-border) !important;
+  color: #f87171;
+  border-color: #f87171 !important;
+
+  i {
+    font-size: 20px;
+    color: white;
+  }
+}
+
+.public {
+  font-size: 25px;
+  color: #10b981;
+  border-color: #10b981 !important; 
+  
+  &:hover {
+    background: #10b98131;
+    color: #10b981;
+    box-shadow: 0px 0px 5px #10b981;
+  }
+  
+  
+  i {
+    font-size: 20px;
+    color: white;
+  }
 }
 
 .banner-wrapper {
@@ -1163,11 +1188,9 @@ i {
   aspect-ratio: 16 / 5;
   border-radius: 12px;
   overflow: hidden;
-  margin-bottom: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 .project-image {
@@ -1186,21 +1209,33 @@ i {
 
 .main-content {
   display: grid;
-  grid-template-columns: 1.5fr .5fr;
-  align-items: center;
+  grid-template-columns: .9fr .5fr;
+  padding: 20px 10px;
+  padding-bottom: 0px;
 }
 
 .content-left {
+  padding: 0px 20px;
   display: flex;
   flex-direction: column;
   gap: 14px;
+
+  span {
+    display: flex;
+    gap: 15px;
+
+    i{ 
+      font-size: 30px;
+      color: var(--accent)
+    }
+    }
 }
 
 .domain-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 14px;
+  padding: 4px 10px;
   border-radius: 20px;
   border: 1px solid var(--accent);
   color: var(--accent);
@@ -1212,12 +1247,12 @@ i {
 
 /* Title & Description */
 .project-title {
-  font-size: 1.85rem;
+  font-size: 34px;
   font-weight: 700;
   letter-spacing: -0.5px;
 
     @media (min-width: 1024px) {
-    font-size: 1.125rem;
+    font-size: 24px;
   }
 
 }
@@ -1233,39 +1268,39 @@ i {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+
 }
 
 /* Details Info Box (Completed & Repository) */
 .info-box {
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
   padding-left: 20px;
+
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 10px;
 }
 
 .info-item {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 20px;
 
   i {
-    font-size: 25px;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 23px;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.02);
   }
 }
 
 .info-text {
   display: flex;
   flex-direction: column;
-  gap: 2px;
 }
 
 @media (max-width: 767px) {
@@ -1317,18 +1352,17 @@ i {
 }
 
 .info-label {
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   color: var(--color-gray-400);
   font-weight: 500;
 }
 
 .info-value {
-  font-size: 0.92rem;
+  font-size: 0.85rem;
   color: var(--text-primary);
   font-weight: 700;
   display: flex;
   align-items: center;
-  gap: 6px;
 }
 
 /* Status Live Green Dot */
@@ -1353,7 +1387,9 @@ i {
 .action-buttons {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 20px;
+  justify-content: flex-end;
+  padding-right: 10px;
 }
 
 .project-card-footer {
@@ -1376,7 +1412,7 @@ i {
 .btn-view-project, .btn-github {
   border: 1px solid var(--accent);
   font-size: 0.8rem;
-  padding: 12px 18px;
+  padding: 7px 13px;
   border-radius: 10px;
   font-weight: 600;
   cursor: pointer;
@@ -1412,4 +1448,9 @@ i {
   .detail-stage {
     min-height: 280px;
 }
+}
+
+.tech-tags {
+  display: flex;
+  gap: 10px;
 }

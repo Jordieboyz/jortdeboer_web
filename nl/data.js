@@ -555,7 +555,7 @@ export const DATA = Object.freeze(
       "date": "2024 Q4",
       "title": "Pixel Conquest",
       "icon": "castle-turret",
-      "focus": "Gameontwikkeling & Real-Time Strategie",
+      "focus": "Gameontwikkeling",
       "tags": [
         "Unity",
         "Pixel Art",
@@ -613,8 +613,9 @@ export const DATA = Object.freeze(
       ],
       "links": [
         {
+          "site": "github",
           "web": "https://github.com/Jordieboyz",
-          "icon": "github-logo"
+          "icon": "gitlab-logo"
         }
       ]
     },

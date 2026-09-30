@@ -710,8 +710,20 @@ export class domainSelectionRenderer extends BaseRenderer {
 
 export class DomainDetailsPanel extends BaseRenderer {
   
+  initializeButtonState(){
+    const githubLink = this.data.links.find(l => l.site === 'github')?.web
+    return a(`btn btn-github ${ githubLink ? 'public' : 'private' }`, [
+      i(githubLink ? 'ph ph-github-logo' : 'ph ph-lock-key'), 
+      span('', githubLink ? 'Source Code' : 'Private Repo' )
+    ],{
+      href : githubLink ?? '',
+      target : '_blank'
+    })
+  }
+
   // THis class always gets passed a single project object for display
   render(){   
+
     return this.options.placeholder ?  
       // placeholder
       div('placeholder-state', [
@@ -753,13 +765,14 @@ export class DomainDetailsPanel extends BaseRenderer {
         img('project-image', [], { src : this.data.bannerImage})
       ),
       div('card-content',[
+
         div('main-content',[
+          
           div('content-left', [
-            div('domain-badge', [
+            span('', [
               i(`ph ph-${this.data.icon}`),
-              span('badgeCategoryText', this.options.competences.find(c => c.id === this.data.competences[0]).title)
+              h2('project-title', this.data.title),
             ]),
-            h2('project-title', this.data.title),
             p('project-description', this.data.shortDescription)
           ]),
           div('content-right', [
@@ -771,31 +784,19 @@ export class DomainDetailsPanel extends BaseRenderer {
                   span('info-value', this.data.date)
                 ])
               ]),
-              div('info-divider'),
               div('info-item', [
-                i('ph ph-github-logo'),
+                i(`ph ph-${this.data.icon}`),
                 div('info-text',[
-                  span('info-label', 'Repository'),
-                  span('info-value', [
-                    span('status-text', this.data.links.find(l => l.site === 'github')?.web ? 'Public':  'Private', {
-                      style : `color: ${this.data.links.find(l => l.site === 'github')?.web ? 'rgb(0, 247, 33)':  '#ef4444'}`
-                    }),
+                  span('info-label', 'Focus'),
+                  span('info-value', 
+                    span('status-text', this.data.focus)
+                    ),
                   ])
                 ])
-              ]),
-
             ])
           ])
         ]),
         div('content-divider'),
-        div('project-card-footer', [ 
-          div('tech-tags', [
-            this.data.tags.map(tag => 
-              div('tech-pill', [
-                span('tag-label', tag)]
-              )
-            )
-          ]),
           div('action-buttons', [
             a('btn btn-view-project', [
               span('', 'View project'),
@@ -803,16 +804,9 @@ export class DomainDetailsPanel extends BaseRenderer {
             ], {
               href : `projects.html#${this.data.id}`
             }),
-            a(`btn btn-github ${ this.data.links.find(l => l.site === 'github') ? '' : 'offline' }`, [
-              i('ph ph-github-logo'), 
-              span('', 'Github')
-            ],{
-              href : this.data.links.find(l => l.site === 'github')?.web,
-              target : '_blank'
-            })
+            this.initializeButtonState()
           ])
-        ]),
-      ])
+      ]),
     ], { style: `--accent : ${this.options.competences.find(c => c.id === this.data.competences[0]).customColor}`})
   }
 }

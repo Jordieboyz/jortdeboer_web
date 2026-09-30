@@ -87,8 +87,8 @@
       },
       "icon": "castle-turret",
       "focus": {
-        "en": "Game Development & Real-Time Strategy",
-        "nl": "Gameontwikkeling & Real-Time Strategie"
+        "en": "Game Development",
+        "nl": "Gameontwikkeling"
       },
       "tags": ["Unity", "Pixel Art", "Game Development"],
       "stack": ["Unity", "C#", "Custom Tile Engine"],
@@ -141,8 +141,9 @@
       "progLang": ["unity", "c-cpp"],
       "links": [
         {
+          "site" : "github",
           "web": "https://github.com/Jordieboyz",
-          "icon": "github-logo"
+          "icon": "gitlab-logo"
         }
       ]
     },
