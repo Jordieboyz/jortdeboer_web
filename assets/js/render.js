@@ -1,6 +1,7 @@
 import { DATA } from "content-data"
 import { APP_EVENTS, emit } from "./events.js";
 
+
 export class ElementBuilder {
   static tags = [
     'div', 'span', 'button', 'i', 'li', 
@@ -75,6 +76,9 @@ const elements = Object.fromEntries(
       ElementBuilder.create(tag, children, cls, attrs)
   ])
 );
+
+const ph_icon = (icon, cls = '') =>
+    i(`ph ph-${icon} ${cls}`.trim());
 
 export const select = (selector, all = false) =>
   all ? [...document.querySelectorAll(selector)] : document.querySelector(selector);
@@ -227,7 +231,7 @@ export class ModuleRenderer extends BaseRenderer {
         )),
         button('btn-next', [
           span('', 'Next: Mindset & Core Values'),
-          i('ph ph-arrow-right')
+          ph_icon('arrow-right')
         ], {
           onClick : (e) => {
             e.stopPropagation();
@@ -249,7 +253,7 @@ export class ModuleRenderer extends BaseRenderer {
           ])
         )),
         button('btn-next', [
-          i('ph ph-arrow-left'),
+          ph_icon('arrow-left'),
           span('', 'Back: Bio & Specs')
         ], {
           onClick : (e) => {
@@ -288,7 +292,7 @@ export class ModuleRenderer extends BaseRenderer {
         })
       )),
       div('hobby-embedded-modal', [
-        button('modal-close-x', i('ph ph-x'), {
+        button('modal-close-x', ph_icon('x'), {
           onclick : (e) => {
             e.stopPropagation()
             emit(e.currentTarget, APP_EVENTS.MODULE_HOBBY_CLOSE_MODAL)   
@@ -346,7 +350,7 @@ export class ModuleRenderer extends BaseRenderer {
         div('stack-rack', [ 
           this.data.content.layers.map(layer => createStackRack(layer)),
           div('layer-slider', [
-            button('slider-arrow', i('ph ph-caret-left'), { 
+            button('slider-arrow', ph_icon('caret-left'), { 
               onClick : (e) => {
                 e.stopPropagation(); 
                 emit(e.currentTarget, APP_EVENTS.MODULE_TECHSTACK_SHIFT_LAYER, 
@@ -366,7 +370,7 @@ export class ModuleRenderer extends BaseRenderer {
               ]),
               div('slider-track')
             ]),
-            button('slider-arrow', i('ph ph-caret-right'), { 
+            button('slider-arrow', ph_icon('caret-right'), { 
               onClick : (e) => {
                 e.stopPropagation(); 
                 emit(e.currentTarget, APP_EVENTS.MODULE_TECHSTACK_SHIFT_LAYER, 
@@ -387,7 +391,7 @@ export class ModuleRenderer extends BaseRenderer {
                 span('drawer-layer')  //fill in by js
               ])
             ]),
-            button('btn-close', i('ph ph-x'), { 
+            button('btn-close', ph_icon('x'), { 
               onClick : (e) => {
                 e.stopPropagation(); 
                 emit(e.currentTarget, APP_EVENTS.MODULE_TECHSTACK_CLEAR_SELECTION)
@@ -467,7 +471,7 @@ export class ModuleRenderer extends BaseRenderer {
       ]),
       div('github-controls-bar',[
         div('github-section-title', [
-          i('ph ph-git-branch'),
+          ph_icon('git-branch'),
           span('', 'Repositories')
         ]),
         div('github-actions', [
@@ -530,7 +534,7 @@ export class CompetenceRenderer extends BaseRenderer {
         div('project-title-row',[
           span('project-title-text', [
             project.title,
-            i('ph ph-arrow-up-right')
+            ph_icon('arrow-up-right')
           ])
         ])
       ],{href : `projects.html#${project.id}`})
@@ -567,7 +571,7 @@ export class CompetenceRenderer extends BaseRenderer {
         div('hover-card-footer', [
           a('card-footer-action',[
             span('', this.miscTranslations.viewProjects),
-            i('ph ph-caret-right')
+            ph_icon('caret-right')
           ], { href : 'projects.html' })
         ]),
       ]),
@@ -649,7 +653,7 @@ export class ProjectRenderer extends BaseRenderer {
 }
 
 export class domainSelectionRenderer extends BaseRenderer {
-  fetchProjects(id, limit = 2){
+  fetchProjects(id, limit = 3){
     this.projects = this.options.projects.filter(project => project.competences?.includes(id)).slice(0, limit);
   }
 
@@ -664,13 +668,13 @@ export class domainSelectionRenderer extends BaseRenderer {
     return div('tree-group',[
       div('btn domain-header',[
         div('domain-header-left',[ 
-          i('ph ph-caret-down domain-chevron'),
+          ph_icon('caret-down domain-chevron'),
           div('domain-icon-dot', 
             i(`ph ${this.data.icon}`)
           ),
           span('domain-title', this.data.title)
         ]),
-        span('domain-count-badge', Math.min(2, this.project_count(this.data.id)))
+        span('domain-count-badge', Math.min(3, this.project_count(this.data.id)))
       ],{
         onClick : (e) => {
           e.stopPropagation();
@@ -711,12 +715,18 @@ export class domainSelectionRenderer extends BaseRenderer {
 export class DomainDetailsPanel extends BaseRenderer {
   
   initializeButtonState(){
-    const githubLink = this.data.links.find(l => l.site === 'github')?.web
-    return a(`btn btn-github ${ githubLink ? 'public' : 'private' }`, [
-      i(githubLink ? 'ph ph-github-logo' : 'ph ph-lock-key'), 
-      span('', githubLink ? 'Source Code' : 'Private Repo' )
+    if(!this.data.links.length){
+      return a('btn btn-link private', [
+        ph_icon('lock-key'), 
+        span('', 'Private Repo')
+      ])
+    }
+    const projLink = this.data.links[0]
+    return a('btn btn-link public', [
+      ph_icon(projLink.icon), 
+      span('', 'Source Code')
     ],{
-      href : githubLink ?? '',
+      href : projLink?.web ?? '',
       target : '_blank'
     })
   }
@@ -735,7 +745,7 @@ export class DomainDetailsPanel extends BaseRenderer {
               i(`ph ph-${p.icon}`), 
               p.title
             ]),
-            i('ph ph-arrow-right')
+            ph_icon('arrow-right')
           ], {
             style: `--accent : ${this.options.competences.find(c => c.id === p.competences[0]).customColor}`,
             onClick : (e) => {
@@ -751,7 +761,7 @@ export class DomainDetailsPanel extends BaseRenderer {
     :  // project card 
     div('project-card',[
       div('card-header',
-          button('close-icon-btn', i('ph ph-x'), 
+          button('close-icon-btn', ph_icon('x'), 
           {
             onClick : (e) => {
               e.stopPropagation();
@@ -777,7 +787,7 @@ export class DomainDetailsPanel extends BaseRenderer {
           div('content-right', [
             div('info-box',[
               div('info-item', [
-                i('ph ph-calendar'),
+                ph_icon('calendar'),
                 div('info-text',[
                   span('info-label', 'Completed'),
                   span('info-value', this.data.date)
@@ -799,7 +809,7 @@ export class DomainDetailsPanel extends BaseRenderer {
           div('action-buttons', [
             a('btn btn-view-project', [
               span('', 'View project'),
-              i('ph ph-arrow-up-right arrow-icon')
+              ph_icon('arrow-up-right arrow-icon')
             ], {
               href : `projects.html#${this.data.id}`
             }),
@@ -844,7 +854,7 @@ export class CompetencePanelRenderer extends BaseRenderer {
         ? a('proj-row',[
           span('proj-num',idx+1),
           span('proj-name',p.title),
-          i('ph ph-arrow-up-right proj-arrow')
+          ph_icon('arrow-up-right proj-arrow')
         ], { href:`projects.html#${p.id}` })
         : ''
     )
@@ -874,7 +884,7 @@ export class CompetencePanelRenderer extends BaseRenderer {
         ]),
         a('panel-footer-link',[
           'All projects',
-          i('ph ph-caret-right')
+          ph_icon('caret-right')
         ],{ href: 'projects.html' })
       ])
     ],{ 
@@ -913,7 +923,7 @@ export class LanguageDropdownRenderer extends BaseRenderer {
        button('btn lang-option',[
           span('flag', v.flag),
           span('', v.language),
-          i('ph ph-check check')
+          ph_icon('check', 'check')
         ], { 'data-lang': lang })
     )
   }

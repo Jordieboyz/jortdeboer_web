@@ -7,7 +7,7 @@ const domainByTitle = new Map(DATA.competencies.map(domain => [domain.title, dom
 const projectById = new Map(DATA.projectsData.map(project => [project.id, project]));
 const projectByTitle = new Map(DATA.projectsData.map(project => [project.title, project]));
 
-new SocialLinksRenderer(DATA.sociallinksData, select('.social-links'));
+new SocialLinksRenderer(DATA.sociallinksData, select('.home-social-links'));
 new CompetenceLinksRenderer(DATA.competencies, select('.home-stats'));
 new domainSelectionRenderer(DATA.competencies, select('.domain-selection'), {
   projects: DATA.projectsData
