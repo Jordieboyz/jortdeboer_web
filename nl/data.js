@@ -478,10 +478,10 @@ export const DATA = Object.freeze(
       "competences": [
         "ac"
       ],
-      "date": "2025 Q3",
+      "date": "Unfinished",
       "title": "Bare-Metal Space Invaders",
-      "icon": "game-controller",
-      "focus": "Systeemniveauprogrammering & Fundamenten van Game Engines",
+      "icon": "flying-saucer",
+      "focus": "Fundamenten van Game Engines",
       "tags": [
         "C/Assembly",
         "GameEngine",
@@ -502,12 +502,7 @@ export const DATA = Object.freeze(
         "c-cpp",
         "assembly"
       ],
-      "links": [
-        {
-          "web": "https://github.com/Jordieboyz",
-          "icon": "github-logo"
-        }
-      ]
+      "links": []
     },
     {
       "id": "portfolio-website",

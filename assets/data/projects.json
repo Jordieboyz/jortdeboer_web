@@ -3,15 +3,15 @@
     {
       "id": "space-invaders",
       "competences": ["ac"],
-      "date": "2025 Q3",
+      "date": "Unfinished",
       "title": {
         "en": "Bare-Metal Space Invaders",
         "nl": "Bare-Metal Space Invaders"
       },
-      "icon": "game-controller",
+      "icon": "flying-saucer",
       "focus": {
-        "en": "System-Level Programming & Game Engine Fundamentals",
-        "nl": "Systeemniveauprogrammering & Fundamenten van Game Engines"
+        "en": "Game Engine Fundamentals",
+        "nl": "Fundamenten van Game Engines"
       },
       "tags": ["C/Assembly", "GameEngine", "OSDev"],
       "stack": [
@@ -33,10 +33,6 @@
       "bannerImage": "/jortdeboer_web/assets/res/projects/banner-space-invaders.jpg",
       "progLang": ["c-cpp", "assembly"],
       "links": [
-        {
-          "web": "https://github.com/Jordieboyz",
-          "icon": "github-logo"
-        }
       ]
     },
     {
