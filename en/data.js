@@ -856,6 +856,8 @@ export const DATA = Object.freeze(
     }
   ],
   "miscTranslations": {
+    "nothing_selected": "No Project Selected",
+    "nothing_selected_subtitle": "Select any system project from the explorer tree on the left to inspect its details and technical specs.",
     "In-Development": "In Development",
     "empty": "No projects found in this category.",
     "goal": "Project Goal and Overview",

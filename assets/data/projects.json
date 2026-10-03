@@ -390,6 +390,14 @@
     }
   ],
   "miscTranslations": {
+    "nothing_selected": {
+      "en": "No Project Selected",
+      "nl": "Geen Project Geselecteerd"
+    },    
+    "nothing_selected_subtitle": {
+      "en": "Select any system project from the explorer tree on the left to inspect its details and technical specs.",
+      "nl": "Selecteer een project uit de verkenner aan de linkerzijde om details en techische specificaties te bekijken."
+    },
     "In-Development": {
       "en": "In Development",
       "nl": "In Ontwikkeling"

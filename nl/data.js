@@ -856,6 +856,8 @@ export const DATA = Object.freeze(
     }
   ],
   "miscTranslations": {
+    "nothing_selected": "Geen Project Geselecteerd",
+    "nothing_selected_subtitle": "Selecteer een project uit de verkenner aan de linkerzijde om details en techische specificaties te bekijken.",
     "In-Development": "In Ontwikkeling",
     "empty": "Geen projecten gevonden in deze categorie.",
     "goal": "Projectdoel en Overzicht",

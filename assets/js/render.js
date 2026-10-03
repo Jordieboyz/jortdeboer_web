@@ -723,13 +723,12 @@ export class DomainDetailsPanel extends BaseRenderer {
 
   // THis class always gets passed a single project object for display
   render(){   
-
     return this.options.placeholder ?  
       // placeholder
       div('placeholder-state', [
-        div('placeholder-icon-wrap', i('ph ph-cursor-click')),
-        h3('placeholder-title', 'No Project Selected'),
-        p('placeholder-text', 'Select any system project from the explorer tree on the left to inspect its details and technical specs.'),
+        div('placeholder-icon-wrap', ph_icon('cursor-click')),
+        h3('placeholder-title', this.miscTranslations.nothing_selected),
+        p('placeholder-text', this.miscTranslations.nothing_selected_subtitle),
         div('placeholder-hint-chips', this.data.hintProj.map(p => 
           button('btn quick-pick-button', [
             span('quick-pick-label' , [
