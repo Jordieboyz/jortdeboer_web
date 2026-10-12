@@ -3,6 +3,11 @@ export const APP_EVENTS = {
   DOMAIN_SELECT: 'domain-select',
   PROJECT_SELECT: 'project-select',
   PROJECT_CLOSE: 'project-close',
+
+  PROJECT_CATEGORY_SELECT: 'project-category-select',
+  PROJECT_SHOW_CASE : 'project-show-case',
+  PROJECT_HIDE_CASE : 'project-hide-case',
+
   SCROLL_TO_DOMAIN : 'scroll-to-domain',
   
   // About Modules events

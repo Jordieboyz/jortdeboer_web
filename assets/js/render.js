@@ -4,7 +4,7 @@ import { APP_EVENTS, emit } from "./events.js";
 
 export class ElementBuilder {
   static tags = [
-    'div', 'span', 'button', 'i', 'li', 
+    'div', 'span', 'button', 'i', 'li', 'article', 'section',
     'h1', 'h2', 'h3', 'h4', 'p', 'a', 'img', 'ul',
   ];
 
@@ -85,7 +85,7 @@ export const select = (selector, all = false) =>
 
 const html = content => ElementBuilder.rawHTML(content);
 const {
-  div, span, button, i, li,
+  div, span, button, i, li, article, section,
   h2, h3, h4, p, a, img, ul
 } = elements;
 
@@ -504,13 +504,30 @@ export class ModuleRenderer extends BaseRenderer {
 }
 
 export class CategoryRenderer extends BaseRenderer {
-    render(){
-      const btnKey = this.data.key
-      return button('filter-button', this.data.label, {
-        'data-category' : btnKey,
-        onClick : () => this.options.onClick(btnKey)
-      })
-    };
+  project_count(id) {
+    return this.options.projects.filter(project => project.competences?.includes(id)).length
+  }
+
+  render(){
+    const btnKey = this.data.id
+    return button('filter-button',[ 
+        span('domain-label',this.data.title),
+        span('domain-total', btnKey == 'all' ? this.options.projects.length : this.project_count(btnKey)) // add total projects with 
+      ] , {
+        hidden : true,
+        'data-cat' : btnKey,
+        style : `--accent: ${this.data.customColor}`,
+        onclick : (e) => { 
+          e.stopPropagation(e.currentTarget); 
+          emit(e.currentTarget, APP_EVENTS.PROJECT_CATEGORY_SELECT, 
+            {
+              btnKey : btnKey
+            }
+          )
+        }
+      }
+    )
+  };
 }
 
 export class CompetenceRenderer extends BaseRenderer {
@@ -612,6 +629,23 @@ export class ProjectModalRenderer extends BaseRenderer {
   }
 }
 
+export class ProjectListRenderer extends BaseRenderer {
+  render(){
+    return li('project-list-item',[
+      a(this.data.competences[0], [
+        span('project-list-item-title', this.data.title),
+        span('project-list-item-date', this.data.date  ? this.data.date : 'In Development')
+      ], {
+        href : '#'+this.data.id
+      })
+    ], {
+      
+      'data-cat' : this.data.competences[0],
+      style: `--accent : ${DATA.competencies.find(c => c.id == this.data.competences[0]).customColor}`}
+    )
+  } 
+}
+
 export class ProjectRenderer extends BaseRenderer {
   createTags(){
     return (this.data.tags ?? []).map(tag =>
@@ -620,37 +654,86 @@ export class ProjectRenderer extends BaseRenderer {
   }
   
   render(){
-    const pId = this.data.id
-    const result = div('project-item',[
-      div('card-image-container', 
+    const pId = this.data.id;
+    return article('project-item', [
+      div('card-image-container', [
+        span('cat-tag', [
+          ph_icon(this.data.icon),
+          this.options.categories.find(c => c.id === this.data.competences[0]).title
+        ]),
         img('',[],{ src : this.data.bannerImage, alt : this.data.title })
+      ]
       ),
       div('project-content', [
-        this.options.meta && div('card-meta-row', [
-          span('item-date', this.data.date),
-
-          !this.data.completed &&
-            span('progress-dot-container', [
-              span('progress-badge', [
-                span('progress-badge-text', this.miscTranslations.inDev)
-              ])
-            ])
+        div('project-card-meta', [
+          div('status', span('', this.data.date ? "Completed" : "In Development")),
+          span('', this.data.date)
         ]),
-        div('project-header', [
-          i(`project-icon ph ph-${this.data.icon}`),
-          h4('project-title', this.data.title)
-        ]),
-        p('item-description', this.data.shortDescription),
-        this.options.tags && 
-          div('tags-container', this.createTags())
-      ])
-    ],{ 
-        onClick: () => window.showProjectModal?.(pId)
-      }
-    )
-    return result
+        h2('project-card-title', [ph_icon(this.data.icon), this.data.title]),
+        p('project-card-focus', this.data.focus),
+        p('project-card-description', this.data.shortDescription),
+        span('project-card-head', 'Relevant Programming Languages :'),
+        ul('project-card-langs', this.data.progLang.map(l =>  li('', l) )),
+        div('project-card-links', [
+          a('btn project-card-case-btn', 'Show more', 
+            {
+              href : `#/${this.data.id}`,
+              onClick : (e) => {
+                e.stopPropagation();
+                emit(e.currentTarget, APP_EVENTS.PROJECT_SHOW_CASE, { 
+                  projId : pId
+                })
+              }
+            }
+          ),
+          div('source-links', this.data.links.map(l => 
+            a('btn project-card-btn', [
+              ph_icon(l.icon),
+              span('', l.site)
+            ], {
+              href : l?.web ?? '',
+              target : ' _blank'
+            })
+          ))
+        ])
+      ])// add empty project page when none are here?
+    ], {
+      // hidden : false,
+      'data-cat' : this.data.competences[0],
+      'data-id' : pId,
+      style: `--accent : ${DATA.competencies.find(c => c.id == this.data.competences[0]).customColor}`}
+    );
   }
 }
+
+
+export class ProjectCaseRenderer extends BaseRenderer {
+  render(){
+    return div('project-case-content', [
+      div('cs-head', [
+        div('card-image-container', 
+          img('',[],{ src : this.data.bannerImage, alt : this.data.title })
+        ),
+        div(' project-card-meta', [
+          div('status-dot', span('', this.data.date ? "Completed" : "In Development")),
+          span('', this.data.date)
+        ]),
+        h2('project-card-title', this.data.title),
+        p('project-card-focus', this.data.focus),
+      ]),
+      this.data.case.map(c => {
+        const caseSection = section('cs', [
+          h2('section-title', c.title),
+          p('section-text', c.content)
+        ]);
+        caseSection.id = c.id;
+        return caseSection;
+      })
+    ])
+  }
+}
+
+
 
 export class domainSelectionRenderer extends BaseRenderer {
   fetchProjects(id, limit = 3){
@@ -760,7 +843,7 @@ export class DomainDetailsPanel extends BaseRenderer {
         ))
       ]) 
     :  // project card 
-    div('project-card',[
+    div('home-project-card',[
       div('card-header',
           button('close-icon-btn', ph_icon('x'), 
           {

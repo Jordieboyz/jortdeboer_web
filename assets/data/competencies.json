@@ -1,6 +1,15 @@
 {
   "competencies": [
     {
+      "customColor": "white",
+      "id": "all",
+      "title": {
+        "nl": "Alle projecten",
+        "en": "All projects"
+      },
+      "icon": "ph-folder"
+    },
+    {
       "customColor": "#10b981",
       "id": "swe",
       "title": {

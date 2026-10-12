@@ -51,27 +51,33 @@
     </div>
   </header>
 <div id="main-content-wrapper" class="container">
-  <section id="projects" class="container">
-    <h2 class="projects-title">Project Portfolio</h2>
-    <p class="projects-sub-title">A selection of projects categorized by technical stack complexity. Use the filters to focus your view. </p>
-    <div class="category-tabs">
-      <!-- Content will be injected here by JavaScript -->
+  
+  <section id="projects">
+    <div class="intro">
+      <h2 class="projects-title">Project Portfolio</h2>
+      <p class="projects-sub-title">A selection of projects categorized by technical stack complexity. Use the filters to focus your view. </p>
     </div>
-    <div class="project-list">
-      <!-- Content will be injected here by JavaScript -->
-    </div>
-  </section>
-      
-  <div class="project-modal-overlay">
-    <div class="project-modal-content">
-      <button class="modal-close-btn" >
-        <i class="ph ph-x"></i>
-      </button>
-      <div class="modal-project-details">
+    <div class="project-view">
+      <aside class="project-index">
+        <!-- Content will be injected here by JavaScript -->
+        <div class="project-domains"></div>
+        <p class="pos">Project 1 of 10</p>
+        <ol class="idx"></ol>
+      </aside>
+      <div class="project-list">
         <!-- Content will be injected here by JavaScript -->
       </div>
     </div>
+  </section>
+
+  <div class="project-case" hidden>
+    <aside class="project-index">
+      <a class="back" href="#">&larr; All projects</a>
+      <ol class="idx"></ol>
+    </aside>
+    <main id="cmain"></main>
   </div>
+
 </div>
 <!-- Footer / Contact Section -->
 <footer class="footer">

@@ -4,6 +4,12 @@ export const DATA = Object.freeze(
 {
   "competencies": [
     {
+      "customColor": "white",
+      "id": "all",
+      "title": "All projects",
+      "icon": "ph-folder"
+    },
+    {
       "customColor": "#10b981",
       "id": "swe",
       "title": "Software Engineering",
@@ -478,31 +484,46 @@ export const DATA = Object.freeze(
       "competences": [
         "ac"
       ],
-      "date": "Unfinished",
+      "date": "",
       "title": "Bare-Metal Space Invaders",
       "icon": "flying-saucer",
       "focus": "Game Engine Fundamentals",
-      "tags": [
-        "C/Assembly",
-        "GameEngine",
-        "OSDev"
-      ],
-      "stack": [
-        "ARM v8-M Architecture",
-        "Custom VGA Driver",
-        "Assembly for Interrupts",
-        "C Language (GCC)"
-      ],
       "images": [],
       "shortDescription": "A low-level recreation of Space Invaders built entirely from scratch. No OS, no libraries. Features a custom bootloader, graphics driver, and input handling, all written in assembly and C to run directly on hardware.",
-      "longDescription": "This was my deepest dive into hardware interaction. I wrote a custom bootloader to initialize the hardware (a modified ARM platform), then implemented a VGA graphics driver directly manipulating memory registers to render sprites. The input handling was based on direct polling of GPIO pins. The complexity lay in optimizing the C and Assembly routines to ensure a smooth 60 FPS frame rate without any OS-level scheduling or memory protection.",
-      "completed": false,
+      "case": [
+        {
+          "id": "overview",
+          "title": "Overview",
+          "content": "Overview"
+        },
+        {
+          "id": "hardware",
+          "title": "Bringing up the hardware",
+          "content": "Bringing up the hardware"
+        },
+        {
+          "id": "controls",
+          "title": "Reading the controls",
+          "content": "Reading the controls"
+        },
+        {
+          "id": "FPS",
+          "title": "Staying at 60 FPS",
+          "content": "Staying at 60 FPS"
+        }
+      ],
       "bannerImage": "/jortdeboer_web/assets/res/projects/banner-space-invaders.jpg",
       "progLang": [
         "c-cpp",
         "assembly"
       ],
-      "links": []
+      "links": [
+        {
+          "site": "Github",
+          "web": "https://github.com/Jordieboyz",
+          "icon": "github-logo"
+        }
+      ]
     },
     {
       "id": "portfolio-website",
@@ -513,19 +534,35 @@ export const DATA = Object.freeze(
       "title": "Personal Portfolio Website",
       "icon": "globe",
       "focus": "Web Development & UX Design",
-      "tags": [
-        "WebDev",
-        "Portfolio"
-      ],
-      "stack": [
-        "HTML",
-        "CSS",
-        "JavaScript"
-      ],
       "images": [],
       "shortDescription": "Designed and developed a custom personal portfolio website using HTML, CSS, and JavaScript.",
-      "longDescription": "The project involved creating a responsive and interactive portfolio website from scratch.",
-      "completed": false,
+      "case": [
+        {
+          "id": "overview",
+          "title": "Project Overview",
+          "content": "I built this portfolio website to create a central place to showcase my work, skills, and development as a web developer. Rather than simply listing projects, I wanted to create a website that reflects my approach to design and development while giving visitors a clear overview of what I can do."
+        },
+        {
+          "id": "planning",
+          "title": "Planning and Structure",
+          "content": "The project started with defining the website's structure and deciding how to present the content. I focused on keeping the layout clean, the navigation intuitive, and the information easy to find. Every section serves a purpose, helping visitors explore my work without unnecessary distractions."
+        },
+        {
+          "id": "development",
+          "title": "Development and Technologies",
+          "content": "During development, I worked with HTML, CSS, and JavaScript to build the structure, styling, and interactive functionality. This involved more than making the website look good: I also had to consider code organization, reusable components, responsive layouts, and how different elements work together."
+        },
+        {
+          "id": "challenges",
+          "title": "Challenges and Design Decisions",
+          "content": "One of the main challenges was finding the right balance between visual design and functionality. I wanted the website to feel personal without compromising usability. This meant refining details, testing different approaches, and making adjustments to ensure the experience remained consistent across different screen sizes."
+        },
+        {
+          "id": "learned",
+          "title": "What I Learned",
+          "content": "Building this portfolio has been an opportunity to apply my knowledge in a practical project and strengthen my understanding of front-end development. It also provides a foundation that I can continue to improve as I learn new techniques, complete more projects, and develop my own approach to building websites."
+        }
+      ],
       "bannerImage": "/jortdeboer_web/assets/res/projects/banner-portfolio-website.png",
       "progLang": [
         "html-css",
@@ -533,10 +570,12 @@ export const DATA = Object.freeze(
       ],
       "links": [
         {
+          "site": "Github",
           "web": "https://github.com/Jordieboyz",
           "icon": "github-logo"
         },
         {
+          "site": "Web",
           "web": "#",
           "icon": "globe"
         }
@@ -551,20 +590,30 @@ export const DATA = Object.freeze(
       "title": "Pixel Conquest",
       "icon": "castle-turret",
       "focus": "Game Development",
-      "tags": [
-        "Unity",
-        "Pixel Art",
-        "Game Development"
-      ],
-      "stack": [
-        "Unity",
-        "C#",
-        "Custom Tile Engine"
-      ],
       "images": [],
       "shortDescription": "A fast-paced, real-time pixel game built in Unity with C#.",
-      "longDescription": "Developed a Unity-based real-time strategy game with pixel art aesthetics.",
-      "completed": true,
+      "case": [
+        {
+          "id": "overview",
+          "title": "Overview",
+          "content": "Overview"
+        },
+        {
+          "id": "hardware",
+          "title": "Bringing up the hardware",
+          "content": "Bringing up the hardware"
+        },
+        {
+          "id": "controls",
+          "title": "Reading the controls",
+          "content": "Reading the controls"
+        },
+        {
+          "id": "FPS",
+          "title": "Staying at 60 FPS",
+          "content": "Staying at 60 FPS"
+        }
+      ],
       "bannerImage": "/jortdeboer_web/assets/res/projects/banner-pixel-conquest.png",
       "progLang": [
         "unity",
@@ -572,8 +621,8 @@ export const DATA = Object.freeze(
       ],
       "links": [
         {
-          "site": "github",
-          "web": "https://github.com/Jordieboyz",
+          "site": "Gitlab",
+          "web": "https://gitlab.com/Jordieboyz",
           "icon": "gitlab-logo"
         }
       ]
@@ -587,20 +636,30 @@ export const DATA = Object.freeze(
       "title": "Grids",
       "icon": "grid-four",
       "focus": "Unity Multiplayer Game Development",
-      "tags": [
-        "Unity",
-        "Multiplayer",
-        "Game Development"
-      ],
-      "stack": [
-        "Unity",
-        "C#",
-        "Networking"
-      ],
       "images": [],
       "shortDescription": "A local multiplayer Unity game with quick minigames.",
-      "longDescription": "Created multiple mini-games within a shared grid environment.",
-      "completed": true,
+      "case": [
+        {
+          "id": "overview",
+          "title": "Overview",
+          "content": "Overview"
+        },
+        {
+          "id": "hardware",
+          "title": "Bringing up the hardware",
+          "content": "Bringing up the hardware"
+        },
+        {
+          "id": "controls",
+          "title": "Reading the controls",
+          "content": "Reading the controls"
+        },
+        {
+          "id": "FPS",
+          "title": "Staying at 60 FPS",
+          "content": "Staying at 60 FPS"
+        }
+      ],
       "bannerImage": "/jortdeboer_web/assets/res/projects/banner-grids.png",
       "progLang": [
         "unity",
@@ -608,8 +667,8 @@ export const DATA = Object.freeze(
       ],
       "links": [
         {
-          "site": "github",
-          "web": "https://github.com/Jordieboyz",
+          "site": "Gitlab",
+          "web": "https://gitlab.com/Jordieboyz",
           "icon": "gitlab-logo"
         }
       ]
@@ -623,21 +682,30 @@ export const DATA = Object.freeze(
       "title": "DIY Network Attached Storage",
       "icon": "download",
       "focus": "System Administration & Networking",
-      "tags": [
-        "NAS",
-        "Bash",
-        "Linux"
-      ],
-      "stack": [
-        "Raspberry Pi",
-        "Samba",
-        "Cron Jobs",
-        "rsync"
-      ],
       "images": [],
       "shortDescription": "Built a custom NAS with automated backups.",
-      "longDescription": "Built a custom NAS using Raspberry Pi and Samba shares.",
-      "completed": false,
+      "case": [
+        {
+          "id": "overview",
+          "title": "Overview",
+          "content": "Overview"
+        },
+        {
+          "id": "hardware",
+          "title": "Bringing up the hardware",
+          "content": "Bringing up the hardware"
+        },
+        {
+          "id": "controls",
+          "title": "Reading the controls",
+          "content": "Reading the controls"
+        },
+        {
+          "id": "FPS",
+          "title": "Staying at 60 FPS",
+          "content": "Staying at 60 FPS"
+        }
+      ],
       "bannerImage": "/jortdeboer_web/assets/res/projects/truenas.png",
       "progLang": [
         "bash",
@@ -646,8 +714,9 @@ export const DATA = Object.freeze(
       ],
       "links": [
         {
-          "web": "#",
-          "icon": "globe"
+          "site": "Github",
+          "web": "https://github.com/Jordieboyz",
+          "icon": "github-logo"
         }
       ]
     },
@@ -660,21 +729,30 @@ export const DATA = Object.freeze(
       "title": "SailfishOS on Fairphone 4",
       "icon": "device-mobile",
       "focus": "Mobile OS Porting & Open Source Contribution",
-      "tags": [
-        "SailfishOS",
-        "AndroidDev",
-        "OpenSource"
-      ],
-      "stack": [
-        "Linux Kernel",
-        "Yocto Build System",
-        "C++",
-        "Qt/QML"
-      ],
       "images": [],
       "shortDescription": "Developed a SailfishOS port for Fairphone 4.",
-      "longDescription": "Developed a SailfishOS port integrating kernel patches.",
-      "completed": true,
+      "case": [
+        {
+          "id": "overview",
+          "title": "Overview",
+          "content": "Overview"
+        },
+        {
+          "id": "hardware",
+          "title": "Bringing up the hardware",
+          "content": "Bringing up the hardware"
+        },
+        {
+          "id": "controls",
+          "title": "Reading the controls",
+          "content": "Reading the controls"
+        },
+        {
+          "id": "FPS",
+          "title": "Staying at 60 FPS",
+          "content": "Staying at 60 FPS"
+        }
+      ],
       "bannerImage": "/jortdeboer_web/assets/res/projects/banner-sfos-fp4.png",
       "progLang": [
         "bash",
@@ -683,6 +761,7 @@ export const DATA = Object.freeze(
       ],
       "links": [
         {
+          "site": "Github",
           "web": "https://github.com/Jordieboyz",
           "icon": "github-logo"
         }
@@ -697,21 +776,30 @@ export const DATA = Object.freeze(
       "title": "Symbolic: A Custom Turing-Complete Language",
       "icon": "code",
       "focus": "Language Design & Compiler Construction",
-      "tags": [
-        "Interpreter",
-        "Python",
-        "Arduino"
-      ],
-      "stack": [
-        "Python",
-        "AST",
-        "Compiler",
-        "Interpreter"
-      ],
       "images": [],
       "shortDescription": "Built a custom Turing-complete language.",
-      "longDescription": "Developed a compiler and interpreter in Python.",
-      "completed": true,
+      "case": [
+        {
+          "id": "overview",
+          "title": "Overview",
+          "content": "Overview"
+        },
+        {
+          "id": "hardware",
+          "title": "Bringing up the hardware",
+          "content": "Bringing up the hardware"
+        },
+        {
+          "id": "controls",
+          "title": "Reading the controls",
+          "content": "Reading the controls"
+        },
+        {
+          "id": "FPS",
+          "title": "Staying at 60 FPS",
+          "content": "Staying at 60 FPS"
+        }
+      ],
       "bannerImage": "/jortdeboer_web/assets/res/projects/banner-symbolic.png",
       "progLang": [
         "c-cpp",
@@ -719,6 +807,7 @@ export const DATA = Object.freeze(
       ],
       "links": [
         {
+          "site": "Github",
           "web": "https://github.com/Jordieboyz",
           "icon": "github-logo"
         }
@@ -733,26 +822,37 @@ export const DATA = Object.freeze(
       "title": "Super Hotline",
       "icon": "joystick",
       "focus": "Single Player Top-down Shooter Game",
-      "tags": [
-        "C++",
-        "SFML",
-        "GameDevelopment"
-      ],
-      "stack": [
-        "Custom Sprites",
-        "Dynamic Renderer",
-        "SFML"
-      ],
       "images": [],
       "shortDescription": "A fast-paced action game in C++.",
-      "longDescription": "Top-down shooter with time-based mechanics.",
-      "completed": true,
+      "case": [
+        {
+          "id": "overview",
+          "title": "Overview",
+          "content": "Overview"
+        },
+        {
+          "id": "hardware",
+          "title": "Bringing up the hardware",
+          "content": "Bringing up the hardware"
+        },
+        {
+          "id": "controls",
+          "title": "Reading the controls",
+          "content": "Reading the controls"
+        },
+        {
+          "id": "FPS",
+          "title": "Staying at 60 FPS",
+          "content": "Staying at 60 FPS"
+        }
+      ],
       "bannerImage": "/jortdeboer_web/assets/res/projects/banner-hotline.png",
       "progLang": [
         "c-cpp"
       ],
       "links": [
         {
+          "site": "Github",
           "web": "https://github.com/Jordieboyz",
           "icon": "github-logo"
         }
@@ -767,26 +867,37 @@ export const DATA = Object.freeze(
       "title": "Go-Moku MCTS Agent",
       "icon": "dice-six",
       "focus": "Artificial Intelligence & Optimization",
-      "tags": [
-        "MCTS",
-        "Python",
-        "Pseudocode"
-      ],
-      "stack": [
-        "Python",
-        "NumPy",
-        "Monte Carlo Tree Search"
-      ],
       "images": [],
       "shortDescription": "Built a Go-Moku AI using MCTS.",
-      "longDescription": "Implemented Monte Carlo Tree Search for decision making.",
-      "completed": true,
+      "case": [
+        {
+          "id": "overview",
+          "title": "Overview",
+          "content": "Overview"
+        },
+        {
+          "id": "hardware",
+          "title": "Bringing up the hardware",
+          "content": "Bringing up the hardware"
+        },
+        {
+          "id": "controls",
+          "title": "Reading the controls",
+          "content": "Reading the controls"
+        },
+        {
+          "id": "FPS",
+          "title": "Staying at 60 FPS",
+          "content": "Staying at 60 FPS"
+        }
+      ],
       "bannerImage": "/jortdeboer_web/assets/res/projects/banner-gomoku.png",
       "progLang": [
         "python"
       ],
       "links": [
         {
+          "site": "Github",
           "web": "https://github.com/Jordieboyz",
           "icon": "github-logo"
         }
@@ -801,20 +912,30 @@ export const DATA = Object.freeze(
       "title": "nRF24L01+ Wireless Module",
       "icon": "code",
       "focus": "Embedded Systems & Hardware Communication",
-      "tags": [
-        "Embedded",
-        "C++",
-        "Arduino"
-      ],
-      "stack": [
-        "Arduino",
-        "nRF24L01+",
-        "HC-SR01 Sensor"
-      ],
       "images": [],
       "shortDescription": "Custom driver for wireless module.",
-      "longDescription": "Built embedded communication system using Arduino.",
-      "completed": true,
+      "case": [
+        {
+          "id": "overview",
+          "title": "Overview",
+          "content": "Overview"
+        },
+        {
+          "id": "hardware",
+          "title": "Bringing up the hardware",
+          "content": "Bringing up the hardware"
+        },
+        {
+          "id": "controls",
+          "title": "Reading the controls",
+          "content": "Reading the controls"
+        },
+        {
+          "id": "FPS",
+          "title": "Staying at 60 FPS",
+          "content": "Staying at 60 FPS"
+        }
+      ],
       "bannerImage": "/jortdeboer_web/assets/res/projects/banner-nrf-arduino.png",
       "progLang": [
         "c-cpp",
@@ -822,6 +943,7 @@ export const DATA = Object.freeze(
       ],
       "links": [
         {
+          "site": "Github",
           "web": "https://github.com/Jordieboyz",
           "icon": "github-logo"
         }
@@ -830,7 +952,7 @@ export const DATA = Object.freeze(
   ],
   "categories": [
     {
-      "key": "All",
+      "key": "all",
       "label": "All Projects"
     },
     {

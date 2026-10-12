@@ -8,8 +8,8 @@ const projectById = new Map(DATA.projectsData.map(project => [project.id, projec
 const projectByTitle = new Map(DATA.projectsData.map(project => [project.title, project]));
 
 new SocialLinksRenderer(DATA.sociallinksData, select('.home-social-links'));
-new CompetenceLinksRenderer(DATA.competencies, select('.home-stats'));
-new domainSelectionRenderer(DATA.competencies, select('.domain-selection'), {
+new CompetenceLinksRenderer(DATA.competencies.slice(1), select('.home-stats'));
+new domainSelectionRenderer(DATA.competencies.slice(1), select('.domain-selection'), {
   projects: DATA.projectsData
 });
 

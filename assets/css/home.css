@@ -219,25 +219,7 @@
 }
 
 
-.project-item {
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-gray-600); 
 
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  height: 100%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
-
-  &:hover {
-    transform: translateY(-4px); 
-    border-color: var(--color-primary);
-    box-shadow: 0 6px 15px rgba(34, 211, 238, 0.4);
-  }
-}
         
 .card-image-container {
   height: 120px;
@@ -731,7 +713,7 @@
     }
 
     /* Enhanced Minimalist Project Card */
-    .project-card {
+    .home-project-card {
       background: var(--color-surface);
       border: 1px solid color-mix(in srgb, var(--accent, var(--accent-primary)) 35%, var(--color-border));
       border-radius: 16px;
@@ -872,7 +854,7 @@
 /*--------------------------------------------------------------
   >>> Project Explorer : Project Detail
 --------------------------------------------------------------*/
-.detail-stage .project-card .card-header {
+.detail-stage .home-project-card .card-header {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -881,7 +863,7 @@
 
 
 
-.detail-stage .project-card .close-icon-btn {
+.detail-stage .home-project-card .close-icon-btn {
   width: 34px;
   height: 34px;
   border-radius: 10px;
@@ -894,7 +876,7 @@
   transition: color 260ms ease, background 260ms ease, transform 260ms ease, border-color 260ms ease;
 }
 
-.detail-stage .project-card .close-icon-btn:hover {
+.detail-stage .home-project-card .close-icon-btn:hover {
   transform: rotate(90deg);
 }
 
@@ -1133,12 +1115,12 @@
     min-height: 0;
   }
 
-  .project-card {
+  .home-project-card {
     max-width: none;
     padding: 16px;
   }
 
-  .detail-stage .project-card .card-header {
+  .detail-stage .home-project-card .card-header {
     right: 20px;
   }
 
