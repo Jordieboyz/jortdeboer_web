@@ -1,0 +1,199 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 960" role="img" aria-labelledby="titel beschrijving">
+  <title id="titel">Zo werkt het portfolio achter de schermen</title>
+  <desc id="beschrijving">Diagram over de gedeelde inhoud, de drie pagina's, het bouwproces en de taalwissel van het portfolio.</desc>
+  <defs>
+    <linearGradient id="achtergrond" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1426"/>
+      <stop offset="1" stop-color="#111b32"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#42d6c5"/>
+      <stop offset="1" stop-color="#55a8ff"/>
+    </linearGradient>
+    <marker id="pijl" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0 10 5 0 10Z" fill="#6f8aaa"/>
+    </marker>
+    <style>
+      text { font-family: Inter, "Segoe UI", Arial, sans-serif; }
+      .label { fill: #62d8cb; font-size: 15px; font-weight: 700; letter-spacing: 2px; }
+      .titel { fill: #f4f7ff; font-size: 42px; font-weight: 750; letter-spacing: -1px; }
+      .subtitel { fill: #aebbd0; font-size: 19px; }
+      .kaart { fill: #17233a; stroke: #2c3d59; stroke-width: 1.5; }
+      .binnen { fill: #101a2d; stroke: #30425f; stroke-width: 1; }
+      .kop { fill: #f2f6ff; font-size: 19px; font-weight: 700; }
+      .tekst { fill: #c0ccdc; font-size: 16px; }
+      .klein { fill: #95a7bf; font-size: 13px; }
+      .lijn { fill: none; stroke: #6f8aaa; stroke-width: 2.5; }
+      .munt { fill: #62d8cb; }
+      .blauw { fill: #70b6ff; }
+      .paars { fill: #ba9cff; }
+      .goud { fill: #f4c76e; }
+    </style>
+  </defs>
+  <rect width="1600" height="960" rx="28" fill="url(#achtergrond)"/>
+  <circle cx="1470" cy="110" r="150" fill="#1a4260" opacity=".16"/>
+  <circle cx="85" cy="875" r="145" fill="#214b58" opacity=".12"/>
+
+  <text x="64" y="62" class="label">EEN VRIENDELIJKE KIJK ACHTER DE SCHERMEN</text>
+  <text x="64" y="119" class="titel">Eén inhoudsbibliotheek. Drie manieren om te ontdekken.</text>
+  <text x="66" y="155" class="subtitel">Zo verandert informatie over Jort en zijn werk in een interactieve website.</text>
+
+  <text x="64" y="212" class="label">1  DE GEDEELDE INHOUD</text>
+  <g>
+    <rect x="64" y="234" width="330" height="464" rx="20" class="kaart"/>
+    <circle cx="101" cy="280" r="19" fill="#173b46"/>
+    <path d="M92 274h18v14H92zM95 270h12v4H95zM97 278h8m-8 4h8" fill="none" stroke="#62d8cb" stroke-width="2" stroke-linecap="round"/>
+    <text x="132" y="278" class="kop">Eén inhoudsbibliotheek</text>
+    <text x="88" y="316" class="tekst">Als een kast met gelabelde lades:</text>
+    <g transform="translate(88 339)">
+      <rect width="282" height="66" rx="11" class="binnen"/>
+      <circle cx="24" cy="25" r="11" fill="#183d4a"/>
+      <path d="M19 21h10v9H19zM21 18h6v3h-6z" fill="none" stroke="#62d8cb" stroke-width="1.5"/>
+      <text x="46" y="27" fill="#f1f5fc" font-size="15" font-weight="700">Projecten</text>
+      <text x="46" y="48" class="klein">verhalen, beelden en vaardigheden</text>
+    </g>
+    <g transform="translate(88 416)">
+      <rect width="282" height="66" rx="11" class="binnen"/>
+      <circle cx="24" cy="25" r="11" fill="#25334e"/>
+      <path d="M19 20h5v5h-5zm8 0h5v5h-5zm-8 8h5v5h-5zm8 0h5v5h-5z" fill="#70b6ff"/>
+      <text x="46" y="27" fill="#f1f5fc" font-size="15" font-weight="700">Categorieën &amp; technieken</text>
+      <text x="46" y="48" class="klein">labels om het werk te ordenen</text>
+    </g>
+    <g transform="translate(88 493)">
+      <rect width="282" height="66" rx="11" class="binnen"/>
+      <circle cx="24" cy="25" r="11" fill="#30294b"/>
+      <circle cx="24" cy="22" r="3" fill="none" stroke="#ba9cff" stroke-width="1.5"/>
+      <path d="M17 33c1-6 13-6 14 0" fill="none" stroke="#ba9cff" stroke-width="1.5"/>
+      <text x="46" y="27" fill="#f1f5fc" font-size="15" font-weight="700">Over Jort</text>
+      <text x="46" y="48" class="klein">profiel, interesses en mijlpalen</text>
+    </g>
+    <g transform="translate(88 570)">
+      <rect width="282" height="66" rx="11" class="binnen"/>
+      <circle cx="24" cy="25" r="11" fill="#473b2b"/>
+      <path d="M17 22h14v9H17zM20 19h8v3h-8z" fill="none" stroke="#f4c76e" stroke-width="1.5"/>
+      <text x="46" y="27" fill="#f1f5fc" font-size="15" font-weight="700">Engels + Nederlands</text>
+      <text x="46" y="48" class="klein">teksten staan bij de bijbehorende inhoud</text>
+    </g>
+    <rect x="88" y="651" width="282" height="29" rx="14" fill="#183b43" stroke="#2b716e"/>
+    <text x="105" y="671" fill="#b8eee5" font-size="12" font-weight="700">INFORMATIE LOS VAN HET PAGINAONTWERP</text>
+  </g>
+
+  <path d="M394 463h33" class="lijn"/>
+  <path d="M427 322v282" class="lijn"/>
+  <path d="M427 322h28" class="lijn" marker-end="url(#pijl)"/>
+  <path d="M427 463h451" class="lijn" marker-end="url(#pijl)"/>
+  <path d="M427 604h874" class="lijn" marker-end="url(#pijl)"/>
+  <circle cx="427" cy="463" r="7" fill="#70b6ff"/>
+
+  <text x="465" y="212" class="label">2  DRIE MANIEREN OM DE SITE TE BEKIJKEN</text>
+  <g>
+    <rect x="465" y="234" width="345" height="464" rx="20" class="kaart"/>
+    <circle cx="501" cy="278" r="18" fill="#173b46"/>
+    <path d="M492 280h18v11h-18zM490 278l11-9 11 9m-8 13v-7h-6v7" fill="none" stroke="#62d8cb" stroke-width="1.8"/>
+    <text x="532" y="277" class="kop">Home</text>
+    <text x="489" y="318" class="munt" font-size="12" font-weight="700" letter-spacing="1">KIES → ONTDEK</text>
+    <text x="489" y="350" class="tekst">Kies een vakgebied en bekijk</text>
+    <text x="489" y="373" class="tekst">bijpassende projecten meteen hier.</text>
+    <rect x="489" y="407" width="297" height="220" rx="12" class="binnen"/>
+    <rect x="505" y="426" width="116" height="179" rx="9" fill="#17263d"/>
+    <text x="520" y="450" fill="#95a7bf" font-size="10" font-weight="700">KIES EEN VELD</text>
+    <rect x="516" y="464" width="94" height="27" rx="6" fill="#1a493f"/>
+    <circle cx="529" cy="477" r="4" fill="#62d8cb"/>
+    <text x="541" y="481" fill="#c9f2e8" font-size="10">Software</text>
+    <rect x="516" y="498" width="94" height="27" rx="6" fill="#1b3049"/>
+    <circle cx="529" cy="511" r="4" fill="#70b6ff"/>
+    <text x="541" y="515" fill="#c9dff5" font-size="10">Games</text>
+    <rect x="516" y="532" width="94" height="27" rx="6" fill="#30294b"/>
+    <circle cx="529" cy="545" r="4" fill="#ba9cff"/>
+    <text x="541" y="549" fill="#e2d8fb" font-size="10">Computing</text>
+    <rect x="634" y="426" width="136" height="179" rx="9" fill="#17263d"/>
+    <text x="650" y="452" fill="#edf4ff" font-size="13" font-weight="700">Bijpassend werk</text>
+    <path d="M650 476h103m-103 12h89m-89 12h96" stroke="#40536d"/>
+    <rect x="650" y="528" width="96" height="23" rx="11" fill="#1c4847"/>
+    <text x="662" y="544" fill="#b8eee5" font-size="9" font-weight="700">BEKIJK PROJECT</text>
+    <text x="650" y="578" fill="#95a7bf" font-size="10">zonder van pagina</text>
+    <text x="650" y="592" fill="#95a7bf" font-size="10">te wisselen</text>
+    <text x="489" y="665" class="klein">Een korte rondleiding door het werk.</text>
+  </g>
+  <g>
+    <rect x="845" y="234" width="345" height="464" rx="20" class="kaart"/>
+    <circle cx="881" cy="278" r="18" fill="#30294b"/>
+    <circle cx="881" cy="273" r="5" fill="none" stroke="#ba9cff" stroke-width="1.8"/>
+    <path d="M871 287c1-7 19-7 20 0" fill="none" stroke="#ba9cff" stroke-width="1.8" stroke-linecap="round"/>
+    <text x="912" y="277" class="kop">Over mij</text>
+    <text x="869" y="318" class="paars" font-size="12" font-weight="700" letter-spacing="1">SCROLL → GA DIEPER</text>
+    <text x="869" y="350" class="tekst">Verken korte hoofdstukken over</text>
+    <text x="869" y="373" class="tekst">persoonlijke onderwerpen en skills.</text>
+    <rect x="869" y="407" width="297" height="220" rx="12" class="binnen"/>
+    <rect x="885" y="426" width="112" height="39" rx="7" fill="#30294b" stroke="#715ba2"/>
+    <text x="900" y="451" fill="#e6dcff" font-size="11" font-weight="700">01  IDENTITEIT</text>
+    <rect x="885" y="475" width="112" height="39" rx="7" fill="#17263d"/>
+    <text x="900" y="500" fill="#b8c8dc" font-size="10">02  INTERESSES</text>
+    <rect x="885" y="524" width="112" height="39" rx="7" fill="#17263d"/>
+    <text x="900" y="549" fill="#b8c8dc" font-size="10">03  TECHNIEK</text>
+    <rect x="1010" y="426" width="140" height="160" rx="8" fill="#17263d"/>
+    <text x="1025" y="452" fill="#edf4ff" font-size="12" font-weight="700">Actief hoofdstuk</text>
+    <circle cx="1037" cy="482" r="7" fill="#ba9cff"/>
+    <path d="M1037 489v25m0-16h12m-12 16h12" stroke="#715ba2" stroke-width="2"/>
+    <path d="M1060 479h73m-73 12h61m-61 27h72m-72 12h56" stroke="#40536d"/>
+    <rect x="1025" y="554" width="112" height="21" rx="6" fill="#252448"/>
+    <text x="1035" y="568" fill="#d8cdf5" font-size="8">SCROLL OF KIES</text>
+    <text x="869" y="665" class="klein">Jij bepaalt welk hoofdstuk je opent.</text>
+  </g>
+  <g>
+    <rect x="1225" y="234" width="311" height="464" rx="20" class="kaart"/>
+    <circle cx="1261" cy="278" r="18" fill="#25334e"/>
+    <path d="M1252 270h18v16h-18zm4 4h10m-10 4h10m-10 4h7" fill="none" stroke="#70b6ff" stroke-width="1.7" stroke-linecap="round"/>
+    <text x="1292" y="277" class="kop">Projecten</text>
+    <text x="1249" y="318" class="blauw" font-size="12" font-weight="700" letter-spacing="1">FILTER → OPEN → LEES</text>
+    <text x="1249" y="350" class="tekst">Filter de lijst en open een</text>
+    <text x="1249" y="373" class="tekst">project voor het hele verhaal.</text>
+    <rect x="1249" y="407" width="263" height="220" rx="12" class="binnen"/>
+    <rect x="1263" y="426" width="57" height="25" rx="12" fill="#1e3f52" stroke="#39728a"/>
+    <text x="1277" y="443" fill="#d0eaff" font-size="9" font-weight="700">ALLE</text>
+    <rect x="1327" y="426" width="82" height="25" rx="12" fill="#17263d"/>
+    <text x="1340" y="443" fill="#afc0d7" font-size="9">SOFTWARE</text>
+    <rect x="1263" y="464" width="235" height="61" rx="8" fill="#17263d"/>
+    <rect x="1274" y="475" width="39" height="39" rx="6" fill="#253854"/>
+    <path d="M1280 505l9-13 6 7 7-10 8 16z" fill="#70b6ff" opacity=".8"/>
+    <text x="1324" y="489" fill="#edf4ff" font-size="11" font-weight="700">Een project</text>
+    <text x="1324" y="507" fill="#95a7bf" font-size="9">verhaal in hoofdstukken</text>
+    <rect x="1263" y="536" width="235" height="61" rx="8" fill="#17263d"/>
+    <rect x="1274" y="547" width="39" height="39" rx="6" fill="#253854"/>
+    <path d="M1280 576h27m-20-17 7 8-7 8" fill="none" stroke="#62d8cb" stroke-width="1.5"/>
+    <text x="1324" y="561" fill="#edf4ff" font-size="11" font-weight="700">Meer details</text>
+    <text x="1324" y="579" fill="#95a7bf" font-size="9">spring naar een onderdeel</text>
+    <text x="1249" y="665" class="klein">De volledige projectcatalogus.</text>
+  </g>
+
+  <g>
+    <rect x="64" y="739" width="1472" height="167" rx="20" class="kaart"/>
+    <text x="92" y="779" class="label">3  ZO KOMT HET OP JE SCHERM</text>
+    <g transform="translate(92 801)">
+      <rect width="375" height="77" rx="12" class="binnen"/>
+      <circle cx="27" cy="27" r="14" fill="#173b46"/>
+      <text x="27" y="32" text-anchor="middle" fill="#62d8cb" font-size="13" font-weight="700">1</text>
+      <text x="53" y="30" fill="#f1f5fc" font-size="14" font-weight="700">Inhoudsbestanden</text>
+      <text x="20" y="57" class="klein">Informatie over projecten, profiel en talen.</text>
+    </g>
+    <path d="M478 840h34" class="lijn" marker-end="url(#pijl)"/>
+    <g transform="translate(527 801)">
+      <rect width="430" height="77" rx="12" class="binnen"/>
+      <circle cx="27" cy="27" r="14" fill="#25334e"/>
+      <text x="27" y="32" text-anchor="middle" fill="#70b6ff" font-size="13" font-weight="700">2</text>
+      <text x="53" y="30" fill="#f1f5fc" font-size="14" font-weight="700">De bouwstap</text>
+      <text x="20" y="57" class="klein">Combineert inhoud en pagina-indelingen in twee talen.</text>
+    </g>
+    <path d="M968 840h34" class="lijn" marker-end="url(#pijl)"/>
+    <g transform="translate(1017 801)">
+      <rect width="491" height="77" rx="12" class="binnen"/>
+      <circle cx="27" cy="27" r="14" fill="#30294b"/>
+      <text x="27" y="32" text-anchor="middle" fill="#ba9cff" font-size="13" font-weight="700">3</text>
+      <text x="53" y="30" fill="#f1f5fc" font-size="14" font-weight="700">Je browser</text>
+      <text x="20" y="57" class="klein">Maakt kiezen, filteren en navigeren interactief.</text>
+    </g>
+  </g>
+
+  <text x="68" y="936" fill="#9db2ca" font-size="13">Taal wisselen? De juiste taalversie opent en je leespositie wordt bewaard.</text>
+  <text x="1532" y="936" text-anchor="end" fill="#60768f" font-size="12">IN HET KORT: INHOUD → PAGINA'S → JOU</text>
+</svg>

@@ -2,7 +2,7 @@
 
 export const DATA = Object.freeze(
 {
-  "competencies": [
+  "categories": [
     {
       "customColor": "white",
       "id": "all",
@@ -34,6 +34,16 @@ export const DATA = Object.freeze(
       "icon": "ph-cpu"
     }
   ],
+  "miscTranslations": {
+    "In-Development": "In Development",
+    "empty": "No projects found in this category.",
+    "goal": "Project Goal and Overview",
+    "stack": "Core Technology Stack",
+    "contact": "For code repositories and deeper implementation details, please contact me directly.",
+    "inDev": "In Development",
+    "seeMore": "See More",
+    "viewProjects": "More projects"
+  },
   "modulesData": [
     {
       "id": "identity",
@@ -79,74 +89,124 @@ export const DATA = Object.freeze(
       "label": "Beyond the Screen",
       "shortDesc": "Interests & hobbies",
       "content": {
+        "dialogLabel": "details",
+        "closeLabel": "Close hobby details",
         "intro": "How I recharge, explore new hardware, and keep my problem-solving skills sharp outside work.",
         "tiles": [
           {
             "id": "pcbuilding",
             "icon": "ph ph-desktop-tower",
-            "bg": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=600&q=80",
+            "bg": "/jortdeboer_web/assets/res/hobby/pcsetup.jpg",
+            "action": "View photos and details",
             "label": "PC Building",
             "desc": "Designing custom PC builds, liquid cooling loops, and hardware benchmarking.",
+            "subtitle": "Hardware & custom builds",
+            "detail": "I enjoy putting computers together and exploring how component choices, cooling, and tuning work together to shape performance.",
+            "highlightsLabel": "What I enjoy",
             "highlights": [
-              "<input highlight>",
-              "<input highlight>",
-              "<input highlight>"
+              "Choosing components and planning builds",
+              "Improving cooling and airflow",
+              "Testing hardware and comparing performance"
             ],
             "images": [
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg"
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/pcsetup.jpg",
+                "alt": "My PC setup"
+              },
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/20250717_103422.jpg",
+                "alt": "Working on a PC build"
+              },
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/20220503_192325.jpg",
+                "alt": "Hardware from my collection"
+              }
             ]
           },
           {
             "id": "gaming",
             "icon": "ph ph-game-controller",
-            "bg": "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=600&q=80",
+            "bg": "/jortdeboer_web/assets/res/hobby/bo3.webp",
+            "action": "View photos and details",
             "label": "Gaming",
             "desc": "Simulation games, strategy titles, and unwinding with friends.",
+            "subtitle": "Games & downtime",
+            "detail": "Gaming is a fun way for me to unwind, play with friends, and get absorbed in strategy and simulation games.",
+            "highlightsLabel": "What I like to play",
             "highlights": [
-              "<input highlight>",
-              "<input highlight>",
-              "<input highlight>"
+              "Strategy and simulation games",
+              "Playing games with friends",
+              "Discovering new games and worlds"
             ],
             "images": [
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg"
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/bo3.webp",
+                "alt": "Call of Duty: Black Ops III"
+              },
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/league.png",
+                "alt": "League of Legends"
+              },
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/playstation-logo.webp",
+                "alt": "PlayStation"
+              }
             ]
           },
           {
             "id": "traveling",
             "icon": "ph ph-compass",
-            "bg": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=600&q=80",
+            "bg": "/jortdeboer_web/assets/res/hobby/20250712_162745.jpg",
+            "action": "View photos and details",
             "label": "Traveling",
             "desc": "Exploring different countries, hiking, and experiencing new cultures.",
+            "subtitle": "Exploring new places",
+            "detail": "Travel gives me the chance to discover new places, get outdoors, and experience different surroundings and cultures.",
+            "highlightsLabel": "What I enjoy",
             "highlights": [
-              "<input highlight>",
-              "<input highlight>",
-              "<input highlight>"
+              "Discovering new places and surroundings",
+              "Hiking and spending time outdoors",
+              "Experiencing local culture and atmosphere"
             ],
             "images": [
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg"
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/20250712_162745.jpg",
+                "alt": "Travel photo from July 2025"
+              },
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
+                "alt": "A canal view while travelling"
+              },
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/20250728_110525.jpg",
+                "alt": "An outdoor pool while travelling"
+              }
             ]
           },
           {
             "id": "puzzles",
             "icon": "ph ph-brain",
-            "bg": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80",
+            "bg": "/jortdeboer_web/assets/res/hobby/sudoku-classic-1.webp",
+            "action": "View photos and details",
             "label": "Puzzles",
             "desc": "Sudokus, logic grids, and spatial problem-solving challenges.",
+            "subtitle": "Logic & problem solving",
+            "detail": "I like keeping my mind busy with puzzles that reward patience and logical thinking, from sudoku to word games.",
+            "highlightsLabel": "Favourite puzzles",
             "highlights": [
-              "<input highlight>",
-              "<input highlight>",
-              "<input highlight>"
+              "Sudoku and number puzzles",
+              "Word puzzles such as Wordle",
+              "Solving logic challenges"
             ],
             "images": [
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg"
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/sudoku-classic-1.webp",
+                "alt": "Sudoku puzzle"
+              },
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/wordle-logo.webp",
+                "alt": "Wordle word puzzle"
+              }
             ]
           }
         ]
@@ -171,95 +231,53 @@ export const DATA = Object.freeze(
             },
             "techskill": [
               {
-                "id": "javascript",
-                "title": "JavaScript",
-                "subtitle": "Web & interactive apps",
-                "color": "#f7df1e",
-                "icon": "ph ph-file-js",
-                "glow": "rgba(247, 223, 30, 0.4)",
-                "svg": "/jortdeboer_web/assets/res/logo/javascript.svg",
+                "id": "js",
                 "meta": {
                   "usage": "Interactive web applications, frontend development and browser-based tooling",
                   "spec": {
                     "proficiency": "Intermediate",
                     "experience": "2+ Years"
-                  },
-                  "ecosystem": [
-                    "DOM API",
-                    "Web APIs",
-                    "ES6+",
-                    "Node.js",
-                    "JSON"
-                  ]
+                  }
                 }
               },
               {
-                "id": "html-css",
-                "title": "HTML/CSS",
-                "subtitle": "Web development",
-                "color": "#f97316",
-                "icon": "ph ph-browser",
-                "glow": "rgba(249, 115, 22, 0.4)",
-                "svg": "/jortdeboer_web/assets/res/logo/html.svg",
+                "id": "html",
                 "meta": {
                   "usage": "Building responsive interfaces, layouts and interactive web experiences",
                   "spec": {
                     "proficiency": "Advanced",
                     "experience": "3+ Years"
-                  },
-                  "ecosystem": [
-                    "HTML5",
-                    "CSS3",
-                    "Flexbox",
-                    "CSS Grid",
-                    "Responsive Design"
-                  ]
+                  }
+                }
+              },
+              {
+                "id": "css",
+                "meta": {
+                  "usage": "Styling responsive interfaces, layouts and interactive web experiences",
+                  "spec": {
+                    "proficiency": "Advanced",
+                    "experience": "3+ Years"
+                  }
                 }
               },
               {
                 "id": "unity",
-                "title": "Unity",
-                "subtitle": "Game development",
-                "color": "#e5e7eb",
-                "icon": "ph ph-game-controller",
-                "glow": "rgba(229, 231, 235, 0.4)",
-                "svg": "/jortdeboer_web/assets/res/logo/unity.svg",
                 "meta": {
                   "usage": "Game development, simulations, physics systems and interactive applications",
                   "spec": {
                     "proficiency": "Advanced",
                     "experience": "3+ Years"
-                  },
-                  "ecosystem": [
-                    "C#",
-                    "Unity Engine",
-                    "2D / 3D Physics",
-                    "Netcode for GameObjects",
-                    "Tilemap"
-                  ]
+                  }
                 }
               },
               {
-                "id": "excel-word",
-                "title": "Excel/Word",
-                "subtitle": "Office tooling",
-                "color": "#22c55e",
-                "icon": "ph ph-file-xls",
-                "glow": "rgba(34, 197, 94, 0.4)",
-                "svg": "/jortdeboer_web/assets/res/logo/msoffice.svg",
+                "id": "office",
                 "meta": {
                   "usage": "Data processing, documentation, automation and business workflows",
                   "spec": {
                     "proficiency": "Advanced",
                     "experience": "5+ Years"
-                  },
-                  "ecosystem": [
-                    "Excel Formulas",
-                    "Dynamic Tables",
-                    "Data Analysis",
-                    "Word Documents",
-                    "Office Automation"
-                  ]
+                  }
                 }
               }
             ]
@@ -275,49 +293,23 @@ export const DATA = Object.freeze(
             },
             "techskill": [
               {
-                "id": "python",
-                "title": "Python",
-                "subtitle": "Automation",
-                "color": "#facc15",
-                "icon": "ph ph-file-py",
-                "glow": "rgba(250, 204, 21, 0.4)",
-                "svg": "/jortdeboer_web/assets/res/logo/python.svg",
+                "id": "py",
                 "meta": {
                   "usage": "Automation, scripting, data processing and software development",
                   "spec": {
                     "proficiency": "Advanced",
                     "experience": "4+ Years"
-                  },
-                  "ecosystem": [
-                    "Standard Library",
-                    "NumPy",
-                    "OpenCV",
-                    "Automation",
-                    "Scripting"
-                  ]
+                  }
                 }
               },
               {
                 "id": "bash",
-                "title": "Bash",
-                "subtitle": "Linux & command-line",
-                "color": "#a3e635",
-                "icon": "ph ph-terminal",
-                "glow": "rgba(163, 230, 53, 0.4)",
-                "svg": "/jortdeboer_web/assets/res/logo/bash.svg",
                 "meta": {
                   "usage": "Linux administration, automation, build systems and command-line workflows",
                   "spec": {
                     "proficiency": "Advanced",
                     "experience": "3+ Years"
-                  },
-                  "ecosystem": [
-                    "Linux",
-                    "GNU Coreutils",
-                    "Shell Scripting",
-                    "SSH",
-                    "Git"
-                  ]
+                  }
                 }
               }
             ]
@@ -334,48 +326,22 @@ export const DATA = Object.freeze(
             "techskill": [
               {
                 "id": "c-cpp",
-                "title": "C/C++",
-                "subtitle": "Low-level programming",
-                "color": "#7dd3fc",
-                "icon": "ph ph-cpu",
-                "glow": "rgba(56, 189, 248, 0.4)",
-                "svg": "/jortdeboer_web/assets/res/logo/cpp.svg",
                 "meta": {
                   "usage": "Systems programming, embedded development and performance-critical applications",
                   "spec": {
                     "proficiency": "Advanced",
                     "experience": "4+ Years"
-                  },
-                  "ecosystem": [
-                    "GNU GCC",
-                    "CMake",
-                    "Arduino",
-                    "Embedded Systems",
-                    "Compiler / Linker"
-                  ]
+                  }
                 }
               },
               {
-                "id": "assembly",
-                "title": "Assembly",
-                "subtitle": "Hardware-level programming",
-                "color": "#fb7185",
-                "icon": "ph ph-cpu",
-                "glow": "rgba(251, 113, 133, 0.4)",
-                "svg": "/jortdeboer_web/assets/res/logo/asm.svg",
+                "id": "asm",
                 "meta": {
                   "usage": "Low-level programming, hardware interaction and understanding compiled code",
                   "spec": {
                     "proficiency": "Intermediate",
                     "experience": "2+ Years"
-                  },
-                  "ecosystem": [
-                    "x86 / x86-64",
-                    "ARM",
-                    "Embedded Systems",
-                    "Registers & Memory",
-                    "Compiler Output"
-                  ]
+                  }
                 }
               }
             ]
@@ -390,6 +356,8 @@ export const DATA = Object.freeze(
       "shortDesc": "Academic background",
       "content": {
         "intro": "Combining practical software engineering studies with hands-on technical projects and professional growth.",
+        "milestoneLabel": "Milestone",
+        "focusLabel": "Key focus",
         "nodes": [
           {
             "date": "SEP 2013 - JUN 2019",
@@ -397,9 +365,9 @@ export const DATA = Object.freeze(
             "company": "Niftarlake College",
             "desc": "Highschool and first introduction to programming",
             "highlights": [
-              "<input highlight>",
-              "<input highlight>",
-              "<input highlight>"
+              "First introduction to programming",
+              "Sciences and Health curriculum",
+              "Completed HAVO secondary education"
             ]
           },
           {
@@ -408,9 +376,9 @@ export const DATA = Object.freeze(
             "company": "Technical Informatics Specialist",
             "desc": "Core focus on systems programming, embedded hardware, software architecture, and algorithm design.",
             "highlights": [
-              "<input highlight>",
-              "<input highlight>",
-              "<input highlight>"
+              "Systems programming and embedded hardware",
+              "Software architecture and algorithm design",
+              "HBO-ICT Computer Science"
             ]
           },
           {
@@ -419,9 +387,9 @@ export const DATA = Object.freeze(
             "company": "Turku University of Applied Sciences",
             "desc": "Focused on graphics programming, interactive system mechanics, and collaborative cross-cultural software design.",
             "highlights": [
-              "<input highlight>",
-              "<input highlight>",
-              "<input highlight>"
+              "Graphics programming and game development",
+              "Interactive system mechanics",
+              "International collaboration in Finland"
             ]
           }
         ]
@@ -474,22 +442,122 @@ export const DATA = Object.freeze(
       "label": "Contact",
       "shortDesc": "Direct Communication",
       "content": {
-        "intro": "Have a question or interested in offering a graduation assignment? Transmit a message below."
+        "title": "Let's start a conversation",
+        "eyebrow": "OPEN TO OPPORTUNITIES",
+        "prompt": "Have a question or a project in mind?",
+        "emailAction": "Send me an email",
+        "intro": "Have a question, internship opportunity, or technical challenge? I'd be glad to hear from you."
       }
+    }
+  ],
+  "proglangs": [
+    {
+      "id": "js",
+      "title": "JavaScript",
+      "subtitle": "Web & interactive apps",
+      "color": "#f7df1e",
+      "icon": "ph ph-file-js",
+      "glow": "rgba(247, 223, 30, 0.4)",
+      "svg": "/jortdeboer_web/assets/res/logo/javascript.svg",
+      "complexity": "L3"
+    },
+    {
+      "id": "css",
+      "title": "CSS",
+      "subtitle": "Website styling",
+      "color": "#f97316",
+      "icon": "ph ph-browser",
+      "glow": "rgba(249, 115, 22, 0.4)",
+      "svg": "/jortdeboer_web/assets/res/logo/html.svg",
+      "complexity": "L3"
+    },
+    {
+      "id": "html",
+      "title": "HTML",
+      "subtitle": "Web development",
+      "color": "#f97316",
+      "icon": "ph ph-browser",
+      "glow": "rgba(249, 115, 22, 0.4)",
+      "svg": "/jortdeboer_web/assets/res/logo/html.svg",
+      "complexity": "L3"
+    },
+    {
+      "id": "unity",
+      "title": "Unity",
+      "subtitle": "Game development",
+      "color": "#e5e7eb",
+      "icon": "ph ph-game-controller",
+      "glow": "rgba(229, 231, 235, 0.4)",
+      "svg": "/jortdeboer_web/assets/res/logo/unity.svg",
+      "complexity": "L3"
+    },
+    {
+      "id": "office",
+      "title": "Excel/Word",
+      "subtitle": "Office tooling",
+      "color": "#22c55e",
+      "icon": "ph ph-file-xls",
+      "glow": "rgba(34, 197, 94, 0.4)",
+      "svg": "/jortdeboer_web/assets/res/logo/msoffice.svg",
+      "complexity": "L3"
+    },
+    {
+      "id": "py",
+      "title": "Python",
+      "subtitle": "Automation",
+      "color": "#facc15",
+      "icon": "ph ph-file-py",
+      "glow": "rgba(250, 204, 21, 0.4)",
+      "svg": "/jortdeboer_web/assets/res/logo/python.svg",
+      "complexity": "L2"
+    },
+    {
+      "id": "bash",
+      "title": "Bash",
+      "subtitle": "Linux & command-line",
+      "color": "#a3e635",
+      "icon": "ph ph-terminal",
+      "glow": "rgba(163, 230, 53, 0.4)",
+      "svg": "/jortdeboer_web/assets/res/logo/bash.svg",
+      "complexity": "L2"
+    },
+    {
+      "id": "c-cpp",
+      "title": "C/C++",
+      "subtitle": "Low-level programming",
+      "color": "#7dd3fc",
+      "icon": "ph ph-cpu",
+      "glow": "rgba(56, 189, 248, 0.4)",
+      "svg": "/jortdeboer_web/assets/res/logo/cpp.svg",
+      "complexity": "L1"
+    },
+    {
+      "id": "asm",
+      "title": "Assembly",
+      "subtitle": "Hardware-level programming",
+      "color": "#fb7185",
+      "icon": "ph ph-cpu",
+      "glow": "rgba(251, 113, 133, 0.4)",
+      "svg": "/jortdeboer_web/assets/res/logo/asm.svg",
+      "complexity": "L1"
     }
   ],
   "projectsData": [
     {
-      "id": "space-invaders",
-      "competences": [
+      "categories": [
         "ac"
       ],
       "date": "",
-      "title": "Bare-Metal Space Invaders",
+      "id": "space-invaders",
+      "banner": "/jortdeboer_web/assets/res/projects/banner-space-invaders.jpg",
       "icon": "flying-saucer",
+      "title": "Bare-Metal Space Invaders",
       "focus": "Game Engine Fundamentals",
-      "images": [],
-      "shortDescription": "A low-level recreation of Space Invaders built entirely from scratch. No OS, no libraries. Features a custom bootloader, graphics driver, and input handling, all written in assembly and C to run directly on hardware.",
+      "short": "A low-level recreation of Space Invaders built entirely from scratch. No OS, no libraries. Features a custom bootloader, graphics driver, and input handling, all written in assembly and C to run directly on hardware.",
+      "relProgLang": [
+        "c-cpp",
+        "asm"
+      ],
       "case": [
         {
           "id": "overview",
@@ -512,11 +580,6 @@ export const DATA = Object.freeze(
           "content": "Staying at 60 FPS"
         }
       ],
-      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-space-invaders.jpg",
-      "progLang": [
-        "c-cpp",
-        "assembly"
-      ],
       "links": [
         {
           "site": "Github",
@@ -526,47 +589,82 @@ export const DATA = Object.freeze(
       ]
     },
     {
-      "id": "portfolio-website",
-      "competences": [
+      "categories": [
         "swe"
       ],
       "date": "2025 Q2",
-      "title": "Personal Portfolio Website",
+      "id": "portfolio-website",
+      "banner": "/jortdeboer_web/assets/res/projects/banner-portfolio-website.png",
       "icon": "globe",
+      "title": "Personal Portfolio Website",
       "focus": "Web Development & UX Design",
-      "images": [],
-      "shortDescription": "Designed and developed a custom personal portfolio website using HTML, CSS, and JavaScript.",
+      "short": "Designed and developed a custom personal portfolio website using HTML, CSS, and JavaScript.",
+      "relProgLang": [
+        "html",
+        "css",
+        "javascript"
+      ],
       "case": [
         {
           "id": "overview",
-          "title": "Project Overview",
-          "content": "I built this portfolio website to create a central place to showcase my work, skills, and development as a web developer. Rather than simply listing projects, I wanted to create a website that reflects my approach to design and development while giving visitors a clear overview of what I can do."
+          "title": "A portfolio that invites exploration",
+          "content": [
+            "This website is more than a collection of project cards. It is designed to help visitors move from a quick introduction to the details that interest them, at their own pace.",
+            "Behind the scenes, the pages share an organized library of information. Each page presents that information differently, so the experience feels right for what you are trying to find."
+          ]
         },
         {
-          "id": "planning",
-          "title": "Planning and Structure",
-          "content": "The project started with defining the website's structure and deciding how to present the content. I focused on keeping the layout clean, the navigation intuitive, and the information easy to find. Every section serves a purpose, helping visitors explore my work without unnecessary distractions."
+          "id": "content-library",
+          "title": "One content library",
+          "content": [
+            "Think of the content as a set of labeled drawers: one for projects, one for categories and technologies, and others for profile details and the About-page modules. The information is stored separately from the page designs.",
+            "That means a project can appear as a short introduction on Home and as a fuller story on Projects, using the same project information rather than maintaining two separate copies."
+          ]
         },
         {
-          "id": "development",
-          "title": "Development and Technologies",
-          "content": "During development, I worked with HTML, CSS, and JavaScript to build the structure, styling, and interactive functionality. This involved more than making the website look good: I also had to consider code organization, reusable components, responsive layouts, and how different elements work together."
+          "id": "page-experiences",
+          "title": "Three pages, three ways to explore",
+          "content": [
+            "Home is the quick tour. Choose a field such as software or game development to open related projects right there on the page.",
+            "About is arranged like chapters. Scroll or choose a module to explore personal details, interests, technologies and milestones.",
+            "Projects is the full catalogue. Filter the projects, open one that catches your eye, and use its section links to jump through the story. On a phone, the category and project choices become compact menus."
+          ]
         },
         {
-          "id": "challenges",
-          "title": "Challenges and Design Decisions",
-          "content": "One of the main challenges was finding the right balance between visual design and functionality. I wanted the website to feel personal without compromising usability. This meant refining details, testing different approaches, and making adjustments to ensure the experience remained consistent across different screen sizes."
+          "id": "behind-the-scenes",
+          "title": "From information to interactive pages",
+          "content": [
+            "Before a visitor opens the site, a small build program combines the content files with reusable page layouts. It prepares a matching set of pages and content for English and Dutch.",
+            "When you browse, the browser turns that prepared content into interactive pieces: category choices, project details, About-page modules and navigation. The diagram brings the journey together."
+          ],
+          "image": "/jortdeboer_web/assets/res/portfolio-under-the-hood.svg",
+          "imageAlt": "Diagram showing how shared portfolio information flows into the Home, About and Projects pages, and how the build and language versions fit together.",
+          "imageCaption": "One shared content library, shaped into three different ways to explore."
         },
         {
-          "id": "learned",
-          "title": "What I Learned",
-          "content": "Building this portfolio has been an opportunity to apply my knowledge in a practical project and strengthen my understanding of front-end development. It also provides a foundation that I can continue to improve as I learn new techniques, complete more projects, and develop my own approach to building websites."
+          "id": "language",
+          "title": "Changing language, keeping your place",
+          "content": [
+            "English and Dutch wording is kept with the information it describes. The build prepares a version of the site for each language, so switching languages opens the corresponding version of the page.",
+            "The language choice is saved in the browser, and the site also saves your reading position during the switch so it can return you to roughly the same place."
+          ]
+        },
+        {
+          "id": "design-decisions",
+          "title": "A few important design choices",
+          "content": [
+            "The pages use different layouts because visitors have different goals: a quick overview, a personal introduction, or a closer look at a particular project. Shared information keeps those views connected.",
+            "The layouts also adapt to smaller screens. For example, project filters are easier to use on a phone when they open as a compact selection menu instead of taking up space beside the project list."
+          ]
+        },
+        {
+          "id": "what-i-learned",
+          "title": "What this project taught me",
+          "content": [
+            "A portfolio can be both a showcase and a small, useful product. Organizing the information, making each page easy to explore, and keeping the experience coherent across languages and screen sizes are all part of building it.",
+            "The result is easier to extend: new work can be added to the content library and then shown in the places where it helps visitors most."
+          ]
         }
-      ],
-      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-portfolio-website.png",
-      "progLang": [
-        "html-css",
-        "javascript"
       ],
       "links": [
         {
@@ -576,22 +674,26 @@ export const DATA = Object.freeze(
         },
         {
           "site": "Web",
-          "web": "#",
+          "web": "/jortdeboer_web/index.html",
           "icon": "globe"
         }
       ]
     },
     {
+      "categories": [
+        "gd"
+      ],
+      "date": "2024 Q4",
       "id": "pixel-conquest",
-      "competences": [
-        "gd"
-      ],
-      "date": "2024 Q4",
-      "title": "Pixel Conquest",
+      "banner": "/jortdeboer_web/assets/res/projects/banner-pixel-conquest.png",
       "icon": "castle-turret",
+      "title": "Pixel Conquest",
       "focus": "Game Development",
-      "images": [],
-      "shortDescription": "A fast-paced, real-time pixel game built in Unity with C#.",
+      "short": "A fast-paced, real-time pixel game built in Unity with C#.",
+      "relProgLang": [
+        "unity",
+        "c-cpp"
+      ],
       "case": [
         {
           "id": "overview",
@@ -614,11 +716,6 @@ export const DATA = Object.freeze(
           "content": "Staying at 60 FPS"
         }
       ],
-      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-pixel-conquest.png",
-      "progLang": [
-        "unity",
-        "c-cpp"
-      ],
       "links": [
         {
           "site": "Gitlab",
@@ -628,16 +725,20 @@ export const DATA = Object.freeze(
       ]
     },
     {
-      "id": "grids",
-      "competences": [
+      "categories": [
         "gd"
       ],
       "date": "2024 Q4",
-      "title": "Grids",
+      "id": "grids",
+      "banner": "/jortdeboer_web/assets/res/projects/banner-grids.png",
       "icon": "grid-four",
+      "title": "Grids",
       "focus": "Unity Multiplayer Game Development",
-      "images": [],
-      "shortDescription": "A local multiplayer Unity game with quick minigames.",
+      "short": "A local multiplayer Unity game with quick minigames.",
+      "relProgLang": [
+        "unity",
+        "c-cpp"
+      ],
       "case": [
         {
           "id": "overview",
@@ -660,11 +761,6 @@ export const DATA = Object.freeze(
           "content": "Staying at 60 FPS"
         }
       ],
-      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-grids.png",
-      "progLang": [
-        "unity",
-        "c-cpp"
-      ],
       "links": [
         {
           "site": "Gitlab",
@@ -674,16 +770,21 @@ export const DATA = Object.freeze(
       ]
     },
     {
-      "id": "nas",
-      "competences": [
+      "categories": [
         "at"
       ],
       "date": "2023 Q4",
-      "title": "DIY Network Attached Storage",
+      "id": "nas",
+      "banner": "/jortdeboer_web/assets/res/projects/truenas.png",
       "icon": "download",
+      "title": "DIY Network Attached Storage",
       "focus": "System Administration & Networking",
-      "images": [],
-      "shortDescription": "Built a custom NAS with automated backups.",
+      "short": "Built a custom NAS with automated backups.",
+      "relProgLang": [
+        "bash",
+        "py",
+        "c-cpp"
+      ],
       "case": [
         {
           "id": "overview",
@@ -706,12 +807,6 @@ export const DATA = Object.freeze(
           "content": "Staying at 60 FPS"
         }
       ],
-      "bannerImage": "/jortdeboer_web/assets/res/projects/truenas.png",
-      "progLang": [
-        "bash",
-        "python",
-        "c-cpp"
-      ],
       "links": [
         {
           "site": "Github",
@@ -721,16 +816,22 @@ export const DATA = Object.freeze(
       ]
     },
     {
-      "id": "sailfishos",
-      "competences": [
+      "categories": [
         "swe"
       ],
       "date": "2024 Q2",
-      "title": "SailfishOS on Fairphone 4",
+      "id": "sailfishos",
+      "banner": "/jortdeboer_web/assets/res/projects/banner-sfos-fp4.png",
       "icon": "device-mobile",
+      "title": "SailfishOS on Fairphone 4",
       "focus": "Mobile OS Porting & Open Source Contribution",
       "images": [],
-      "shortDescription": "Developed a SailfishOS port for Fairphone 4.",
+      "short": "Developed a SailfishOS port for Fairphone 4.",
+      "relProgLang": [
+        "bash",
+        "py",
+        "c-cpp"
+      ],
       "case": [
         {
           "id": "overview",
@@ -753,12 +854,6 @@ export const DATA = Object.freeze(
           "content": "Staying at 60 FPS"
         }
       ],
-      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-sfos-fp4.png",
-      "progLang": [
-        "bash",
-        "python",
-        "c-cpp"
-      ],
       "links": [
         {
           "site": "Github",
@@ -768,16 +863,20 @@ export const DATA = Object.freeze(
       ]
     },
     {
-      "id": "symbolic",
-      "competences": [
+      "categories": [
         "ac"
       ],
       "date": "2024 Q1",
-      "title": "Symbolic: A Custom Turing-Complete Language",
+      "id": "symbolic",
+      "banner": "/jortdeboer_web/assets/res/projects/banner-symbolic.png",
       "icon": "code",
+      "title": "Symbolic: A Custom Turing-Complete Language",
       "focus": "Language Design & Compiler Construction",
-      "images": [],
-      "shortDescription": "Built a custom Turing-complete language.",
+      "short": "Built a custom Turing-complete language.",
+      "relProgLang": [
+        "c-cpp",
+        "asm"
+      ],
       "case": [
         {
           "id": "overview",
@@ -800,11 +899,6 @@ export const DATA = Object.freeze(
           "content": "Staying at 60 FPS"
         }
       ],
-      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-symbolic.png",
-      "progLang": [
-        "c-cpp",
-        "assembly"
-      ],
       "links": [
         {
           "site": "Github",
@@ -814,16 +908,19 @@ export const DATA = Object.freeze(
       ]
     },
     {
-      "id": "super-hotline",
-      "competences": [
+      "categories": [
         "gd"
       ],
       "date": "2023 Q1",
-      "title": "Super Hotline",
+      "id": "super-hotline",
+      "banner": "/jortdeboer_web/assets/res/projects/banner-hotline.png",
       "icon": "joystick",
+      "title": "Super Hotline",
       "focus": "Single Player Top-down Shooter Game",
-      "images": [],
-      "shortDescription": "A fast-paced action game in C++.",
+      "short": "A fast-paced action game in C++.",
+      "relProgLang": [
+        "c-cpp"
+      ],
       "case": [
         {
           "id": "overview",
@@ -846,10 +943,6 @@ export const DATA = Object.freeze(
           "content": "Staying at 60 FPS"
         }
       ],
-      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-hotline.png",
-      "progLang": [
-        "c-cpp"
-      ],
       "links": [
         {
           "site": "Github",
@@ -859,16 +952,19 @@ export const DATA = Object.freeze(
       ]
     },
     {
-      "id": "gomoku",
-      "competences": [
+      "categories": [
         "at"
       ],
       "date": "2023 Q3",
-      "title": "Go-Moku MCTS Agent",
+      "id": "gomoku",
+      "banner": "/jortdeboer_web/assets/res/projects/banner-gomoku.png",
       "icon": "dice-six",
+      "title": "Go-Moku MCTS Agent",
       "focus": "Artificial Intelligence & Optimization",
-      "images": [],
-      "shortDescription": "Built a Go-Moku AI using MCTS.",
+      "short": "Built a Go-Moku AI using MCTS.",
+      "relProgLang": [
+        "py"
+      ],
       "case": [
         {
           "id": "overview",
@@ -891,10 +987,6 @@ export const DATA = Object.freeze(
           "content": "Staying at 60 FPS"
         }
       ],
-      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-gomoku.png",
-      "progLang": [
-        "python"
-      ],
       "links": [
         {
           "site": "Github",
@@ -904,16 +996,20 @@ export const DATA = Object.freeze(
       ]
     },
     {
-      "id": "nrf24l01",
-      "competences": [
+      "categories": [
         "swe"
       ],
       "date": "2023 Q2",
-      "title": "nRF24L01+ Wireless Module",
+      "id": "nrf24l01",
+      "banner": "/jortdeboer_web/assets/res/projects/banner-nrf-arduino.png",
       "icon": "code",
+      "title": "nRF24L01+ Wireless Module",
       "focus": "Embedded Systems & Hardware Communication",
-      "images": [],
-      "shortDescription": "Custom driver for wireless module.",
+      "short": "Custom driver for wireless module.",
+      "relProgLang": [
+        "c-cpp",
+        "asm"
+      ],
       "case": [
         {
           "id": "overview",
@@ -936,11 +1032,6 @@ export const DATA = Object.freeze(
           "content": "Staying at 60 FPS"
         }
       ],
-      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-nrf-arduino.png",
-      "progLang": [
-        "c-cpp",
-        "assembly"
-      ],
       "links": [
         {
           "site": "Github",
@@ -950,38 +1041,6 @@ export const DATA = Object.freeze(
       ]
     }
   ],
-  "categories": [
-    {
-      "key": "all",
-      "label": "All Projects"
-    },
-    {
-      "key": "swe",
-      "label": "Software Engineering"
-    },
-    {
-      "key": "gd",
-      "label": "Game Development"
-    },
-    {
-      "key": "ac",
-      "label": "Advanced Computing"
-    },
-    {
-      "key": "at",
-      "label": "Automation & Tooling"
-    }
-  ],
-  "miscTranslations": {
-    "In-Development": "In Development",
-    "empty": "No projects found in this category.",
-    "goal": "Project Goal and Overview",
-    "stack": "Core Technology Stack",
-    "contact": "For code repositories and deeper implementation details, please contact me directly.",
-    "inDev": "In Development",
-    "seeMore": "See More",
-    "viewProjects": "More projects"
-  },
   "sociallinksData": {
     "mail": {
       "href": "mailto:boer.jort.edu@gmail.com",
@@ -1037,15 +1096,17 @@ export const DATA = Object.freeze(
       "value": "jortdeboerweb.com"
     }
   ],
-  "languages": {
-    "nl": {
+  "languages": [
+    {
+      "code": "nl",
       "flag": "🇳🇱",
       "language": "Nederlands"
     },
-    "en": {
+    {
+      "code": "en",
       "flag": "🇬🇧",
       "language": "English"
     }
-  }
+  ]
 }
 );

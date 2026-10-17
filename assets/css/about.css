@@ -279,7 +279,10 @@
 	position: relative;
 	width: 100%;
   min-width: 0;
-  height: 425px;
+  --module-height: clamp(360px, 52vh, 520px);
+  height: var(--module-height);
+  min-height: 360px;
+  max-height: 520px;
 	background: rgba(13, 25, 48, 0.85);
 	border: 1px solid var(--color-surface);
 	border-radius: 12px;
@@ -549,38 +552,20 @@
 
 /* Content Area */
 .module-content-wrapper {
-  overflow-y: auto;
-	overflow-x: hidden;
+  overflow: hidden;
 	display: flex;
 	flex-grow: 1;
+  min-height: 0;
   min-width: 0;
 	position: relative;
 	margin: 10px;
   transition: opacity 0.25s ease, transform 0.25s ease;
 
-    /* Custom Cyberpunk Scrollbar */
-  &::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: rgba(15, 23, 42, 0.6);
-    border-radius: 4px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: rgba(34, 211, 238, 0.35);
-    border-radius: 4px;
-  }
-
-  &::-webkit-scrollbar-thumb:hover {
-    background: rgba(34, 211, 238, 0.75);
-  }
-
 
 	.panel-content {
 		padding: 5px;
 		flex-grow: 1;
+    min-height: 0;
     min-width: 0;
 	}
 }
@@ -1007,8 +992,9 @@ aside {
   }
 
   .active-module-container {
-    height: auto;
+    height: 420px;
     min-height: 420px;
+    max-height: 420px;
     order: 2;
   }
 
@@ -1029,9 +1015,9 @@ aside {
     width: calc(100% - 20px);
     height: auto;
     max-height: none;
-    flex: 0 1 auto;
-    overflow-y: visible;
-    overflow-x: hidden;
+    min-height: 0;
+    flex: 1 1 0;
+    overflow: hidden;
     align-self: center;
     margin: 10px;
   }
@@ -1712,7 +1698,7 @@ aside {
     .timeline-line-fill {
       height: 100%;
       background: #f59e0b;
-      width: 66.66%;
+      width: 0;
       transition: width 0.4s ease;
       border-radius: 2px;
     }
@@ -2411,3 +2397,792 @@ aside {
     font-size: 20px;
   }
 }
+
+.timeline-node {
+  width: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  appearance: none;
+}
+
+.timeline-node:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+@media (max-width: 767px) {
+  .education-panel {
+    overflow-x: hidden;
+  }
+
+  .education-panel .timeline-track,
+  .education-panel .timeline-nodes,
+  .education-panel .milestone-card {
+    min-width: 0;
+  }
+
+  .education-panel .timeline-nodes {
+    width: 100%;
+    padding: 0 4px;
+  }
+
+  .education-panel .timeline-node {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .education-panel .timeline-title {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    font-size: clamp(8px, 2.6vw, 11px);
+  }
+
+  .education-panel .timeline-subtitle {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    font-size: clamp(7px, 2.2vw, 10px);
+  }
+
+  .hobbies-panel .tile::after {
+    content: none;
+  }
+}
+
+.hobbies-panel .tile {
+  width: 100%;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.hobbies-panel .tile:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.hobbies-panel .tile-action {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 9px;
+  color: var(--color-primary);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.hobbies-panel .tile:hover .tile-action,
+.hobbies-panel .tile:focus-visible .tile-action {
+  text-decoration: underline;
+}
+
+.hobby-embedded-modal {
+  grid-template-columns: minmax(150px, 0.8fr) minmax(0, 1.4fr);
+  min-height: 0;
+}
+
+.modal-left-stack {
+  min-width: 0;
+  min-height: 0;
+}
+
+.modal-img-item {
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+}
+
+.modal-img-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-right-info {
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.hobby-stats-list li {
+  align-items: flex-start;
+}
+
+.hobby-stats-list li i {
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+
+.active-module-container.is-techstack-active {
+  height: var(--module-height);
+  min-height: 360px;
+  max-height: 520px;
+}
+
+.active-module-container.is-techstack-active .module-content-wrapper {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.techstack-panel {
+  display: flex;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.techstack-panel .hud-canvas {
+  flex: 1 1 auto;
+  min-height: 0;
+  gap: 8px;
+}
+
+.techstack-panel .stack-rack.is-compact {
+  flex: 0 0 76px;
+  transition: none;
+}
+
+.techstack-panel .detail-drawer {
+  min-height: 0;
+  transition: none;
+}
+
+.techstack-panel .detail-drawer.is-open {
+  flex: 1 1 0;
+  min-height: 0;
+}
+
+.techstack-panel .detail-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.techstack-panel .detail-grid {
+  min-height: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 6px 10px;
+  overflow: hidden;
+}
+
+.techstack-panel .detail-section {
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  gap: 3px;
+}
+
+.techstack-panel .section-label {
+  font-size: 8px;
+  line-height: 1.15;
+}
+
+.techstack-panel .section-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  padding: 5px 7px;
+  font-size: 8px;
+  line-height: 1.3;
+}
+
+.techstack-panel .spec-matrix {
+  gap: 2px;
+  padding: 4px 6px;
+  font-size: 7.5px;
+}
+
+.techstack-panel .tech-spec-item {
+  min-width: 0;
+  gap: 5px;
+  padding-top: 1px;
+  padding-bottom: 2px;
+}
+
+.techstack-panel .tech-spec-key,
+.techstack-panel .tech-spec-val {
+  overflow-wrap: anywhere;
+}
+
+.techstack-panel .eco-grid {
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.techstack-panel .eco-tag {
+  padding: 2px 5px;
+  font-size: 7px;
+}
+
+.techstack-panel .projects-list {
+  min-height: 0;
+  overflow: hidden;
+  gap: 3px;
+}
+
+.techstack-panel .project-card {
+  min-width: 0;
+  padding: 4px 6px;
+}
+
+.techstack-panel .project-name,
+.techstack-panel .project-detail {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.techstack-panel .project-name {
+  font-size: 8px;
+  white-space: nowrap;
+}
+
+.techstack-panel .project-detail {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: 7px;
+}
+
+.techstack-panel .slider-track .chip {
+  cursor: pointer;
+}
+
+.techstack-panel .slider-track .chip:focus-visible {
+  outline: 2px solid var(--layer-accent, var(--color-primary));
+  outline-offset: 2px;
+}
+
+@media (min-width: 768px) and (max-width: 1100px) {
+  .techstack-panel .slab {
+    gap: 6px;
+    padding: 5px 7px;
+  }
+
+  .techstack-panel .slab-tab {
+    width: 82px;
+    padding-right: 6px;
+  }
+
+  .techstack-panel .slab-nodes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: minmax(28px, 1fr);
+    align-content: center;
+    gap: 4px;
+  }
+
+  .techstack-panel .chip {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    max-width: 100%;
+    gap: 6px;
+    padding: 3px 5px;
+  }
+
+  .techstack-panel .chip-icon,
+  .techstack-panel .chip-logo {
+    width: 24px;
+    height: 24px;
+  }
+
+  .techstack-panel .chip-icon {
+    flex: 0 0 24px;
+  }
+
+  .techstack-panel .chip-info {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .techstack-panel .chip-title {
+    font-size: 11px;
+  }
+
+  .techstack-panel .chip-subtitle {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hobby-embedded-modal {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 100px minmax(0, 1fr);
+    gap: 10px;
+    padding: 14px;
+    overflow: hidden;
+  }
+
+  .modal-left-stack {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+    height: 100px;
+  }
+
+  .modal-img-item,
+  .modal-img-item:first-child {
+    display: block;
+  }
+
+  .modal-right-info {
+    padding: 0 28px 0 0;
+  }
+
+  .modal-info-header {
+    margin-bottom: 3px;
+    font-size: 1rem;
+  }
+
+  .modal-info-subtitle {
+    margin-bottom: 7px;
+    font-size: 0.65rem;
+  }
+
+  .modal-divider {
+    margin-bottom: 7px;
+  }
+
+  .modal-info-text {
+    margin-bottom: 8px;
+    font-size: 0.78rem;
+    line-height: 1.35;
+  }
+
+  .modal-info-section-title {
+    margin-bottom: 5px;
+    font-size: 0.65rem;
+  }
+
+  .hobby-stats-list {
+    gap: 4px;
+  }
+
+  .hobby-stats-list li {
+    font-size: 0.72rem;
+    line-height: 1.25;
+  }
+
+  .active-module-container.is-techstack-active {
+    height: var(--module-height);
+    min-height: 360px;
+    max-height: 460px;
+  }
+
+  .active-module-container.is-techstack-active .module-content-wrapper {
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    flex: 1 1 0;
+    overflow: hidden;
+  }
+
+  .techstack-panel .stack-rack.is-compact {
+    flex: 0 0 76px;
+  }
+
+  .techstack-panel .detail-drawer {
+    gap: 5px;
+    padding: 6px 8px;
+  }
+
+  .techstack-panel .detail-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: 4px 6px;
+  }
+
+  .techstack-panel .drawer-header {
+    min-height: 28px;
+  }
+
+  .techstack-panel .drawer-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .techstack-panel .drawer-logo {
+    width: 18px;
+    height: 18px;
+  }
+
+  .techstack-panel .drawer-title {
+    font-size: 10px;
+  }
+
+  .techstack-panel .drawer-layer {
+    font-size: 8px;
+  }
+
+  .techstack-panel .section-label {
+    font-size: 7px;
+  }
+
+  .techstack-panel .section-text {
+    -webkit-line-clamp: 3;
+    font-size: 7px;
+  }
+
+  .techstack-panel .spec-matrix {
+    font-size: 6.5px;
+  }
+
+  .techstack-panel .project-name {
+    font-size: 7px;
+  }
+
+  .techstack-panel .project-detail {
+    font-size: 6px;
+  }
+}
+
+  .education-panel {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .education-panel .milestone-card {
+    flex: 1 1 0;
+    min-height: 0;
+    margin-top: 6px;
+    padding: 10px;
+    overflow: hidden;
+  }
+
+  .education-panel .milestone-year,
+  .education-panel .milestone-track,
+  .education-panel .milestone-badge,
+  .education-panel .milestone-desc,
+  .education-panel .milestone-list-title {
+    display: none;
+  }
+
+  .education-panel .milestone-card:focus-visible {
+    outline: 2px solid #f59e0b;
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 767px) {
+    .active-module-container {
+      --module-height: clamp(360px, 55vh, 460px);
+      height: var(--module-height);
+      min-height: 360px;
+      max-height: 460px;
+      flex: none;
+    }
+
+    .module-content-wrapper {
+      height: auto;
+      min-height: 0;
+      max-height: none;
+      flex: 1 1 0;
+      overflow: hidden;
+    }
+
+    .module-content-wrapper > .panel-content {
+      height: 100%;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .identity-phase-2 .cards-container {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .identity-phase-2 .vibe-card {
+      min-width: 0;
+      padding: 8px;
+    }
+
+    .identity-phase-2 .card-title {
+      gap: 6px;
+      margin-bottom: 0;
+    }
+
+    .identity-phase-2 .card-icon-glow {
+      width: 26px;
+      height: 26px;
+      font-size: 0.9rem;
+    }
+
+    .identity-phase-2 .card-label {
+      font-size: 0.74rem;
+    }
+
+    .identity-phase-2 .card-text {
+      display: none;
+    }
+
+    .identity-phase-2 .btn-next {
+      margin-top: 8px;
+      padding: 6px 10px;
+      font-size: 10px;
+    }
+
+    .hobbies-panel .header-content,
+    .education-panel .education-intro,
+    .contact-module .contact-intro {
+      flex: 0 0 auto;
+    }
+
+    .active-module-container .hobbies-panel .tiles-grid {
+      min-height: 0;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      grid-auto-rows: auto;
+      gap: 8px;
+    }
+
+    .active-module-container .hobbies-panel .tile {
+      min-height: 0;
+    }
+
+    .active-module-container .hobbies-panel .shutter-content {
+      height: 100%;
+      min-height: 0;
+      padding: 9px;
+      background: linear-gradient(0deg, rgba(6, 17, 37, 0.96), rgba(6, 17, 37, 0.2));
+    }
+
+    .active-module-container .hobbies-panel .tile-label {
+      gap: 5px;
+      font-size: 0.76rem;
+    }
+
+    .active-module-container .hobbies-panel .tile-desc {
+      display: none;
+    }
+
+    .active-module-container .hobbies-panel .tile-action {
+      align-self: flex-start;
+      width: fit-content;
+      max-width: 100%;
+      margin-top: 6px;
+      padding: 4px 6px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 4px;
+      background: rgba(6, 17, 37, 0.75);
+      font-size: 0.58rem;
+    }
+
+    .active-module-container .techstack-panel .chip {
+      gap: 0;
+      padding: 4px;
+    }
+
+    .active-module-container .education-panel .education-intro {
+      display: none;
+    }
+
+    .active-module-container .education-panel .timeline-track {
+      flex: 0 0 32px;
+      height: 32px;
+      overflow: hidden;
+    }
+
+    .active-module-container .education-panel .timeline-nodes {
+      flex: 0 0 auto;
+      min-width: 0;
+      padding: 0 4px;
+    }
+
+    .active-module-container .education-panel .timeline-node {
+      flex: 1 1 0;
+      min-width: 0;
+    }
+
+    .active-module-container .education-panel .timeline-title {
+      max-width: 100%;
+      font-size: clamp(7px, 2.2vw, 9px);
+    }
+
+    .active-module-container .education-panel .timeline-subtitle {
+      display: none;
+    }
+
+    .active-module-container .education-panel .milestone-card {
+      margin-top: 6px;
+      padding: 9px;
+    }
+
+    .active-module-container .education-panel .milestone-header {
+      gap: 6px;
+      margin-bottom: 5px;
+      padding-bottom: 5px;
+    }
+
+    .active-module-container .education-panel .milestone-title {
+      font-size: 0.95rem;
+    }
+
+    .active-module-container .education-panel .milestone-desc {
+      margin-bottom: 5px;
+      font-size: 0.75rem;
+      line-height: 1.35;
+    }
+
+    .active-module-container .education-panel .milestone-list-title {
+      margin-bottom: 4px;
+      font-size: 0.62rem;
+    }
+
+    .active-module-container .education-panel .milestone-list li {
+      margin-bottom: 3px;
+      font-size: 0.68rem;
+      line-height: 1.25;
+    }
+
+    .active-module-container .github-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .active-module-container .github-card {
+      flex: 0 0 auto;
+      flex-wrap: nowrap;
+      align-items: center;
+      gap: 8px;
+      padding: 8px;
+    }
+
+    .active-module-container .github-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+    }
+
+    .active-module-container .github-info {
+      min-width: 0;
+      flex: 0 1 auto;
+    }
+
+    .active-module-container .github-username {
+      font-size: 0.78rem;
+    }
+
+    .active-module-container .github-bio {
+      display: none;
+    }
+
+    .active-module-container .github-stats-container {
+      flex: 1 1 auto;
+      justify-content: space-around;
+      gap: 6px;
+      border-top: 0;
+      border-left: 1px solid #1e293b;
+      padding: 0 0 0 8px;
+    }
+
+    .active-module-container .github-stat-val {
+      font-size: 0.9rem;
+    }
+
+    .active-module-container .github-stat-label {
+      font-size: 0.48rem;
+    }
+
+    .active-module-container .github-controls-bar {
+      flex: 0 0 auto;
+      margin: 0;
+      gap: 6px;
+    }
+
+    .active-module-container .github-section-title {
+      font-size: 0.72rem;
+    }
+
+    .active-module-container .btn-refresh {
+      padding: 5px 7px;
+      font-size: 0.58rem;
+    }
+
+    .active-module-container .github-projects-grid {
+      flex: 1 1 0;
+      min-height: 0;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: minmax(0, 1fr);
+      gap: 6px;
+      overflow: hidden;
+    }
+
+    .active-module-container .repo-card {
+      min-width: 0;
+      min-height: 0;
+      padding: 7px;
+      overflow: hidden;
+    }
+
+    .active-module-container .repo-card:nth-child(n + 3),
+    .active-module-container .repo-desc,
+    .active-module-container .repo-topics {
+      display: none;
+    }
+
+    .active-module-container .repo-name {
+      font-size: 0.62rem;
+    }
+
+    .active-module-container .repo-footer {
+      gap: 4px;
+      padding-top: 4px;
+      font-size: 0.5rem;
+    }
+
+    .active-module-container .contact-module {
+      width: 100%;
+      max-width: none;
+      height: 100%;
+      gap: 8px;
+      padding: 5px;
+      overflow: hidden;
+    }
+
+    .active-module-container .contact-module .contact-intro {
+      display: none;
+    }
+
+    .active-module-container .contact-title {
+      margin-bottom: 0;
+      font-size: 1.1rem;
+    }
+
+    .active-module-container .contact-card {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 8px;
+      padding: 10px;
+    }
+
+    .active-module-container .contact-card-title {
+      margin: 3px 0;
+      font-size: 0.95rem;
+    }
+
+    .active-module-container .contact-card-text {
+      font-size: 0.78rem;
+    }
+
+    .active-module-container .contact-email-link {
+      width: 100%;
+      min-height: 40px;
+      box-sizing: border-box;
+    }
+
+    .active-module-container .contact-links {
+      gap: 8px;
+    }
+  }

@@ -1,11 +1,11 @@
 import { DATA } from "content-data"
 import { APP_EVENTS, emit } from "./events.js";
 
-
 export class ElementBuilder {
   static tags = [
     'div', 'span', 'button', 'i', 'li', 'article', 'section',
-    'h1', 'h2', 'h3', 'h4', 'p', 'a', 'img', 'ul',
+    'h1', 'h2', 'h3', 'h4', 'p', 'a', 'img', 'ul', 'dialog',
+    'figure', 'figcaption',
   ];
 
   static voidElements = new Set([
@@ -80,13 +80,27 @@ const elements = Object.fromEntries(
 const ph_icon = (icon, cls = '') =>
     i(`ph ph-${icon} ${cls}`.trim());
 
-export const select = (selector, all = false) =>
-  all ? [...document.querySelectorAll(selector)] : document.querySelector(selector);
+function getProjectCategories(project) {
+  const categories = project.categories ?? project.category;
+  return (Array.isArray(categories) ? categories : [categories])
+    .filter(category => typeof category === 'string' && category.trim());
+}
+
+function getPrimaryProjectCategory(project) {
+  return getProjectCategories(project)[0] ?? '';
+}
+
+export function select(el, all = false) {
+  el = el.trim();
+  if (all) return [...document.querySelectorAll(el)];
+  if (el === "window") return window;
+  return document.querySelector(el);
+}
 
 const html = content => ElementBuilder.rawHTML(content);
 const {
   div, span, button, i, li, article, section,
-  h2, h3, h4, p, a, img, ul
+  h2, h3, h4, p, a, img, ul, dialog, figure, figcaption
 } = elements;
 
 class BaseRenderer {
@@ -97,8 +111,11 @@ class BaseRenderer {
 
         this.isList = Array.isArray(this.data)
 
-        this.validate();    
+
+        this.validate();   
+        this.init();
         this.run();
+        this.post();
     }
 
     validate() {
@@ -142,6 +159,8 @@ class BaseRenderer {
         this.parent.replaceChildren(element);
     }
 
+    init(){}
+
     run(){
       const result = this.isList 
         ? this.renderList() 
@@ -150,6 +169,8 @@ class BaseRenderer {
       this.mount(result)
       return result
     }
+
+    post(){}
 
     create(tag, className, props = {}){
         return Object.assign(document.createElement(tag), {
@@ -267,57 +288,68 @@ export class ModuleRenderer extends BaseRenderer {
   }
   
   hobbiesModule(){
-    return div('panel-content education-panel', [ 
+    return div('panel-content hobbies-panel', [ 
       div('header-content', [
-        // h2('intro-headline', html(this.data.content.intro))
+        h2('intro-headline', html(this.data.content.intro))
       ]),
-      div('tiles-grid', this.data.content.tiles.map(tile => 
-        div('tile', [
+      div('tiles-grid', this.data.content.tiles.map(tile =>
+        button('tile', [
           div('tile-image',[], { 
-            style:`background-image: url('${tile.bg}')`
+            style:`background-image: url('${tile.bg}')`,
+            'aria-hidden': 'true'
           }),
           div('shutter-content', [
-            span('tile-label', tile.label),
-            p('tile-desc', tile.desc)
+            h3('tile-label', [i(tile.icon), tile.label]),
+            p('tile-desc', tile.desc),
+            span('tile-action', [tile.action, ph_icon('arrow-right')])
           ])
         ], {
-          onClick : (e) => {
-            e.stopPropagation()
-            emit(e.currentTarget, APP_EVENTS.MODULE_HOBBY_OPEN_MODAL, 
-              {
-                hobbyId : tile.id
-              }
-            )   
+          type: 'button',
+          'aria-haspopup': 'dialog',
+          onclick: event => {
+            event.stopPropagation();
+            emit(event.currentTarget, APP_EVENTS.MODULE_HOBBY_OPEN_MODAL, { hobbyId: tile.id });
           }
         })
       )),
       div('hobby-embedded-modal', [
         button('modal-close-x', ph_icon('x'), {
-          onclick : (e) => {
-            e.stopPropagation()
-            emit(e.currentTarget, APP_EVENTS.MODULE_HOBBY_CLOSE_MODAL)   
+          type: 'button',
+          'aria-label': this.data.content.closeLabel,
+          onclick: event => {
+            event.stopPropagation();
+            emit(event.currentTarget, APP_EVENTS.MODULE_HOBBY_CLOSE_MODAL);
           }
         }),
         div('modal-left-stack'),
         div('modal-right-info')
-      ])
+      ], {
+        role: 'dialog',
+        'aria-modal': 'true',
+        'aria-label': this.data.content.dialogLabel,
+        'aria-hidden': 'true'
+      })
     ])
   }
 
   techStackModule(){
     function createSkillChip(layer, skill){
-      const hasSvgLogo = typeof skill.svg === 'string' && skill.svg.trim().toLowerCase().endsWith('.svg');
+      const tech = DATA.proglangs.find(entry => entry.id === skill.id) ?? {};
+      const hasSvgLogo = typeof tech.svg === 'string' && tech.svg.trim().toLowerCase().endsWith('.svg');
 
       return div('chip', [
           div('chip-icon', hasSvgLogo
-            ? img('chip-logo', [], { src: skill.svg, alt: `${skill.title} logo` })
-            : []
+            ? img('chip-logo', [], { src: tech.svg, alt: `${tech.title || skill.id} logo` })
+            : [i(tech.icon || 'ph ph-code')]
           ),
           div('chip-info',[
-            div('chip-title', skill.title),
-            div('chip-subtitle', skill.subtitle)
+            div('chip-title', tech.title || skill.id),
+            div('chip-subtitle', tech.subtitle || '')
           ])
         ], { 
+          role: 'button',
+          tabindex: '0',
+          'aria-label': tech.title || skill.id,
           onclick : (e) => { 
             e.stopPropagation(); 
             emit(e.currentTarget, APP_EVENTS.MODULE_TECHSTACK_SELECT_NODE, 
@@ -327,7 +359,13 @@ export class ModuleRenderer extends BaseRenderer {
               }
             )
           },
-          style : `--node-color: ${skill.color};`
+          onKeydown: e => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              e.currentTarget.click();
+            }
+          },
+          style : `--node-color: ${tech.color || layer.color.light}; --node-glow: ${tech.glow || 'transparent'};`
         }
       )
     }
@@ -426,13 +464,15 @@ export class ModuleRenderer extends BaseRenderer {
 
   educationModule(){
     function createTimelineNode(node, idx){
-      return div(`timeline-node tnode-${idx} ${idx == 0 ? 'active' : ''}`,[
+      return button(`timeline-node tnode-${idx} ${idx == 0 ? 'active' : ''}`,[
         div('timeline-dot', [
           div('timeline-dot-inner')
         ]),
         div('timeline-title', node.date),
         div('timeline-subtitle', node.company)
       ], {
+        type: 'button',
+        'aria-pressed': String(idx === 0),
         onclick : (e) => { 
           e.stopPropagation(); 
           emit(e.currentTarget, APP_EVENTS.MODULE_EDUCATION_SELECT_NODE, 
@@ -444,20 +484,24 @@ export class ModuleRenderer extends BaseRenderer {
       })
     }
     
-    return div('panel-content', [ 
+    return div('panel-content education-panel', [ 
+      p('intro-headline education-intro', this.data.content.intro),
       div('timeline-track', [
         div('timeline-line-bg',[
           div('timeline-line-fill')
         ])
       ]),
       div('timeline-nodes', this.data.content.nodes.map((n,i) => createTimelineNode(n, i) )),
-      div('milestone-card')
+      div('milestone-card', [], {
+        role: 'region',
+        tabindex: '0'
+      })
     ])
   }
 
   githubModule(){
 
-    return div('panel-content', [ 
+    return div('panel-content github-panel', [ 
       div('github-card', [
         img('github-avatar', [], { 
           src : 'https://github.com/Jordieboyz.png', 
@@ -495,9 +539,49 @@ export class ModuleRenderer extends BaseRenderer {
   }
 
   contactModule(){
-    return div('panel-content', [ 
+    const email = this.data.content.email || DATA.sociallinksData.mail.href;
+    const emailAddress = email.replace(/^mailto:/, '');
+    const linkedIn = DATA.sociallinksData.linkedin;
+    const github = DATA.sociallinksData.github;
+
+    return div('panel-content contact-module', [ 
       div('header-content', [
-        h2('intro-headline', html(this.data.content.intro))
+        h2('contact-title', this.data.content.title),
+        p('contact-intro', html(this.data.content.intro))
+      ]),
+      div('contact-card', [
+        div('contact-card-copy', [
+          span('contact-eyebrow', this.data.content.eyebrow),
+          h3('contact-card-title', this.data.content.prompt),
+          p('contact-card-text', emailAddress)
+        ]),
+        a('contact-email-link', [
+          ph_icon('envelope-simple'),
+          span('', this.data.content.emailAction)
+        ], {
+          href: email,
+          'aria-label': `${this.data.content.emailAction}: ${emailAddress}`
+        })
+      ]),
+      div('contact-links', [
+        a('contact-link', [
+          ph_icon('linkedin-logo'),
+          span('', 'LinkedIn'),
+          ph_icon('arrow-up-right')
+        ], {
+          href: linkedIn.href,
+          target: '_blank',
+          rel: 'noopener noreferrer'
+        }),
+        a('contact-link', [
+          ph_icon('github-logo'),
+          span('', 'GitHub'),
+          ph_icon('arrow-up-right')
+        ], {
+          href: github.href,
+          target: '_blank',
+          rel: 'noopener noreferrer'
+        })
       ])
     ])
   }
@@ -505,23 +589,123 @@ export class ModuleRenderer extends BaseRenderer {
 
 export class CategoryRenderer extends BaseRenderer {
   project_count(id) {
-    return this.options.projects.filter(project => project.competences?.includes(id)).length
+    return this.options.projects.filter(project =>
+      getProjectCategories(project).includes(id)
+    ).length
+  }
+
+  createMobileButtons(className, label){
+    return button(className, [
+      span(`${className}-copy`, [
+        span(`${className}-label`, label),
+        span(`${className}-current`, '')
+      ]),
+      ph_icon('caret-down')
+    ],{
+       type: 'button',
+       'aria-haspopup': 'dialog',
+       'aria-controls': 'project-selection-dialog',
+       'aria-expanded': 'false',
+       onClick : (e) => {
+          e.stopPropagation(); 
+          emit(e.currentTarget, APP_EVENTS.OPEN_SELECTION, { open : label.toLowerCase() })
+        } 
+    });
+  }
+
+  createDialog(){
+    const projectDialog = dialog('project-category-dialog',[
+      div('project-category-dialog-header',[
+        h2('project-category-dialog-title', 'Categories'),
+        button('category-dialog-close', ph_icon('x'),{
+          type: 'button',
+          'aria-label': 'Close project selection',
+          onclick : (e) => {
+            e.stopPropagation()
+            emit(e.currentTarget, APP_EVENTS.CLOSE_SELECTION)
+          }
+        })
+      ]),
+      div('project-category-dialog-panel',[
+        section('project-drawer-group project-category-group'),
+        section('project-drawer-group project-selection-group')
+      ])
+    ], { id: 'project-selection-dialog' })
+    projectDialog.addEventListener('close', () => {
+      document.querySelectorAll('.mobile-buttons button').forEach(toggle =>
+        toggle.setAttribute('aria-expanded', 'false')
+      );
+    });
+    const closeProjectDialog = () => {
+      document.querySelectorAll('.mobile-buttons button').forEach(toggle =>
+        toggle.setAttribute('aria-expanded', 'false')
+      );
+      if (projectDialog.open) projectDialog.close();
+    };
+    projectDialog.addEventListener('click', event => {
+      if (event.target === projectDialog) closeProjectDialog();
+    });
+    projectDialog.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeProjectDialog();
+      }
+    });
+    return projectDialog;
+  }
+
+  post(){
+    const buttonParent = select('.mobile-buttons');
+    const projectAside = select('#projects .project-index');
+    const projectIndex = select('.project-category-dialog .idx') || select('#projects .idx');
+    let projectDialog = select('.project-category-dialog');
+
+    if(this.options.isMobileLayout){
+      if(!projectDialog){
+        projectDialog = this.createDialog();
+        document.body.append(projectDialog);
+      }
+      projectDialog.querySelector('.project-category-group')
+        .replaceChildren(...this.parent.children);
+      projectDialog.querySelector('.project-selection-group')
+        .replaceChildren(projectIndex);
+      buttonParent.replaceChildren(
+        this.createMobileButtons('category-toggle', 'Category'),
+        this.createMobileButtons('project-toggle', 'Project')
+      );
+      buttonParent.hidden = false;
+      this.parent.hidden = true;
+      return;
+    }
+
+    if(projectDialog){
+      if(projectDialog.open) projectDialog.close();
+      this.parent.replaceChildren(
+        ...projectDialog.querySelector('.project-category-group').children
+      );
+      projectAside.append(projectIndex);
+      projectDialog.remove();
+    }
+    buttonParent.replaceChildren();
+    buttonParent.hidden = true;
+    this.parent.hidden = false;
   }
 
   render(){
     const btnKey = this.data.id
+    console.log('running filter')
     return button('filter-button',[ 
-        span('domain-label',this.data.title),
-        span('domain-total', btnKey == 'all' ? this.options.projects.length : this.project_count(btnKey)) // add total projects with 
+        span('category-label',this.data.title),
+        span('category-total', btnKey == 'all' ? this.options.projects.length : this.project_count(btnKey))
       ] , {
-        hidden : true,
         'data-cat' : btnKey,
         style : `--accent: ${this.data.customColor}`,
         onclick : (e) => { 
-          e.stopPropagation(e.currentTarget); 
+          e.stopPropagation(); 
           emit(e.currentTarget, APP_EVENTS.PROJECT_CATEGORY_SELECT, 
             {
-              btnKey : btnKey
+              btnKey : btnKey,
+              catBtn : e.currentTarget
             }
           )
         }
@@ -530,118 +714,25 @@ export class CategoryRenderer extends BaseRenderer {
   };
 }
 
-export class CompetenceRenderer extends BaseRenderer {
-  fetchProjects(limit = 3){
-    this.projects = this.options.projects.filter(project => project.competences?.includes(this.data.id))
-      .slice(0, limit);
-  }
-
-  createTags(){
-    return this.projects.map(p =>
-      Array.isArray(p.tags) && p.tags.length > 0
-        ? span("skill-tag", p.tags[0])
-        : ''
-    )
-  }
-
-  createProjectLinks(){
-    return this.projects.map(project => 
-      a('project-btn',[
-        span('proj-dot'),
-        div('project-title-row',[
-          span('project-title-text', [
-            project.title,
-            ph_icon('arrow-up-right')
-          ])
-        ])
-      ],{href : `projects.html#${project.id}`})
-    )
-  }
-
-  render(){      
-    this.fetchProjects()
-    return div('skill-card' ,[
-      div('card-corner'), 
-      div('card-inner-wrapper', [
-        div('card-header', [
-          div('card-icon-wrap', [
-            i(`ph ${this.data.icon}`)
-          ]),
-          h3('',this.data.title)
-        ]),
-        // div('skill-tags', this.createTags()),
-        p('skill-desc', this.data.description),
-        div('card-divider'),
-        div('project-view',[
-          div('hover-buttons-stack', this.createProjectLinks()),
-          div('image-preview-wrapper', [
-            div('preview-link-anchor', [
-              div('fallback-graphic', [
-                i(`ph ${this.data.icon}`),
-                span('', [this.data.title])
-              ]),
-              img('competence-img')
-            ])
-          ])
-        ]),
-          
-        div('hover-card-footer', [
-          a('card-footer-action',[
-            span('', this.miscTranslations.viewProjects),
-            ph_icon('caret-right')
-          ], { href : 'projects.html' })
-        ]),
-      ]),
-    ], {style : `--accent: ${this.data.customColor}`}
-    )
-  };
-}
-
-export class ProjectModalRenderer extends BaseRenderer {
-  createTags(){
-    return (this.data.tags ?? []).map(tag => span('tag', tag))
-  }
-  
-  createStackList(){
-    return (this.data.stack ?? []).map(item => li('', item))
-  }
-
-  render(){
-    const description = (this.data.longDescription ?? '')
-      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-
-    return div('wrapper', [
-      span('modal-header-meta',`${(this.data.competences ?? [])
-        .map(id => DATA.competencies.find(competence => competence.id === id)?.title)
-        .filter(Boolean)
-        .join(' / ')} / ${this.data.date}`),
-      h2('modal-title', this.data.title),
-      h3('modal-focus', this.data.focus),
-      div('tags-conatainer', this.createTags()),
-      div('modal-body', [
-        h4('', this.miscTranslations.goal),
-        p('', description),
-        h4('', this.miscTranslations.stack),
-        ul('', this.createStackList()),
-        p('contact', this.miscTranslations.contact)
-      ]),
-    ])
-  }
-}
-
 export class ProjectListRenderer extends BaseRenderer {
   render(){
+    const projId = this.data.id
+    const categories = getProjectCategories(this.data);
+    const accent = DATA.categories.find(category => category.id === categories[0])?.customColor ?? 'var(--color-primary)';
     return li('project-list-item',[
-      a(this.data.competences[0], [
+      a('', [
         span('project-list-item-title', this.data.title),
         span('project-list-item-date', this.data.date  ? this.data.date : 'In Development')
       ], {
         href : '#'+this.data.id
       })
     ], {
-      
-      'data-cat' : this.data.competences[0],
-      style: `--accent : ${DATA.competencies.find(c => c.id == this.data.competences[0]).customColor}`}
+      onClick : (e) => {
+        e.stopPropagation()
+        emit(e.currentTarget, APP_EVENTS.SELECT_PROJECT, { el : e.currentTarget, pId : projId })
+      },
+      'data-cat' : categories.join(' '),
+      style: `--accent : ${accent}`}
     )
   } 
 }
@@ -655,13 +746,19 @@ export class ProjectRenderer extends BaseRenderer {
   
   render(){
     const pId = this.data.id;
+    const categories = getProjectCategories(this.data);
+    const categoryNames = categories
+      .map(id => this.options.categories.find(category => category.id === id)?.title)
+      .filter(Boolean);
+    const primaryCategory = categories[0];
+    const accent = this.options.categories.find(category => category.id === primaryCategory)?.customColor ?? 'var(--color-primary)';
     return article('project-item', [
       div('card-image-container', [
         span('cat-tag', [
           ph_icon(this.data.icon),
-          this.options.categories.find(c => c.id === this.data.competences[0]).title
+          categoryNames.join(' · ')
         ]),
-        img('',[],{ src : this.data.bannerImage, alt : this.data.title })
+        img('',[],{ src : this.data.banner, alt : this.data.title })
       ]
       ),
       div('project-content', [
@@ -671,48 +768,51 @@ export class ProjectRenderer extends BaseRenderer {
         ]),
         h2('project-card-title', [ph_icon(this.data.icon), this.data.title]),
         p('project-card-focus', this.data.focus),
-        p('project-card-description', this.data.shortDescription),
+        p('project-card-description', this.data.short),
         span('project-card-head', 'Relevant Programming Languages :'),
-        ul('project-card-langs', this.data.progLang.map(l =>  li('', l) )),
+        ul('project-card-langs', this.data.relProgLang.map(l =>  li('', l) )),
         div('project-card-links', [
           a('btn project-card-case-btn', 'Show more', 
             {
               href : `#/${this.data.id}`,
               onClick : (e) => {
                 e.stopPropagation();
+                e.preventDefault();
                 emit(e.currentTarget, APP_EVENTS.PROJECT_SHOW_CASE, { 
                   projId : pId
                 })
               }
             }
           ),
-          div('source-links', this.data.links.map(l => 
+          div('source-links', this.data.links
+            .filter(l => typeof l.web === 'string' && l.web.trim())
+            .map(l => 
             a('btn project-card-btn', [
               ph_icon(l.icon),
               span('', l.site)
             ], {
-              href : l?.web ?? '',
-              target : ' _blank'
+              href : l.web,
+              target : '_blank',
+              rel : 'noopener noreferrer'
             })
           ))
         ])
       ])// add empty project page when none are here?
     ], {
       // hidden : false,
-      'data-cat' : this.data.competences[0],
+      'data-cat' : categories.join(' '),
       'data-id' : pId,
-      style: `--accent : ${DATA.competencies.find(c => c.id == this.data.competences[0]).customColor}`}
+      style: `--accent : ${accent}`}
     );
   }
 }
-
 
 export class ProjectCaseRenderer extends BaseRenderer {
   render(){
     return div('project-case-content', [
       div('cs-head', [
         div('card-image-container', 
-          img('',[],{ src : this.data.bannerImage, alt : this.data.title })
+          img('',[],{ src : this.data.banner, alt : this.data.title })
         ),
         div(' project-card-meta', [
           div('status-dot', span('', this.data.date ? "Completed" : "In Development")),
@@ -722,9 +822,20 @@ export class ProjectCaseRenderer extends BaseRenderer {
         p('project-card-focus', this.data.focus),
       ]),
       this.data.case.map(c => {
+        const sectionContent = Array.isArray(c.content)
+          ? c.content.map(paragraph => p('section-text', paragraph))
+          : [p('section-text', c.content)];
+
+        if (c.image) {
+          sectionContent.push(figure('case-diagram', [
+            img('', [], { src: c.image, alt: c.imageAlt }),
+            figcaption('case-image-caption', c.imageCaption)
+          ]));
+        }
+
         const caseSection = section('cs', [
           h2('section-title', c.title),
-          p('section-text', c.content)
+          ...sectionContent
         ]);
         caseSection.id = c.id;
         return caseSection;
@@ -733,37 +844,52 @@ export class ProjectCaseRenderer extends BaseRenderer {
   }
 }
 
+export class CategoryLinksRenderer extends BaseRenderer {
+  render(){
+    const catId = this.data.id
+    return span('btn stat-pill', [i(`ph ${this.data.icon}`), this.data.title], 
+    { 
+      style: `--accent: ${this.data.customColor}`,
+      onClick : (e) => {
+        e.stopPropagation();
+        emit(e.currentTarget, APP_EVENTS.CATEGORY_LINK_CLICKED, { catId : catId })
+      } })
+  }
+}
 
-
-export class domainSelectionRenderer extends BaseRenderer {
+export class CategorySelectionRenderer extends BaseRenderer {
   fetchProjects(id, limit = 3){
-    this.projects = this.options.projects.filter(project => project.competences?.includes(id)).slice(0, limit);
+    this.projects = this.options.projects.filter(project =>
+      getProjectCategories(project).includes(id)
+    ).slice(0, limit);
   }
 
   project_count(id) {
-    return this.options.projects.filter(project => project.competences?.includes(id)).length
+    return this.options.projects.filter(project =>
+      getProjectCategories(project).includes(id)
+    ).length
   }
 
   render(){
     this.fetchProjects(this.data.id)
-    const domId = this.data.id
+    const categoryId = this.data.id
 
     return div('tree-group',[
-      div('btn domain-header',[
-        div('domain-header-left',[ 
-          ph_icon('caret-down domain-chevron'),
-          div('domain-icon-dot', 
+      div('btn category-header',[
+        div('category-header-left',[ 
+          ph_icon('caret-down category-chevron'),
+          div('category-icon-dot', 
             i(`ph ${this.data.icon}`)
           ),
-          span('domain-title', this.data.title)
+          span('category-title', this.data.title)
         ]),
-        span('domain-count-badge', Math.min(3, this.project_count(this.data.id)))
+        span('category-count-badge', Math.min(3, this.project_count(this.data.id)))
       ],{
         onClick : (e) => {
           e.stopPropagation();
-          emit(e.currentTarget, APP_EVENTS.DOMAIN_SELECT, 
+          emit(e.currentTarget, APP_EVENTS.CATEGORY_SELECT, 
             {
-              domKey : domId
+              categoryId
             }
           )
         }
@@ -780,10 +906,11 @@ export class domainSelectionRenderer extends BaseRenderer {
               span('tree-active-indicator')
             ],
             {
+              'data-pid' : proj.id,
               onClick : (e) => { 
                 e.stopPropagation();
                 emit(e.currentTarget, APP_EVENTS.PROJECT_SELECT, {
-                  domKey : domId,
+                  categoryId,
                   projId : proj.id,
                 })
               }
@@ -791,11 +918,13 @@ export class domainSelectionRenderer extends BaseRenderer {
           ))
         ])
       ])
-    ], { style: `--accent : ${this.data.customColor}`})
+    ], { 
+      'data-cat' : categoryId,
+      style: `--accent : ${this.data.customColor}`})
   }
 }
 
-export class DomainDetailsPanel extends BaseRenderer {
+export class CategoryDetailsPanel extends BaseRenderer {
   
   initializeButtonState(){
     if(!this.data.links.length){
@@ -831,11 +960,11 @@ export class DomainDetailsPanel extends BaseRenderer {
             ]),
             ph_icon('arrow-right')
           ], {
-            style: `--accent : ${this.options.competences.find(c => c.id === p.competences[0]).customColor}`,
+            style: `--accent : ${this.options.categories.find(c => c.id === getPrimaryProjectCategory(p))?.customColor ?? 'var(--color-primary)'}`,
             onClick : (e) => {
               e.stopPropagation();
               emit(e.currentTarget, APP_EVENTS.PROJECT_SELECT, {
-                domKey : p.competences[0],
+                categoryId : getPrimaryProjectCategory(p),
                 projId : p.id,
               })
             }
@@ -855,7 +984,7 @@ export class DomainDetailsPanel extends BaseRenderer {
         )
       ),
       div('banner-wrapper', 
-        img('project-image', [], { src : this.data.bannerImage})
+        img('project-image', [], { src : this.data.banner})
       ),
       div('card-content',[
 
@@ -866,7 +995,7 @@ export class DomainDetailsPanel extends BaseRenderer {
               i(`ph ph-${this.data.icon}`),
               h2('project-title', this.data.title),
             ]),
-            p('project-description', this.data.shortDescription)
+            p('project-description', this.data.short)
           ]),
           div('content-right', [
             div('info-box',[
@@ -900,84 +1029,10 @@ export class DomainDetailsPanel extends BaseRenderer {
             this.initializeButtonState()
           ])
       ]),
-    ], { style: `--accent : ${this.options.competences.find(c => c.id === this.data.competences[0]).customColor}`})
+    ], { style: `--accent : ${this.options.categories.find(c => c.id === getPrimaryProjectCategory(this.data))?.customColor ?? 'var(--color-primary)'}`})
   }
 }
 
-export class CompetenceTabRenderer extends BaseRenderer {
-  project_count(id) {
-    return this.options.projects.filter(project => project.competences?.includes(id)).length
-  }
-  
-  render(){
-    return div('skill-tab',[
-      div('tab-icon-wrap', [
-        i(`ph ${this.data.icon}`)
-      ]),
-      div('tab-head',[
-        span('tab-label',this.data.title),
-        span('tab-count',`Featured projects: ${this.project_count(this.data.id)}`)
-      ])
-    ],{ 
-      style : `--accent: ${this.data.customColor}`,
-      'data-tab': this.data.id, 
-      'role' : 'tab'
-    });
-  }
-}
-
-export class CompetencePanelRenderer extends BaseRenderer {
-  fetchProjects(limit = 3){
-    this.projects = this.options.projects.filter(project => project.competences?.includes(this.data.id))
-      .slice(0, limit);
-  }
-
-  createProjectLinks(){
-    return this.projects.map((p, idx) =>
-      Array.isArray(p.tags) && p.tags.length > 0
-        ? a('proj-row',[
-          span('proj-num',idx+1),
-          span('proj-name',p.title),
-          ph_icon('arrow-up-right proj-arrow')
-        ], { href:`projects.html#${p.id}` })
-        : ''
-    )
-  }
-
-  render(){
-    this.fetchProjects()
-    return div('panel-inner',[
-      div('panel-img-wrap',[
-        div('panel-fallback',[
-          i(`ph ${this.data.icon}`) ,
-          span('',this.data.title)
-        ]),
-        img('panel-img hidden'),
-        div('panel-img-overlay')
-      ]),
-      div('panel-body',[
-        div('panel-head',[
-          div('panel-title-wrap',[
-            div('panel-category', this.data.title),
-            div('panel-title', this.data.title)
-          ])
-        ]),
-        div('panel-projects',[
-          div('panel-projects-label', 'Featured projects'),
-          this.createProjectLinks()
-        ]),
-        a('panel-footer-link',[
-          'All projects',
-          ph_icon('caret-right')
-        ],{ href: 'projects.html' })
-      ])
-    ],{ 
-      style : `--accent: ${this.data.customColor}`,
-      'data-panel': this.data.id, 
-    })
-  
-  }
-}
 
 export class SocialLinksRenderer extends BaseRenderer {
   render(){
@@ -988,27 +1043,16 @@ export class SocialLinksRenderer extends BaseRenderer {
   }
 }
 
-export class CompetenceLinksRenderer extends BaseRenderer {
-  render(){
-    const domId = this.data.id
-    return span('btn stat-pill', [i(`ph ${this.data.icon}`), this.data.title], 
-    { 
-      style: `--accent: ${this.data.customColor}`,
-      onClick : (e) => {
-        e.stopPropagation();
-        emit(e.currentTarget, APP_EVENTS.SCROLL_TO_DOMAIN, { domId : domId })
-      } })
-  }
-}
-
 export class LanguageDropdownRenderer extends BaseRenderer {
   render(){
-    return Object.entries(this.data).map(([lang, v]) =>
-       button('btn lang-option',[
-          span('flag', v.flag),
-          span('', v.language),
-          ph_icon('check', 'check')
-        ], { 'data-lang': lang })
-    )
+    return button('btn lang-option',[
+        span('', this.data.flag),
+        span('', this.data.language),
+    ], {
+      onClick : (e) => {
+        e.stopPropagation();
+        emit(e.currentTarget, APP_EVENTS.OPEN_LANGUAGE_SELECTION, { langBtn : e.currentTarget })
+      }
+    });
   }
 }

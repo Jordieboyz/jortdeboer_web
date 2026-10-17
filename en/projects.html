@@ -39,7 +39,6 @@
         <div class="lang-control">
           <button class="lang-trigger" >
             <span class="lang-flag"></span>
-            <span class="lang-code"></span>
             <i class="ph ph-caret-down caret"></i>
           </button>
           <div class="lang-dropdown" role="listbox">
@@ -59,9 +58,9 @@
     </div>
     <div class="project-view">
       <aside class="project-index">
+        <div class="mobile-buttons" hidden></div>
         <!-- Content will be injected here by JavaScript -->
-        <div class="project-domains"></div>
-        <p class="pos">Project 1 of 10</p>
+        <div class="project-categories"></div>
         <ol class="idx"></ol>
       </aside>
       <div class="project-list">
@@ -72,7 +71,10 @@
 
   <div class="project-case" hidden>
     <aside class="project-index">
-      <a class="back" href="#">&larr; All projects</a>
+      <a class="back" href="#">
+        <i class="ph ph-arrow-left"></i> 
+        Back to projects
+      </a>
       <ol class="idx"></ol>
     </aside>
     <main id="cmain"></main>

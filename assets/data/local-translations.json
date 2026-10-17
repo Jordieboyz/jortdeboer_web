@@ -1,0 +1,36 @@
+{
+  "miscTranslations": {
+    "In-Development": {
+      "en": "In Development",
+      "nl": "In Ontwikkeling"
+    },
+    "empty": {
+      "en": "No projects found in this category.",
+      "nl": "Geen projecten gevonden in deze categorie."
+    },
+    "goal": {
+      "en": "Project Goal and Overview",
+      "nl": "Projectdoel en Overzicht"
+    },
+    "stack": {
+      "en": "Core Technology Stack",
+      "nl": "Belangrijkste Technologie Stack"
+    },
+    "contact": {
+      "en": "For code repositories and deeper implementation details, please contact me directly.",
+      "nl": "Neem rechtstreeks contact met mij op voor coderepositories en meer gedetailleerde informatie over de implementatie."
+    },
+    "inDev": {
+      "en": "In Development",
+      "nl": "In Ontwikkeling"
+    },
+    "seeMore": {
+      "en": "See More",
+      "nl": "Bekijk meer"
+    },
+    "viewProjects": {
+      "en": "More projects",
+      "nl": "Meer projecten"
+    }
+  }
+}

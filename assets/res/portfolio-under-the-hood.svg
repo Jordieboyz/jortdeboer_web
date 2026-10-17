@@ -1,0 +1,280 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1280" role="img" aria-labelledby="title description">
+  <title id="title">How Jort de Boer’s portfolio works</title>
+  <desc id="description">A friendly map showing how shared portfolio content is shaped into the Home, About, and Projects pages, and how English and Dutch versions are built and selected.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1426"/>
+      <stop offset="1" stop-color="#111b32"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#42d6c5"/>
+      <stop offset="1" stop-color="#55a8ff"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0 10 5 0 10Z" fill="#6f8aaa"/>
+    </marker>
+    <style>
+      text { font-family: Inter, "Segoe UI", Arial, sans-serif; }
+      .eyebrow { fill: #62d8cb; font-size: 15px; font-weight: 700; letter-spacing: 2.4px; }
+      .title { fill: #f4f7ff; font-size: 43px; font-weight: 750; letter-spacing: -1px; }
+      .subtitle { fill: #aebbd0; font-size: 19px; }
+      .card { fill: #17233a; stroke: #2c3d59; stroke-width: 1.5; }
+      .inner { fill: #101a2d; stroke: #30425f; stroke-width: 1; }
+      .section { fill: #f2f6ff; font-size: 19px; font-weight: 700; }
+      .body { fill: #c0ccdc; font-size: 16px; }
+      .small { fill: #95a7bf; font-size: 13px; }
+      .tiny { fill: #8296b1; font-size: 11px; }
+      .pill { fill: #20344d; stroke: #3a5674; stroke-width: 1; }
+      .pill-text { fill: #d8e7f4; font-size: 12px; font-weight: 700; }
+      .mint { fill: #62d8cb; }
+      .blue { fill: #70b6ff; }
+      .violet { fill: #ba9cff; }
+      .gold { fill: #f4c76e; }
+      .line { fill: none; stroke: #6f8aaa; stroke-width: 2.5; }
+      .mockline { stroke: #40536d; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <rect width="1800" height="1280" rx="28" fill="url(#background)"/>
+  <circle cx="1635" cy="86" r="150" fill="#1a4260" opacity=".16"/>
+  <circle cx="90" cy="1160" r="190" fill="#214b58" opacity=".12"/>
+
+  <text x="70" y="58" class="eyebrow">A FRIENDLY MAP OF THE SITE</text>
+  <text x="70" y="112" class="title">One set of content. Three ways to explore.</text>
+  <text x="72" y="150" class="subtitle">What happens behind the scenes when you browse Jort’s portfolio.</text>
+  <g transform="translate(1454 50)">
+    <rect width="276" height="47" rx="23.5" fill="#1c3046" stroke="#39566c"/>
+    <circle cx="25" cy="23.5" r="6" fill="#62d8cb"/>
+    <text x="43" y="29" fill="#d9e8f2" font-size="13" font-weight="700" letter-spacing="1">CONTENT → PAGES → YOU</text>
+  </g>
+
+  <text x="70" y="205" class="eyebrow">1  THE SHARED INGREDIENTS</text>
+  <text x="500" y="205" class="eyebrow">2  THREE PURPOSE-BUILT VIEWS</text>
+
+  <!-- Shared content source -->
+  <g>
+    <rect x="60" y="226" width="370" height="574" rx="20" class="card"/>
+    <circle cx="96" cy="273" r="19" fill="#173b46"/>
+    <path d="M87 267h18v14H87zM90 263h12v4H90zM92 271h8m-8 4h8" fill="none" stroke="#62d8cb" stroke-width="2" stroke-linecap="round"/>
+    <text x="128" y="271" class="section">One shared catalogue</text>
+    <text x="84" y="310" class="body">Think of it as a well-organized recipe box:</text>
+
+    <g transform="translate(84 334)">
+      <rect width="322" height="77" rx="12" class="inner"/>
+      <circle cx="27" cy="27" r="13" fill="#183d4a"/>
+      <path d="M22 23h10v10H22zM24 20h6v3h-6z" fill="none" stroke="#62d8cb" stroke-width="1.6"/>
+      <text x="52" y="29" fill="#f1f5fc" font-size="15" font-weight="700">Projects</text>
+      <text x="52" y="52" class="small">Names, stories, images, skills &amp; links</text>
+    </g>
+    <g transform="translate(84 422)">
+      <rect width="322" height="77" rx="12" class="inner"/>
+      <circle cx="27" cy="27" r="13" fill="#25334e"/>
+      <path d="M21 22h5v5h-5zm8 0h5v5h-5zm-8 8h5v5h-5zm8 0h5v5h-5z" fill="#70b6ff"/>
+      <text x="52" y="29" fill="#f1f5fc" font-size="15" font-weight="700">Categories &amp; technologies</text>
+      <text x="52" y="52" class="small">The labels that help organize the work</text>
+    </g>
+    <g transform="translate(84 510)">
+      <rect width="322" height="77" rx="12" class="inner"/>
+      <circle cx="27" cy="27" r="13" fill="#30294b"/>
+      <path d="M27 19v16m-7-8h14m-12-5 10 10m0-10L22 32" stroke="#ba9cff" stroke-width="1.6" stroke-linecap="round"/>
+      <text x="52" y="29" fill="#f1f5fc" font-size="15" font-weight="700">About Jort</text>
+      <text x="52" y="52" class="small">Profile, interests, tools &amp; milestones</text>
+    </g>
+    <g transform="translate(84 598)">
+      <rect width="322" height="77" rx="12" class="inner"/>
+      <circle cx="27" cy="27" r="13" fill="#473b2b"/>
+      <path d="M19 23h16v10H19zM22 20h10v3H22z" fill="none" stroke="#f4c76e" stroke-width="1.6"/>
+      <text x="52" y="29" fill="#f1f5fc" font-size="15" font-weight="700">English + Nederlands</text>
+      <text x="52" y="52" class="small">Translated wording lives alongside content</text>
+    </g>
+    <rect x="84" y="700" width="322" height="68" rx="12" fill="#183b43" stroke="#2b716e"/>
+    <path d="m105 734 8 8 15-18" fill="none" stroke="#62d8cb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="142" y="731" fill="#d9f7f0" font-size="14" font-weight="700">Put information in once;</text>
+    <text x="142" y="751" fill="#a8d8d1" font-size="13">reuse it wherever it makes sense.</text>
+  </g>
+
+  <!-- Shared-data branching arrows -->
+  <path d="M430 513H465" class="line"/>
+  <path d="M465 342V686" class="line"/>
+  <path d="M465 342H494" class="line" marker-end="url(#arrow)"/>
+  <path d="M465 514H909" class="line" marker-end="url(#arrow)"/>
+  <path d="M465 686H1314" class="line" marker-end="url(#arrow)"/>
+  <circle cx="465" cy="513" r="7" fill="#70b6ff"/>
+
+  <!-- Home view -->
+  <g>
+    <rect x="510" y="226" width="390" height="574" rx="20" class="card"/>
+    <circle cx="546" cy="270" r="18" fill="#173b46"/>
+    <path d="M537 272h18v11h-18zM535 270l11-9 11 9m-8 13v-7h-6v7" fill="none" stroke="#62d8cb" stroke-width="1.8" stroke-linejoin="round"/>
+    <text x="576" y="268" class="section">Home</text>
+    <text x="576" y="289" class="small">A quick guided introduction</text>
+    <rect x="534" y="316" width="342" height="247" rx="13" fill="#101a2d" stroke="#30425f"/>
+    <rect x="534" y="316" width="342" height="31" rx="13" fill="#1e2e47"/>
+    <circle cx="552" cy="331" r="4" fill="#62d8cb"/>
+    <circle cx="566" cy="331" r="4" fill="#f4c76e"/>
+    <circle cx="580" cy="331" r="4" fill="#ba9cff"/>
+    <rect x="552" y="362" width="105" height="182" rx="8" fill="#17263d"/>
+    <text x="564" y="382" class="tiny">CHOOSE A FIELD</text>
+    <rect x="562" y="393" width="84" height="25" rx="6" fill="#1a493f"/>
+    <circle cx="575" cy="405" r="4" fill="#62d8cb"/>
+    <text x="585" y="409" fill="#c9f2e8" font-size="10">Software</text>
+    <rect x="562" y="424" width="84" height="25" rx="6" fill="#1b3049"/>
+    <circle cx="575" cy="436" r="4" fill="#70b6ff"/>
+    <text x="585" y="440" fill="#c9dff5" font-size="10">Games</text>
+    <rect x="562" y="455" width="84" height="25" rx="6" fill="#30294b"/>
+    <circle cx="575" cy="467" r="4" fill="#ba9cff"/>
+    <text x="585" y="471" fill="#e2d8fb" font-size="10">Computing</text>
+    <rect x="562" y="486" width="84" height="25" rx="6" fill="#473b2b"/>
+    <circle cx="575" cy="498" r="4" fill="#f4c76e"/>
+    <text x="585" y="502" fill="#f6e5bc" font-size="10">Automation</text>
+    <rect x="670" y="362" width="188" height="182" rx="8" fill="#17263d"/>
+    <text x="687" y="386" fill="#edf4ff" font-size="13" font-weight="700">A closer look</text>
+    <rect x="687" y="400" width="154" height="55" rx="7" fill="#253854"/>
+    <path d="M699 438h130M699 427h100M699 416h118" class="mockline"/>
+    <text x="687" y="480" class="tiny">Choose a category to reveal</text>
+    <text x="687" y="497" class="tiny">related work in the same view.</text>
+    <rect x="687" y="512" width="90" height="18" rx="9" fill="#1c4847"/>
+    <text x="702" y="525" fill="#b8eee5" font-size="9" font-weight="700">OPEN PROJECT</text>
+    <text x="536" y="603" fill="#62d8cb" font-size="12" font-weight="700" letter-spacing="1">CHOOSE → DISCOVER</text>
+    <text x="536" y="631" class="body">Pick a field and see related projects</text>
+    <text x="536" y="653" class="body">without leaving the home page.</text>
+    <rect x="536" y="687" width="168" height="34" rx="17" class="pill"/>
+    <text x="553" y="709" class="pill-text">TAP A CATEGORY</text>
+    <text x="536" y="756" class="small">A profile becomes a browsable map.</text>
+  </g>
+
+  <!-- About view -->
+  <g>
+    <rect x="925" y="226" width="390" height="574" rx="20" class="card"/>
+    <circle cx="961" cy="270" r="18" fill="#30294b"/>
+    <circle cx="961" cy="265" r="5" fill="none" stroke="#ba9cff" stroke-width="1.8"/>
+    <path d="M951 279c1-7 19-7 20 0" fill="none" stroke="#ba9cff" stroke-width="1.8" stroke-linecap="round"/>
+    <text x="991" y="268" class="section">About</text>
+    <text x="991" y="289" class="small">A story told in small modules</text>
+    <rect x="949" y="316" width="342" height="247" rx="13" fill="#101a2d" stroke="#30425f"/>
+    <rect x="949" y="316" width="342" height="31" rx="13" fill="#1e2e47"/>
+    <circle cx="967" cy="331" r="4" fill="#62d8cb"/>
+    <circle cx="981" cy="331" r="4" fill="#f4c76e"/>
+    <circle cx="995" cy="331" r="4" fill="#ba9cff"/>
+    <rect x="966" y="362" width="112" height="34" rx="7" fill="#30294b" stroke="#715ba2"/>
+    <text x="982" y="383" fill="#e6dcff" font-size="11" font-weight="700">01  IDENTITY</text>
+    <rect x="966" y="404" width="112" height="34" rx="7" fill="#17263d"/>
+    <text x="982" y="425" fill="#b8c8dc" font-size="11">02  INTERESTS</text>
+    <rect x="966" y="446" width="112" height="34" rx="7" fill="#17263d"/>
+    <text x="982" y="467" fill="#b8c8dc" font-size="11">03  TECH STACK</text>
+    <rect x="966" y="488" width="112" height="34" rx="7" fill="#17263d"/>
+    <text x="982" y="509" fill="#b8c8dc" font-size="11">04  EDUCATION</text>
+    <rect x="1091" y="362" width="182" height="160" rx="8" fill="#17263d"/>
+    <text x="1107" y="388" fill="#edf4ff" font-size="13" font-weight="700">The active chapter</text>
+    <circle cx="1120" cy="418" r="8" fill="#ba9cff"/>
+    <path d="M1120 426v25m0-17h14m-14 17h14" stroke="#715ba2" stroke-width="2"/>
+    <path d="M1147 414h107m-107 12h87m-87 26h101m-101 12h75" class="mockline"/>
+    <rect x="1107" y="481" width="143" height="24" rx="6" fill="#252448"/>
+    <text x="1118" y="497" fill="#d8cdf5" font-size="9">SCROLL OR TAP TO BROWSE</text>
+    <text x="951" y="603" fill="#ba9cff" font-size="12" font-weight="700" letter-spacing="1">SCROLL → GO DEEPER</text>
+    <text x="951" y="631" class="body">Move through identity, interests, tools,</text>
+    <text x="951" y="653" class="body">education and other personal chapters.</text>
+    <rect x="951" y="687" width="174" height="34" rx="17" class="pill"/>
+    <text x="968" y="709" class="pill-text">SCROLL OR TAP</text>
+    <text x="951" y="756" class="small">Each module has its own kind of content.</text>
+  </g>
+
+  <!-- Projects view -->
+  <g>
+    <rect x="1340" y="226" width="390" height="574" rx="20" class="card"/>
+    <circle cx="1376" cy="270" r="18" fill="#25334e"/>
+    <path d="M1367 263h18v16h-18zm4 4h10m-10 4h10m-10 4h7" fill="none" stroke="#70b6ff" stroke-width="1.7" stroke-linecap="round"/>
+    <text x="1406" y="268" class="section">Projects</text>
+    <text x="1406" y="289" class="small">A focused portfolio and project stories</text>
+    <rect x="1364" y="316" width="342" height="247" rx="13" fill="#101a2d" stroke="#30425f"/>
+    <rect x="1364" y="316" width="342" height="31" rx="13" fill="#1e2e47"/>
+    <circle cx="1382" cy="331" r="4" fill="#62d8cb"/>
+    <circle cx="1396" cy="331" r="4" fill="#f4c76e"/>
+    <circle cx="1410" cy="331" r="4" fill="#ba9cff"/>
+    <rect x="1381" y="362" width="72" height="25" rx="12" fill="#1e3f52" stroke="#39728a"/>
+    <text x="1397" y="379" fill="#d0eaff" font-size="10" font-weight="700">ALL</text>
+    <rect x="1460" y="362" width="101" height="25" rx="12" fill="#17263d"/>
+    <text x="1474" y="379" fill="#afc0d7" font-size="10">SOFTWARE</text>
+    <rect x="1568" y="362" width="114" height="25" rx="12" fill="#17263d"/>
+    <text x="1582" y="379" fill="#afc0d7" font-size="10">GAMES + MORE</text>
+    <rect x="1381" y="402" width="308" height="62" rx="8" fill="#17263d"/>
+    <rect x="1392" y="413" width="41" height="40" rx="6" fill="#253854"/>
+    <path d="M1399 442l9-13 6 7 7-10 8 16z" fill="#70b6ff" opacity=".8"/>
+    <text x="1445" y="426" fill="#edf4ff" font-size="12" font-weight="700">Personal portfolio</text>
+    <text x="1445" y="446" class="tiny">Summary · skills · project story</text>
+    <rect x="1381" y="475" width="308" height="62" rx="8" fill="#17263d"/>
+    <rect x="1392" y="486" width="41" height="40" rx="6" fill="#253854"/>
+    <path d="M1398 516h28m-21-18 7 8-7 8m14-16-7 8 7 8" fill="none" stroke="#62d8cb" stroke-width="1.5"/>
+    <text x="1445" y="499" fill="#edf4ff" font-size="12" font-weight="700">Bare-metal game</text>
+    <text x="1445" y="519" class="tiny">A deeper case, split into sections</text>
+    <text x="1366" y="603" fill="#70b6ff" font-size="12" font-weight="700" letter-spacing="1">FILTER → OPEN → READ</text>
+    <text x="1366" y="631" class="body">Filter the list, then open a project</text>
+    <text x="1366" y="653" class="body">to explore its story section by section.</text>
+    <rect x="1366" y="687" width="159" height="34" rx="17" class="pill"/>
+    <text x="1383" y="709" class="pill-text">FILTER &amp; EXPLORE</text>
+    <text x="1366" y="756" class="small">The same work gets a dedicated showcase.</text>
+  </g>
+
+  <!-- Build and language panels -->
+  <g>
+    <rect x="60" y="838" width="1080" height="360" rx="20" class="card"/>
+    <text x="88" y="882" class="eyebrow">3  HOW THE PIECES COME TOGETHER</text>
+    <text x="88" y="915" class="section">A small build step prepares the pages; the browser brings them to life.</text>
+
+    <g transform="translate(88 948)">
+      <rect width="284" height="148" rx="13" class="inner"/>
+      <circle cx="30" cy="30" r="15" fill="#173b46"/>
+      <text x="30" y="35" text-anchor="middle" fill="#62d8cb" font-size="14" font-weight="700">1</text>
+      <text x="58" y="35" fill="#f1f5fc" font-size="14" font-weight="700">Content files</text>
+      <text x="20" y="72" class="small">Projects, categories, profile facts</text>
+      <text x="20" y="94" class="small">and English/Dutch wording are kept</text>
+      <text x="20" y="116" class="small">as organized, editable information.</text>
+    </g>
+    <path d="M380 1022h30" class="line" marker-end="url(#arrow)"/>
+    <g transform="translate(421 948)">
+      <rect width="300" height="148" rx="13" class="inner"/>
+      <circle cx="30" cy="30" r="15" fill="#25334e"/>
+      <text x="30" y="35" text-anchor="middle" fill="#70b6ff" font-size="14" font-weight="700">2</text>
+      <text x="58" y="35" fill="#f1f5fc" font-size="14" font-weight="700">The site builder</text>
+      <text x="20" y="72" class="small">Combines the information and page</text>
+      <text x="20" y="94" class="small">layouts, then prepares matching</text>
+      <text x="20" y="116" class="small">English and Dutch page versions.</text>
+    </g>
+    <path d="M729 1022h30" class="line" marker-end="url(#arrow)"/>
+    <g transform="translate(770 948)">
+      <rect width="340" height="148" rx="13" class="inner"/>
+      <circle cx="30" cy="30" r="15" fill="#30294b"/>
+      <text x="30" y="35" text-anchor="middle" fill="#ba9cff" font-size="14" font-weight="700">3</text>
+      <text x="58" y="35" fill="#f1f5fc" font-size="14" font-weight="700">Your browser</text>
+      <text x="20" y="72" class="small">Adds the interactive parts: category</text>
+      <text x="20" y="94" class="small">choices, filters, project details, menus</text>
+      <text x="20" y="116" class="small">and smooth page-to-page navigation.</text>
+    </g>
+    <text x="89" y="1155" fill="#9db2ca" font-size="13">Different layouts, one coordinated source of information—not three separately maintained sites.</text>
+  </g>
+
+  <g>
+    <rect x="1160" y="838" width="570" height="360" rx="20" class="card"/>
+    <text x="1190" y="882" class="eyebrow">4  LANGUAGE, WITHOUT LOSING YOUR PLACE</text>
+    <text x="1190" y="915" class="section">Switch English ↔ Nederlands</text>
+    <g transform="translate(1190 945)">
+      <rect width="205" height="48" rx="12" fill="#173d45" stroke="#36726e"/>
+      <circle cx="25" cy="24" r="7" fill="#62d8cb"/>
+      <text x="45" y="29" fill="#d9f7f0" font-size="15" font-weight="700">English</text>
+      <path d="M220 24h35" class="line" marker-end="url(#arrow)"/>
+      <rect x="270" width="205" height="48" rx="12" fill="#203450" stroke="#42658c"/>
+      <circle cx="295" cy="24" r="7" fill="#70b6ff"/>
+      <text x="315" y="29" fill="#e0edfc" font-size="15" font-weight="700">Nederlands</text>
+    </g>
+    <text x="1190" y="1032" class="body">The switch opens the matching version of the</text>
+    <text x="1190" y="1056" class="body">page and stores your language choice.</text>
+    <text x="1190" y="1080" class="body">It also restores where you were reading.</text>
+    <rect x="1190" y="1110" width="510" height="58" rx="10" fill="#292a38" stroke="#5b526a"/>
+    <text x="1208" y="1134" fill="#f4d99d" font-size="12" font-weight="700">A WORK IN PROGRESS</text>
+    <text x="1208" y="1153" fill="#c1b8a8" font-size="12">Some fixed labels are still shared English text.</text>
+  </g>
+
+  <path d="M70 1222h1660" stroke="#2a3d56" stroke-width="1"/>
+  <text x="70" y="1252" fill="#8094ad" font-size="13">In short: add information once → shape it for each page → let visitors explore it in their own way.</text>
+  <text x="1730" y="1252" text-anchor="end" fill="#60768f" font-size="12">PORTFOLIO SYSTEM MAP</text>
+</svg>

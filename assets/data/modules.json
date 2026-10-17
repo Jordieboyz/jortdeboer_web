@@ -89,6 +89,14 @@
         "en": "Interests & hobbies"
       },
       "content": {
+        "dialogLabel": {
+          "nl": "details",
+          "en": "details"
+        },
+        "closeLabel": {
+          "nl": "Sluit hobbydetails",
+          "en": "Close hobby details"
+        },
         "intro": {
           "nl": "Hoe ik oplaad, nieuwe hardware ontdek en mijn probleemoplossend vermogen buiten het werk scherp houd.",
           "en": "How I recharge, explore new hardware, and keep my problem-solving skills sharp outside work."
@@ -97,7 +105,11 @@
           {
             "id": "pcbuilding",
             "icon": "ph ph-desktop-tower",
-            "bg": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=600&q=80",
+            "bg": "/jortdeboer_web/assets/res/hobby/pcsetup.jpg",
+            "action": {
+              "nl": "Bekijk foto's en details",
+              "en": "View photos and details"
+            },
             "label": {
               "nl": "PC Bouwen",
               "en": "PC Building"
@@ -106,21 +118,64 @@
               "nl": "Het ontwerpen van custom PC-builds, waterkoelingssystemen en het benchmarken van hardware.",
               "en": "Designing custom PC builds, liquid cooling loops, and hardware benchmarking."
             },
+            "subtitle": {
+              "nl": "Hardware & zelfbouw",
+              "en": "Hardware & custom builds"
+            },
+            "detail": {
+              "nl": "Ik vind het leuk om computers zelf samen te stellen en te ontdekken hoe keuzes in onderdelen, koeling en afstelling samen de prestaties bepalen.",
+              "en": "I enjoy putting computers together and exploring how component choices, cooling, and tuning work together to shape performance."
+            },
+            "highlightsLabel": {
+              "nl": "Waar ik van geniet",
+              "en": "What I enjoy"
+            },
             "highlights": [
-              "<input highlight>",
-              "<input highlight>",
-              "<input highlight>"
+              {
+                "nl": "Onderdelen kiezen en builds samenstellen",
+                "en": "Choosing components and planning builds"
+              },
+              {
+                "nl": "Koeling en airflow verbeteren",
+                "en": "Improving cooling and airflow"
+              },
+              {
+                "nl": "Hardware testen en prestaties vergelijken",
+                "en": "Testing hardware and comparing performance"
+              }
             ],
             "images": [
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg"
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/pcsetup.jpg",
+                "alt": {
+                  "nl": "Mijn pc-opstelling",
+                  "en": "My PC setup"
+                }
+              },
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/20250717_103422.jpg",
+                "alt": {
+                  "nl": "Bezig met het bouwen van een pc",
+                  "en": "Working on a PC build"
+                }
+              },
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/20220503_192325.jpg",
+                "alt": {
+                  "nl": "Hardware uit mijn verzameling",
+                  "en": "Hardware from my collection"
+                }
+              }
             ]
           },
           {
             "id": "gaming",
             "icon": "ph ph-game-controller",
-            "bg": "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=600&q=80",
+            "bg": "/jortdeboer_web/assets/res/hobby/bo3.webp",
+            "action": {
+              "nl": "Bekijk foto's en details",
+              "en": "View photos and details"
+            },
             "label": {
               "nl": "Gamen",
               "en": "Gaming"
@@ -129,21 +184,64 @@
               "nl": "Simulatiegames, strategische games en ontspannen met vrienden.",
               "en": "Simulation games, strategy titles, and unwinding with friends."
             },
+            "subtitle": {
+              "nl": "Games & ontspanning",
+              "en": "Games & downtime"
+            },
+            "detail": {
+              "nl": "Gamen is voor mij een fijne manier om te ontspannen, samen met vrienden te spelen en me vast te bijten in strategie- en simulatiegames.",
+              "en": "Gaming is a fun way for me to unwind, play with friends, and get absorbed in strategy and simulation games."
+            },
+            "highlightsLabel": {
+              "nl": "Wat ik graag speel",
+              "en": "What I like to play"
+            },
             "highlights": [
-              "<input highlight>",
-              "<input highlight>",
-              "<input highlight>"
+              {
+                "nl": "Strategie- en simulatiegames",
+                "en": "Strategy and simulation games"
+              },
+              {
+                "nl": "Games spelen met vrienden",
+                "en": "Playing games with friends"
+              },
+              {
+                "nl": "Nieuwe games en werelden ontdekken",
+                "en": "Discovering new games and worlds"
+              }
             ],
             "images": [
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg"
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/bo3.webp",
+                "alt": {
+                  "nl": "Call of Duty: Black Ops III",
+                  "en": "Call of Duty: Black Ops III"
+                }
+              },
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/league.png",
+                "alt": {
+                  "nl": "League of Legends",
+                  "en": "League of Legends"
+                }
+              },
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/playstation-logo.webp",
+                "alt": {
+                  "nl": "PlayStation",
+                  "en": "PlayStation"
+                }
+              }
             ]
           },
           {
             "id": "traveling",
             "icon": "ph ph-compass",
-            "bg": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=600&q=80",
+            "bg": "/jortdeboer_web/assets/res/hobby/20250712_162745.jpg",
+            "action": {
+              "nl": "Bekijk foto's en details",
+              "en": "View photos and details"
+            },
             "label": {
               "nl": "Reizen",
               "en": "Traveling"
@@ -152,21 +250,64 @@
               "nl": "Verschillende landen ontdekken, wandelen en nieuwe culturen ervaren.",
               "en": "Exploring different countries, hiking, and experiencing new cultures."
             },
+            "subtitle": {
+              "nl": "Nieuwe plekken ontdekken",
+              "en": "Exploring new places"
+            },
+            "detail": {
+              "nl": "Reizen geeft me de kans om nieuwe plekken te ontdekken, eropuit te gaan en kennis te maken met andere omgevingen en culturen.",
+              "en": "Travel gives me the chance to discover new places, get outdoors, and experience different surroundings and cultures."
+            },
+            "highlightsLabel": {
+              "nl": "Wat ik graag doe",
+              "en": "What I enjoy"
+            },
             "highlights": [
-              "<input highlight>",
-              "<input highlight>",
-              "<input highlight>"
+              {
+                "nl": "Nieuwe plekken en omgevingen ontdekken",
+                "en": "Discovering new places and surroundings"
+              },
+              {
+                "nl": "Wandelen en buiten zijn",
+                "en": "Hiking and spending time outdoors"
+              },
+              {
+                "nl": "Lokale cultuur en sfeer ervaren",
+                "en": "Experiencing local culture and atmosphere"
+              }
             ],
             "images": [
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg"
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/20250712_162745.jpg",
+                "alt": {
+                  "nl": "Reisfoto uit juli 2025",
+                  "en": "Travel photo from July 2025"
+                }
+              },
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
+                "alt": {
+                  "nl": "Uitzicht op een kanaal tijdens een reis",
+                  "en": "A canal view while travelling"
+                }
+              },
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/20250728_110525.jpg",
+                "alt": {
+                  "nl": "Een buitenzwembad tijdens een reis",
+                  "en": "An outdoor pool while travelling"
+                }
+              }
             ]
           },
           {
             "id": "puzzles",
             "icon": "ph ph-brain",
-            "bg": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80",
+            "bg": "/jortdeboer_web/assets/res/hobby/sudoku-classic-1.webp",
+            "action": {
+              "nl": "Bekijk foto's en details",
+              "en": "View photos and details"
+            },
             "label": {
               "nl": "Puzzels",
               "en": "Puzzles"
@@ -175,15 +316,47 @@
               "nl": "Sudoku's, logische puzzels en ruimtelijke uitdagingen voor het probleemoplossend vermogen.",
               "en": "Sudokus, logic grids, and spatial problem-solving challenges."
             },
+            "subtitle": {
+              "nl": "Logica & probleemoplossing",
+              "en": "Logic & problem solving"
+            },
+            "detail": {
+              "nl": "Ik houd ervan om mijn hoofd bezig te houden met puzzels die geduld en logisch nadenken vragen, van sudoku tot woordpuzzels.",
+              "en": "I like keeping my mind busy with puzzles that reward patience and logical thinking, from sudoku to word games."
+            },
+            "highlightsLabel": {
+              "nl": "Favoriete puzzels",
+              "en": "Favourite puzzles"
+            },
             "highlights": [
-              "<input highlight>",
-              "<input highlight>",
-              "<input highlight>"
+              {
+                "nl": "Sudoku en cijferpuzzels",
+                "en": "Sudoku and number puzzles"
+              },
+              {
+                "nl": "Woordpuzzels zoals Wordle",
+                "en": "Word puzzles such as Wordle"
+              },
+              {
+                "nl": "Logische uitdagingen oplossen",
+                "en": "Solving logic challenges"
+              }
             ],
             "images": [
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg"
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/sudoku-classic-1.webp",
+                "alt": {
+                  "nl": "Sudoku-puzzel",
+                  "en": "Sudoku puzzle"
+                }
+              },
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/wordle-logo.webp",
+                "alt": {
+                  "nl": "Wordle-woordpuzzel",
+                  "en": "Wordle word puzzle"
+                }
+              }
             ]
           }
         ]
@@ -217,16 +390,7 @@
             },
             "techskill": [
               {
-                "id": "javascript",
-                "title": "JavaScript",
-                "subtitle": {
-                  "nl": "Web & interactieve apps",
-                  "en": "Web & interactive apps"
-                },
-                "color": "#f7df1e",
-                "icon": "ph ph-file-js",
-                "glow": "rgba(247, 223, 30, 0.4)",
-                "svg": "/jortdeboer_web/assets/res/logo/javascript.svg",
+                "id": "js",
                 "meta": {
                   "usage": {
                     "nl": "Interactieve webapplicaties, frontendontwikkeling en browsergebaseerde tooling",
@@ -238,27 +402,11 @@
                       "en": "Intermediate"
                     },
                     "experience": "2+ Years"
-                  },
-                  "ecosystem": [
-                    "DOM API",
-                    "Web APIs",
-                    "ES6+",
-                    "Node.js",
-                    "JSON"
-                  ]
+                  }
                 }
               },
               {
-                "id": "html-css",
-                "title": "HTML/CSS",
-                "subtitle": {
-                  "nl": "Webontwikkeling",
-                  "en": "Web development"
-                },
-                "color": "#f97316",
-                "icon": "ph ph-browser",
-                "glow": "rgba(249, 115, 22, 0.4)",
-                "svg": "/jortdeboer_web/assets/res/logo/html.svg",
+                "id": "html",
                 "meta": {
                   "usage": {
                     "nl": "Het bouwen van responsieve interfaces, layouts en interactieve webervaringen",
@@ -270,27 +418,27 @@
                       "en": "Advanced"
                     },
                     "experience": "3+ Years"
+                  }
+                }
+              },
+              {
+                "id": "css",
+                "meta": {
+                  "usage": {
+                    "nl": "Het stijlen van responsieve interfaces, layouts en interactieve webervaringen",
+                    "en": "Styling responsive interfaces, layouts and interactive web experiences"
                   },
-                  "ecosystem": [
-                    "HTML5",
-                    "CSS3",
-                    "Flexbox",
-                    "CSS Grid",
-                    "Responsive Design"
-                  ]
+                  "spec": {
+                    "proficiency": {
+                      "nl": "Gevorderd",
+                      "en": "Advanced"
+                    },
+                    "experience": "3+ Years"
+                  }
                 }
               },
               {
                 "id": "unity",
-                "title": "Unity",
-                "subtitle": {
-                  "nl": "Gameontwikkeling",
-                  "en": "Game development"
-                },
-                "color": "#e5e7eb",
-                "icon": "ph ph-game-controller",
-                "glow": "rgba(229, 231, 235, 0.4)",
-                "svg": "/jortdeboer_web/assets/res/logo/unity.svg",
                 "meta": {
                   "usage": {
                     "nl": "Gameontwikkeling, simulaties, physics-systemen en interactieve applicaties",
@@ -302,27 +450,11 @@
                       "en": "Advanced"
                     },
                     "experience": "3+ Years"
-                  },
-                  "ecosystem": [
-                    "C#",
-                    "Unity Engine",
-                    "2D / 3D Physics",
-                    "Netcode for GameObjects",
-                    "Tilemap"
-                  ]
+                  }
                 }
               },
               {
-                "id": "excel-word",
-                "title": "Excel/Word",
-                "subtitle": {
-                  "nl": "Office-tooling",
-                  "en": "Office tooling"
-                },
-                "color": "#22c55e",
-                "icon": "ph ph-file-xls",
-                "glow": "rgba(34, 197, 94, 0.4)",
-                "svg": "/jortdeboer_web/assets/res/logo/msoffice.svg",
+                "id": "office",
                 "meta": {
                   "usage": {
                     "nl": "Dataverwerking, documentatie, automatisering en bedrijfsworkflows",
@@ -334,14 +466,7 @@
                       "en": "Advanced"
                     },
                     "experience": "5+ Years"
-                  },
-                  "ecosystem": [
-                    "Excel Formulas",
-                    "Dynamic Tables",
-                    "Data Analysis",
-                    "Word Documents",
-                    "Office Automation"
-                  ]
+                  }
                 }
               }
             ]
@@ -357,16 +482,7 @@
             },
             "techskill": [
               {
-                "id": "python",
-                "title": "Python",
-                "subtitle": {
-                  "nl": "Automatisering",
-                  "en": "Automation"
-                },
-                "color": "#facc15",
-                "icon": "ph ph-file-py",
-                "glow": "rgba(250, 204, 21, 0.4)",
-                "svg": "/jortdeboer_web/assets/res/logo/python.svg",
+                "id": "py",
                 "meta": {
                   "usage": {
                     "nl": "Automatisering, scripting, dataverwerking en softwareontwikkeling",
@@ -378,27 +494,11 @@
                       "en": "Advanced"
                     },
                     "experience": "4+ Years"
-                  },
-                  "ecosystem": [
-                    "Standard Library",
-                    "NumPy",
-                    "OpenCV",
-                    "Automation",
-                    "Scripting"
-                  ]
+                  }
                 }
               },
               {
                 "id": "bash",
-                "title": "Bash",
-                "subtitle": {
-                  "nl": "Linux & command-line",
-                  "en": "Linux & command-line"
-                },
-                "color": "#a3e635",
-                "icon": "ph ph-terminal",
-                "glow": "rgba(163, 230, 53, 0.4)",
-                "svg": "/jortdeboer_web/assets/res/logo/bash.svg",
                 "meta": {
                   "usage": {
                     "nl": "Linux-beheer, automatisering, buildsystemen en command-line-workflows",
@@ -410,14 +510,7 @@
                       "en": "Advanced"
                     },
                     "experience": "3+ Years"
-                  },
-                  "ecosystem": [
-                    "Linux",
-                    "GNU Coreutils",
-                    "Shell Scripting",
-                    "SSH",
-                    "Git"
-                  ]
+                  }
                 }
               }
             ]
@@ -434,15 +527,6 @@
             "techskill": [
               {
                 "id": "c-cpp",
-                "title": "C/C++",
-                "subtitle": {
-                  "nl": "Low-level programmeren",
-                  "en": "Low-level programming"
-                },
-                "color": "#7dd3fc",
-                "icon": "ph ph-cpu",
-                "glow": "rgba(56, 189, 248, 0.4)",
-                "svg": "/jortdeboer_web/assets/res/logo/cpp.svg",
                 "meta": {
                   "usage": {
                     "nl": "Systeemprogrammering, embedded development en performancekritische applicaties",
@@ -454,27 +538,11 @@
                       "en": "Advanced"
                     },
                     "experience": "4+ Years"
-                  },
-                  "ecosystem": [
-                    "GNU GCC",
-                    "CMake",
-                    "Arduino",
-                    "Embedded Systems",
-                    "Compiler / Linker"
-                  ]
+                  }
                 }
               },
               {
-                "id": "assembly",
-                "title": "Assembly",
-                "subtitle": {
-                  "nl": "Programmeren op hardwareniveau",
-                  "en": "Hardware-level programming"
-                },
-                "color": "#fb7185",
-                "icon": "ph ph-cpu",
-                "glow": "rgba(251, 113, 133, 0.4)",
-                "svg": "/jortdeboer_web/assets/res/logo/asm.svg",
+                "id": "asm",
                 "meta": {
                   "usage": {
                     "nl": "Low-level programmeren, hardware-interactie en het begrijpen van gecompileerde code",
@@ -486,14 +554,7 @@
                       "en": "Intermediate"
                     },
                     "experience": "2+ Years"
-                  },
-                  "ecosystem": [
-                    "x86 / x86-64",
-                    "ARM",
-                    "Embedded Systems",
-                    "Registers & Memory",
-                    "Compiler Output"
-                  ]
+                  }
                 }
               }
             ]
@@ -517,6 +578,14 @@
           "nl": "Een combinatie van een praktische opleiding in software engineering, technische projecten en professionele ontwikkeling.",
           "en": "Combining practical software engineering studies with hands-on technical projects and professional growth."
         },
+        "milestoneLabel": {
+          "nl": "Mijlpaal",
+          "en": "Milestone"
+        },
+        "focusLabel": {
+          "nl": "Aandachtspunten",
+          "en": "Key focus"
+        },
         "nodes": [
           {
             "date": "SEP 2013 - JUN 2019",
@@ -533,9 +602,18 @@
               "en": "Highschool and first introduction to programming"
             },
             "highlights": [
-              "<input highlight>",
-              "<input highlight>",
-              "<input highlight>"
+              {
+                "nl": "Eerste kennismaking met programmeren",
+                "en": "First introduction to programming"
+              },
+              {
+                "nl": "Natuur & Gezondheid-profiel",
+                "en": "Sciences and Health curriculum"
+              },
+              {
+                "nl": "HAVO afgerond",
+                "en": "Completed HAVO secondary education"
+              }
             ]
           },
           {
@@ -553,9 +631,18 @@
               "en": "Core focus on systems programming, embedded hardware, software architecture, and algorithm design."
             },
             "highlights": [
-              "<input highlight>",
-              "<input highlight>",
-              "<input highlight>"
+              {
+                "nl": "Systeemprogrammering en embedded hardware",
+                "en": "Systems programming and embedded hardware"
+              },
+              {
+                "nl": "Softwarearchitectuur en algoritmeontwerp",
+                "en": "Software architecture and algorithm design"
+              },
+              {
+                "nl": "HBO-ICT Technische Informatica",
+                "en": "HBO-ICT Computer Science"
+              }
             ]
           },
           {
@@ -573,9 +660,18 @@
               "en": "Focused on graphics programming, interactive system mechanics, and collaborative cross-cultural software design."
             },
             "highlights": [
-              "<input highlight>",
-              "<input highlight>",
-              "<input highlight>"
+              {
+                "nl": "Graphics programming en gameontwikkeling",
+                "en": "Graphics programming and game development"
+              },
+              {
+                "nl": "Interactieve systeemmechanica",
+                "en": "Interactive system mechanics"
+              },
+              {
+                "nl": "Internationale samenwerking in Finland",
+                "en": "International collaboration in Finland"
+              }
             ]
           }
         ]
@@ -649,9 +745,25 @@
         "en": "Direct Communication"
       },
       "content": {
+        "title": {
+          "nl": "Laten we kennismaken",
+          "en": "Let's start a conversation"
+        },
+        "eyebrow": {
+          "nl": "OPEN VOOR MOGELIJKHEDEN",
+          "en": "OPEN TO OPPORTUNITIES"
+        },
+        "prompt": {
+          "nl": "Een vraag of een project in gedachten?",
+          "en": "Have a question or a project in mind?"
+        },
+        "emailAction": {
+          "nl": "Stuur me een e-mail",
+          "en": "Send me an email"
+        },
         "intro": {
-          "nl": "Heb je een vraag of ben je geïnteresseerd in het aanbieden van een afstudeeropdracht? Stuur hieronder een bericht.",
-          "en": "Have a question or interested in offering a graduation assignment? Transmit a message below."
+          "nl": "Heb je een vraag, stageopdracht of technische uitdaging? Ik hoor graag van je.",
+          "en": "Have a question, internship opportunity, or technical challenge? I'd be glad to hear from you."
         }
       }
     }

@@ -1,0 +1,122 @@
+{
+  "proglangs" : 
+  [
+    {
+      "id": "js",
+      "title": "JavaScript",
+      "subtitle": {
+        "nl": "Web & interactieve apps",
+        "en": "Web & interactive apps"
+      },
+      "color": "#f7df1e",
+      "icon": "ph ph-file-js",
+      "glow": "rgba(247, 223, 30, 0.4)",
+      "svg": "/jortdeboer_web/assets/res/logo/javascript.svg",
+      "complexity" : "L3"
+    },
+    {
+      "id": "css",
+      "title": "CSS",
+      "subtitle": {
+        "nl": "Website stijlen",
+        "en": "Website styling"
+      },
+      "color": "#f97316",
+      "icon": "ph ph-browser",
+      "glow": "rgba(249, 115, 22, 0.4)",
+      "svg": "/jortdeboer_web/assets/res/logo/html.svg",
+      "complexity" : "L3"
+    },
+    {
+      "id": "html",
+      "title": "HTML",
+      "subtitle": {
+        "nl": "Webontwikkeling",
+        "en": "Web development"
+      },
+      "color": "#f97316",
+      "icon": "ph ph-browser",
+      "glow": "rgba(249, 115, 22, 0.4)",
+      "svg": "/jortdeboer_web/assets/res/logo/html.svg",
+      "complexity" : "L3"
+    },
+    {
+      "id": "unity",
+      "title": "Unity",
+      "subtitle": {
+        "nl": "Gameontwikkeling",
+        "en": "Game development"
+      },
+      "color": "#e5e7eb",
+      "icon": "ph ph-game-controller",
+      "glow": "rgba(229, 231, 235, 0.4)",
+      "svg": "/jortdeboer_web/assets/res/logo/unity.svg",
+      "complexity" : "L3"
+    },
+    {
+      "id": "office",
+      "title": "Excel/Word",
+      "subtitle": {
+        "nl": "Office-tooling",
+        "en": "Office tooling"
+      },
+      "color": "#22c55e",
+      "icon": "ph ph-file-xls",
+      "glow": "rgba(34, 197, 94, 0.4)",
+      "svg": "/jortdeboer_web/assets/res/logo/msoffice.svg",
+      "complexity" : "L3"
+    },
+    {
+      "id": "py",
+      "title": "Python",
+      "subtitle": {
+        "nl": "Automatisering",
+        "en": "Automation"
+      },
+      "color": "#facc15",
+      "icon": "ph ph-file-py",
+      "glow": "rgba(250, 204, 21, 0.4)",
+      "svg": "/jortdeboer_web/assets/res/logo/python.svg",
+      "complexity" : "L2"
+    },
+    {
+      "id": "bash",
+      "title": "Bash",
+      "subtitle": {
+        "nl": "Linux & command-line",
+        "en": "Linux & command-line"
+      },
+      "color": "#a3e635",
+      "icon": "ph ph-terminal",
+      "glow": "rgba(163, 230, 53, 0.4)",
+      "svg": "/jortdeboer_web/assets/res/logo/bash.svg",
+      "complexity" : "L2"
+    },
+    {
+      "id": "c-cpp",
+      "title": "C/C++",
+      "subtitle": {
+        "nl": "Low-level programmeren",
+        "en": "Low-level programming"
+      },
+      "color": "#7dd3fc",
+      "icon": "ph ph-cpu",
+      "glow": "rgba(56, 189, 248, 0.4)",
+      "svg": "/jortdeboer_web/assets/res/logo/cpp.svg",
+      "complexity" : "L1"
+    },
+    {
+      "id": "asm",
+      "title": "Assembly",
+      "subtitle": {
+        "nl": "Programmeren op hardwareniveau",
+        "en": "Hardware-level programming"
+      },
+      "color": "#fb7185",
+      "icon": "ph ph-cpu",
+      "glow": "rgba(251, 113, 133, 0.4)",
+      "svg": "/jortdeboer_web/assets/res/logo/asm.svg",
+      "complexity" : "L1"
+    }
+  ]
+}

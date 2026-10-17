@@ -512,12 +512,12 @@
       transition: all 0.25s ease;
     }
 
-    .domain-selection {
+    .category-selection {
       display: flex; 
       flex-direction: column; 
       gap: 10px;
     }
-    .domain-header {
+    .category-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -526,17 +526,17 @@
       transition: all 0.25s var(--ease);
     }
 
-    .domain-header:hover {
+    .category-header:hover {
       transform: translateX(2px);
     }
 
 
-    .domain-header-left {
+    .category-header-left {
       display: flex;
       align-items: center;
       gap: 8px;
 
-      .domain-chevron {
+      .category-chevron {
         font-size: 0.78rem;
         transition: transform 0.3s var(--ease);
       }
@@ -544,12 +544,12 @@
 
     }
 
-    .tree-group:not(.expanded) .domain-header-left .domain-chevron{
+    .tree-group:not(.expanded) .category-header-left .category-chevron{
       transform: rotate(-90deg);
     }
 
 
-    .domain-icon-dot {
+    .category-icon-dot {
       width: 26px;
       height: 26px;
       border-radius: 7px;
@@ -562,17 +562,17 @@
       transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);;
     }
 
-    .domain-header:hover .domain-icon-dot {
+    .category-header:hover .category-icon-dot {
       transform: scale(1.08);
     }
 
-    .domain-title {
+    .category-title {
       font-size: 0.85rem;
       font-weight: 600;
       color: var(--color-text-base);
     }
 
-    .domain-count-badge {
+    .category-count-badge {
       font-size: 0.7rem;
       font-family: var(--font-mono);
       color: var(--color-gray-400);
@@ -583,7 +583,7 @@
       transition: border-color 0.2s ease, color 0.2s ease;
     }
 
-    .tree-group.expanded .domain-count-badge {
+    .tree-group.expanded .category-count-badge {
       border-color: color-mix(in srgb, var(--accent) 50%, transparent);
       color: var(--accent);
     }

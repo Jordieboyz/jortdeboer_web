@@ -2,7 +2,7 @@
 
 export const DATA = Object.freeze(
 {
-  "competencies": [
+  "categories": [
     {
       "customColor": "white",
       "id": "all",
@@ -34,6 +34,16 @@ export const DATA = Object.freeze(
       "icon": "ph-cpu"
     }
   ],
+  "miscTranslations": {
+    "In-Development": "In Ontwikkeling",
+    "empty": "Geen projecten gevonden in deze categorie.",
+    "goal": "Projectdoel en Overzicht",
+    "stack": "Belangrijkste Technologie Stack",
+    "contact": "Neem rechtstreeks contact met mij op voor coderepositories en meer gedetailleerde informatie over de implementatie.",
+    "inDev": "In Ontwikkeling",
+    "seeMore": "Bekijk meer",
+    "viewProjects": "Meer projecten"
+  },
   "modulesData": [
     {
       "id": "identity",
@@ -79,74 +89,124 @@ export const DATA = Object.freeze(
       "label": "Buiten het Scherm",
       "shortDesc": "Interesses & hobby's",
       "content": {
+        "dialogLabel": "details",
+        "closeLabel": "Sluit hobbydetails",
         "intro": "Hoe ik oplaad, nieuwe hardware ontdek en mijn probleemoplossend vermogen buiten het werk scherp houd.",
         "tiles": [
           {
             "id": "pcbuilding",
             "icon": "ph ph-desktop-tower",
-            "bg": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=600&q=80",
+            "bg": "/jortdeboer_web/assets/res/hobby/pcsetup.jpg",
+            "action": "Bekijk foto's en details",
             "label": "PC Bouwen",
             "desc": "Het ontwerpen van custom PC-builds, waterkoelingssystemen en het benchmarken van hardware.",
+            "subtitle": "Hardware & zelfbouw",
+            "detail": "Ik vind het leuk om computers zelf samen te stellen en te ontdekken hoe keuzes in onderdelen, koeling en afstelling samen de prestaties bepalen.",
+            "highlightsLabel": "Waar ik van geniet",
             "highlights": [
-              "<input highlight>",
-              "<input highlight>",
-              "<input highlight>"
+              "Onderdelen kiezen en builds samenstellen",
+              "Koeling en airflow verbeteren",
+              "Hardware testen en prestaties vergelijken"
             ],
             "images": [
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg"
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/pcsetup.jpg",
+                "alt": "Mijn pc-opstelling"
+              },
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/20250717_103422.jpg",
+                "alt": "Bezig met het bouwen van een pc"
+              },
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/20220503_192325.jpg",
+                "alt": "Hardware uit mijn verzameling"
+              }
             ]
           },
           {
             "id": "gaming",
             "icon": "ph ph-game-controller",
-            "bg": "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=600&q=80",
+            "bg": "/jortdeboer_web/assets/res/hobby/bo3.webp",
+            "action": "Bekijk foto's en details",
             "label": "Gamen",
             "desc": "Simulatiegames, strategische games en ontspannen met vrienden.",
+            "subtitle": "Games & ontspanning",
+            "detail": "Gamen is voor mij een fijne manier om te ontspannen, samen met vrienden te spelen en me vast te bijten in strategie- en simulatiegames.",
+            "highlightsLabel": "Wat ik graag speel",
             "highlights": [
-              "<input highlight>",
-              "<input highlight>",
-              "<input highlight>"
+              "Strategie- en simulatiegames",
+              "Games spelen met vrienden",
+              "Nieuwe games en werelden ontdekken"
             ],
             "images": [
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg"
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/bo3.webp",
+                "alt": "Call of Duty: Black Ops III"
+              },
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/league.png",
+                "alt": "League of Legends"
+              },
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/playstation-logo.webp",
+                "alt": "PlayStation"
+              }
             ]
           },
           {
             "id": "traveling",
             "icon": "ph ph-compass",
-            "bg": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=600&q=80",
+            "bg": "/jortdeboer_web/assets/res/hobby/20250712_162745.jpg",
+            "action": "Bekijk foto's en details",
             "label": "Reizen",
             "desc": "Verschillende landen ontdekken, wandelen en nieuwe culturen ervaren.",
+            "subtitle": "Nieuwe plekken ontdekken",
+            "detail": "Reizen geeft me de kans om nieuwe plekken te ontdekken, eropuit te gaan en kennis te maken met andere omgevingen en culturen.",
+            "highlightsLabel": "Wat ik graag doe",
             "highlights": [
-              "<input highlight>",
-              "<input highlight>",
-              "<input highlight>"
+              "Nieuwe plekken en omgevingen ontdekken",
+              "Wandelen en buiten zijn",
+              "Lokale cultuur en sfeer ervaren"
             ],
             "images": [
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg"
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/20250712_162745.jpg",
+                "alt": "Reisfoto uit juli 2025"
+              },
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
+                "alt": "Uitzicht op een kanaal tijdens een reis"
+              },
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/20250728_110525.jpg",
+                "alt": "Een buitenzwembad tijdens een reis"
+              }
             ]
           },
           {
             "id": "puzzles",
             "icon": "ph ph-brain",
-            "bg": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80",
+            "bg": "/jortdeboer_web/assets/res/hobby/sudoku-classic-1.webp",
+            "action": "Bekijk foto's en details",
             "label": "Puzzels",
             "desc": "Sudoku's, logische puzzels en ruimtelijke uitdagingen voor het probleemoplossend vermogen.",
+            "subtitle": "Logica & probleemoplossing",
+            "detail": "Ik houd ervan om mijn hoofd bezig te houden met puzzels die geduld en logisch nadenken vragen, van sudoku tot woordpuzzels.",
+            "highlightsLabel": "Favoriete puzzels",
             "highlights": [
-              "<input highlight>",
-              "<input highlight>",
-              "<input highlight>"
+              "Sudoku en cijferpuzzels",
+              "Woordpuzzels zoals Wordle",
+              "Logische uitdagingen oplossen"
             ],
             "images": [
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
-              "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg"
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/sudoku-classic-1.webp",
+                "alt": "Sudoku-puzzel"
+              },
+              {
+                "src": "/jortdeboer_web/assets/res/hobby/wordle-logo.webp",
+                "alt": "Wordle-woordpuzzel"
+              }
             ]
           }
         ]
@@ -171,95 +231,53 @@ export const DATA = Object.freeze(
             },
             "techskill": [
               {
-                "id": "javascript",
-                "title": "JavaScript",
-                "subtitle": "Web & interactieve apps",
-                "color": "#f7df1e",
-                "icon": "ph ph-file-js",
-                "glow": "rgba(247, 223, 30, 0.4)",
-                "svg": "/jortdeboer_web/assets/res/logo/javascript.svg",
+                "id": "js",
                 "meta": {
                   "usage": "Interactieve webapplicaties, frontendontwikkeling en browsergebaseerde tooling",
                   "spec": {
                     "proficiency": "Gemiddeld",
                     "experience": "2+ Years"
-                  },
-                  "ecosystem": [
-                    "DOM API",
-                    "Web APIs",
-                    "ES6+",
-                    "Node.js",
-                    "JSON"
-                  ]
+                  }
                 }
               },
               {
-                "id": "html-css",
-                "title": "HTML/CSS",
-                "subtitle": "Webontwikkeling",
-                "color": "#f97316",
-                "icon": "ph ph-browser",
-                "glow": "rgba(249, 115, 22, 0.4)",
-                "svg": "/jortdeboer_web/assets/res/logo/html.svg",
+                "id": "html",
                 "meta": {
                   "usage": "Het bouwen van responsieve interfaces, layouts en interactieve webervaringen",
                   "spec": {
                     "proficiency": "Gevorderd",
                     "experience": "3+ Years"
-                  },
-                  "ecosystem": [
-                    "HTML5",
-                    "CSS3",
-                    "Flexbox",
-                    "CSS Grid",
-                    "Responsive Design"
-                  ]
+                  }
+                }
+              },
+              {
+                "id": "css",
+                "meta": {
+                  "usage": "Het stijlen van responsieve interfaces, layouts en interactieve webervaringen",
+                  "spec": {
+                    "proficiency": "Gevorderd",
+                    "experience": "3+ Years"
+                  }
                 }
               },
               {
                 "id": "unity",
-                "title": "Unity",
-                "subtitle": "Gameontwikkeling",
-                "color": "#e5e7eb",
-                "icon": "ph ph-game-controller",
-                "glow": "rgba(229, 231, 235, 0.4)",
-                "svg": "/jortdeboer_web/assets/res/logo/unity.svg",
                 "meta": {
                   "usage": "Gameontwikkeling, simulaties, physics-systemen en interactieve applicaties",
                   "spec": {
                     "proficiency": "Gevorderd",
                     "experience": "3+ Years"
-                  },
-                  "ecosystem": [
-                    "C#",
-                    "Unity Engine",
-                    "2D / 3D Physics",
-                    "Netcode for GameObjects",
-                    "Tilemap"
-                  ]
+                  }
                 }
               },
               {
-                "id": "excel-word",
-                "title": "Excel/Word",
-                "subtitle": "Office-tooling",
-                "color": "#22c55e",
-                "icon": "ph ph-file-xls",
-                "glow": "rgba(34, 197, 94, 0.4)",
-                "svg": "/jortdeboer_web/assets/res/logo/msoffice.svg",
+                "id": "office",
                 "meta": {
                   "usage": "Dataverwerking, documentatie, automatisering en bedrijfsworkflows",
                   "spec": {
                     "proficiency": "Gevorderd",
                     "experience": "5+ Years"
-                  },
-                  "ecosystem": [
-                    "Excel Formulas",
-                    "Dynamic Tables",
-                    "Data Analysis",
-                    "Word Documents",
-                    "Office Automation"
-                  ]
+                  }
                 }
               }
             ]
@@ -275,49 +293,23 @@ export const DATA = Object.freeze(
             },
             "techskill": [
               {
-                "id": "python",
-                "title": "Python",
-                "subtitle": "Automatisering",
-                "color": "#facc15",
-                "icon": "ph ph-file-py",
-                "glow": "rgba(250, 204, 21, 0.4)",
-                "svg": "/jortdeboer_web/assets/res/logo/python.svg",
+                "id": "py",
                 "meta": {
                   "usage": "Automatisering, scripting, dataverwerking en softwareontwikkeling",
                   "spec": {
                     "proficiency": "Gevorderd",
                     "experience": "4+ Years"
-                  },
-                  "ecosystem": [
-                    "Standard Library",
-                    "NumPy",
-                    "OpenCV",
-                    "Automation",
-                    "Scripting"
-                  ]
+                  }
                 }
               },
               {
                 "id": "bash",
-                "title": "Bash",
-                "subtitle": "Linux & command-line",
-                "color": "#a3e635",
-                "icon": "ph ph-terminal",
-                "glow": "rgba(163, 230, 53, 0.4)",
-                "svg": "/jortdeboer_web/assets/res/logo/bash.svg",
                 "meta": {
                   "usage": "Linux-beheer, automatisering, buildsystemen en command-line-workflows",
                   "spec": {
                     "proficiency": "Gevorderd",
                     "experience": "3+ Years"
-                  },
-                  "ecosystem": [
-                    "Linux",
-                    "GNU Coreutils",
-                    "Shell Scripting",
-                    "SSH",
-                    "Git"
-                  ]
+                  }
                 }
               }
             ]
@@ -334,48 +326,22 @@ export const DATA = Object.freeze(
             "techskill": [
               {
                 "id": "c-cpp",
-                "title": "C/C++",
-                "subtitle": "Low-level programmeren",
-                "color": "#7dd3fc",
-                "icon": "ph ph-cpu",
-                "glow": "rgba(56, 189, 248, 0.4)",
-                "svg": "/jortdeboer_web/assets/res/logo/cpp.svg",
                 "meta": {
                   "usage": "Systeemprogrammering, embedded development en performancekritische applicaties",
                   "spec": {
                     "proficiency": "Gevorderd",
                     "experience": "4+ Years"
-                  },
-                  "ecosystem": [
-                    "GNU GCC",
-                    "CMake",
-                    "Arduino",
-                    "Embedded Systems",
-                    "Compiler / Linker"
-                  ]
+                  }
                 }
               },
               {
-                "id": "assembly",
-                "title": "Assembly",
-                "subtitle": "Programmeren op hardwareniveau",
-                "color": "#fb7185",
-                "icon": "ph ph-cpu",
-                "glow": "rgba(251, 113, 133, 0.4)",
-                "svg": "/jortdeboer_web/assets/res/logo/asm.svg",
+                "id": "asm",
                 "meta": {
                   "usage": "Low-level programmeren, hardware-interactie en het begrijpen van gecompileerde code",
                   "spec": {
                     "proficiency": "Gemiddeld",
                     "experience": "2+ Years"
-                  },
-                  "ecosystem": [
-                    "x86 / x86-64",
-                    "ARM",
-                    "Embedded Systems",
-                    "Registers & Memory",
-                    "Compiler Output"
-                  ]
+                  }
                 }
               }
             ]
@@ -390,6 +356,8 @@ export const DATA = Object.freeze(
       "shortDesc": "Academische achtergrond",
       "content": {
         "intro": "Een combinatie van een praktische opleiding in software engineering, technische projecten en professionele ontwikkeling.",
+        "milestoneLabel": "Mijlpaal",
+        "focusLabel": "Aandachtspunten",
         "nodes": [
           {
             "date": "SEP 2013 - JUN 2019",
@@ -397,9 +365,9 @@ export const DATA = Object.freeze(
             "company": "Niftarlake College",
             "desc": "Middelbare school en eerste kennismaking met programmeren",
             "highlights": [
-              "<input highlight>",
-              "<input highlight>",
-              "<input highlight>"
+              "Eerste kennismaking met programmeren",
+              "Natuur & Gezondheid-profiel",
+              "HAVO afgerond"
             ]
           },
           {
@@ -408,9 +376,9 @@ export const DATA = Object.freeze(
             "company": "Technische Informatica Specialist",
             "desc": "Focus op systeemprogrammering, embedded hardware, softwarearchitectuur en algoritmeontwerp.",
             "highlights": [
-              "<input highlight>",
-              "<input highlight>",
-              "<input highlight>"
+              "Systeemprogrammering en embedded hardware",
+              "Softwarearchitectuur en algoritmeontwerp",
+              "HBO-ICT Technische Informatica"
             ]
           },
           {
@@ -419,9 +387,9 @@ export const DATA = Object.freeze(
             "company": "Turku University of Applied Sciences",
             "desc": "Focus op graphics programming, interactieve systeemmechanica en gezamenlijk softwareontwerp in een interculturele omgeving.",
             "highlights": [
-              "<input highlight>",
-              "<input highlight>",
-              "<input highlight>"
+              "Graphics programming en gameontwikkeling",
+              "Interactieve systeemmechanica",
+              "Internationale samenwerking in Finland"
             ]
           }
         ]
@@ -474,22 +442,122 @@ export const DATA = Object.freeze(
       "label": "Contact",
       "shortDesc": "Directe Communicatie",
       "content": {
-        "intro": "Heb je een vraag of ben je geïnteresseerd in het aanbieden van een afstudeeropdracht? Stuur hieronder een bericht."
+        "title": "Laten we kennismaken",
+        "eyebrow": "OPEN VOOR MOGELIJKHEDEN",
+        "prompt": "Een vraag of een project in gedachten?",
+        "emailAction": "Stuur me een e-mail",
+        "intro": "Heb je een vraag, stageopdracht of technische uitdaging? Ik hoor graag van je."
       }
+    }
+  ],
+  "proglangs": [
+    {
+      "id": "js",
+      "title": "JavaScript",
+      "subtitle": "Web & interactieve apps",
+      "color": "#f7df1e",
+      "icon": "ph ph-file-js",
+      "glow": "rgba(247, 223, 30, 0.4)",
+      "svg": "/jortdeboer_web/assets/res/logo/javascript.svg",
+      "complexity": "L3"
+    },
+    {
+      "id": "css",
+      "title": "CSS",
+      "subtitle": "Website stijlen",
+      "color": "#f97316",
+      "icon": "ph ph-browser",
+      "glow": "rgba(249, 115, 22, 0.4)",
+      "svg": "/jortdeboer_web/assets/res/logo/html.svg",
+      "complexity": "L3"
+    },
+    {
+      "id": "html",
+      "title": "HTML",
+      "subtitle": "Webontwikkeling",
+      "color": "#f97316",
+      "icon": "ph ph-browser",
+      "glow": "rgba(249, 115, 22, 0.4)",
+      "svg": "/jortdeboer_web/assets/res/logo/html.svg",
+      "complexity": "L3"
+    },
+    {
+      "id": "unity",
+      "title": "Unity",
+      "subtitle": "Gameontwikkeling",
+      "color": "#e5e7eb",
+      "icon": "ph ph-game-controller",
+      "glow": "rgba(229, 231, 235, 0.4)",
+      "svg": "/jortdeboer_web/assets/res/logo/unity.svg",
+      "complexity": "L3"
+    },
+    {
+      "id": "office",
+      "title": "Excel/Word",
+      "subtitle": "Office-tooling",
+      "color": "#22c55e",
+      "icon": "ph ph-file-xls",
+      "glow": "rgba(34, 197, 94, 0.4)",
+      "svg": "/jortdeboer_web/assets/res/logo/msoffice.svg",
+      "complexity": "L3"
+    },
+    {
+      "id": "py",
+      "title": "Python",
+      "subtitle": "Automatisering",
+      "color": "#facc15",
+      "icon": "ph ph-file-py",
+      "glow": "rgba(250, 204, 21, 0.4)",
+      "svg": "/jortdeboer_web/assets/res/logo/python.svg",
+      "complexity": "L2"
+    },
+    {
+      "id": "bash",
+      "title": "Bash",
+      "subtitle": "Linux & command-line",
+      "color": "#a3e635",
+      "icon": "ph ph-terminal",
+      "glow": "rgba(163, 230, 53, 0.4)",
+      "svg": "/jortdeboer_web/assets/res/logo/bash.svg",
+      "complexity": "L2"
+    },
+    {
+      "id": "c-cpp",
+      "title": "C/C++",
+      "subtitle": "Low-level programmeren",
+      "color": "#7dd3fc",
+      "icon": "ph ph-cpu",
+      "glow": "rgba(56, 189, 248, 0.4)",
+      "svg": "/jortdeboer_web/assets/res/logo/cpp.svg",
+      "complexity": "L1"
+    },
+    {
+      "id": "asm",
+      "title": "Assembly",
+      "subtitle": "Programmeren op hardwareniveau",
+      "color": "#fb7185",
+      "icon": "ph ph-cpu",
+      "glow": "rgba(251, 113, 133, 0.4)",
+      "svg": "/jortdeboer_web/assets/res/logo/asm.svg",
+      "complexity": "L1"
     }
   ],
   "projectsData": [
     {
-      "id": "space-invaders",
-      "competences": [
+      "categories": [
         "ac"
       ],
       "date": "",
-      "title": "Bare-Metal Space Invaders",
+      "id": "space-invaders",
+      "banner": "/jortdeboer_web/assets/res/projects/banner-space-invaders.jpg",
       "icon": "flying-saucer",
+      "title": "Bare-Metal Space Invaders",
       "focus": "Fundamenten van Game Engines",
-      "images": [],
-      "shortDescription": "Een low-level hercreatie van Space Invaders, volledig vanaf nul opgebouwd. Geen besturingssysteem, geen libraries. Bevat een custom bootloader, grafische driver en input-afhandeling, volledig geschreven in assembly en C om direct op de hardware te draaien.",
+      "short": "Een low-level hercreatie van Space Invaders, volledig vanaf nul opgebouwd. Geen besturingssysteem, geen libraries. Bevat een custom bootloader, grafische driver en input-afhandeling, volledig geschreven in assembly en C om direct op de hardware te draaien.",
+      "relProgLang": [
+        "c-cpp",
+        "asm"
+      ],
       "case": [
         {
           "id": "overview",
@@ -512,11 +580,6 @@ export const DATA = Object.freeze(
           "content": "Staying at 60 FPS"
         }
       ],
-      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-space-invaders.jpg",
-      "progLang": [
-        "c-cpp",
-        "assembly"
-      ],
       "links": [
         {
           "site": "Github",
@@ -526,47 +589,82 @@ export const DATA = Object.freeze(
       ]
     },
     {
-      "id": "portfolio-website",
-      "competences": [
+      "categories": [
         "swe"
       ],
       "date": "2025 Q2",
-      "title": "Persoonlijke Portfolio Website",
+      "id": "portfolio-website",
+      "banner": "/jortdeboer_web/assets/res/projects/banner-portfolio-website.png",
       "icon": "globe",
+      "title": "Persoonlijke Portfolio Website",
       "focus": "Webontwikkeling & UX-design",
-      "images": [],
-      "shortDescription": "Een persoonlijke portfolio-website op maat ontworpen en ontwikkeld met HTML, CSS en JavaScript.",
+      "short": "Een persoonlijke portfolio-website op maat ontworpen en ontwikkeld met HTML, CSS en JavaScript.",
+      "relProgLang": [
+        "html",
+        "css",
+        "javascript"
+      ],
       "case": [
         {
           "id": "overview",
-          "title": "Project Overview",
-          "content": "I built this portfolio website to create a central place to showcase my work, skills, and development as a web developer. Rather than simply listing projects, I wanted to create a website that reflects my approach to design and development while giving visitors a clear overview of what I can do."
+          "title": "Een portfolio dat uitnodigt om te ontdekken",
+          "content": [
+            "Deze website is meer dan een verzameling projectkaarten. Bezoekers kunnen zelf bepalen hoe ze de inhoud verkennen: van een korte kennismaking tot de details die hen interesseren.",
+            "Achter de schermen gebruiken de pagina's een gedeelde, overzichtelijke inhoudsbibliotheek. Elke pagina presenteert die informatie op een andere manier, passend bij wat je zoekt."
+          ]
         },
         {
-          "id": "planning",
-          "title": "Planning and Structure",
-          "content": "The project started with defining the website's structure and deciding how to present the content. I focused on keeping the layout clean, the navigation intuitive, and the information easy to find. Every section serves a purpose, helping visitors explore my work without unnecessary distractions."
+          "id": "content-library",
+          "title": "Eén gedeelde inhoudsbibliotheek",
+          "content": [
+            "Zie de inhoud als een kast met gelabelde lades: één voor projecten, één voor categorieën en technieken, en andere voor profielgegevens en de onderdelen van de Over-mij-pagina. De informatie staat los van het ontwerp van de pagina's.",
+            "Zo kan een project op Home kort worden uitgelicht en op Projecten uitgebreider worden verteld, met dezelfde projectinformatie in plaats van twee losse kopieën."
+          ]
         },
         {
-          "id": "development",
-          "title": "Development and Technologies",
-          "content": "During development, I worked with HTML, CSS, and JavaScript to build the structure, styling, and interactive functionality. This involved more than making the website look good: I also had to consider code organization, reusable components, responsive layouts, and how different elements work together."
+          "id": "page-experiences",
+          "title": "Drie pagina's, drie manieren om te ontdekken",
+          "content": [
+            "Home is de korte rondleiding. Kies bijvoorbeeld software of gameontwikkeling om bijpassende projecten direct op de pagina te bekijken.",
+            "Over mij is opgebouwd als een reeks hoofdstukken. Scroll of kies een onderdeel om meer te ontdekken over persoonlijke details, interesses, technieken en mijlpalen.",
+            "Projecten is de volledige catalogus. Filter de projecten, open een project dat je aanspreekt en gebruik de sectielinks om door het verhaal te navigeren. Op een telefoon veranderen de keuzes voor categorie en project in compacte menu's."
+          ]
         },
         {
-          "id": "challenges",
-          "title": "Challenges and Design Decisions",
-          "content": "One of the main challenges was finding the right balance between visual design and functionality. I wanted the website to feel personal without compromising usability. This meant refining details, testing different approaches, and making adjustments to ensure the experience remained consistent across different screen sizes."
+          "id": "behind-the-scenes",
+          "title": "Van informatie naar interactieve pagina's",
+          "content": [
+            "Voordat een bezoeker de site opent, combineert een klein bouwprogramma de inhoudsbestanden met herbruikbare pagina-indelingen. Het maakt bijpassende pagina's en inhoud klaar voor Engels en Nederlands.",
+            "Tijdens het bezoek maakt de browser die voorbereide inhoud interactief: met categorieën, projectdetails, onderdelen op Over mij en navigatie. Het diagram laat zien hoe alles samenkomt."
+          ],
+          "image": "/jortdeboer_web/assets/res/portfolio-under-the-hood-nl.svg",
+          "imageAlt": "Diagram dat laat zien hoe gedeelde portfolio-informatie terechtkomt op Home, Over mij en Projecten, en hoe het bouwproces en de taalversies samenwerken.",
+          "imageCaption": "Eén gedeelde inhoudsbibliotheek, uitgewerkt in drie manieren om de site te ontdekken."
         },
         {
-          "id": "learned",
-          "title": "What I Learned",
-          "content": "Building this portfolio has been an opportunity to apply my knowledge in a practical project and strengthen my understanding of front-end development. It also provides a foundation that I can continue to improve as I learn new techniques, complete more projects, and develop my own approach to building websites."
+          "id": "language",
+          "title": "Van taal wisselen en je plek behouden",
+          "content": [
+            "Engelse en Nederlandse teksten staan bij de informatie waar ze bij horen. Het bouwproces maakt voor elke taal een eigen versie van de site, zodat je na het wisselen op de bijbehorende versie van dezelfde pagina terechtkomt.",
+            "De taalkeuze wordt in de browser opgeslagen. Ook bewaart de site tijdens het wisselen je leespositie, zodat je ongeveer op dezelfde plek verder kunt lezen."
+          ]
+        },
+        {
+          "id": "design-decisions",
+          "title": "Een paar belangrijke ontwerpkeuzes",
+          "content": [
+            "De pagina's hebben verschillende indelingen, omdat bezoekers verschillende dingen zoeken: een snel overzicht, een persoonlijke kennismaking of meer informatie over een bepaald project. Gedeelde informatie houdt die weergaven met elkaar verbonden.",
+            "De indelingen passen zich ook aan kleinere schermen aan. Projectfilters zijn bijvoorbeeld makkelijker te gebruiken op een telefoon wanneer ze als compact keuzemenu openen in plaats van naast de projectlijst te staan."
+          ]
+        },
+        {
+          "id": "what-i-learned",
+          "title": "Wat ik van dit project heb geleerd",
+          "content": [
+            "Een portfolio kan tegelijk een presentatie en een klein, bruikbaar product zijn. De informatie ordenen, elke pagina makkelijk verkenbaar maken en de ervaring samenhangend houden in verschillende talen en op verschillende schermformaten horen allemaal bij het bouwen ervan.",
+            "Het resultaat is makkelijker uit te breiden: nieuw werk kan aan de inhoudsbibliotheek worden toegevoegd en daarna worden getoond op de plekken waar bezoekers er het meest aan hebben."
+          ]
         }
-      ],
-      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-portfolio-website.png",
-      "progLang": [
-        "html-css",
-        "javascript"
       ],
       "links": [
         {
@@ -576,22 +674,26 @@ export const DATA = Object.freeze(
         },
         {
           "site": "Web",
-          "web": "#",
+          "web": "/jortdeboer_web/index.html",
           "icon": "globe"
         }
       ]
     },
     {
+      "categories": [
+        "gd"
+      ],
+      "date": "2024 Q4",
       "id": "pixel-conquest",
-      "competences": [
-        "gd"
-      ],
-      "date": "2024 Q4",
-      "title": "Pixel Conquest",
+      "banner": "/jortdeboer_web/assets/res/projects/banner-pixel-conquest.png",
       "icon": "castle-turret",
+      "title": "Pixel Conquest",
       "focus": "Gameontwikkeling",
-      "images": [],
-      "shortDescription": "Een snel real-time pixelspel gebouwd in Unity met C#.",
+      "short": "Een snel real-time pixelspel gebouwd in Unity met C#.",
+      "relProgLang": [
+        "unity",
+        "c-cpp"
+      ],
       "case": [
         {
           "id": "overview",
@@ -614,11 +716,6 @@ export const DATA = Object.freeze(
           "content": "Staying at 60 FPS"
         }
       ],
-      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-pixel-conquest.png",
-      "progLang": [
-        "unity",
-        "c-cpp"
-      ],
       "links": [
         {
           "site": "Gitlab",
@@ -628,16 +725,20 @@ export const DATA = Object.freeze(
       ]
     },
     {
-      "id": "grids",
-      "competences": [
+      "categories": [
         "gd"
       ],
       "date": "2024 Q4",
-      "title": "Grids",
+      "id": "grids",
+      "banner": "/jortdeboer_web/assets/res/projects/banner-grids.png",
       "icon": "grid-four",
+      "title": "Grids",
       "focus": "Unity Multiplayer Gameontwikkeling",
-      "images": [],
-      "shortDescription": "Een lokale multiplayergame in Unity met snelle minigames.",
+      "short": "Een lokale multiplayergame in Unity met snelle minigames.",
+      "relProgLang": [
+        "unity",
+        "c-cpp"
+      ],
       "case": [
         {
           "id": "overview",
@@ -660,11 +761,6 @@ export const DATA = Object.freeze(
           "content": "Staying at 60 FPS"
         }
       ],
-      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-grids.png",
-      "progLang": [
-        "unity",
-        "c-cpp"
-      ],
       "links": [
         {
           "site": "Gitlab",
@@ -674,16 +770,21 @@ export const DATA = Object.freeze(
       ]
     },
     {
-      "id": "nas",
-      "competences": [
+      "categories": [
         "at"
       ],
       "date": "2023 Q4",
-      "title": "DIY Network Attached Storage",
+      "id": "nas",
+      "banner": "/jortdeboer_web/assets/res/projects/truenas.png",
       "icon": "download",
+      "title": "DIY Network Attached Storage",
       "focus": "Systeembeheer & Netwerken",
-      "images": [],
-      "shortDescription": "Een custom NAS gebouwd met geautomatiseerde back-ups.",
+      "short": "Een custom NAS gebouwd met geautomatiseerde back-ups.",
+      "relProgLang": [
+        "bash",
+        "py",
+        "c-cpp"
+      ],
       "case": [
         {
           "id": "overview",
@@ -706,12 +807,6 @@ export const DATA = Object.freeze(
           "content": "Staying at 60 FPS"
         }
       ],
-      "bannerImage": "/jortdeboer_web/assets/res/projects/truenas.png",
-      "progLang": [
-        "bash",
-        "python",
-        "c-cpp"
-      ],
       "links": [
         {
           "site": "Github",
@@ -721,16 +816,22 @@ export const DATA = Object.freeze(
       ]
     },
     {
-      "id": "sailfishos",
-      "competences": [
+      "categories": [
         "swe"
       ],
       "date": "2024 Q2",
-      "title": "SailfishOS op Fairphone 4",
+      "id": "sailfishos",
+      "banner": "/jortdeboer_web/assets/res/projects/banner-sfos-fp4.png",
       "icon": "device-mobile",
+      "title": "SailfishOS op Fairphone 4",
       "focus": "Mobiele OS-porting & Open Source-bijdragen",
       "images": [],
-      "shortDescription": "Een SailfishOS-port voor de Fairphone 4 ontwikkeld.",
+      "short": "Een SailfishOS-port voor de Fairphone 4 ontwikkeld.",
+      "relProgLang": [
+        "bash",
+        "py",
+        "c-cpp"
+      ],
       "case": [
         {
           "id": "overview",
@@ -753,12 +854,6 @@ export const DATA = Object.freeze(
           "content": "Staying at 60 FPS"
         }
       ],
-      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-sfos-fp4.png",
-      "progLang": [
-        "bash",
-        "python",
-        "c-cpp"
-      ],
       "links": [
         {
           "site": "Github",
@@ -768,16 +863,20 @@ export const DATA = Object.freeze(
       ]
     },
     {
-      "id": "symbolic",
-      "competences": [
+      "categories": [
         "ac"
       ],
       "date": "2024 Q1",
-      "title": "Symbolic: Een Custom Turing-Complete Programmeertaal",
+      "id": "symbolic",
+      "banner": "/jortdeboer_web/assets/res/projects/banner-symbolic.png",
       "icon": "code",
+      "title": "Symbolic: Een Custom Turing-Complete Programmeertaal",
       "focus": "Taalontwerp & Compilerbouw",
-      "images": [],
-      "shortDescription": "Een custom Turing-complete programmeertaal gebouwd.",
+      "short": "Een custom Turing-complete programmeertaal gebouwd.",
+      "relProgLang": [
+        "c-cpp",
+        "asm"
+      ],
       "case": [
         {
           "id": "overview",
@@ -800,11 +899,6 @@ export const DATA = Object.freeze(
           "content": "Staying at 60 FPS"
         }
       ],
-      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-symbolic.png",
-      "progLang": [
-        "c-cpp",
-        "assembly"
-      ],
       "links": [
         {
           "site": "Github",
@@ -814,16 +908,19 @@ export const DATA = Object.freeze(
       ]
     },
     {
-      "id": "super-hotline",
-      "competences": [
+      "categories": [
         "gd"
       ],
       "date": "2023 Q1",
-      "title": "Super Hotline",
+      "id": "super-hotline",
+      "banner": "/jortdeboer_web/assets/res/projects/banner-hotline.png",
       "icon": "joystick",
+      "title": "Super Hotline",
       "focus": "Singleplayer Top-down Shooter",
-      "images": [],
-      "shortDescription": "Een snelle actiegame in C++.",
+      "short": "Een snelle actiegame in C++.",
+      "relProgLang": [
+        "c-cpp"
+      ],
       "case": [
         {
           "id": "overview",
@@ -846,10 +943,6 @@ export const DATA = Object.freeze(
           "content": "Staying at 60 FPS"
         }
       ],
-      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-hotline.png",
-      "progLang": [
-        "c-cpp"
-      ],
       "links": [
         {
           "site": "Github",
@@ -859,16 +952,19 @@ export const DATA = Object.freeze(
       ]
     },
     {
-      "id": "gomoku",
-      "competences": [
+      "categories": [
         "at"
       ],
       "date": "2023 Q3",
-      "title": "Go-Moku MCTS-agent",
+      "id": "gomoku",
+      "banner": "/jortdeboer_web/assets/res/projects/banner-gomoku.png",
       "icon": "dice-six",
+      "title": "Go-Moku MCTS-agent",
       "focus": "Kunstmatige Intelligentie & Optimalisatie",
-      "images": [],
-      "shortDescription": "Een Go-Moku AI gebouwd met MCTS.",
+      "short": "Een Go-Moku AI gebouwd met MCTS.",
+      "relProgLang": [
+        "py"
+      ],
       "case": [
         {
           "id": "overview",
@@ -891,10 +987,6 @@ export const DATA = Object.freeze(
           "content": "Staying at 60 FPS"
         }
       ],
-      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-gomoku.png",
-      "progLang": [
-        "python"
-      ],
       "links": [
         {
           "site": "Github",
@@ -904,16 +996,20 @@ export const DATA = Object.freeze(
       ]
     },
     {
-      "id": "nrf24l01",
-      "competences": [
+      "categories": [
         "swe"
       ],
       "date": "2023 Q2",
-      "title": "nRF24L01+ Draadloze Module",
+      "id": "nrf24l01",
+      "banner": "/jortdeboer_web/assets/res/projects/banner-nrf-arduino.png",
       "icon": "code",
+      "title": "nRF24L01+ Draadloze Module",
       "focus": "Embedded Systems & Hardwarecommunicatie",
-      "images": [],
-      "shortDescription": "Custom driver voor draadloze module.",
+      "short": "Custom driver voor draadloze module.",
+      "relProgLang": [
+        "c-cpp",
+        "asm"
+      ],
       "case": [
         {
           "id": "overview",
@@ -936,11 +1032,6 @@ export const DATA = Object.freeze(
           "content": "Staying at 60 FPS"
         }
       ],
-      "bannerImage": "/jortdeboer_web/assets/res/projects/banner-nrf-arduino.png",
-      "progLang": [
-        "c-cpp",
-        "assembly"
-      ],
       "links": [
         {
           "site": "Github",
@@ -950,38 +1041,6 @@ export const DATA = Object.freeze(
       ]
     }
   ],
-  "categories": [
-    {
-      "key": "all",
-      "label": "Alle Projecten"
-    },
-    {
-      "key": "swe",
-      "label": "Software Engineering"
-    },
-    {
-      "key": "gd",
-      "label": "Gameontwikkeling"
-    },
-    {
-      "key": "ac",
-      "label": "Geavanceerd Computergebruik"
-    },
-    {
-      "key": "at",
-      "label": "Automatisering & Tooling"
-    }
-  ],
-  "miscTranslations": {
-    "In-Development": "In Ontwikkeling",
-    "empty": "Geen projecten gevonden in deze categorie.",
-    "goal": "Projectdoel en Overzicht",
-    "stack": "Belangrijkste Technologie Stack",
-    "contact": "Neem rechtstreeks contact met mij op voor coderepositories en meer gedetailleerde informatie over de implementatie.",
-    "inDev": "In Ontwikkeling",
-    "seeMore": "Bekijk meer",
-    "viewProjects": "Meer projecten"
-  },
   "sociallinksData": {
     "mail": {
       "href": "mailto:boer.jort.edu@gmail.com",
@@ -1037,15 +1096,17 @@ export const DATA = Object.freeze(
       "value": "jortdeboerweb.com"
     }
   ],
-  "languages": {
-    "nl": {
+  "languages": [
+    {
+      "code": "nl",
       "flag": "🇳🇱",
       "language": "Nederlands"
     },
-    "en": {
+    {
+      "code": "en",
       "flag": "🇬🇧",
       "language": "English"
     }
-  }
+  ]
 }
 );

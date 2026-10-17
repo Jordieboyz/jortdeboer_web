@@ -5,51 +5,69 @@ document.addEventListener(APP_EVENTS.MODULE_IDENTITY_SWITCH_PHASE, ({ detail }) 
 document.addEventListener(APP_EVENTS.MODULE_TECHSTACK_SELECT_NODE, ({ detail })     => { selectNode(detail.layerId, detail.skillId); });
 document.addEventListener(APP_EVENTS.MODULE_TECHSTACK_SHIFT_LAYER, ({ detail })     => { shiftLayer(detail.dir); });
 document.addEventListener(APP_EVENTS.MODULE_TECHSTACK_CLEAR_SELECTION, ({ detail }) => { clearSelection(); });
-document.addEventListener(APP_EVENTS.MODULE_HOBBY_CLOSE_MODAL, ({ detail })         => { closeHobbyModal(); });
-document.addEventListener(APP_EVENTS.MODULE_HOBBY_OPEN_MODAL, ({ detail })          => { openHobbyModal(detail.hobbyId); });
+document.addEventListener(APP_EVENTS.MODULE_HOBBY_CLOSE_MODAL, () => { closeHobbyModal(); });
+document.addEventListener(APP_EVENTS.MODULE_HOBBY_OPEN_MODAL, ({ detail }) => { openHobbyModal(detail.hobbyId); });
 document.addEventListener(APP_EVENTS.MODULE_EDUCATION_SELECT_NODE, ({ detail })     => { selectEducationNode(detail.nodeIdx); });
 document.addEventListener(APP_EVENTS.MODULE_GITHUB_FETCH_DATA, ({ detail })         => { fetchGitHubData(detail.forceRefresh); });
+document.addEventListener('click', event => {
+  if (event.target.matches('.hobby-embedded-modal.active')) closeHobbyModal();
+});
 
 
 let activeNodeId = null;
 let activeLayerIndex = 0;
+let activeHobbyTrigger = null;
 
-const LAYERS = getData('techstack').layers
+function getTechSkill(skill) {
+  const catalogEntry = DATA.proglangs.find(entry => entry.id === skill.id);
+  return { ...catalogEntry, ...skill };
+}
+
+const LAYERS = getData('techstack').layers.map(layer => ({
+  ...layer,
+  techskill: layer.techskill.map(getTechSkill)
+}));
 const LAYER_ORDER = LAYERS.map(layer => layer.id) ?? []
+const PROJECT_LANGUAGE_ALIASES = {
+  js: ['js', 'javascript']
+};
 
 window.addEventListener('DOMContentLoaded', () => {
-  if (!document.querySelector('.module-content-wrapper .timeline-track')) return;
-
   selectEducationNode(0)
   updateTimelineLine()
   window.addEventListener('resize', updateTimelineLine)
   fetchGitHubData(true)
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') clearSelection(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    if (document.querySelector('.hobby-embedded-modal.active')) closeHobbyModal();
+    else clearSelection();
+  });
 });
 
 export function updateTimelineLine() {
   const track = document.querySelector('.module-content-wrapper .timeline-track')
-  const dots = track?.parentElement.querySelectorAll('.timeline-dot')
+  const panel = track?.parentElement
+  const dots = panel?.querySelectorAll('.timeline-dot')
   const line = track?.querySelector('.timeline-line-bg')
   if (!track || !dots?.length || !line) return
 
   const trackRect = track.getBoundingClientRect()
   const firstDotRect = dots[0].getBoundingClientRect()
   const lastDotRect = dots[dots.length - 1].getBoundingClientRect()
-  const left = firstDotRect.left - trackRect.left
+  const firstDotCenter = firstDotRect.left + firstDotRect.width / 2
   const lastDotCenter = lastDotRect.left + lastDotRect.width / 2
   const right = trackRect.right - lastDotCenter
   const top = firstDotRect.top + firstDotRect.height / 2 - trackRect.top - line.offsetHeight / 2
 
-  line.style.left = `${left}px`
+  line.style.left = `${firstDotCenter - trackRect.left}px`
   line.style.right = `${right}px`
   line.style.top = `${top}px`
 
-  const activeDot = track.parentElement.querySelector('.timeline-node.active .timeline-dot')
+  const activeDot = panel.querySelector('.timeline-node.active .timeline-dot')
   if (activeDot) {
     const activeDotRect = activeDot.getBoundingClientRect()
     const activeDotCenter = activeDotRect.left + activeDotRect.width / 2
-    line.querySelector('.timeline-line-fill').style.width = `${activeDotCenter - firstDotRect.left}px`
+    line.querySelector('.timeline-line-fill').style.width = `${Math.max(0, activeDotCenter - firstDotCenter)}px`
   }
 }
 
@@ -63,17 +81,18 @@ function createChipHTML(node) {
   const hasSvgLogo = typeof node.svg === 'string' && node.svg.trim().toLowerCase().endsWith('.svg');
   const iconHTML = hasSvgLogo
     ? `<img class="chip-logo" src="${node.svg}" alt="${node.title} logo">`
-    : '';
+    : `<i class="${node.icon || 'ph ph-code'}" aria-hidden="true"></i>`;
 
   return `
-    <div data-node="${node.id}" class="chip"
+    <button type="button" data-node="${node.id}" class="chip"
+          aria-label="${node.title}"
           style="--node-color:${node.color}; --node-glow:${node.glow};">
       <div class="chip-icon">${iconHTML}</div>
       <div class="chip-info">
         <div class="chip-title">${node.title}</div>
         <div class="chip-subtitle">${node.subtitle}</div>
       </div>
-    </div>
+    </button>
   `;
 }
 
@@ -110,7 +129,7 @@ export function selectNode(layerId, nodeId, slideDir) {
   document.querySelector('.stack-rack').classList.add('is-compact');
 
   LAYER_ORDER.forEach(l => {
-    document.querySelector(`.slab-${l}`).classList.toggle('is-active-layer', l === node.id.toLowerCase());
+    document.querySelector(`.slab-${l}`)?.classList.toggle('is-active-layer', l === layer.id);
   });
 }
 
@@ -150,7 +169,7 @@ export function shiftLayer(dir) {
 function updateDrawerContent(layer, node) {
   const detail_drawer = document.querySelector('.detail-drawer');
 
-  detail_drawer.style.setProperty('--node-color', node.color)
+  detail_drawer.style.setProperty('--node-color', node.color || layer.color.light)
   const drawerLogo = detail_drawer.querySelector('.drawer-info img')
   const hasSvgLogo = typeof node.svg === 'string' && node.svg.trim().toLowerCase().endsWith('.svg')
   drawerLogo.hidden = !hasSvgLogo
@@ -163,25 +182,33 @@ function updateDrawerContent(layer, node) {
   detail_drawer.querySelector('.drawer-title').textContent = node.title
   detail_drawer.querySelector('.drawer-layer').textContent = layer.id
   
-  detail_drawer.querySelector('.spec-matrix').innerHTML = ['proficiency', 'Experience'].map(s => 
+  const proficiency = node.meta.spec?.proficiency || '';
+  const experience = node.meta.spec?.experience || '';
+  detail_drawer.querySelector('.spec-matrix').innerHTML = [
+    ['PROFICIENCY', proficiency],
+    ['EXPERIENCE', experience]
+  ].filter(([, value]) => value).map(([label, value]) => 
     `<div class="tech-spec-item">
-        <span class="tech-spec-key">${s.toUpperCase()}:</span> 
-        <span class="tech-spec-val">${node.meta.spec?.[s]}</span>
+        <span class="tech-spec-key">${label}:</span> 
+        <span class="tech-spec-val">${value}</span>
       </div>`
   ).join('')
 
-  detail_drawer.querySelector('.section-text').textContent = node.meta?.usage || node.description || '';
+  detail_drawer.querySelector('.section-text').textContent = node.meta?.usage || node.description || node.subtitle || '';
   detail_drawer.querySelector('.eco-grid').innerHTML = (node.meta?.ecosystem || node.ecosystem || [])
     .map(eco => `<span class="eco-tag">${eco}</span>`)
     .join('');
 
 
-  const relatedProjects = DATA.projectsData.filter(project => project.progLang?.includes(node.id)).slice(0, 2);
+  const matchingLanguageIds = PROJECT_LANGUAGE_ALIASES[node.id] || [node.id];
+  const relatedProjects = DATA.projectsData.filter(project =>
+    matchingLanguageIds.some(id => project.relProgLang?.includes(id))
+  ).slice(0, 2);
   detail_drawer.querySelector('.projects-list').innerHTML = relatedProjects.length
     ? relatedProjects.map(project => `
         <a class="project-card" href="projects.html#${project.id}">
           <div class="project-name">${project.title}</div>
-          <div class="project-detail">${project.focus || project.shortDescription || ''}</div>
+          <div class="project-detail">${project.focus || project.short || ''}</div>
         </a>
       `).join('')
     : '<div class="project-detail">No related projects found.</div>';
@@ -192,7 +219,7 @@ export function clearSelection() {
   document.querySelector('.detail-drawer').classList.remove('is-open');
   document.querySelector('.stack-rack').classList.remove('is-compact');
 
-  LAYER_ORDER.forEach(l => document.querySelector(`.slab-${l}`).classList.remove('is-active-layer'));
+  LAYER_ORDER.forEach(l => document.querySelector(`.slab-${l}`)?.classList.remove('is-active-layer'));
   document.querySelectorAll('.chip').forEach(el => el.classList.remove('is-active', 'is-dimmed'));
   document.querySelector('.slider-track').innerHTML = '';
   document.querySelector('.slider-dots').innerHTML = '';
@@ -220,65 +247,63 @@ export function switchModulePhase(phase){
   document.querySelector(`.identity-phase-${phase}`).classList.add('active', slideDirection);
 }
 
-/* #################################################### */
-/* beyond the screen */
-/* #################################################### */
-  export function closeHobbyModal() {
-    document.querySelector('.hobby-embedded-modal').classList.remove('active');
-  }
+export function closeHobbyModal({ restoreFocus = true } = {}) {
+  const modal = document.querySelector('.hobby-embedded-modal');
+  if (!modal) return;
+  modal.classList.remove('active');
+  modal.setAttribute('aria-hidden', 'true');
+  if (restoreFocus) activeHobbyTrigger?.focus();
+  activeHobbyTrigger = null;
+}
 
 export function openHobbyModal(hobbyId) {
-    const modal = document.querySelector('.hobby-embedded-modal');
-    const imgStack = document.querySelector('.modal-left-stack');
-    const infoPanel = document.querySelector('.modal-right-info');
-    const hobby = getData('hobbies').tiles.find(h => h.id === hobbyId);
-    
-    if (!hobby) return;
+  const modal = document.querySelector('.hobby-embedded-modal');
+  const imgStack = modal?.querySelector('.modal-left-stack');
+  const infoPanel = modal?.querySelector('.modal-right-info');
+  const hobby = getData('hobbies').tiles.find(tile => tile.id === hobbyId);
+  if (!modal || !imgStack || !infoPanel || !hobby) return;
 
-    // Render 3 distinct images in left column stack
-    imgStack.innerHTML = hobby.images.map(img => `
-      <div class="modal-img-item" style="background-image: url('${img}');"></div>
-    `).join('');
+  activeHobbyTrigger = document.activeElement;
+  imgStack.innerHTML = hobby.images.map(image => `
+    <figure class="modal-img-item">
+      <img src="${image.src}" alt="${image.alt}">
+    </figure>
+  `).join('');
 
-    // Render information panel on the right
-    const highlightsHtml = hobby.highlights.map(h => `<li><i class="ph ph-check-circle"></i> ${h}</li>`).join('');
+  infoPanel.innerHTML = `
+    <div class="modal-info-header">${hobby.label}</div>
+    <div class="modal-info-subtitle">${hobby.subtitle}</div>
+    <div class="modal-divider"></div>
+    <p class="modal-info-text">${hobby.detail}</p>
+    <div class="modal-info-section-title">${hobby.highlightsLabel}</div>
+    <ul class="hobby-stats-list">
+      ${hobby.highlights.map(highlight => `<li><i class="ph ph-check-circle"></i>${highlight}</li>`).join('')}
+    </ul>
+  `;
 
-    infoPanel.innerHTML = `
-      <div class="modal-info-header">${hobby.label}</div>
-      <div class="modal-info-subtitle">${hobby.desc}</div>
-      <div class="modal-divider"></div>
-      <p class="modal-info-text">${hobby.desc}</p>
-      
-
-      <div class="modal-info-section-title" style="margin-top: 12px;">Highlights</div>
-      <ul class="hobby-stats-list">${highlightsHtml}</ul>
-    `;
-
-    modal.classList.add('active');
-  }
-
-
-
+  modal.setAttribute('aria-label', `${hobby.label} ${getData('hobbies').dialogLabel}`);
+  modal.setAttribute('aria-hidden', 'false');
+  modal.classList.add('active');
+  modal.querySelector('.modal-close-x')?.focus();
+}
 
 /* #################################################### */
 /* beyond the screen */
 /* #################################################### */
 export function selectEducationNode(nodeId) {
-  const nodes = getData('education').nodes
+  const education = getData('education');
+  const nodes = education.nodes;
+  const data = nodes[nodeId];
+  if (!data) return;
+
   for (let i = 0; i < nodes.length; i++) {
     const node = document.querySelector(`.tnode-${i}`);
-    if (i === nodeId) {
-      node.classList.add('active');
-    } else {
-      node.classList.remove('active');
-    }
+    node?.classList.toggle('active', i === nodeId);
+    node?.setAttribute('aria-pressed', String(i === nodeId));
   }
 
-  const percentages = { 0: '0%', 1: '50%', 2: '100%'};
-  document.querySelector('.timeline-line-fill').style.width = percentages[nodeId];
   updateTimelineLine()
 
-  const data = nodes[nodeId];
   const html = `
     <div class="milestone-header">
       <div>
@@ -286,15 +311,20 @@ export function selectEducationNode(nodeId) {
         <div class="milestone-title">${data.company}</div>
         <div class="milestone-track">${data.role}</div>
       </div>
-      <div class="milestone-badge">Milestone 0${nodeId+1} / 0${nodes.length}</div>
+      <div class="milestone-badge">${education.milestoneLabel} 0${nodeId+1} / 0${nodes.length}</div>
     </div>
     <div class="milestone-desc">${data.desc}</div>
-    <div class="milestone-list-title">Key Focus</div>
+    <div class="milestone-list-title">${education.focusLabel}</div>
     <ul class="milestone-list">
       ${data.highlights.map(h => `<li><i class="ph ph-check-circle"></i> ${h}</li>`).join('')}
     </ul>
   `;
-  document.querySelector('.milestone-card').innerHTML = html;
+  const milestoneCard = document.querySelector('.milestone-card');
+  if (milestoneCard) {
+    milestoneCard.innerHTML = html;
+    milestoneCard.setAttribute('aria-label', `${data.company}, ${data.date}`);
+    milestoneCard.scrollTop = 0;
+  }
 }
 
 /* #################################################### */

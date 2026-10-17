@@ -1,32 +1,24 @@
-import { DomainDetailsPanel, domainSelectionRenderer, SocialLinksRenderer, CompetenceLinksRenderer, select } from "./render.js";
-import { APP_EVENTS } from "./events.js";
 import { DATA } from "content-data";
+import { APP_EVENTS } from "./events.js";
+import { 
+  select,
+  CategoryLinksRenderer, 
+  CategorySelectionRenderer,
+  CategoryDetailsPanel, 
+  SocialLinksRenderer, 
+} from "./render.js";
 
-const domainById = new Map(DATA.competencies.map(domain => [domain.id, domain]));
-const domainByTitle = new Map(DATA.competencies.map(domain => [domain.title, domain]));
-const projectById = new Map(DATA.projectsData.map(project => [project.id, project]));
-const projectByTitle = new Map(DATA.projectsData.map(project => [project.title, project]));
+
+/*--------------------------------------------------------------------------- 
+  + Static Rendered Elements
+---------------------------------------------------------------------------*/
 
 new SocialLinksRenderer(DATA.sociallinksData, select('.home-social-links'));
-new CompetenceLinksRenderer(DATA.competencies.slice(1), select('.home-stats'));
-new domainSelectionRenderer(DATA.competencies.slice(1), select('.domain-selection'), {
+new CategoryLinksRenderer(DATA.categories.slice(1), select('.home-stats'));
+new CategorySelectionRenderer(DATA.categories.slice(1), select('.category-selection'), {
   projects: DATA.projectsData
 });
 
-let activeDomainKey = "";
-let selectedProjectId = null;
-
-const treeContainer = select(".domain-selection");
-const detailStage = select(".detail-stage");
-const skillTabs = Array.from(select('.skill-tab', true));
-const stats = select('.home-stats');
-const statPills = stats ? Array.from(stats.querySelectorAll('.stat-pill')) : [];
-const scrollInd = document.getElementById('scroll-indicator');
-let scrollFaded = false;
-
-/*---------------------------------------------------------------------------
-    Typed.js; Typing effect
----------------------------------------------------------------------------*/
 new Typed('.typed', {
   strings: select('.typed')?.getAttribute('data-typed-items').split(','),
   loop: true,
@@ -35,184 +27,96 @@ new Typed('.typed', {
   backDelay: 3000
 });
 
-function updateHomeImage(){
-  if (window.innerWidth < 767) {
-    const img = document.querySelector('.hero-headshot');
-    img.src = img.src.replace(img.src.split('/').pop(), 'hero_jort_de_boer_short.jpeg');
-  } else { 
-    const img = document.querySelector('.hero-headshot');
-    img.src = img.src.replace(img.src.split('/').pop(), 'hero_jort_de_boer.jpeg');
-  }
-}
+/*--------------------------------------------------------------------------- 
+  + EVENT implementations
+---------------------------------------------------------------------------*/
+document.addEventListener(APP_EVENTS.CATEGORY_SELECT, ({ detail }) => { 
+  const newHash = `#${detail.categoryId}`
+  window.location.hash = window.location.hash.split('/')[0] === newHash ? route() : newHash; 
+});
 
+document.addEventListener(APP_EVENTS.PROJECT_SELECT, ({ detail }) => { 
+  window.location.hash = `#${detail.categoryId}/${detail.projId}`;
+});
+
+document.addEventListener(APP_EVENTS.PROJECT_CLOSE, () => { 
+  window.location.hash = '';
+  swapDetailStage()
+});
+
+document.addEventListener(APP_EVENTS.CATEGORY_LINK_CLICKED, ({ detail }) => {
+  const firstProj = select(`.tree-group[data-cat=${detail.catId}] .tree-project-item`, true)[0]
+  window.location.hash = `#${detail.catId}/${firstProj.dataset.pid}`
+});
+
+/*--------------------------------------------------------------------------- 
+  + Page Specific Variables
+---------------------------------------------------------------------------*/
+const detailStage = select(".detail-stage");
+
+let scrollFaded = false;
+let scrollOnLoad = false
+
+/*--------------------------------------------------------------------------- 
+  + On first Load of the page / DOMContentLoaded
+---------------------------------------------------------------------------*/
 document.addEventListener('DOMContentLoaded', () => {
-  updateHomeImage()
+
+  updateHomeImage() // update size of the hero image
+  renderDetailStage(); // render placeholder at this stage
+  route(); // handle incoming hashes from load state
+
   window.addEventListener('resize', updateHomeImage)
+  window.addEventListener('hashchange', route)
+  window.addEventListener('scroll', () => {
+    const scrollInd = document.getElementById('scroll-indicator');
 
-  const route = parseRouteHash(window.location.hash);
-
-  if (route.domainId) {
-    activeDomainKey = route.domainId;
-  }
-
-  if (route.projId) {
-    selectedProjectId = route.projId;
-  }
-
-  renderDetailStage();
-
-  if (route.domainId) {
-    updateTreeState(route.domainId, route.projId || null);
-  }
-
-  if (window.location.hash.length > 1) {
-    activateTab(window.location.hash.substring(1));
-  }
-});
-
-document.addEventListener(APP_EVENTS.SCROLL_TO_DOMAIN, ({ detail }) => {
-  const domainId = detail.domId ?? detail.domKey ?? detail.domainId;
-  if (!domainId) return;
-
-  const firstProject = DATA.projectsData.find(project =>
-    Array.isArray(project.competences) && project.competences.includes(domainId)
-  );
-
-  activeDomainKey = domainId;
-  selectedProjectId = firstProject?.id ?? null;
-
-  updatePath(domainId, firstProject?.id ?? '');
-  updateTreeState(domainId, firstProject?.id ?? null);
-
-  if (firstProject) {
-    swapDetailStage();
-  } else {
-    renderDetailStage();
-  }
-});
-
-function parseRouteHash(hash = '') {
-  const cleanHash = hash.replace(/^#/, '').replace(/^\//, '');
-  const [domainId = '', projId = ''] = cleanHash.split('/');
-  return { domainId, projId };
-}
-
-function updatePath(domainId = '', projId = '', forceScroll = null) {
-  if (!domainId) {
-    if (window.location.hash) {
-      history.replaceState(null, '', location.pathname + location.search);
+    if (window.scrollY > 25 && !scrollFaded) {
+      scrollInd?.classList.add('hidden');
+      scrollFaded = true;
+    } else if (window.scrollY < 10 && scrollFaded) {
+      scrollInd?.classList.remove('hidden');
+      scrollFaded = false;
     }
-    return;
-  }
+  }, { passive: true });
 
-  const hashValue = projId ? `${domainId}/${projId}` : domainId;
-  if (window.location.hash.replace('#', '') !== hashValue) {
-    window.location.hash = hashValue;
-  }
+  scrollOnLoad = true;
+});
 
-  // Skip scrolling on mobile
-  if (window.matchMedia('(max-width: 768px)').matches && !forceScroll) return;
-  
-  const header = select('.section-header');
-  if (header) {
-    window.scrollTo({ top: header.offsetTop });
-  }
-}
+/*--------------------------------------------------------------------------- 
+  + Functions
+---------------------------------------------------------------------------*/
+function route(){
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 25 && !scrollFaded) {
-    scrollInd?.classList.add('hidden');
-    scrollFaded = true;
-  } else if (window.scrollY < 10 && scrollFaded) {
-    scrollInd?.classList.remove('hidden');
-    scrollFaded = false;
-  }
-}, { passive: true });
+  const [catId = '', projId = ''] = location.hash.replace(/^#/, '').replace(/^\//, '').split('/');
+  if(catId)
+    updateTreeState(catId, projId);
 
-statPills.forEach(pill => {
-  pill.addEventListener('click', () => {
-    const domainForPill = DATA.competencies.find(c => c.title === pill.textContent.trim());
-    const domainId = domainForPill?.id;
-
-    if (!domainId) return;
-
-    const firstProject = DATA.projectsData.find(project =>
-      Array.isArray(project.competences) && project.competences.includes(domainId)
-    );
-
-    if (!firstProject) return;
-
-    selectedProjectId = firstProject.id;
-    activeDomainKey = domainId;
-
-    updatePath(domainId, firstProject.id, true);
-    updateTreeState(domainId, firstProject.id);
+  if(projId)
     swapDetailStage();
-  });
-});
 
-function activateTab(tabOrDomainId) {
-  if (!tabOrDomainId) return;
-
-  const target = typeof tabOrDomainId === 'string'
-    ? skillTabs.find(tab => tab.dataset.tab === tabOrDomainId)
-    : tabOrDomainId;
-
-  if (!target) return;
-
-  skinTabsState(target);
+  // prevent scrolling on mobile
+  if (window.matchMedia('(max-width: 768px)').matches && !projId) 
+    return;
+  
+  if (scrollOnLoad) {
+    window.scrollTo({ top: detailStage.offsetTop });
+  }
 }
 
-function skinTabsState(activeTab) {
-  skillTabs.forEach(tab => tab.classList.toggle('active', tab === activeTab));
+export function updateTreeState(catId = null, pId = null) {
+  select('.tree-group', true).forEach(groupEl => {
+    groupEl.classList.toggle('expanded', groupEl.dataset.cat === catId);
+  })
+
+  if(pId){
+    select(`.tree-group[data-cat=${catId}] .tree-project-item`, true).forEach(p => 
+      p.classList.toggle('active', p.dataset.pid === pId))
+  }
 }
 
-document.addEventListener(APP_EVENTS.DOMAIN_SELECT, ({ detail }) => {
-  activeDomainKey = detail.domKey === activeDomainKey ? null : detail.domKey;
-  selectedProjectId = null;
-  updatePath(detail.domKey);
-  updateTreeState(activeDomainKey, null);
-});
-
-document.addEventListener(APP_EVENTS.PROJECT_SELECT, ({ detail }) => {
-  selectedProjectId = detail.projId;
-  activeDomainKey = detail.domKey;
-  updatePath(detail.domKey, detail.projId);
-  updateTreeState(detail.domKey, detail.projId);
-  swapDetailStage();
-});
-
-document.addEventListener(APP_EVENTS.PROJECT_CLOSE, () => {
-  selectedProjectId = null;
-  activeDomainKey = null;
-  history.replaceState(null, '', location.pathname + location.search);
-  updatePath('');
-  updateTreeState();
-  swapDetailStage();
-});
-
-export function updateTreeState(Did = null, Pid = null) {
-  if (Did) activeDomainKey = Did;
-  if (Pid) selectedProjectId = Pid;
-
-  const groups = treeContainer.querySelectorAll('.tree-group');
-  groups.forEach(groupEl => {
-    const groupTitle = groupEl.querySelector('.domain-title')?.textContent?.trim();
-    const domain = domainByTitle.get(groupTitle);
-    groupEl.classList.toggle('expanded', domain?.id === activeDomainKey);
-
-    const projItems = groupEl.querySelectorAll('.tree-project-item');
-    projItems.forEach(item => {
-      const itemTitle = item.querySelector('.tree-project-name')?.textContent?.trim();
-      const project = projectByTitle.get(itemTitle);
-      item.classList.toggle('active', project?.id === selectedProjectId);
-    });
-  });
-}
-
+// animation for swapping content of the detailstage
 function swapDetailStage() {
-  if (!detailStage) return;
-
   detailStage.classList.add('card-animated-exit');
 
   setTimeout(() => {
@@ -226,15 +130,25 @@ function swapDetailStage() {
   }, 150);
 }
 
+// TODO: maybe seperate the placeholder and the detailsrendere in the future!
 function renderDetailStage() {
-  let activeProj = null;
+  const activeProjectId = window.location.hash.split('/')[1]
 
-  if (selectedProjectId) {
-    activeProj = projectById.get(selectedProjectId) ?? null;
-  }
+  // placeholder items ready
+  let detailStageProject = { hintProj: DATA.projectsData.slice(0, 3) }
 
-  new DomainDetailsPanel(activeProj || { hintProj: DATA.projectsData.slice(0, 3) }, detailStage, {
-    competences: DATA.competencies,
-    placeholder: !activeProj,
+  if(activeProjectId)
+    // override placeholder projects 
+    detailStageProject = DATA.projectsData.find(p => p.id === activeProjectId)
+  
+  new CategoryDetailsPanel(detailStageProject, detailStage, {
+    categories: DATA.categories,
+    placeholder: !activeProjectId,
   });
+}
+
+function updateHomeImage(){
+  const img = document.querySelector('.hero-headshot');
+  img.src = img.src.replace(img.src.split('/').pop(), 
+    window.innerWidth < 700 ? 'hero_jort_de_boer_short.jpeg' : 'hero_jort_de_boer.jpeg');
 }

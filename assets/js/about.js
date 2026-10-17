@@ -1,28 +1,45 @@
-import { ModuleRenderer, TelemetryRenderer, SocialLinksRenderer } from "./render.js";
-import { updateTimelineLine } from "./about-modules.js";
 import { DATA } from "content-data"
+import { closeHobbyModal, updateTimelineLine } from "./about-modules.js";
+import { 
+    select,
+    ModuleRenderer, 
+    TelemetryRenderer, 
+    SocialLinksRenderer 
+} from "./render.js";
 
-const selectID = id => document.getElementById(id);
-const select = (selector, all = false) =>
-    all ? [...document.querySelectorAll(selector)] : document.querySelector(selector);
 
+/*--------------------------------------------------------------------------- 
+  + Static Rendered Elements
+---------------------------------------------------------------------------*/
+new SocialLinksRenderer(DATA.sociallinksData, select('.hero-links'))
+new ModuleRenderer(DATA.modulesData, select('.available-mod-list'))
+new TelemetryRenderer(DATA.telemetryData, select('.telemetry-grid'))
+
+
+/*--------------------------------------------------------------------------- 
+  + EVENT implementations
+---------------------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------------------- 
+  + Page Specific Variables
+---------------------------------------------------------------------------*/
 let currentIdx = 0;
+let resizeFrame = null;
 
 const pickerList = select('.available-mod-list');
 const pickerTrack = select('.available-mod-track');
 const activeModuleContainer = select('.active-module-container');
-const hintUp = selectID('hintUp');
-const hintDown = selectID('hintDown');
-// const overlay = selectID('diveOverlay');
-
-new SocialLinksRenderer(DATA.sociallinksData, select('.hero-links')).run()
-new ModuleRenderer(DATA.modulesData, pickerList).run()
-new TelemetryRenderer(DATA.telemetryData, select('.telemetry-grid')).run()
+const hintUp = select('.hintUp');
+const hintDown = select('.hintDown');
 
 const activePanelWrapper = activeModuleContainer.querySelector('.module-content-wrapper');
 const panelOrigins = new WeakMap();
 let mountedPanel = activePanelWrapper.querySelector('.panel-content');
 
+/*--------------------------------------------------------------------------- 
+  + On first Load of the page / DOMContentLoaded
+---------------------------------------------------------------------------*/
 document.addEventListener('DOMContentLoaded', () => {
 
     // Buttons for modules slider
@@ -30,29 +47,45 @@ document.addEventListener('DOMContentLoaded', () => {
     hintDown.addEventListener('click',  () => { if (currentIdx < DATA.modulesData.length - 1) update(currentIdx + 1); });
 
     // start at module no# 0
-    window.addEventListener('resize', () => update(currentIdx, false));
+    window.addEventListener('resize', scheduleLayoutUpdate, { passive: true });
+    window.visualViewport?.addEventListener('resize', scheduleLayoutUpdate, { passive: true });
     update(0, false)
 
 });
 
+/*--------------------------------------------------------------------------- 
+  + Functions
+---------------------------------------------------------------------------*/
 function update(idx, animate = true) {
-    currentIdx = Math.max(0, Math.min(idx, DATA.modulesData.length - 1));
+    const nextIdx = Math.max(0, Math.min(idx, DATA.modulesData.length - 1));
+    if (nextIdx !== currentIdx && document.querySelector('.hobby-embedded-modal.active')) {
+        closeHobbyModal({ restoreFocus: false });
+    }
+    currentIdx = nextIdx;
     const isMobile = window.innerWidth <= 768;
         
     if (isMobile) {
-        const itemW = pickerTrack.querySelector('.picker-item-wrapper')?.getBoundingClientRect().width || 160;
+        const item = pickerTrack.querySelectorAll('.picker-item-wrapper')[currentIdx];
+        const itemW = item?.getBoundingClientRect().width || 160;
         const edgeSpace = Math.max(0, (pickerTrack.clientWidth - itemW) / 2);
         pickerList.style.paddingLeft = `${edgeSpace}px`;
         pickerList.style.paddingRight = `${edgeSpace}px`;
         pickerList.style.transform = 'none';
-        pickerTrack.scrollTo({ left: currentIdx * itemW, behavior: animate ? 'smooth' : 'auto' });
+        const itemRect = item?.getBoundingClientRect();
+        const trackRect = pickerTrack.getBoundingClientRect();
+        if (itemRect) {
+            const targetLeft = pickerTrack.scrollLeft + itemRect.left - trackRect.left -
+                (pickerTrack.clientWidth - itemRect.width) / 2;
+            pickerTrack.scrollLeft = targetLeft;
+        }
     } else {
-        const itemH = 60;
-        const targetY = ((425 - 72)/ 2) - (currentIdx * itemH) - (itemH / 2);
-        pickerList.style.transform = `translateY(${targetY}px)`;
+          pickerList.style.paddingLeft = '';
+          pickerList.style.paddingRight = '';
+          pickerTrack.scrollLeft = 0;
+          const itemH = 60;
+          const targetY = ((activeModuleContainer.clientHeight - 72) / 2) - (currentIdx * itemH) - (itemH / 2);
+          pickerList.style.transform = `translateY(${targetY}px)`;
     }
-
-
 
     hintUp.classList.toggle('visible', currentIdx > 0);
     hintDown.classList.toggle('visible', currentIdx < DATA.modulesData.length - 1);
@@ -88,8 +121,23 @@ function update(idx, animate = true) {
         }
     });
 
+    activeModuleContainer.classList.toggle(
+          'is-techstack-active',
+          mountedPanel?.classList.contains('techstack-panel') ?? false
+    );
+
     updateTimelineLine();
 
+}
+
+function scheduleLayoutUpdate() {
+    if (resizeFrame !== null) cancelAnimationFrame(resizeFrame);
+    resizeFrame = requestAnimationFrame(() => {
+        resizeFrame = requestAnimationFrame(() => {
+            resizeFrame = null;
+            update(currentIdx, false);
+        });
+    });
 }
 
 select('.available-mod-track').addEventListener('wheel', e => {
@@ -117,62 +165,3 @@ pickerTrack.addEventListener('touchend', e => {
     if (Math.abs(deltaX) < 35) return;
     update(currentIdx + (deltaX < 0 ? 1 : -1));
 }, { passive: true });
-
-
-
-async function fetchGitHub() {
-    const list = selectID('github-list');
-    try {
-        // Fetch more than 3 to account for filtering out the profile README repo
-        const res = await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?sort=updated&per_page=10`);
-        const data = await res.json();
-        
-        if (data && data.length > 0) {
-            // Filter out the repository that matches the username (usually the profile README)
-            const filteredRepos = data
-                .filter(repo => repo.name.toLowerCase() !== GITHUB_USER.toLowerCase())
-                .slice(0, 3); // Then take the top 3
-
-            if (filteredRepos.length === 0) {
-                    list.innerHTML = `<div class="loading">NO_PUBLIC_REPOS</div>`;
-                    return;
-            }
-
-            list.innerHTML = filteredRepos.map(repo => {
-                const descriptionHtml = repo.description 
-                    ? `<div class="repo-desc">${repo.description}</div>` 
-                    : '';
-                return `
-                    <div class="repo-card">
-                        <div class="repo-header">
-                            <a href="${repo.html_url}" target="_blank" class="repo-link">${repo.name}</a>
-                            <span class="repo-updated">${formatRelativeTime(repo.pushed_at)}</span>
-                        </div>
-                        ${descriptionHtml}
-                    </div>
-                `;
-            }).join('');
-        } else {
-            list.innerHTML = `<div class="loading">NO_PUBLIC_REPOS</div>`;
-        }
-    } catch (err) {
-        list.innerHTML = `<div class="loading" style="color:#f87171">OFFLINE_MODE</div>`;
-    }
-}
-
-// for project 2
-// function openDive() {
-    
-// }
-
-// function closeDive() {
-//     ovrelay.classList.add('active');
-// }
-
-// document.addEventListener('keydown', (e) => {
-//     if (e.key === "Escape") closeDive();
-// })
-
-    // window.onload = () => {
-    //     fetchGitHub();
-    // };
