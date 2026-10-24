@@ -4,7 +4,7 @@
       "categories": ["ac"],
       "date": "",
       "id": "space-invaders",
-      "banner": "/jortdeboer_web/assets/res/projects/banner-space-invaders.jpg",
+      "banner": "/assets/res/projects/banner-space-invaders.jpg",
       "icon": "flying-saucer",
       "title": {
         "en": "Bare-Metal Space Invaders",
@@ -53,7 +53,7 @@
       "categories": ["swe"],
       "date": "2025 Q2",
       "id": "portfolio-website",
-      "banner": "/jortdeboer_web/assets/res/projects/banner-portfolio-website.png",
+      "banner": "/assets/res/projects/banner-portfolio-website.png",
       "icon": "globe",
       "title": {
         "en": "Personal Portfolio Website",
@@ -139,8 +139,8 @@
             ]
           },
           "image": {
-            "en": "/jortdeboer_web/assets/res/portfolio-under-the-hood.svg",
-            "nl": "/jortdeboer_web/assets/res/portfolio-under-the-hood-nl.svg"
+            "en": "/assets/res/portfolio-under-the-hood.svg",
+            "nl": "/assets/res/portfolio-under-the-hood-nl.svg"
           },
           "imageAlt": {
             "en": "Diagram showing how shared portfolio information flows into the Home, About and Projects pages, and how the build and language versions fit together.",
@@ -211,7 +211,7 @@
         },
         {
           "site" : "Web",
-          "web": "/jortdeboer_web/index.html",
+          "web": "/index.html",
           "icon": "globe"
         }
       ]
@@ -220,7 +220,7 @@
       "categories": ["gd"],
       "date": "2024 Q4",
       "id": "pixel-conquest",
-      "banner": "/jortdeboer_web/assets/res/projects/banner-pixel-conquest.png",
+      "banner": "/assets/res/projects/banner-pixel-conquest.png",
       "icon": "castle-turret",
       "title": {
         "en": "Pixel Conquest",
@@ -269,7 +269,7 @@
       "categories": ["gd"],
       "date": "2024 Q4",
       "id": "grids",
-      "banner": "/jortdeboer_web/assets/res/projects/banner-grids.png",
+      "banner": "/assets/res/projects/banner-grids.png",
       "icon": "grid-four",
       "title": {
         "en": "Grids",
@@ -318,7 +318,7 @@
       "categories": ["at"],
       "date": "2023 Q4",
       "id": "nas",
-      "banner": "/jortdeboer_web/assets/res/projects/truenas.png",
+      "banner": "/assets/res/projects/truenas.png",
       "icon": "download",
       "title": {
         "en": "DIY Network Attached Storage",
@@ -367,7 +367,7 @@
       "categories": ["swe"],
       "date": "2024 Q2",
       "id": "sailfishos",
-      "banner": "/jortdeboer_web/assets/res/projects/banner-sfos-fp4.png",
+      "banner": "/assets/res/projects/banner-sfos-fp4.png",
       "icon": "device-mobile",
       "title": {
         "en": "SailfishOS on Fairphone 4",
@@ -417,7 +417,7 @@
       "categories": ["ac"],
       "date": "2024 Q1",
       "id": "symbolic",
-      "banner": "/jortdeboer_web/assets/res/projects/banner-symbolic.png",
+      "banner": "/assets/res/projects/banner-symbolic.png",
       "icon": "code",
       "title": {
         "en": "Symbolic: A Custom Turing-Complete Language",
@@ -466,7 +466,7 @@
       "categories": ["gd"],
       "date": "2023 Q1",
       "id": "super-hotline",
-      "banner": "/jortdeboer_web/assets/res/projects/banner-hotline.png",
+      "banner": "/assets/res/projects/banner-hotline.png",
       "icon": "joystick",
       "title": {
         "en": "Super Hotline",
@@ -515,7 +515,7 @@
       "categories": ["at"],
       "date": "2023 Q3",
       "id": "gomoku",
-      "banner": "/jortdeboer_web/assets/res/projects/banner-gomoku.png",
+      "banner": "/assets/res/projects/banner-gomoku.png",
       "icon": "dice-six",
       "title": {
         "en": "Go-Moku MCTS Agent",
@@ -564,7 +564,7 @@
       "categories": ["swe"],
       "date": "2023 Q2",
       "id": "nrf24l01",
-      "banner": "/jortdeboer_web/assets/res/projects/banner-nrf-arduino.png",
+      "banner": "/assets/res/projects/banner-nrf-arduino.png",
       "icon": "code",
       "title": {
         "en": "nRF24L01+ Wireless Module",

@@ -84,21 +84,16 @@ import {
    * Reloads page on language change.
    * @param {string} newLang The new language that should be loaded.
    */
-  function updatePageLang(newLang){
-    // Build a language-aware URL that works for both
-    // /jortdeboer_web/en/... and /en/... page conventions.
-    const pathname = window.location.pathname;
-    const base = "/jortdeboer_web/";
-    let newPath;
+   function updatePageLang(newLang){
+     const pathname = window.location.pathname;
+    const languagePath = /^\/(en|nl)(?=\/|$)/;
+    const newPath = languagePath.test(pathname)
+      ? pathname.replace(languagePath, `/${newLang}`)
+      : pathname === "/"
+        ? `/${newLang}/home.html`
+        : `/${newLang}${pathname}`;
 
-    if (pathname.startsWith(base)) {
-      newPath = pathname.replace(/^\/jortdeboer_web\/(en|nl)\//, `${base}${newLang}/`);
-    } else if (/^\/(en|nl)\//.test(pathname)) {
-      newPath = pathname.replace(/^\/(en|nl)\//, `/${newLang}/`);
-    } else {
-      newPath = `${base}${newLang}${pathname}`;
-    }
-    window.location.href = newPath + window.location.hash;  
+    window.location.href = newPath + window.location.search + window.location.hash;
   }
   /**
    * navigation?.

@@ -11,7 +11,7 @@
       "color": "#f7df1e",
       "icon": "ph ph-file-js",
       "glow": "rgba(247, 223, 30, 0.4)",
-      "svg": "/jortdeboer_web/assets/res/logo/javascript.svg",
+      "svg": "/assets/res/logo/javascript.svg",
       "complexity" : "L3"
     },
     {
@@ -24,7 +24,7 @@
       "color": "#f97316",
       "icon": "ph ph-browser",
       "glow": "rgba(249, 115, 22, 0.4)",
-      "svg": "/jortdeboer_web/assets/res/logo/html.svg",
+      "svg": "/assets/res/logo/html.svg",
       "complexity" : "L3"
     },
     {
@@ -37,7 +37,7 @@
       "color": "#f97316",
       "icon": "ph ph-browser",
       "glow": "rgba(249, 115, 22, 0.4)",
-      "svg": "/jortdeboer_web/assets/res/logo/html.svg",
+      "svg": "/assets/res/logo/html.svg",
       "complexity" : "L3"
     },
     {
@@ -50,7 +50,7 @@
       "color": "#e5e7eb",
       "icon": "ph ph-game-controller",
       "glow": "rgba(229, 231, 235, 0.4)",
-      "svg": "/jortdeboer_web/assets/res/logo/unity.svg",
+      "svg": "/assets/res/logo/unity.svg",
       "complexity" : "L3"
     },
     {
@@ -63,7 +63,7 @@
       "color": "#22c55e",
       "icon": "ph ph-file-xls",
       "glow": "rgba(34, 197, 94, 0.4)",
-      "svg": "/jortdeboer_web/assets/res/logo/msoffice.svg",
+      "svg": "/assets/res/logo/msoffice.svg",
       "complexity" : "L3"
     },
     {
@@ -76,7 +76,7 @@
       "color": "#facc15",
       "icon": "ph ph-file-py",
       "glow": "rgba(250, 204, 21, 0.4)",
-      "svg": "/jortdeboer_web/assets/res/logo/python.svg",
+      "svg": "/assets/res/logo/python.svg",
       "complexity" : "L2"
     },
     {
@@ -89,7 +89,7 @@
       "color": "#a3e635",
       "icon": "ph ph-terminal",
       "glow": "rgba(163, 230, 53, 0.4)",
-      "svg": "/jortdeboer_web/assets/res/logo/bash.svg",
+      "svg": "/assets/res/logo/bash.svg",
       "complexity" : "L2"
     },
     {
@@ -102,7 +102,7 @@
       "color": "#7dd3fc",
       "icon": "ph ph-cpu",
       "glow": "rgba(56, 189, 248, 0.4)",
-      "svg": "/jortdeboer_web/assets/res/logo/cpp.svg",
+      "svg": "/assets/res/logo/cpp.svg",
       "complexity" : "L1"
     },
     {
@@ -115,7 +115,7 @@
       "color": "#fb7185",
       "icon": "ph ph-cpu",
       "glow": "rgba(251, 113, 133, 0.4)",
-      "svg": "/jortdeboer_web/assets/res/logo/asm.svg",
+      "svg": "/assets/res/logo/asm.svg",
       "complexity" : "L1"
     }
   ]

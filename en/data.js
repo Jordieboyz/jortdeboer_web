@@ -96,7 +96,7 @@ export const DATA = Object.freeze(
           {
             "id": "pcbuilding",
             "icon": "ph ph-desktop-tower",
-            "bg": "/jortdeboer_web/assets/res/hobby/pcsetup.jpg",
+            "bg": "/assets/res/hobby/pcsetup.jpg",
             "action": "View photos and details",
             "label": "PC Building",
             "desc": "Designing custom PC builds, liquid cooling loops, and hardware benchmarking.",
@@ -110,15 +110,15 @@ export const DATA = Object.freeze(
             ],
             "images": [
               {
-                "src": "/jortdeboer_web/assets/res/hobby/pcsetup.jpg",
+                "src": "/assets/res/hobby/pcsetup.jpg",
                 "alt": "My PC setup"
               },
               {
-                "src": "/jortdeboer_web/assets/res/hobby/20250717_103422.jpg",
+                "src": "/assets/res/hobby/20250717_103422.jpg",
                 "alt": "Working on a PC build"
               },
               {
-                "src": "/jortdeboer_web/assets/res/hobby/20220503_192325.jpg",
+                "src": "/assets/res/hobby/20220503_192325.jpg",
                 "alt": "Hardware from my collection"
               }
             ]
@@ -126,7 +126,7 @@ export const DATA = Object.freeze(
           {
             "id": "gaming",
             "icon": "ph ph-game-controller",
-            "bg": "/jortdeboer_web/assets/res/hobby/bo3.webp",
+            "bg": "/assets/res/hobby/bo3.webp",
             "action": "View photos and details",
             "label": "Gaming",
             "desc": "Simulation games, strategy titles, and unwinding with friends.",
@@ -140,15 +140,15 @@ export const DATA = Object.freeze(
             ],
             "images": [
               {
-                "src": "/jortdeboer_web/assets/res/hobby/bo3.webp",
+                "src": "/assets/res/hobby/bo3.webp",
                 "alt": "Call of Duty: Black Ops III"
               },
               {
-                "src": "/jortdeboer_web/assets/res/hobby/league.png",
+                "src": "/assets/res/hobby/league.png",
                 "alt": "League of Legends"
               },
               {
-                "src": "/jortdeboer_web/assets/res/hobby/playstation-logo.webp",
+                "src": "/assets/res/hobby/playstation-logo.webp",
                 "alt": "PlayStation"
               }
             ]
@@ -156,7 +156,7 @@ export const DATA = Object.freeze(
           {
             "id": "traveling",
             "icon": "ph ph-compass",
-            "bg": "/jortdeboer_web/assets/res/hobby/20250712_162745.jpg",
+            "bg": "/assets/res/hobby/20250712_162745.jpg",
             "action": "View photos and details",
             "label": "Traveling",
             "desc": "Exploring different countries, hiking, and experiencing new cultures.",
@@ -170,15 +170,15 @@ export const DATA = Object.freeze(
             ],
             "images": [
               {
-                "src": "/jortdeboer_web/assets/res/hobby/20250712_162745.jpg",
+                "src": "/assets/res/hobby/20250712_162745.jpg",
                 "alt": "Travel photo from July 2025"
               },
               {
-                "src": "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
+                "src": "/assets/res/hobby/20220821_144041.jpg",
                 "alt": "A canal view while travelling"
               },
               {
-                "src": "/jortdeboer_web/assets/res/hobby/20250728_110525.jpg",
+                "src": "/assets/res/hobby/20250728_110525.jpg",
                 "alt": "An outdoor pool while travelling"
               }
             ]
@@ -186,7 +186,7 @@ export const DATA = Object.freeze(
           {
             "id": "puzzles",
             "icon": "ph ph-brain",
-            "bg": "/jortdeboer_web/assets/res/hobby/sudoku-classic-1.webp",
+            "bg": "/assets/res/hobby/sudoku-classic-1.webp",
             "action": "View photos and details",
             "label": "Puzzles",
             "desc": "Sudokus, logic grids, and spatial problem-solving challenges.",
@@ -200,11 +200,11 @@ export const DATA = Object.freeze(
             ],
             "images": [
               {
-                "src": "/jortdeboer_web/assets/res/hobby/sudoku-classic-1.webp",
+                "src": "/assets/res/hobby/sudoku-classic-1.webp",
                 "alt": "Sudoku puzzle"
               },
               {
-                "src": "/jortdeboer_web/assets/res/hobby/wordle-logo.webp",
+                "src": "/assets/res/hobby/wordle-logo.webp",
                 "alt": "Wordle word puzzle"
               }
             ]
@@ -458,7 +458,7 @@ export const DATA = Object.freeze(
       "color": "#f7df1e",
       "icon": "ph ph-file-js",
       "glow": "rgba(247, 223, 30, 0.4)",
-      "svg": "/jortdeboer_web/assets/res/logo/javascript.svg",
+      "svg": "/assets/res/logo/javascript.svg",
       "complexity": "L3"
     },
     {
@@ -468,7 +468,7 @@ export const DATA = Object.freeze(
       "color": "#f97316",
       "icon": "ph ph-browser",
       "glow": "rgba(249, 115, 22, 0.4)",
-      "svg": "/jortdeboer_web/assets/res/logo/html.svg",
+      "svg": "/assets/res/logo/html.svg",
       "complexity": "L3"
     },
     {
@@ -478,7 +478,7 @@ export const DATA = Object.freeze(
       "color": "#f97316",
       "icon": "ph ph-browser",
       "glow": "rgba(249, 115, 22, 0.4)",
-      "svg": "/jortdeboer_web/assets/res/logo/html.svg",
+      "svg": "/assets/res/logo/html.svg",
       "complexity": "L3"
     },
     {
@@ -488,7 +488,7 @@ export const DATA = Object.freeze(
       "color": "#e5e7eb",
       "icon": "ph ph-game-controller",
       "glow": "rgba(229, 231, 235, 0.4)",
-      "svg": "/jortdeboer_web/assets/res/logo/unity.svg",
+      "svg": "/assets/res/logo/unity.svg",
       "complexity": "L3"
     },
     {
@@ -498,7 +498,7 @@ export const DATA = Object.freeze(
       "color": "#22c55e",
       "icon": "ph ph-file-xls",
       "glow": "rgba(34, 197, 94, 0.4)",
-      "svg": "/jortdeboer_web/assets/res/logo/msoffice.svg",
+      "svg": "/assets/res/logo/msoffice.svg",
       "complexity": "L3"
     },
     {
@@ -508,7 +508,7 @@ export const DATA = Object.freeze(
       "color": "#facc15",
       "icon": "ph ph-file-py",
       "glow": "rgba(250, 204, 21, 0.4)",
-      "svg": "/jortdeboer_web/assets/res/logo/python.svg",
+      "svg": "/assets/res/logo/python.svg",
       "complexity": "L2"
     },
     {
@@ -518,7 +518,7 @@ export const DATA = Object.freeze(
       "color": "#a3e635",
       "icon": "ph ph-terminal",
       "glow": "rgba(163, 230, 53, 0.4)",
-      "svg": "/jortdeboer_web/assets/res/logo/bash.svg",
+      "svg": "/assets/res/logo/bash.svg",
       "complexity": "L2"
     },
     {
@@ -528,7 +528,7 @@ export const DATA = Object.freeze(
       "color": "#7dd3fc",
       "icon": "ph ph-cpu",
       "glow": "rgba(56, 189, 248, 0.4)",
-      "svg": "/jortdeboer_web/assets/res/logo/cpp.svg",
+      "svg": "/assets/res/logo/cpp.svg",
       "complexity": "L1"
     },
     {
@@ -538,7 +538,7 @@ export const DATA = Object.freeze(
       "color": "#fb7185",
       "icon": "ph ph-cpu",
       "glow": "rgba(251, 113, 133, 0.4)",
-      "svg": "/jortdeboer_web/assets/res/logo/asm.svg",
+      "svg": "/assets/res/logo/asm.svg",
       "complexity": "L1"
     }
   ],
@@ -549,7 +549,7 @@ export const DATA = Object.freeze(
       ],
       "date": "",
       "id": "space-invaders",
-      "banner": "/jortdeboer_web/assets/res/projects/banner-space-invaders.jpg",
+      "banner": "/assets/res/projects/banner-space-invaders.jpg",
       "icon": "flying-saucer",
       "title": "Bare-Metal Space Invaders",
       "focus": "Game Engine Fundamentals",
@@ -594,7 +594,7 @@ export const DATA = Object.freeze(
       ],
       "date": "2025 Q2",
       "id": "portfolio-website",
-      "banner": "/jortdeboer_web/assets/res/projects/banner-portfolio-website.png",
+      "banner": "/assets/res/projects/banner-portfolio-website.png",
       "icon": "globe",
       "title": "Personal Portfolio Website",
       "focus": "Web Development & UX Design",
@@ -637,7 +637,7 @@ export const DATA = Object.freeze(
             "Before a visitor opens the site, a small build program combines the content files with reusable page layouts. It prepares a matching set of pages and content for English and Dutch.",
             "When you browse, the browser turns that prepared content into interactive pieces: category choices, project details, About-page modules and navigation. The diagram brings the journey together."
           ],
-          "image": "/jortdeboer_web/assets/res/portfolio-under-the-hood.svg",
+          "image": "/assets/res/portfolio-under-the-hood.svg",
           "imageAlt": "Diagram showing how shared portfolio information flows into the Home, About and Projects pages, and how the build and language versions fit together.",
           "imageCaption": "One shared content library, shaped into three different ways to explore."
         },
@@ -674,7 +674,7 @@ export const DATA = Object.freeze(
         },
         {
           "site": "Web",
-          "web": "/jortdeboer_web/index.html",
+          "web": "/index.html",
           "icon": "globe"
         }
       ]
@@ -685,7 +685,7 @@ export const DATA = Object.freeze(
       ],
       "date": "2024 Q4",
       "id": "pixel-conquest",
-      "banner": "/jortdeboer_web/assets/res/projects/banner-pixel-conquest.png",
+      "banner": "/assets/res/projects/banner-pixel-conquest.png",
       "icon": "castle-turret",
       "title": "Pixel Conquest",
       "focus": "Game Development",
@@ -730,7 +730,7 @@ export const DATA = Object.freeze(
       ],
       "date": "2024 Q4",
       "id": "grids",
-      "banner": "/jortdeboer_web/assets/res/projects/banner-grids.png",
+      "banner": "/assets/res/projects/banner-grids.png",
       "icon": "grid-four",
       "title": "Grids",
       "focus": "Unity Multiplayer Game Development",
@@ -775,7 +775,7 @@ export const DATA = Object.freeze(
       ],
       "date": "2023 Q4",
       "id": "nas",
-      "banner": "/jortdeboer_web/assets/res/projects/truenas.png",
+      "banner": "/assets/res/projects/truenas.png",
       "icon": "download",
       "title": "DIY Network Attached Storage",
       "focus": "System Administration & Networking",
@@ -821,7 +821,7 @@ export const DATA = Object.freeze(
       ],
       "date": "2024 Q2",
       "id": "sailfishos",
-      "banner": "/jortdeboer_web/assets/res/projects/banner-sfos-fp4.png",
+      "banner": "/assets/res/projects/banner-sfos-fp4.png",
       "icon": "device-mobile",
       "title": "SailfishOS on Fairphone 4",
       "focus": "Mobile OS Porting & Open Source Contribution",
@@ -868,7 +868,7 @@ export const DATA = Object.freeze(
       ],
       "date": "2024 Q1",
       "id": "symbolic",
-      "banner": "/jortdeboer_web/assets/res/projects/banner-symbolic.png",
+      "banner": "/assets/res/projects/banner-symbolic.png",
       "icon": "code",
       "title": "Symbolic: A Custom Turing-Complete Language",
       "focus": "Language Design & Compiler Construction",
@@ -913,7 +913,7 @@ export const DATA = Object.freeze(
       ],
       "date": "2023 Q1",
       "id": "super-hotline",
-      "banner": "/jortdeboer_web/assets/res/projects/banner-hotline.png",
+      "banner": "/assets/res/projects/banner-hotline.png",
       "icon": "joystick",
       "title": "Super Hotline",
       "focus": "Single Player Top-down Shooter Game",
@@ -957,7 +957,7 @@ export const DATA = Object.freeze(
       ],
       "date": "2023 Q3",
       "id": "gomoku",
-      "banner": "/jortdeboer_web/assets/res/projects/banner-gomoku.png",
+      "banner": "/assets/res/projects/banner-gomoku.png",
       "icon": "dice-six",
       "title": "Go-Moku MCTS Agent",
       "focus": "Artificial Intelligence & Optimization",
@@ -1001,7 +1001,7 @@ export const DATA = Object.freeze(
       ],
       "date": "2023 Q2",
       "id": "nrf24l01",
-      "banner": "/jortdeboer_web/assets/res/projects/banner-nrf-arduino.png",
+      "banner": "/assets/res/projects/banner-nrf-arduino.png",
       "icon": "code",
       "title": "nRF24L01+ Wireless Module",
       "focus": "Embedded Systems & Hardware Communication",
@@ -1063,7 +1063,7 @@ export const DATA = Object.freeze(
       "icon": "ph ph-instagram-logo"
     },
     "cv": {
-      "href": "/jortdeboer_web/assets/res/cv/CV_jort_de_boer.pdf",
+      "href": "/assets/res/cv/CV_jort_de_boer.pdf",
       "target": "_blank",
       "icon": "ph ph-read-cv-logo"
     }

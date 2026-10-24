@@ -105,7 +105,7 @@
           {
             "id": "pcbuilding",
             "icon": "ph ph-desktop-tower",
-            "bg": "/jortdeboer_web/assets/res/hobby/pcsetup.jpg",
+            "bg": "/assets/res/hobby/pcsetup.jpg",
             "action": {
               "nl": "Bekijk foto's en details",
               "en": "View photos and details"
@@ -146,21 +146,21 @@
             ],
             "images": [
               {
-                "src": "/jortdeboer_web/assets/res/hobby/pcsetup.jpg",
+                "src": "/assets/res/hobby/pcsetup.jpg",
                 "alt": {
                   "nl": "Mijn pc-opstelling",
                   "en": "My PC setup"
                 }
               },
               {
-                "src": "/jortdeboer_web/assets/res/hobby/20250717_103422.jpg",
+                "src": "/assets/res/hobby/20250717_103422.jpg",
                 "alt": {
                   "nl": "Bezig met het bouwen van een pc",
                   "en": "Working on a PC build"
                 }
               },
               {
-                "src": "/jortdeboer_web/assets/res/hobby/20220503_192325.jpg",
+                "src": "/assets/res/hobby/20220503_192325.jpg",
                 "alt": {
                   "nl": "Hardware uit mijn verzameling",
                   "en": "Hardware from my collection"
@@ -171,7 +171,7 @@
           {
             "id": "gaming",
             "icon": "ph ph-game-controller",
-            "bg": "/jortdeboer_web/assets/res/hobby/bo3.webp",
+            "bg": "/assets/res/hobby/bo3.webp",
             "action": {
               "nl": "Bekijk foto's en details",
               "en": "View photos and details"
@@ -212,21 +212,21 @@
             ],
             "images": [
               {
-                "src": "/jortdeboer_web/assets/res/hobby/bo3.webp",
+                "src": "/assets/res/hobby/bo3.webp",
                 "alt": {
                   "nl": "Call of Duty: Black Ops III",
                   "en": "Call of Duty: Black Ops III"
                 }
               },
               {
-                "src": "/jortdeboer_web/assets/res/hobby/league.png",
+                "src": "/assets/res/hobby/league.png",
                 "alt": {
                   "nl": "League of Legends",
                   "en": "League of Legends"
                 }
               },
               {
-                "src": "/jortdeboer_web/assets/res/hobby/playstation-logo.webp",
+                "src": "/assets/res/hobby/playstation-logo.webp",
                 "alt": {
                   "nl": "PlayStation",
                   "en": "PlayStation"
@@ -237,7 +237,7 @@
           {
             "id": "traveling",
             "icon": "ph ph-compass",
-            "bg": "/jortdeboer_web/assets/res/hobby/20250712_162745.jpg",
+            "bg": "/assets/res/hobby/20250712_162745.jpg",
             "action": {
               "nl": "Bekijk foto's en details",
               "en": "View photos and details"
@@ -278,21 +278,21 @@
             ],
             "images": [
               {
-                "src": "/jortdeboer_web/assets/res/hobby/20250712_162745.jpg",
+                "src": "/assets/res/hobby/20250712_162745.jpg",
                 "alt": {
                   "nl": "Reisfoto uit juli 2025",
                   "en": "Travel photo from July 2025"
                 }
               },
               {
-                "src": "/jortdeboer_web/assets/res/hobby/20220821_144041.jpg",
+                "src": "/assets/res/hobby/20220821_144041.jpg",
                 "alt": {
                   "nl": "Uitzicht op een kanaal tijdens een reis",
                   "en": "A canal view while travelling"
                 }
               },
               {
-                "src": "/jortdeboer_web/assets/res/hobby/20250728_110525.jpg",
+                "src": "/assets/res/hobby/20250728_110525.jpg",
                 "alt": {
                   "nl": "Een buitenzwembad tijdens een reis",
                   "en": "An outdoor pool while travelling"
@@ -303,7 +303,7 @@
           {
             "id": "puzzles",
             "icon": "ph ph-brain",
-            "bg": "/jortdeboer_web/assets/res/hobby/sudoku-classic-1.webp",
+            "bg": "/assets/res/hobby/sudoku-classic-1.webp",
             "action": {
               "nl": "Bekijk foto's en details",
               "en": "View photos and details"
@@ -344,14 +344,14 @@
             ],
             "images": [
               {
-                "src": "/jortdeboer_web/assets/res/hobby/sudoku-classic-1.webp",
+                "src": "/assets/res/hobby/sudoku-classic-1.webp",
                 "alt": {
                   "nl": "Sudoku-puzzel",
                   "en": "Sudoku puzzle"
                 }
               },
               {
-                "src": "/jortdeboer_web/assets/res/hobby/wordle-logo.webp",
+                "src": "/assets/res/hobby/wordle-logo.webp",
                 "alt": {
                   "nl": "Wordle-woordpuzzel",
                   "en": "Wordle word puzzle"
