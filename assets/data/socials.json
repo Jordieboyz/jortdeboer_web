@@ -24,7 +24,10 @@
       "icon" : "ph ph-instagram-logo"
     },
     "cv" : {
-      "href" : "/assets/res/cv/CV_jort_de_boer.pdf",
+      "href" : {
+        "en" : "/assets/res/cv/CV_jort_de_boer_en.pdf",
+        "nl" : "/assets/res/cv/CV_jort_de_boer_nl.pdf"
+      },
       "target" : "_blank",
       "icon" : "ph ph-read-cv-logo"
     }

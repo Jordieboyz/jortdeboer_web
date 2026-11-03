@@ -1,36 +1,165 @@
 {
-  "miscTranslations": {
-    "In-Development": {
-      "en": "In Development",
-      "nl": "In Ontwikkeling"
+  "localTranslations" : {
+    "home" : { 
+      "static" : {
+        "typed" : {
+          "en": "\nAn Embedded Software Engineer, A Game Developer",
+          "nl": "\nEen Embedded Software Engineer, Game Developer"
+        },
+        "bio.intro": {
+          "en": "I operate at the <strong>hardware-software boundary</strong> by writing C, C++, and ARM Assembly with a focus on algorithmic optimization and memory management. I build efficient systems from scratch, no frameworks, just a deep understanding of how the machine actually works.",
+          "nl": "Ik ben een computer engineer met een passie voor embedded systems en de wisselwerking tussen hardware en software. Mijn achtergrond in computerwetenschappen stelt me in staat systemen te ontwerpen en te bouwen die zowel technisch nauwkeurig als creatief ontwikkeld zijn."
+        },
+        "btn.about": {
+          "en": "More about me",
+          "nl": "Meer over mij"
+        },
+        "btn.cv": {
+          "en": "View CV",
+          "nl": "Bekijk CV"
+        },
+        "scroll.label" : {
+          "en" : "Scroll for more",
+          "nl" : "Scroll voor meer" 
+        },
+        "section.header" : {
+          "en" : "Engineering Categories",
+          "nl" : "Technische Categorieën"
+        },
+        "category.translate" : { 
+          "en" : "Categories",
+          "nl" : "Categorieën"
+        },
+        "view.all" : { 
+          "en" : "View all",
+          "nl" : "Bekijk alles"
+        }
+      },
+      "dynamic" : {
+        "btn.code.lock" : {
+          "en" : "Private Repo",
+          "nl" : "Prive Repo"
+        },
+        "placeholder.title" : {
+          "en" : "No Project Selected",
+          "nl" : "Geen project geselecteerd"
+        },
+        "placeholder.text" : { 
+          "en" : "Select any project from the explorer tree on the left to inspect its details and technical specs.",
+          "nl" : "Selecteer een project uit de verkenner aan de linkerkant om alle details en technische specificaties te bekijken."
+        },
+        "info.label" : { 
+          "en" : "Completed",
+          "nl" : "Afgerond"
+        },
+        "view.project" : { 
+          "en" : "View Project",
+          "nl" : "Bekijk Project"
+        }
+      }
     },
-    "empty": {
-      "en": "No projects found in this category.",
-      "nl": "Geen projecten gevonden in deze categorie."
+    "about" : { 
+      "static" : {
+        "sub.hero.title": {
+          "en" : "Computer Science Student & Game developer",
+          "nl" : "Technische Informatica Student & Game ontwikkelaar"
+        },
+        "life.telemetry" : {
+          "en" : "Life Telemetry",
+          "nl": "Levensgegevens"
+        },
+        "active.module.title" : {
+          "en": "Active system module",
+          "nl": "Actieve systeem module"
+        },
+        "nav.message" : {
+          "en" : "System: Scroll or Click to navigate through the modules",
+          "nl" : "System: Scroll of klik om door de modules te navigeren"
+        }
+      },
+      "dynamic" : {
+        "btn.identity.next" : {
+          "en" : "Next: Mindset & Core Values",
+          "nl" : "Volgende:"
+        },
+        "btn.identity.back" : {
+          "en" : "Back: Bio & Specs",
+          "nl" : "terug:"
+        },
+        "btn.github.refresh" : {
+          "en" : "Refresh Stream",
+          "nl" : "Ververs Stream"
+        }
+      }
     },
-    "goal": {
-      "en": "Project Goal and Overview",
-      "nl": "Projectdoel en Overzicht"
+    "projects" : { 
+      "static" : {
+        "sub.title" : {
+          "en" : "A selection of projects categorized by technical stack complexity. Use the filters to focus your view.",
+          "nl" : "Een selectie van projecten gecategoriseerd op complexiteit van de technische stack. Gebruik de filters om je weergave te verfijnen."
+        },
+        "projects.portfolio" : {
+          "en" : "Project Portfolio",
+          "nl" : "Project Portfolio"
+        },
+        "back" : { 
+          "en" : "Back to projects",
+          "nl" : "Terug naar projecten"
+        }
+      },
+      "dynamic" : {
+        "dialog.title" : { 
+          "en" : "Categories",
+          "nl" : "Categorieën"
+        },
+        "dialog.toggle.title" : { 
+          "en" : "Category",
+          "nl" : "Categorie"
+        },
+        "project.status.dev" : {
+          "en" : "In Development",
+          "nl" : "In Ontwikkeling"
+        },        
+        "project.status.completed" : {
+          "en" : "Completed",
+          "nl" : "Afgerond"
+        },
+        "project.card.head" : {
+          "en" : "Relevant Programming Languages :",
+          "nl" : "Relevante Programmeer Talen :"
+        },
+        "btn.show.more" : { 
+          "en" : "Show more",
+          "nl" : "Bekijk meer"
+        }
+      }
     },
-    "stack": {
-      "en": "Core Technology Stack",
-      "nl": "Belangrijkste Technologie Stack"
+    "components" : { 
+      "static" : {
+        "nav.about": {
+          "en": "About me",
+          "nl": "Over mij"
+        },
+        "nav.projects": {
+          "en": "Projects",
+          "nl": "Projecten"
+        },
+        "footer.copyright": {
+          "en": "Designed and Developed by Jort de Boer. <br> © 2026 www.jortdeboer.com - All Rights Reserved.",
+          "nl": "Ontworpen en ontwikkeld door Jort de Boer. <br> © 2026 www.jortdeboer.com - Alle rechten voorbehouden."
+        },
+        "footer.subtitle": {
+          "en": "Systems & Embedded Developer",
+          "nl": "Systems & Embedded Developer"
+        }
+      },
+      "dynamic" : {}
     },
-    "contact": {
-      "en": "For code repositories and deeper implementation details, please contact me directly.",
-      "nl": "Neem rechtstreeks contact met mij op voor coderepositories en meer gedetailleerde informatie over de implementatie."
-    },
-    "inDev": {
-      "en": "In Development",
-      "nl": "In Ontwikkeling"
-    },
-    "seeMore": {
-      "en": "See More",
-      "nl": "Bekijk meer"
-    },
-    "viewProjects": {
-      "en": "More projects",
-      "nl": "Meer projecten"
+    "misc" : {
+      "static" : {
+        "meta.title" : "Jort de Boer | Portfolio Website"
+      },
+      "dynamic" : {}
     }
   }
 }

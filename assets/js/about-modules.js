@@ -1,4 +1,4 @@
-import { DATA } from "content-data"
+import { modulesData, projectsData, proglangs, localTranslations  } from "content-data"
 import { APP_EVENTS } from "./events.js";
 
 document.addEventListener(APP_EVENTS.MODULE_IDENTITY_SWITCH_PHASE, ({ detail })     => { switchModulePhase(detail.phase); });
@@ -19,7 +19,7 @@ let activeLayerIndex = 0;
 let activeHobbyTrigger = null;
 
 function getTechSkill(skill) {
-  const catalogEntry = DATA.proglangs.find(entry => entry.id === skill.id);
+  const catalogEntry = proglangs.find(entry => entry.id === skill.id);
   return { ...catalogEntry, ...skill };
 }
 
@@ -73,8 +73,8 @@ export function updateTimelineLine() {
 
 function getData(key, content = true){
   return content ? 
-            DATA.modulesData.find(module => module.id === key)?.content : 
-            DATA.modulesData.find(module => module.id === key) 
+            modulesData.find(module => module.id === key)?.content : 
+            modulesData.find(module => module.id === key) 
 }
 
 function createChipHTML(node) {
@@ -201,7 +201,7 @@ function updateDrawerContent(layer, node) {
 
 
   const matchingLanguageIds = PROJECT_LANGUAGE_ALIASES[node.id] || [node.id];
-  const relatedProjects = DATA.projectsData.filter(project =>
+  const relatedProjects = projectsData.filter(project =>
     matchingLanguageIds.some(id => project.relProgLang?.includes(id))
   ).slice(0, 2);
   detail_drawer.querySelector('.projects-list').innerHTML = relatedProjects.length
@@ -376,7 +376,7 @@ function formatGithubDate(timestamp) {
         <div style="width: 30%; height: 12px; background: rgba(255,255,255,0.06); border-radius: 4px;"></div>
       </div>
     `).join('');
-
+    
       try {
         // 1. Fetch User Profile Details
         const userRes = await fetch(`https://api.github.com/users/${username}`);
@@ -384,7 +384,7 @@ function formatGithubDate(timestamp) {
           const userData = await userRes.json();
           if (userData.bio) document.querySelector('.github-bio').innerText = userData.bio;
           // put the two stats in here, choose whatever and update accordingly
-          if (userData.public_repos !== undefined) statsContainer.append(createGithubStat('Public Repos', userData.public_repos));
+          if (userData.public_repos !== undefined) statsContainer.append(createGithubStat(modulesData.find(p => p.id == 'github').content.stats[0].label, userData.public_repos));
           // if (userData.followers !== undefined) document.querySelector('.github-stat-followers').innerText = userData.followers;
           if (userData.avatar_url) document.querySelector('.github-avatar').src = userData.avatar_url;
         }
@@ -398,7 +398,7 @@ function formatGithubDate(timestamp) {
         
         if (Array.isArray(reposData) && reposData.length > 0) {
           if (reposData[0].pushed_at !== undefined) {
-            statsContainer.append(createGithubStat('Last Activity', formatGithubDate(reposData[0].pushed_at)));
+            statsContainer.append(createGithubStat(modulesData.find(p => p.id == 'github').content.stats[1].label, formatGithubDate(reposData[0].pushed_at)));
           }
           renderRepositories(reposData);
         }

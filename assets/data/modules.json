@@ -382,7 +382,10 @@
           {
             "id": "L3",
             "icon": "ph ph-app-window",
-            "label": "USER-SPACE & APPLICATIONS",
+            "label": {
+              "en" : "USER-SPACE & APPLICATIONS",
+              "nl" : "Nederlands!"
+            },
             "color": {
               "bg": "rgba(56,189,248,0.07)",
               "light": "#7dd3fc",

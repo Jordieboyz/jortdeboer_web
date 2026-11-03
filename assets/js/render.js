@@ -1,4 +1,4 @@
-import { DATA } from "content-data"
+import { DATA, localTranslations } from "content-data"
 import { APP_EVENTS, emit } from "./events.js";
 
 export class ElementBuilder {
@@ -77,8 +77,7 @@ const elements = Object.fromEntries(
   ])
 );
 
-const ph_icon = (icon, cls = '') =>
-    i(`ph ph-${icon} ${cls}`.trim());
+const ph_icon = (icon, cls = '') => i(`ph ph-${icon} ${cls}`.trim());
 
 function getProjectCategories(project) {
   const categories = project.categories ?? project.category;
@@ -177,12 +176,10 @@ class BaseRenderer {
             className, ...props
         })
     }
-    
-
-    get miscTranslations(){
-      return DATA.miscTranslations
-    }
 }
+
+const translations = (item, component='components', type='dynamic') => {
+  return localTranslations[component]?.[type]?.[item] ?? item };
 
 export class TelemetryRenderer extends BaseRenderer {
   render(){
@@ -251,7 +248,7 @@ export class ModuleRenderer extends BaseRenderer {
           ])
         )),
         button('btn-next', [
-          span('', 'Next: Mindset & Core Values'),
+          span('', translations('btn.identity.next', 'about')),
           ph_icon('arrow-right')
         ], {
           onClick : (e) => {
@@ -275,7 +272,7 @@ export class ModuleRenderer extends BaseRenderer {
         )),
         button('btn-next', [
           ph_icon('arrow-left'),
-          span('', 'Back: Bio & Specs')
+          span('', translations('btn.identity.back', 'about'))
         ], {
           onClick : (e) => {
             e.stopPropagation();
@@ -521,7 +518,7 @@ export class ModuleRenderer extends BaseRenderer {
         div('github-actions', [
           button('btn-refresh', [
             i('refresh-icon ph ph-arrows-clockwise'),
-            span('', 'Refresh Stream')
+            span('', translations('btn.github.refresh', 'about'))
           ], {
             onclick : (e) => { 
               e.stopPropagation(); 
@@ -616,7 +613,7 @@ export class CategoryRenderer extends BaseRenderer {
   createDialog(){
     const projectDialog = dialog('project-category-dialog',[
       div('project-category-dialog-header',[
-        h2('project-category-dialog-title', 'Categories'),
+        h2('project-category-dialog-title', translations('dialog.title', 'projects')),
         button('category-dialog-close', ph_icon('x'),{
           type: 'button',
           'aria-label': 'Close project selection',
@@ -670,7 +667,7 @@ export class CategoryRenderer extends BaseRenderer {
       projectDialog.querySelector('.project-selection-group')
         .replaceChildren(projectIndex);
       buttonParent.replaceChildren(
-        this.createMobileButtons('category-toggle', 'Category'),
+        this.createMobileButtons('category-toggle', translations("dialog.toggle.title", 'projects')),
         this.createMobileButtons('project-toggle', 'Project')
       );
       buttonParent.hidden = false;
@@ -722,7 +719,7 @@ export class ProjectListRenderer extends BaseRenderer {
     return li('project-list-item',[
       a('', [
         span('project-list-item-title', this.data.title),
-        span('project-list-item-date', this.data.date  ? this.data.date : 'In Development')
+        span('project-list-item-date', this.data.date  ? this.data.date : translations('project.status.dev', 'projects'))
       ], {
         href : '#'+this.data.id
       })
@@ -763,16 +760,16 @@ export class ProjectRenderer extends BaseRenderer {
       ),
       div('project-content', [
         div('project-card-meta', [
-          div('status', span('', this.data.date ? "Completed" : "In Development")),
+          div('status', span('', this.data.date ? translations('project.status.completed', 'projects') : translations('project.status.dev', 'projects'))),
           span('', this.data.date)
         ]),
         h2('project-card-title', [ph_icon(this.data.icon), this.data.title]),
         p('project-card-focus', this.data.focus),
         p('project-card-description', this.data.short),
-        span('project-card-head', 'Relevant Programming Languages :'),
+        span('project-card-head', translations('project.card.head', 'projects')),
         ul('project-card-langs', this.data.relProgLang.map(l =>  li('', l) )),
         div('project-card-links', [
-          a('btn project-card-case-btn', 'Show more', 
+          a('btn project-card-case-btn', translations('btn.show.more', 'projects'), 
             {
               href : `#/${this.data.id}`,
               onClick : (e) => {
@@ -815,7 +812,7 @@ export class ProjectCaseRenderer extends BaseRenderer {
           img('',[],{ src : this.data.banner, alt : this.data.title })
         ),
         div(' project-card-meta', [
-          div('status-dot', span('', this.data.date ? "Completed" : "In Development")),
+          div('status-dot', span('', this.data.date ? translations('project.status.completed', 'projects') : translations('project.status.dev', 'projects'))),
           span('', this.data.date)
         ]),
         h2('project-card-title', this.data.title),
@@ -930,7 +927,7 @@ export class CategoryDetailsPanel extends BaseRenderer {
     if(!this.data.links.length){
       return a('btn btn-link private', [
         ph_icon('lock-key'), 
-        span('', 'Private Repo')
+        span('', translations('btn.code.lock', 'home'))
       ])
     }
     const projLink = this.data.links[0]
@@ -950,8 +947,8 @@ export class CategoryDetailsPanel extends BaseRenderer {
       // placeholder
       div('placeholder-state', [
         div('placeholder-icon-wrap', ph_icon('cursor-click')),
-        h3('placeholder-title', 'No Project Selected'),
-        p('placeholder-text', 'Select any system project from the explorer tree on the left to inspect its details and technical specs.'),
+        h3('placeholder-title', translations('placeholder.title', 'home')),
+        p('placeholder-text', translations('placeholder.text', 'home')),
         div('placeholder-hint-chips', this.data.hintProj.map(p => 
           button('btn quick-pick-button', [
             span('quick-pick-label' , [
@@ -987,9 +984,7 @@ export class CategoryDetailsPanel extends BaseRenderer {
         img('project-image', [], { src : this.data.banner})
       ),
       div('card-content',[
-
         div('main-content',[
-          
           div('content-left', [
             span('', [
               i(`ph ph-${this.data.icon}`),
@@ -1002,7 +997,7 @@ export class CategoryDetailsPanel extends BaseRenderer {
               div('info-item', [
                 ph_icon('calendar'),
                 div('info-text',[
-                  span('info-label', 'Completed'),
+                  span('info-label', translations('info.label', 'home')),
                   span('info-value', this.data.date)
                 ])
               ]),
@@ -1021,7 +1016,7 @@ export class CategoryDetailsPanel extends BaseRenderer {
         div('content-divider'),
           div('action-buttons', [
             a('btn btn-view-project', [
-              span('', 'View project'),
+              span('', translations('view.project', 'home')),
               ph_icon('arrow-up-right arrow-icon')
             ], {
               href : `projects.html#${this.data.id}`
