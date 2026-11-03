@@ -312,8 +312,9 @@
 
 .project-categories {
   display:grid;
-  gap:.15rem;
+  gap: .3rem;
   margin-bottom: 30px;
+  padding-bottom: 20px;
   border-bottom: 2px solid var(--color-border);
 }
 
@@ -548,7 +549,6 @@ article{
 .project-card-title {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
   justify-content: flex-start;
   gap: 10px;
   text-align: left;
@@ -643,7 +643,15 @@ article{
 #case[hidden],
 #list[hidden]{display:none}
 .empty{padding:3rem 0;color:var(--mute)}
-.back{display:inline-block;font:600 .95rem var(--fh);color:var(--mute);padding:.3rem 0;margin-bottom:1rem}.back:hover{color:var(--accent)}
+.back { 
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.back:hover{
+  color:var(--accent)
+}
 .cs{scroll-margin-top:calc(var(--header-height) + env(safe-area-inset-top,0px) + 1.2rem);margin-bottom:2.8rem}
 .cs h2{font:700 1.6rem var(--fh);letter-spacing:-.01em;margin:0 0 .7rem}
 .cs p{max-width:44rem;margin:0 0 1rem}

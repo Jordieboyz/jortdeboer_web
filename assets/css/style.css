@@ -232,11 +232,18 @@ header {
 
   &.open {
     .lang-dropdown { 
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
       border-top-right-radius: 0px;
-      border-top: transparent;
       opacity: 1; 
       transform: none; 
       pointer-events: all; 
+      transition: none;
+
+      &button:hover {
+        transition: none;
+      }
     }
 
     .lang-trigger {
@@ -335,6 +342,7 @@ header {
   &:hover {
     color: var(--color-text-base); 
     background: var(--color-border);
+    transform: none !important;
   }
 }
 

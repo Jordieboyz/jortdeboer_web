@@ -1,4 +1,4 @@
-import { DATA } from "content-data";
+import { languages } from "content-data";
 import { APP_EVENTS } from "./events.js";
 import { 
   select, 
@@ -12,7 +12,7 @@ import {
   /*--------------------------------------------------------------------------- 
     + Static Rendered Elements
   ---------------------------------------------------------------------------*/
-  new LanguageDropdownRenderer(DATA.languages, select('.lang-dropdown'))
+  new LanguageDropdownRenderer(languages, select('.lang-dropdown'))
 
   /*--------------------------------------------------------------------------- 
     + EVENT implementations
@@ -21,7 +21,7 @@ import {
     if(detail.langBtn){
       // find corresponding data-entry based on 'language'-attribute
       const [clickedFlag, clickedLang] = detail.langBtn.querySelectorAll('span');
-      const lang = DATA.languages.find(l => l.language === clickedLang.textContent).code;
+      const lang = languages.find(l => l.language === clickedLang.textContent).code;
 
       // Save preference
       localStorage.setItem("prefLang", lang);
@@ -43,14 +43,16 @@ import {
     + On first Load of the page / DOMContentLoaded
   ---------------------------------------------------------------------------*/
   document.addEventListener("DOMContentLoaded", () => {
-    // highlight active nav link
+    
+    // Highlight active nav link
     select(".nav-link-group a", true).forEach((el) => {
       if (el.href === window.location.href) {
         el.classList.add("active");
       }
     });
 
-    const selectedLang = DATA.languages.find(l => l.code === document.documentElement.lang);
+    // Select default language
+    const selectedLang = languages.find(l => l.code === document.documentElement.lang);
     select(".lang-option", true).forEach(option => {
       const [flag, lang] = option.querySelectorAll('span');
       if (lang.textContent == selectedLang.language) {
@@ -58,7 +60,10 @@ import {
       }
     });
 
+    // Handler for spotlight
     window.addEventListener("mousemove", handleSpotlight);
+    
+    // Handler for visual language schange
     document.addEventListener("click", (e) => {
       const ls = select(".lang-control");
       e.target.closest(".lang-trigger") ? ls.classList.add("open") : ls.classList.remove("open");
@@ -100,6 +105,7 @@ import {
     }
     window.location.href = newPath + window.location.hash;  
   }
+
   /**
    * navigation?.
    * @param {Event} event The event to trigger change in mouseposition.
@@ -143,12 +149,8 @@ import {
    * @param {Event} event The event to trigger change in mouseposition.
    */
   function handleSpotlight(e) {
-    document.body.style.setProperty("--mouse-x", 
-      `${(e.clientX / window.innerWidth) * 100}%`
-    );
-    document.body.style.setProperty("--mouse-y", 
-      `${(e.clientY / window.innerHeight) * 100}%`
-    );
+    document.body.style.setProperty("--mouse-x", `${(e.clientX / window.innerWidth) * 100}%`);
+    document.body.style.setProperty("--mouse-y", `${(e.clientY / window.innerHeight) * 100}%`);
   }
 
 })();

@@ -1,4 +1,4 @@
-import { DATA } from "content-data"
+import { categories, projectsData } from "content-data"
 import { APP_EVENTS } from "./events.js";
 import { 
   select,
@@ -12,20 +12,20 @@ import {
 /*--------------------------------------------------------------------------- 
   + Static Rendered Elements
 ---------------------------------------------------------------------------*/
-const sortedProjects = [...DATA.projectsData].sort((a, b) => b.date.localeCompare(a.date))
+const sortedProjects = [...projectsData].sort((a, b) => b.date.localeCompare(a.date))
 new ProjectListRenderer(sortedProjects, select('.idx'))
 new ProjectRenderer(sortedProjects, select('.project-list'),
   {
-    categories : DATA.categories,
+    categories : categories,
   }
 )
 
 let isMobileLayout = matchMedia('(max-width: 767px)').matches;
-new CategoryRenderer(DATA.categories, select('.project-categories'), 
+new CategoryRenderer(categories, select('.project-categories'), 
   {
-    projects : DATA.projectsData,
+    projects : projectsData,
     isMobileLayout : isMobileLayout,
-    max : DATA.categories.length
+    max : categories.length
   }
 )
 
@@ -77,10 +77,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const projectIndex = select('.project-category-dialog .idx') || select('#projects .idx');
       projectIndex.hidden = false;
       new ProjectListRenderer(sortedProjects, projectIndex);
-      new CategoryRenderer(DATA.categories, select('.project-categories'), {
-        projects : DATA.projectsData,
+      new CategoryRenderer(categories, select('.project-categories'), {
+        projects : projectsData,
         isMobileLayout : isMobile,
-        max : DATA.categories.length
+        max : categories.length
       });
 
       isMobileLayout = isMobile;
@@ -179,7 +179,7 @@ function updateProjectToggle(project){
 
 
 function getCategoryAccent(categoryId){
-  return DATA.categories.find(category => category.id === categoryId)?.customColor;
+  return categories.find(category => category.id === categoryId)?.customColor;
 }
 
 function updatePos(){
@@ -210,7 +210,7 @@ function updatePos(){
 
 // check wether all this stuff is neccessary here !!!
 function showCase(id) {
-  const currentProject = DATA.projectsData.find(p => p.id === id)
+  const currentProject = projectsData.find(p => p.id === id)
   if (!currentProject) return;
   const caseHash = `#/${id}`;
   if (location.hash !== caseHash) history.pushState(null, '', caseHash);
@@ -266,7 +266,7 @@ function route(){
   const hash = location.hash;
   let pId = hash.startsWith('#/') && hash.slice(2);
   if(pId){
-    if (DATA.projectsData.some(project => project.id === pId)) {
+    if (projectsData.some(project => project.id === pId)) {
       showCase(pId);
       return;
     }

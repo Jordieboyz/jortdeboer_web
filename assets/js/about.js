@@ -1,4 +1,4 @@
-import { DATA } from "content-data"
+import { sociallinksData, modulesData, telemetryData } from "content-data"
 import { closeHobbyModal, updateTimelineLine } from "./about-modules.js";
 import { 
     select,
@@ -11,9 +11,9 @@ import {
 /*--------------------------------------------------------------------------- 
   + Static Rendered Elements
 ---------------------------------------------------------------------------*/
-new SocialLinksRenderer(DATA.sociallinksData, select('.hero-links'))
-new ModuleRenderer(DATA.modulesData, select('.available-mod-list'))
-new TelemetryRenderer(DATA.telemetryData, select('.telemetry-grid'))
+new SocialLinksRenderer(sociallinksData, select('.hero-links'))
+new ModuleRenderer(modulesData, select('.available-mod-list'))
+new TelemetryRenderer(telemetryData, select('.telemetry-grid'))
 
 
 /*--------------------------------------------------------------------------- 
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Buttons for modules slider
     hintUp.addEventListener('click',    () => { if (currentIdx > 0) update(currentIdx - 1); });
-    hintDown.addEventListener('click',  () => { if (currentIdx < DATA.modulesData.length - 1) update(currentIdx + 1); });
+    hintDown.addEventListener('click',  () => { if (currentIdx < modulesData.length - 1) update(currentIdx + 1); });
 
     // start at module no# 0
     window.addEventListener('resize', scheduleLayoutUpdate, { passive: true });
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
   + Functions
 ---------------------------------------------------------------------------*/
 function update(idx, animate = true) {
-    const nextIdx = Math.max(0, Math.min(idx, DATA.modulesData.length - 1));
+    const nextIdx = Math.max(0, Math.min(idx, modulesData.length - 1));
     if (nextIdx !== currentIdx && document.querySelector('.hobby-embedded-modal.active')) {
         closeHobbyModal({ restoreFocus: false });
     }
@@ -88,7 +88,7 @@ function update(idx, animate = true) {
     }
 
     hintUp.classList.toggle('visible', currentIdx > 0);
-    hintDown.classList.toggle('visible', currentIdx < DATA.modulesData.length - 1);
+    hintDown.classList.toggle('visible', currentIdx < modulesData.length - 1);
 
     if (animate) {
         activeModuleContainer.classList.remove('surge-active');

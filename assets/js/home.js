@@ -1,4 +1,4 @@
-import { DATA } from "content-data";
+import { categories, sociallinksData, projectsData } from "content-data";
 import { APP_EVENTS } from "./events.js";
 import { 
   select,
@@ -13,10 +13,10 @@ import {
   + Static Rendered Elements
 ---------------------------------------------------------------------------*/
 
-new SocialLinksRenderer(DATA.sociallinksData, select('.home-social-links'));
-new CategoryLinksRenderer(DATA.categories.slice(1), select('.home-stats'));
-new CategorySelectionRenderer(DATA.categories.slice(1), select('.category-selection'), {
-  projects: DATA.projectsData
+new SocialLinksRenderer(sociallinksData, select('.home-social-links'));
+new CategoryLinksRenderer(categories.slice(1), select('.home-stats'));
+new CategorySelectionRenderer(categories.slice(1), select('.category-selection'), {
+  projects: projectsData
 });
 
 new Typed('.typed', {
@@ -135,14 +135,14 @@ function renderDetailStage() {
   const activeProjectId = window.location.hash.split('/')[1]
 
   // placeholder items ready
-  let detailStageProject = { hintProj: DATA.projectsData.slice(0, 3) }
+  let detailStageProject = { hintProj: projectsData.slice(0, 3) }
 
   if(activeProjectId)
     // override placeholder projects 
-    detailStageProject = DATA.projectsData.find(p => p.id === activeProjectId)
+    detailStageProject = projectsData.find(p => p.id === activeProjectId)
   
   new CategoryDetailsPanel(detailStageProject, detailStage, {
-    categories: DATA.categories,
+    categories: categories,
     placeholder: !activeProjectId,
   });
 }
