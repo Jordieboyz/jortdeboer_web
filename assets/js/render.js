@@ -4,7 +4,7 @@ import { APP_EVENTS, emit } from "./events.js";
 export class ElementBuilder {
   static tags = [
     'div', 'span', 'button', 'i', 'li', 'article', 'section',
-    'h1', 'h2', 'h3', 'h4', 'p', 'a', 'img', 'ul', 'dialog',
+    'h1', 'h2', 'h3', 'h4', 'p', 'a', 'img', 'ul', 'dl', 'dt', 'dd', 'dialog',
     'figure', 'figcaption',
   ];
 
@@ -749,7 +749,7 @@ export class ProjectRenderer extends BaseRenderer {
       .filter(Boolean);
     const primaryCategory = categories[0];
     const accent = this.options.categories.find(category => category.id === primaryCategory)?.customColor ?? 'var(--color-primary)';
-    return article('project-item', [
+    return div('project-item', [
       div('card-image-container', [
         span('cat-tag', [
           ph_icon(this.data.icon),
@@ -806,33 +806,59 @@ export class ProjectRenderer extends BaseRenderer {
 
 export class ProjectCaseRenderer extends BaseRenderer {
   render(){
+    const categoryNames = getProjectCategories(this.data)
+      .map(id => DATA.categories.find(category => category.id === id)?.title ?? id)
+      .filter(Boolean);
+    const technologies = (this.data.relProgLang ?? [])
+      .map(id => DATA.proglangs.find(language =>
+        language.id === (id === 'javascript' ? 'js' : id)
+      )?.title ?? id)
+      .filter(Boolean);
+    const isCompleted = Boolean(this.data.date);
+    const metaItem = (label, value, className = '') => div(`case-meta-item ${className}`.trim(), [
+      span('case-meta-label', translations(label, 'projects')),
+      span('case-meta-value', value)
+    ]);
+
     return div('project-case-content', [
       div('cs-head', [
-        div('card-image-container', 
+        div('card-image-container case-header-banner',
           img('',[],{ src : this.data.banner, alt : this.data.title })
         ),
-        div(' project-card-meta', [
-          div('status-dot', span('', this.data.date ? translations('project.status.completed', 'projects') : translations('project.status.dev', 'projects'))),
-          span('', this.data.date)
+        div('case-header-card', [
+          h2('case-header-title', this.data.title),
+          this.data.focus ? p('case-header-focus', this.data.focus) : '',
+          div('case-header-divider'),
+          div('case-header-meta', [
+            metaItem(
+              'case.meta.status',
+              span(`case-header-status ${isCompleted ? 'is-completed' : 'is-in-development'}`,
+                translations(isCompleted ? 'project.status.completed' : 'project.status.dev', 'projects')
+              )
+            ),
+            metaItem('case.meta.timeline', this.data.date || translations('case.meta.ongoing', 'projects')),
+            categoryNames.length ? metaItem('case.meta.category', categoryNames.join(' · '), 'case-meta-category') : '',
+            technologies.length ? metaItem('case.meta.tech-stack', technologies.join(' / '), 'case-meta-tech-stack') : ''
+          ])
         ]),
-        h2('project-card-title', this.data.title),
-        p('project-card-focus', this.data.focus),
       ]),
       this.data.case.map(c => {
         const sectionContent = Array.isArray(c.content)
           ? c.content.map(paragraph => p('section-text', paragraph))
           : [p('section-text', c.content)];
 
-        if (c.image) {
-          sectionContent.push(figure('case-diagram', [
-            img('', [], { src: c.image, alt: c.imageAlt }),
-            figcaption('case-image-caption', c.imageCaption)
-          ]));
-        }
-
+        const sectionImage = c.image ? 
+          figure('case-image', [
+            img('', [], { src: c.image.src, alt: c.image.alt }),
+          ]) : "";
+        
         const caseSection = section('cs', [
           h2('section-title', c.title),
-          ...sectionContent
+          div(c.layout, 
+            [ div("", sectionContent), 
+              sectionImage
+            ]
+          ),
         ]);
         caseSection.id = c.id;
         return caseSection;

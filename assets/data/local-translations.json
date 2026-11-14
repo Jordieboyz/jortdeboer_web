@@ -124,6 +124,26 @@
           "en" : "Completed",
           "nl" : "Afgerond"
         },
+        "case.meta.status": {
+          "en": "Status",
+          "nl": "Status"
+        },
+        "case.meta.timeline": {
+          "en": "Timeline",
+          "nl": "Periode"
+        },
+        "case.meta.category": {
+          "en": "Category",
+          "nl": "Categorie"
+        },
+        "case.meta.tech-stack": {
+          "en": "Tech stack",
+          "nl": "Technologieën"
+        },
+        "case.meta.ongoing": {
+          "en": "Ongoing",
+          "nl": "Lopend"
+        },
         "project.card.head" : {
           "en" : "Relevant Programming Languages :",
           "nl" : "Relevante Programmeer Talen :"

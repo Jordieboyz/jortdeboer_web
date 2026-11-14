@@ -1,0 +1,39 @@
+/*--------------------------------------------------------------
+  >>> Generic Button Style
+--------------------------------------------------------------*/
+.btn {
+  padding: 9px 16px;
+  border-radius: 10px;
+
+  /*  In case we want to add an an icon next to the text */
+  display: inline-flex; 
+  align-items: center; 
+  gap: 10px;
+
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-base);
+
+  transition: all 0.25s var(--ease);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--color-text-base);
+    /* in the base, --accent is color-primary */
+    border: 1px solid var(--accent);
+    background: color-mix(in srgb, var(--accent) 17%, transparent);
+
+    transform: translateY(-2px);
+  }
+} /* .btn */
+
+/*--------------------------------------------------------------
+  >>> Mobile Layout :  max-width: 767px
+--------------------------------------------------------------*/
+@media (max-width: 767px) {
+  .btn {
+    justify-content: center;
+    min-height: 44px;
+  }
+} /* @media (max-width: 767px) */
+

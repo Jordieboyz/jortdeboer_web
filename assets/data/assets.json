@@ -33,7 +33,19 @@
           "href" : "https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css"
         },
         { 
-          "href" : "style.css" 
+          "href" : "components/header.css" 
+        },
+        { 
+          "href" : "components/footer.css" 
+        },
+        { 
+          "href" : "components/language-selector.css" 
+        },
+        { 
+          "href" : "components/button.css" 
+        },
+        { 
+          "href" : "base.css" 
         }
       ]
     },
@@ -61,7 +73,7 @@
     {
       "stylesheet": [
         { 
-          "href" : "home.css"
+          "href" : "pages/home.css"
         }
       ]
     },
@@ -81,10 +93,10 @@
     {
       "stylesheet": [
         { 
-          "href" : "about.css"
+          "href" : "pages/about.css"
         },
-        { 
-          "href" : "modules.css"
+        {
+          "href" : "pages/about-modules.css"
         }
       ]
     },
@@ -108,10 +120,10 @@
     {
       "stylesheet": [
         { 
-          "href" : "projects.css"
+          "href" : "pages/projects.css"
         },
         { 
-          "href" : "home.css"
+          "href" : "pages/home.css"
         }
       ]
     },
