@@ -183,6 +183,11 @@ function getCategoryAccent(categoryId){
 }
 
 function updatePos(){
+  if (!select('.project-case')?.hidden) {
+    updateCaseIndex();
+    return;
+  }
+
   if (select('#projects')?.hidden) 
     return;
 
@@ -217,39 +222,106 @@ function showCase(id) {
   const projectCategories = currentProject.categories ?? currentProject.category ?? [];
   const primaryCategory = Array.isArray(projectCategories) ? projectCategories[0] : projectCategories;
   const caseAccent = getCategoryAccent(primaryCategory);
-  const caseIndex = document.querySelector('.project-case .idx');
+  const projectCase = document.querySelector('.project-case');
+  const caseIndex = projectCase.querySelector('.idx');
   const caseAside = caseIndex.closest('.project-index');
+  const indexedSections = currentProject.case.filter(
+    section => typeof section.title === 'string' && section.title.trim()
+  );
   
   let caseNavigation = caseAside.querySelector('.case-index-navigation');
   if (!caseNavigation) {
-    caseNavigation = document.createElement('details');
+    caseNavigation = document.createElement('div');
     caseNavigation.className = 'case-index-navigation';
-    const caseSummary = document.createElement('summary');
+    const caseSummary = document.createElement('button');
+    caseSummary.type = 'button';
     caseSummary.className = 'case-index-summary';
-    caseAside.insertBefore(caseNavigation, caseIndex);
-    caseNavigation.append(caseSummary, caseIndex);
+    caseIndex.id = 'case-section-index';
+    caseSummary.setAttribute('aria-haspopup', 'dialog');
+    caseNavigation.append(caseSummary);
 
-    caseIndex.addEventListener('click', event => {
-      if (innerWidth <= 767 && event.target.closest('a'))
-        caseNavigation.open = false;
+    const controls = document.createElement('div');
+    controls.className = 'case-index-controls';
+    const backLink = caseAside.querySelector('.back');
+    caseAside.insertBefore(controls, backLink);
+    controls.append(backLink, caseNavigation);
+
+    const sectionDialog = document.createElement('dialog');
+    sectionDialog.className = 'case-section-dialog';
+    sectionDialog.id = 'case-section-dialog';
+    sectionDialog.setAttribute('aria-labelledby', 'case-section-dialog-title');
+    const dialogHeader = document.createElement('div');
+    dialogHeader.className = 'case-section-dialog-header';
+    const dialogTitle = document.createElement('h2');
+    dialogTitle.id = 'case-section-dialog-title';
+    dialogTitle.textContent = 'Sections in this case';
+    const closeButton = document.createElement('button');
+    closeButton.type = 'button';
+    closeButton.className = 'case-section-dialog-close';
+    closeButton.setAttribute('aria-label', 'Close section selection');
+    closeButton.textContent = '×';
+    closeButton.addEventListener('click', () => sectionDialog.close());
+    dialogHeader.append(dialogTitle, closeButton);
+    const dialogList = document.createElement('ol');
+    dialogList.className = 'case-section-dialog-list';
+    sectionDialog.append(dialogHeader, dialogList);
+    caseAside.append(sectionDialog);
+
+    caseSummary.addEventListener('click', () => {
+      if (innerWidth <= 767) {
+        if (sectionDialog.open) {
+          sectionDialog.close();
+        } else {
+          sectionDialog.show();
+        }
+        caseSummary.setAttribute('aria-expanded', String(sectionDialog.open));
+        return;
+      }
+
+      caseIndex.hidden = !caseIndex.hidden;
+      caseSummary.setAttribute('aria-expanded', String(!caseIndex.hidden));
+    });
+
+    sectionDialog.addEventListener('close', () => {
+      caseSummary.setAttribute(
+        'aria-expanded',
+        String(innerWidth <= 767 ? false : !caseIndex.hidden)
+      );
+    });
+    sectionDialog.addEventListener('click', event => {
+      if (event.target === sectionDialog) sectionDialog.close();
     });
     window.addEventListener('resize', () => {
-      caseNavigation.open = innerWidth > 767;
+      caseIndex.hidden = innerWidth <= 767;
+      caseSummary.setAttribute('aria-expanded', String(!caseIndex.hidden));
+      if (innerWidth > 767 && sectionDialog.open) sectionDialog.close();
     });
   }
   const caseSummary = caseNavigation.querySelector('.case-index-summary');
-  const sectionCount = currentProject.case.length;
-  caseSummary.textContent = `In this case (${sectionCount})`;
-  caseNavigation.open = innerWidth > 767;
-  caseAside.style.setProperty('--accent', caseAccent);
+  const sectionDialog = caseAside.querySelector('.case-section-dialog');
+  const dialogList = sectionDialog.querySelector('.case-section-dialog-list');
+  caseNavigation.hidden = indexedSections.length === 0;
+  const sectionLabel = indexedSections.length === 1 ? 'section' : 'sections';
+  caseSummary.textContent = `In this case · ${indexedSections.length} ${sectionLabel}`;
+  caseSummary.setAttribute('aria-label', 'Show or hide sections in this case');
+  caseSummary.setAttribute('aria-controls', innerWidth <= 767 ? sectionDialog.id : caseIndex.id);
+  caseIndex.hidden = innerWidth <= 767;
+  caseSummary.setAttribute('aria-expanded', String(!caseIndex.hidden));
+  projectCase.style.setProperty('--accent', caseAccent);
 
   // render ProjectCaseRenderer
-  caseIndex.innerHTML = currentProject.case.map(c => `
-    <li>
-      <a href="#/${c.id}">
-        <span>${c.title}</span>
-      </a>
-    </li>`).join("")
+  const createSectionLinks = () => indexedSections.map(section => {
+    const item = document.createElement('li');
+    const link = document.createElement('a');
+    link.href = `#/${section.id}`;
+    const title = document.createElement('span');
+    title.textContent = section.title;
+    link.append(title);
+    item.append(link);
+    return item;
+  });
+  caseIndex.replaceChildren(...createSectionLinks());
+  dialogList.replaceChildren(...createSectionLinks());
 
   new ProjectCaseRenderer(currentProject, select('#cmain'))
 
@@ -259,6 +331,46 @@ function showCase(id) {
 
   document.querySelector('#projects').hidden = true;
   document.querySelector('.project-case').hidden = false;
+  window.scrollTo(0, 0);
+  updateCaseIndex();
+}
+
+function updateCaseIndex(){
+  const caseView = select('.project-case');
+  if (!caseView || caseView.hidden) return;
+
+  const indexLinks = caseView.querySelectorAll('.project-case .idx a, .case-section-dialog-list a');
+  const indexedIds = new Set([...indexLinks].map(link => link.hash.slice(2)));
+  const caseSections = [...caseView.querySelectorAll('.project-case-content .cs[id]')]
+    .filter(section => indexedIds.has(section.id));
+  if (!caseSections.length) return;
+
+  const headerHeight = parseInt(
+    getComputedStyle(document.documentElement).getPropertyValue('--header-height')
+  ) || 0;
+  const activeLine = headerHeight + 140;
+  let activeSection = caseSections[0];
+
+  caseSections.forEach(section => {
+    if (section.getBoundingClientRect().top <= activeLine) {
+      activeSection = section;
+    }
+  });
+
+  if (innerHeight + scrollY >= document.documentElement.scrollHeight - 4) {
+    activeSection = caseSections[caseSections.length - 1];
+  }
+
+  const activeHash = `#/${activeSection.id}`;
+  indexLinks.forEach(link => {
+    const isActive = link.hash === activeHash;
+    link.classList.toggle('is-active', isActive);
+    if (isActive) {
+      link.setAttribute('aria-current', 'location');
+    } else {
+      link.removeAttribute('aria-current');
+    }
+  });
 }
 
 // route them correctly
@@ -276,6 +388,7 @@ function route(){
       const headerHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 0;
       const indexHeight = innerWidth <= 767 ? select('.project-case .project-index')?.offsetHeight ?? 0 : 0;
       scrollTo(0, caseSection.getBoundingClientRect().top + scrollY - headerHeight - indexHeight - 12);
+      updateCaseIndex();
     }
     return
   }
@@ -300,10 +413,14 @@ function route(){
 function setActiveIndex(hash){
   clearTimeout(activeIndexTimer);
   document.querySelectorAll('.project-list-item a').forEach(a =>{
-    a.style.borderLeft = a.hash === hash ? 'solid 2px var(--accent)' : 'solid 2px var(--color-border)';
-    a.style.color = a.hash === hash ? 'white' : 'var(--color-gray-400)';
-  }
-  )
+    const isActive = a.hash === hash;
+    a.classList.toggle('is-active', isActive);
+    if (isActive) {
+      a.setAttribute('aria-current', 'location');
+    } else {
+      a.removeAttribute('aria-current');
+    }
+  });
 }
 
 function scheduleActiveIndex(hash){
